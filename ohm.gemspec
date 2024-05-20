@@ -1,10 +1,10 @@
 require_relative "lib/ohm/version"
 
 Gem::Specification.new do |spec|
-  spec.name        = "ohm"
-  spec.version     = Ohm::VERSION
-  spec.authors     = ["Odeko"]
-  spec.summary     = "Transactional inbox/outbox"
+  spec.name = "ohm"
+  spec.version = Ohm::VERSION
+  spec.authors = ["Odeko"]
+  spec.summary = "Transactional inbox/outbox"
   spec.description = "Transactional inbox/outbox"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
