@@ -21,8 +21,15 @@ Or install it yourself as:
 $ gem install ohm
 ```
 
-## Contributing
-Contribution directions go here.
+## Development
 
-## License
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+Install development dependencies:
+```bash
+$ bundle
+```
+
+Setup database:
+```bash
+$ bin/rails db:setup
+$ bin/rails db:migrate
+```
