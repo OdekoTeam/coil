@@ -12,9 +12,11 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency("rails", ">= 6.1.7")
+  spec.add_dependency("sidekiq", ">= 5.2")
   spec.add_dependency("pg")
 
   spec.add_development_dependency("rails", ">= 6.1.7")
+  spec.add_development_dependency("sidekiq", ">= 5.2")
   spec.add_development_dependency("pg")
   spec.add_development_dependency("puma")
   spec.add_development_dependency("rspec-rails")

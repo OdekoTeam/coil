@@ -4,6 +4,7 @@ PATH
     ohm (0.1.0)
       pg
       rails (>= 6.1.7)
+      sidekiq (>= 5.2)
 
 GEM
   remote: https://rubygems.org/
@@ -179,6 +180,8 @@ GEM
     rake (13.2.1)
     rdoc (6.6.3.1)
       psych (>= 4.0.0)
+    redis-client (0.22.1)
+      connection_pool
     regexp_parser (2.9.2)
     reline (0.5.7)
       io-console (~> 0.5)
@@ -200,6 +203,11 @@ GEM
       rspec-expectations (~> 3.13)
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
+    rspec-sidekiq (5.0.0)
+      rspec-core (~> 3.0)
+      rspec-expectations (~> 3.0)
+      rspec-mocks (~> 3.0)
+      sidekiq (>= 5, < 8)
     rspec-support (3.13.1)
     rubocop (1.63.5)
       json (~> 2.3)
@@ -218,6 +226,11 @@ GEM
       rubocop (>= 1.48.1, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
     ruby-progressbar (1.13.0)
+    sidekiq (7.2.4)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.19.0)
     standard (1.36.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
@@ -252,6 +265,8 @@ DEPENDENCIES
   puma
   rails (>= 6.1.7)
   rspec-rails
+  rspec-sidekiq
+  sidekiq (>= 5.2)
   standard
 
 BUNDLED WITH
