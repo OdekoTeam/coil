@@ -13,4 +13,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency("rails", ">= 6.1.7")
   spec.add_dependency("pg")
+
+  spec.add_development_dependency("rails", ">= 6.1.7")
+  spec.add_development_dependency("pg")
+  spec.add_development_dependency("puma")
 end

@@ -189,6 +189,7 @@ DEPENDENCIES
   ohm!
   pg
   puma
+  rails (>= 6.1.7)
 
 BUNDLED WITH
    2.3.11
