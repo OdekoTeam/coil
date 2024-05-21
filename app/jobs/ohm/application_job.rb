@@ -1,4 +1,5 @@
 module Ohm
-  class ApplicationJob < ActiveJob::Base
+  class ApplicationJob
+    include Sidekiq::Job
   end
 end
