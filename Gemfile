@@ -5,3 +5,4 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gemspec
 
 gem "rspec-sidekiq", group: :test
+gem "database_cleaner-active_record", group: :test

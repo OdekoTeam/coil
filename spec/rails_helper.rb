@@ -5,6 +5,7 @@ require_relative "dummy/config/environment"
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
+require "database_cleaner/active_record"
 
 # Checks for pending migrations and applies them before tests are run.
 begin
@@ -16,10 +17,20 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = true
+  # In order to test concurrent database transactions (e.g. Ohm::QueueLocking),
+  # we need to disable transactional fixtures.
+  # config.use_transactional_fixtures = true
+  #
+  # Since we can't use transactional fixtures, we resort to DatabaseCleaner.
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :deletion
+    DatabaseCleaner.clean_with(:deletion)
+  end
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!

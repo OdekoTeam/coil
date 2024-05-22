@@ -1,6 +1,6 @@
 require "ohm/version"
 require "ohm/engine"
+require "ohm/queue_locking"
 
 module Ohm
-  # Your code goes here...
 end
