@@ -14,6 +14,11 @@ RSpec.shared_examples :enqueue_messages_job do
       expect { message.save! }
         .to change(job_class.jobs, :count)
         .by(1)
+
+      job_class = message.job_class
+      job = job_class.jobs.last
+
+      expect(job["args"]).to eq([message.key, job_class.name])
     end
 
     it "does not enqueue job on update" do
