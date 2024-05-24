@@ -24,4 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("debug", ">= 1.0.0")
   spec.add_development_dependency("sorbet", "~> 0.5")
   spec.add_development_dependency("tapioca", "~> 0.14")
+  spec.add_development_dependency("parlour", "~> 8.1")
 end
