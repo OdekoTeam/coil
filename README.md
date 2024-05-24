@@ -193,7 +193,7 @@ turnips = bar.count_turnips
 Outbox::BarMessage.create!(key: bar.uuid, value: {turnips:})
 
 # For operations that should not be allowed to run concurrently, e.g.
-# if we want to ensure turnip-harvisting attempts on this bar are run
+# if we want to ensure turnip-harvesting attempts on this bar are run
 # in sequence rather than concurrently:
 Outbox::BarMessage.locking_persistence_queue(keys: [bar.uuid]) do
   bar.harvest_turnips
