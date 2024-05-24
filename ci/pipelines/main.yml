@@ -1,0 +1,150 @@
+resource_types:
+- name: slack-notification
+  type: registry-image
+  source:
+    repository: cfcommunity/slack-notification-resource
+    tag: latest
+
+resources:
+- name: repo-release
+  type: github-release
+  check_every: 168h
+  source:
+    access_token: ((git-release-token))
+    owner: OdekoTeam
+    repository: CHANGE_TO_REPOSITORY_NAME
+- name: repo
+  webhook_token: ((github-webhook-token))
+  type: git
+  check_every: 1h
+  source:
+    branch: main
+    password: ((git-release-token))
+    uri: https://github.com/OdekoTeam/CHANGE_TO_REPOSITORY_NAME.git
+    username: ((git-user))
+    private_key: ((git-ssh-private-key))
+    submodule_credentials:
+      - host: github.com
+        username: ((git-user))
+        password: ((git-release-token))
+- name: concourse
+  type: git
+  check_every: 1h
+  source:
+    branch: master
+    password: ((git-release-token))
+    uri: https://github.com/OdekoTeam/concourse.git
+    username: ((git-user))
+- name: concourse-image-ruby
+  type: registry-image
+  source:
+    repository: docker.odeko.com/odeko/concourse-rails-base
+    tag: 2.7.4-node-16
+- name: slack-alert
+  type: slack-notification
+  source:
+    url: ((slack-build-webhook-token))
+
+jobs:
+- name: test
+  serial: true
+  plan:
+  - in_parallel:
+    - get: repo
+      trigger: true
+      attempts: 3
+    - get: concourse
+      attempts: 3
+    - get: concourse-image-ruby
+      attempts: 3
+  - task: install
+    image: concourse-image-ruby
+    file: concourse/tasks/rails/test/install.yml
+    params:
+      GITHUB_SSH_KEY: "((git-ssh-private-key))"
+    attempts: 3
+  - in_parallel:
+    - task: test
+      image: concourse-image-ruby
+      file: concourse/tasks/rails/test/test-nodeps.yml
+      vars:
+        additional_databases: ''
+      attempts: 3
+    - task: lint
+      image: concourse-image-ruby
+      file: concourse/tasks/rails/test/lint.yml
+      attempts: 3
+  on_failure: &simple_failure
+    do:
+    - task: slack-message
+      file: concourse/tasks/common/slack_master_message.yml
+      attempts: 3
+    - put: slack-alert
+      params:
+        username: 'concourse'
+        icon_url: https://concourse-ci.org/images/trademarks/concourse-black.png
+        text_file: slack-message/slack-info
+        text: |
+          :red_circle: *${BUILD_PIPELINE_NAME} job ${BUILD_JOB_NAME}/${BUILD_NAME} failed*
+          See <https://concourse.odeko.com/teams/${BUILD_TEAM_NAME}/pipelines/${BUILD_PIPELINE_NAME}/jobs/${BUILD_JOB_NAME}/builds/${BUILD_NAME}|concourse> for more information.
+          $TEXT_FILE_CONTENT
+        silent: true
+      attempts: 3
+- name: gem-publish
+  serial: true
+  plan:
+  - in_parallel:
+    - get: repo
+      passed:
+      - test
+      trigger: true
+      params:
+        submodules: all
+        submodule_recursive: true
+      attempts: 3
+    - get: concourse
+      attempts: 3
+  - task: gem-publish
+    file: concourse/tasks/rails/publish/default.yml
+    params:
+      GEMINABOX_USERNAME: ((geminabox-user))
+      GEMINABOX_PASSWORD: ((geminabox-password))
+      GEMINABOX_PRIVATE_URL: ((geminabox-url))
+    attempts: 3
+  on_failure: *simple_failure
+- name: release
+  serial: true
+  plan:
+  - in_parallel:
+    - get: repo
+      passed:
+      - test
+      trigger: true
+      attempts: 3
+    - get: concourse
+      attempts: 3
+  - task: get-gem-version
+    file: concourse/tasks/rails/get-gem-version/default.yml
+    attempts: 3
+  - put: repo-release
+    params:
+      name: repo-version/VERSION
+      tag: repo-version/VERSION
+    attempts: 3
+  on_failure: *simple_failure
+  on_success:
+    do:
+    - task: slack-message
+      file: concourse/tasks/common/slack_master_message.yml
+      attempts: 3
+    - put: slack-alert
+      params:
+        username: 'concourse'
+        icon_url: https://concourse-ci.org/images/trademarks/concourse-black.png
+        text_file: slack-message/slack-info
+        text: |
+          :thumbsup: *${BUILD_PIPELINE_NAME} job ${BUILD_JOB_NAME}/${BUILD_NAME} succeeded*
+          See <https://concourse.odeko.com/teams/${BUILD_TEAM_NAME}/pipelines/${BUILD_PIPELINE_NAME}/jobs/${BUILD_JOB_NAME}/builds/${BUILD_NAME}|concourse> for more information.
+          $TEXT_FILE_CONTENT
+        silent: true
+      attempts: 3
