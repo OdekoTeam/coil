@@ -12,7 +12,7 @@ resources:
   source:
     access_token: ((git-release-token))
     owner: OdekoTeam
-    repository: CHANGE_TO_REPOSITORY_NAME
+    repository: ohm
 - name: repo
   webhook_token: ((github-webhook-token))
   type: git
@@ -20,7 +20,7 @@ resources:
   source:
     branch: main
     password: ((git-release-token))
-    uri: https://github.com/OdekoTeam/CHANGE_TO_REPOSITORY_NAME.git
+    uri: https://github.com/OdekoTeam/ohm.git
     username: ((git-user))
     private_key: ((git-ssh-private-key))
     submodule_credentials:
@@ -39,7 +39,7 @@ resources:
   type: registry-image
   source:
     repository: docker.odeko.com/odeko/concourse-rails-base
-    tag: 2.7.4-node-16
+    tag: 3.1.2-slim
 - name: slack-alert
   type: slack-notification
   source:
@@ -57,18 +57,13 @@ jobs:
       attempts: 3
     - get: concourse-image-ruby
       attempts: 3
-  - task: install
-    image: concourse-image-ruby
-    file: concourse/tasks/rails/test/install.yml
-    params:
-      GITHUB_SSH_KEY: "((git-ssh-private-key))"
-    attempts: 3
   - in_parallel:
     - task: test
       image: concourse-image-ruby
       file: concourse/tasks/rails/test/test-nodeps.yml
       vars:
         additional_databases: ''
+        TEST_BINSTUB_PATH: 'bin/ci-test'
       attempts: 3
     - task: lint
       image: concourse-image-ruby
