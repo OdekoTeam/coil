@@ -120,6 +120,92 @@ RSpec.describe Ohm::QueueLocking do
       expect(vals).to eq([:a, :b, :c])
     end
 
+    it "recognizes identical complex keys" do
+      key = {
+        "a" => {"x" => 1, "y" => 2},
+        "b" => {"x" => 3, "y" => 4}
+      }
+      vals = []
+
+      thread1 = Thread.new do
+        described_class.locking(queue_type: q1, message_type: m1, message_keys: [key]) do
+          @locked = true
+          vals.append(:a)
+          sleep 0.1
+          vals.append(:b)
+        end
+      end
+      thread2 = Thread.new do
+        sleep 0.01 until @locked
+        described_class.locking(queue_type: q1, message_type: m1, message_keys: [key]) do
+          vals.append(:c)
+        end
+      end
+      [thread1, thread2].each(&:join)
+
+      expect(vals).to eq([:a, :b, :c])
+    end
+
+    it "recognizes equivalent complex keys" do
+      key1 = {
+        "a" => {"x" => 1, "y" => {"p" => "P", "q" => "Q"}},
+        "b" => {"x" => 3, "y" => 4}
+      }
+      key2 = {
+        "b" => {"y" => 4, "x" => 3},
+        a: {"y" => {q: "Q", "p" => "P"}, x: 1} # standard:disable Style/HashSyntax
+      }
+      vals = []
+
+      thread1 = Thread.new do
+        described_class.locking(queue_type: q1, message_type: m1, message_keys: [key1]) do
+          @locked = true
+          vals.append(:a)
+          sleep 0.1
+          vals.append(:b)
+        end
+      end
+      thread2 = Thread.new do
+        sleep 0.01 until @locked
+        described_class.locking(queue_type: q1, message_type: m1, message_keys: [key2]) do
+          vals.append(:c)
+        end
+      end
+      [thread1, thread2].each(&:join)
+
+      expect(vals).to eq([:a, :b, :c])
+    end
+
+    it "recognizes different complex keys" do
+      key1 = {
+        "a" => {"x" => 1, "y" => 2},
+        "b" => {"x" => 3, "y" => 4}
+      }
+      key2 = {
+        "a" => {"x" => 1, "y" => 2},
+        "b" => {"x" => 3, "y" => 4, "z" => 5}
+      }
+      vals = []
+
+      thread1 = Thread.new do
+        described_class.locking(queue_type: q1, message_type: m1, message_keys: key1) do
+          @locked = true
+          vals.append(:a)
+          sleep 0.1
+          vals.append(:b)
+        end
+      end
+      thread2 = Thread.new do
+        sleep 0.01 until @locked
+        described_class.locking(queue_type: q1, message_type: m2, message_keys: key2) do
+          vals.append(:c)
+        end
+      end
+      [thread1, thread2].each(&:join)
+
+      expect(vals).to eq([:a, :c, :b])
+    end
+
     it "raises LockWaitTimeout if lock cannot be acquired before timeout" do
       vals = []
       errors = {}

@@ -10,12 +10,30 @@ module Ohm
       # Construct a key suitable for obtaining a PostgreSQL advisory lock.
       # https://www.postgresql.org/docs/current/explicit-locking.html#ADVISORY-LOCKS
       def initialize(queue_type:, message_type:, message_key:)
-        @text = [PREFIX, queue_type, message_type, message_key].map(&:to_s).join("|")
+        @text = [PREFIX, queue_type, message_type, normalize(message_key)].join("|")
         @int64 = Digest::SHA256.digest(@text).slice(0, 8).unpack1("q")
       end
 
       attr_reader :text
       attr_reader :int64
+
+      private
+
+      def normalize(message_key)
+        if message_key.is_a?(Hash)
+          JSON.generate(deep_normalize(message_key))
+        else
+          message_key
+        end
+      end
+
+      def deep_normalize(obj)
+        if obj.is_a?(Hash)
+          obj.stringify_keys.sort.map { |k, v| [k, deep_normalize(v)] }.to_h
+        else
+          obj
+        end
+      end
     end
 
     class LockWaitTimeout < StandardError
