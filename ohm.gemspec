@@ -22,4 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("rspec-rails")
   spec.add_development_dependency("standard")
   spec.add_development_dependency("debug", ">= 1.0.0")
+  spec.add_development_dependency("sorbet", "~> 0.5")
+  spec.add_development_dependency("tapioca", "~> 0.14")
 end
