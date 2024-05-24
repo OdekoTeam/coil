@@ -10,7 +10,7 @@ module Ohm
       # Construct a key suitable for obtaining a PostgreSQL advisory lock.
       # https://www.postgresql.org/docs/current/explicit-locking.html#ADVISORY-LOCKS
       def initialize(queue_type:, message_type:, message_key:)
-        @text = [PREFIX, queue_type, message_type, normalize(message_key)].join("|")
+        @text = [PREFIX, queue_type, message_type, stringify(message_key)].join("|")
         @int64 = Digest::SHA256.digest(@text).slice(0, 8).unpack1("q")
       end
 
@@ -19,20 +19,21 @@ module Ohm
 
       private
 
-      def normalize(message_key)
+      def stringify(message_key)
         case message_key
         when Hash, Array
-          JSON.generate(deep_normalize(message_key))
+          JSON.generate(normalize(message_key))
         else
-          message_key
+          message_key.to_s
         end
       end
 
-      def deep_normalize(obj)
-        if obj.is_a?(Hash)
-          obj.stringify_keys.sort.map { |k, v| [k, deep_normalize(v)] }.to_h
-        elsif obj.is_a?(Array)
-          obj.map { |x| deep_normalize(x) }
+      def normalize(obj)
+        case obj
+        when Hash
+          obj.stringify_keys.sort.map { |k, v| [k, normalize(v)] }.to_h
+        when Array
+          obj.map { |x| normalize(x) }
         else
           obj
         end
