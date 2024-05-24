@@ -89,7 +89,7 @@ RSpec.describe Ohm::QueueLocking do
       end
       thread2 = Thread.new do
         sleep 0.01 until @locked
-        described_class.locking(queue_type: q1, message_type: m2, message_keys: ["y"]) do
+        described_class.locking(queue_type: q1, message_type: m1, message_keys: ["y"]) do
           vals.append(:c)
         end
       end
