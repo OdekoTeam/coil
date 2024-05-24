@@ -20,7 +20,8 @@ module Ohm
       private
 
       def normalize(message_key)
-        if message_key.is_a?(Hash)
+        case message_key
+        when Hash, Array
           JSON.generate(deep_normalize(message_key))
         else
           message_key
@@ -30,6 +31,8 @@ module Ohm
       def deep_normalize(obj)
         if obj.is_a?(Hash)
           obj.stringify_keys.sort.map { |k, v| [k, deep_normalize(v)] }.to_h
+        elsif obj.is_a?(Array)
+          obj.map { |x| deep_normalize(x) }
         else
           obj
         end
