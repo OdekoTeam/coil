@@ -235,3 +235,8 @@ Regenerate type info for gems (e.g. after adding a gem):
 ```console
 $ bin/tapioca gem
 ```
+
+The `rbi/ohm.rbi` file declares this gem's interface, allowing downstream apps
+to perform static typechecks. Keeping these type annotations in a separate file
+allows downstream apps to use our gem without requiring that they also have a
+runtime dependency on the sorbet typechecker.

@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.description = "Transactional inbox/outbox"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
+    Dir["{app,config,db,lib,rbi}/**/*", "Rakefile", "README.md"]
   end
 
   spec.add_dependency("rails", ">= 6.1.7")
