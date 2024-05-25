@@ -1,3 +1,5 @@
+# typed: strict
+
 require "rails"
 require "ohm/version"
 require "ohm/engine"

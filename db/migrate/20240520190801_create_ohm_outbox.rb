@@ -1,3 +1,5 @@
+# typed: false
+
 class CreateOhmOutbox < ActiveRecord::Migration[6.1]
   def change
     create_table :ohm_outbox_messages do |t|

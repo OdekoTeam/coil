@@ -1,3 +1,5 @@
+# typed: strict
+
 module Ohm
   class Engine < ::Rails::Engine
     isolate_namespace Ohm

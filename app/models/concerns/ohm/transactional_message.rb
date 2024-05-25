@@ -1,3 +1,5 @@
+# typed: false
+
 module Ohm
   module TransactionalMessage
     extend ActiveSupport::Concern

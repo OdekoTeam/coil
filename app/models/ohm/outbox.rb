@@ -1,3 +1,5 @@
+# typed: strict
+
 module Ohm
   module Outbox
     def self.table_name_prefix
