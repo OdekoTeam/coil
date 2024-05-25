@@ -109,6 +109,7 @@ module Ohm
   end
 
   module QueueLocking
+    include Kernel
     extend self
     ACQUIRE_LOCK = "pg_advisory_xact_lock"
     TRY_ACQUIRE_LOCK = "pg_try_advisory_xact_lock"
