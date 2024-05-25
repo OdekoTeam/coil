@@ -225,3 +225,13 @@ Run linter:
 ```console
 $ bin/lint
 ```
+
+Regenerate type info for DSLs (e.g. after adding a db migration):
+```console
+$ bin/tapioca dsl --app-root=spec/dummy
+```
+
+Regenerate type info for gems (e.g. after adding a gem):
+```console
+$ bin/tapioca gem
+```

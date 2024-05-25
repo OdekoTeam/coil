@@ -2,4 +2,8 @@
 
 set -euxo pipefail
 
+bundle exec tapioca gem --verify
+
+bundle exec tapioca dsl --app-root=spec/dummy --verify
+
 bundle exec rspec
