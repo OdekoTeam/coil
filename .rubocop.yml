@@ -1,0 +1,13 @@
+---
+require:
+  - rubocop-sorbet
+
+Sorbet:
+  Enabled: true
+
+Sorbet/FalseSigil:
+  Exclude:
+    <% Dir['spec/**/*'].grep_v(%r{^spec/dummy}).each do |path| %>
+    - <%= path %>
+    <% end %>
+    - '**/db/schema.rb'

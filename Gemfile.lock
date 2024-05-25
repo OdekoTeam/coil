@@ -247,6 +247,8 @@ GEM
     rubocop-performance (1.21.0)
       rubocop (>= 1.48.1, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
+    rubocop-sorbet (0.8.3)
+      rubocop (>= 0.90.0)
     ruby-progressbar (1.13.0)
     sidekiq (7.2.4)
       concurrent-ruby (< 2)
@@ -318,6 +320,7 @@ DEPENDENCIES
   rails (>= 6.1.7)
   rspec-rails
   rspec-sidekiq
+  rubocop-sorbet
   sidekiq (>= 5.2)
   sorbet (~> 0.5)
   standard
