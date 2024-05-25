@@ -96,6 +96,9 @@ class Inbox::FooMessagesJob < Ohm::TransactionalMessagesJob
   end
 end
 ```
+(The test-suite contains a working example with type-annotations:
+[message](./spec/dummy/app/models/dummy/inbox/foo_message.rb),
+[job](./spec/dummy/app/jobs/dummy/inbox/foo_messages_job.rb))
 
 Receive messages from Kafka:
 ```ruby
@@ -119,7 +122,7 @@ end
 ```
 ```ruby
 # app/lib/receivers/foo_receiver.rb
-module Receivers::CustomerCommandsReceiver
+module Receivers::FooReceiver
   VALUE_SCHEMA_SUBJECT = "com.example.service.Foo_value"
 
   def self.receive(key:, value:, schema_id:)
@@ -127,7 +130,7 @@ module Receivers::CustomerCommandsReceiver
       subject: VALUE_SCHEMA_SUBJECT,
       schema_id:
     )
-    Inbox::NetsuiteCreditMemoMessage.create!(
+    Inbox::FooMessage.create!(
       key:,
       value:,
       metadata: {
@@ -185,6 +188,9 @@ class Outbox::BarMessagesJob < Ohm::TransactionalMessagesJob
   end
 end
 ```
+(The test-suite contains a working example with type-annotations:
+[message](./spec/dummy/app/models/dummy/outbox/bar_message.rb),
+[job](./spec/dummy/app/jobs/dummy/outbox/bar_messages_job.rb))
 
 Write to the outbox:
 ```ruby
@@ -236,7 +242,7 @@ Regenerate type info for gems (e.g. after adding a gem):
 $ bin/tapioca gem
 ```
 
-The `rbi/ohm.rbi` file declares this gem's interface, allowing downstream apps
-to perform static typechecks. Keeping these type annotations in a separate file
-allows downstream apps to use our gem without requiring that they also have a
-runtime dependency on the sorbet typechecker.
+Ohm's type annotations are declared in `rbi/ohm.rbi` to facilitate typechecking
+by Rails apps that use this engine along with Sorbet. Keeping these annotations
+in a separate file avoids foisting a Sorbet runtime dependency on any app that
+uses our engine.
