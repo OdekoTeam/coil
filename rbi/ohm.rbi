@@ -10,6 +10,8 @@ module Ohm
     include Sidekiq::Job
   end
 
+  # NOTE: These type aliases are not visible outside of this file.
+  # See spec/dummy/app/lib/type_aliases.rb
   AnyMessage = T.type_alias {
     T.any(
       Inbox::Message,

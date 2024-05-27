@@ -2,10 +2,11 @@
 
 class Dummy::Outbox::BarMessagesJob < Ohm::TransactionalMessagesJob
   extend T::Sig
+  A = TypeAliases
 
   private
 
-  sig { override.params(message: Ohm::AnyMessage).void }
+  sig { override.params(message: A::AnyMessage).void }
   def pre_process(message)
     msg = T.cast(message, Dummy::Outbox::BarMessage)
     msg.update!(
@@ -17,7 +18,7 @@ class Dummy::Outbox::BarMessagesJob < Ohm::TransactionalMessagesJob
     )
   end
 
-  sig { override.params(message: Ohm::AnyMessage).void }
+  sig { override.params(message: A::AnyMessage).void }
   def process(message)
     msg = T.cast(message, Dummy::Outbox::BarMessage)
     msg.value["bar_data"].each do |d|
@@ -25,7 +26,7 @@ class Dummy::Outbox::BarMessagesJob < Ohm::TransactionalMessagesJob
     end
   end
 
-  sig { override.returns(Ohm::AnyMessageClass) }
+  sig { override.returns(A::AnyMessageClass) }
   def message_class
     Dummy::Outbox::BarMessage
   end

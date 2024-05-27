@@ -2,10 +2,11 @@
 
 class Dummy::Inbox::FooMessagesJob < Ohm::TransactionalMessagesJob
   extend T::Sig
+  A = TypeAliases
 
   private
 
-  sig { override.params(message: Ohm::AnyMessage).void }
+  sig { override.params(message: A::AnyMessage).void }
   def process(message)
     msg = T.cast(message, Dummy::Inbox::FooMessage)
     msg.value["foo_data"].each do |d|
@@ -13,7 +14,7 @@ class Dummy::Inbox::FooMessagesJob < Ohm::TransactionalMessagesJob
     end
   end
 
-  sig { override.returns(Ohm::AnyMessageClass) }
+  sig { override.returns(A::AnyMessageClass) }
   def message_class
     Dummy::Inbox::FooMessage
   end
