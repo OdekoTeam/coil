@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_20_190801) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_26_021205) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gist"
   enable_extension "plpgsql"
@@ -22,7 +22,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_20_190801) do
     t.bigint "last_completed_message_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.xid8 "last_completed_message_xid", null: false
     t.index ["last_completed_message_id"], name: "index_ohm_inbox_completions_on_last_completed_message_id"
+    t.index ["last_completed_message_xid"], name: "index_ohm_inbox_completions_on_last_completed_message_xid"
     t.index ["processor_name", "message_type", "message_key", "last_completed_message_id"], name: "index_ohm_inbox_completions_on_processor_message_completed"
     t.index ["processor_name", "message_type", "message_key"], name: "index_ohm_inbox_completions_on_processor_message_type_key_uniq", unique: true
   end
@@ -34,8 +36,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_20_190801) do
     t.jsonb "metadata", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.xid8 "xid", default: -> { "pg_snapshot_xmin(pg_current_snapshot())" }, null: false
     t.index ["created_at"], name: "index_ohm_inbox_messages_on_created_at"
     t.index ["type", "key"], name: "index_ohm_inbox_messages_on_type_and_key"
+    t.index ["xid"], name: "index_ohm_inbox_messages_on_xid"
   end
 
   create_table "ohm_outbox_completions", force: :cascade do |t|
@@ -45,7 +49,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_20_190801) do
     t.bigint "last_completed_message_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.xid8 "last_completed_message_xid", null: false
     t.index ["last_completed_message_id"], name: "index_ohm_outbox_completions_on_last_completed_message_id"
+    t.index ["last_completed_message_xid"], name: "index_ohm_outbox_completions_on_last_completed_message_xid"
     t.index ["processor_name", "message_type", "message_key", "last_completed_message_id"], name: "index_ohm_outbox_completions_on_processor_message_completed"
     t.index ["processor_name", "message_type", "message_key"], name: "index_ohm_outbox_completions_on_processor_message_type_key_uniq", unique: true
   end
@@ -57,8 +63,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_20_190801) do
     t.jsonb "metadata", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.xid8 "xid", default: -> { "pg_snapshot_xmin(pg_current_snapshot())" }, null: false
     t.index ["created_at"], name: "index_ohm_outbox_messages_on_created_at"
     t.index ["type", "key"], name: "index_ohm_outbox_messages_on_type_and_key"
+    t.index ["xid"], name: "index_ohm_outbox_messages_on_xid"
   end
 
   add_foreign_key "ohm_inbox_completions", "ohm_inbox_messages", column: "last_completed_message_id"

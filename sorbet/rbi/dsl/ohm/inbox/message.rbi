@@ -769,6 +769,9 @@ class Ohm::Inbox::Message
     sig { void }
     def restore_value!; end
 
+    sig { void }
+    def restore_xid!; end
+
     sig { returns(T.nilable([T.nilable(::ActiveSupport::TimeWithZone), T.nilable(::ActiveSupport::TimeWithZone)])) }
     def saved_change_to_created_at; end
 
@@ -816,6 +819,12 @@ class Ohm::Inbox::Message
 
     sig { returns(T::Boolean) }
     def saved_change_to_value?; end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def saved_change_to_xid; end
+
+    sig { returns(T::Boolean) }
+    def saved_change_to_xid?; end
 
     sig { returns(::String) }
     def type; end
@@ -975,6 +984,54 @@ class Ohm::Inbox::Message
 
     sig { returns(T::Boolean) }
     def will_save_change_to_value?; end
+
+    sig { returns(T::Boolean) }
+    def will_save_change_to_xid?; end
+
+    sig { returns(::Integer) }
+    def xid; end
+
+    sig { params(value: ::Integer).returns(::Integer) }
+    def xid=(value); end
+
+    sig { returns(T::Boolean) }
+    def xid?; end
+
+    sig { returns(T.nilable(::Integer)) }
+    def xid_before_last_save; end
+
+    sig { returns(T.untyped) }
+    def xid_before_type_cast; end
+
+    sig { returns(T::Boolean) }
+    def xid_came_from_user?; end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def xid_change; end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def xid_change_to_be_saved; end
+
+    sig { params(from: ::Integer, to: ::Integer).returns(T::Boolean) }
+    def xid_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable(::Integer)) }
+    def xid_in_database; end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def xid_previous_change; end
+
+    sig { params(from: ::Integer, to: ::Integer).returns(T::Boolean) }
+    def xid_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable(::Integer)) }
+    def xid_previously_was; end
+
+    sig { returns(T.nilable(::Integer)) }
+    def xid_was; end
+
+    sig { void }
+    def xid_will_change!; end
   end
 
   module GeneratedRelationMethods

@@ -27,6 +27,8 @@ module Ohm
       end
 
       validates :key, presence: true
+
+      # attr_readonly :key, :value, :xid
     end
 
     def processed?(processor_name:)
@@ -36,8 +38,12 @@ module Ohm
 
     def processed(processor_name:)
       c = completions.find_or_initialize_by(processor_name:)
+      max_xid = [c.last_completed_message_xid, xid].compact.max
       max_id = [c.last_completed_message_id, id].compact.max
-      c.update!(last_completed_message_id: max_id)
+      c.update!(
+        last_completed_message_xid: max_xid,
+        last_completed_message_id: max_id
+      )
     end
 
     def unprocessed_predecessors(processor_name:)
@@ -77,7 +83,29 @@ module Ohm
       # by the given processor_name. If processor_name is an array, exclude messages
       # already processed by any of the named processors.
       def next_in_line(key:, processor_name:)
-        unprocessed(processor_name:).where(key:).order(id: :asc).first
+        unprocessed(processor_name:)
+          .ready
+          .where(key:)
+          .order(xid: :asc, id: :asc)
+          .first
+      end
+
+      # When a newly-created message is committed to the database, the oldest
+      # currently open transaction id is written to the message's "xid" column.
+      #
+      # Subsequent queries can compare that value against the oldest still open
+      # transaction id to avoid accidentally skipping messages due to a race
+      # condition.
+      #
+      # For example, if concurrent transactions T1 and T2 executed inserts to
+      # create messages M1 and M2, but T2 commits before T1, any queries run
+      # between these two commits would see M2 but not M1. We wouldn't want M2
+      # to be considered a candidate for next_in_line yet.
+      def ready
+        # https://www.postgresql.org/docs/current/functions-info.html#FUNCTIONS-PG-SNAPSHOT-PARTS
+        where(<<~SQL.squish)
+          "#{table_name}"."xid" < pg_snapshot_xmin(pg_current_snapshot())
+        SQL
       end
     end
 

@@ -3,7 +3,7 @@
 
 Transactional inbox/outbox message queuing.
 
-This Rails engine can be mounted in any PostgreSQL-backed Rails app.
+This Rails engine can be mounted in any Rails app backed by PostgreSQL 13 or higher.
 
 # Motivation
 The motivating use-case involves event-streaming with Kafka.

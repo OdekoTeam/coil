@@ -30,7 +30,7 @@ module Ohm
       end
 
       def enqueue_job(processor_name = job_class.to_s)
-        perform_job_in(0.seconds, processor_name)
+        perform_job_in(2.seconds, processor_name)
       end
 
       def perform_job_in(interval, processor_name = job_class.to_s)

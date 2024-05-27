@@ -705,6 +705,51 @@ class Ohm::Outbox::Completion
     sig { void }
     def last_completed_message_id_will_change!; end
 
+    sig { returns(::Integer) }
+    def last_completed_message_xid; end
+
+    sig { params(value: ::Integer).returns(::Integer) }
+    def last_completed_message_xid=(value); end
+
+    sig { returns(T::Boolean) }
+    def last_completed_message_xid?; end
+
+    sig { returns(T.nilable(::Integer)) }
+    def last_completed_message_xid_before_last_save; end
+
+    sig { returns(T.untyped) }
+    def last_completed_message_xid_before_type_cast; end
+
+    sig { returns(T::Boolean) }
+    def last_completed_message_xid_came_from_user?; end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def last_completed_message_xid_change; end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def last_completed_message_xid_change_to_be_saved; end
+
+    sig { params(from: ::Integer, to: ::Integer).returns(T::Boolean) }
+    def last_completed_message_xid_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable(::Integer)) }
+    def last_completed_message_xid_in_database; end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def last_completed_message_xid_previous_change; end
+
+    sig { params(from: ::Integer, to: ::Integer).returns(T::Boolean) }
+    def last_completed_message_xid_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable(::Integer)) }
+    def last_completed_message_xid_previously_was; end
+
+    sig { returns(T.nilable(::Integer)) }
+    def last_completed_message_xid_was; end
+
+    sig { void }
+    def last_completed_message_xid_will_change!; end
+
     sig { returns(T.untyped) }
     def message_key; end
 
@@ -853,6 +898,9 @@ class Ohm::Outbox::Completion
     def restore_last_completed_message_id!; end
 
     sig { void }
+    def restore_last_completed_message_xid!; end
+
+    sig { void }
     def restore_message_key!; end
 
     sig { void }
@@ -887,6 +935,12 @@ class Ohm::Outbox::Completion
 
     sig { returns(T::Boolean) }
     def saved_change_to_last_completed_message_id?; end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def saved_change_to_last_completed_message_xid; end
+
+    sig { returns(T::Boolean) }
+    def saved_change_to_last_completed_message_xid?; end
 
     sig { returns(T.nilable([T.untyped, T.untyped])) }
     def saved_change_to_message_key; end
@@ -968,6 +1022,9 @@ class Ohm::Outbox::Completion
 
     sig { returns(T::Boolean) }
     def will_save_change_to_last_completed_message_id?; end
+
+    sig { returns(T::Boolean) }
+    def will_save_change_to_last_completed_message_xid?; end
 
     sig { returns(T::Boolean) }
     def will_save_change_to_message_key?; end

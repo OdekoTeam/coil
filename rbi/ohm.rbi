@@ -261,3 +261,31 @@ module Ohm
     end
   end
 end
+
+module PgXid8
+  module Type
+    class Xid8 < ::ActiveModel::Type::Integer
+      sig { returns(Symbol) }
+      def type; end
+
+      sig { returns(Integer) }
+      def max_value; end
+
+      sig { returns(Integer) }
+      def min_value; end
+
+      sig { returns(Integer) }
+      def _limit; end
+    end
+  end
+
+  module Column
+    sig { params(name: T.any(String, Symbol), options: T.untyped).returns(T.self_type) }
+    def xid8(name, **options); end
+  end
+
+  module InitializeTypeMap
+    sig { params(m: T.untyped).returns(T.untyped) }
+    def initialize_type_map(m); end
+  end
+end
