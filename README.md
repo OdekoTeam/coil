@@ -197,15 +197,39 @@ Write to the outbox:
 bar = Bar.first
 turnips = bar.count_turnips
 Outbox::BarMessage.create!(key: bar.uuid, value: {turnips:})
+```
 
-# For operations that should not be allowed to run concurrently, e.g.
-# if we want to ensure turnip-harvesting attempts on this bar are run
-# in sequence rather than concurrently:
+## Usage: queue locking
+The inbox and outbox operations described above automatically preserve message
+ordering by sequentializing the creation and processing of messages with a given
+type and key.
+
+You can access these synchronization mechanisms directly if necessary:
+```ruby
+# If we want to treat turnip-harvesting and message creation as one operation
+# and ensure that concurrent attempts to run that operation on the same Bar will
+# be run sequentially:
 Outbox::BarMessage.locking_persistence_queue(keys: [bar.uuid]) do
   bar.harvest_turnips
   bar.replant
   turnips = bar.count_turnips
   Outbox::BarMessage.create!(key: bar.uuid, value: {turnips:})
+end
+
+# More generally, we can run an action while holding advisory locks on a list of
+# keys in some arbitrary keyspace:
+queue_type = "FOOD_PREP"
+message_type = "SOUP"
+ingredients = ["lentils", "tomato"]
+QueueLocking.locking(queue_type:, message_type:, message_keys: ingredients) do
+  Chef.make_soup(ingredients)
+end
+
+# If we don't want to wait for an already locked resource to become available:
+QueueLocking.locking(queue_type:, message_type:, message_keys: ingredients, wait: false) do
+  Chef.make_soup(ingredients)
+rescue QueueLocking::LockWaitTimeout
+  puts("Looks like someone else is already on it")
 end
 ```
 

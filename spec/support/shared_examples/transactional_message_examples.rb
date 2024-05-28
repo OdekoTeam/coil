@@ -275,4 +275,127 @@ RSpec.shared_examples :transactional_message do
       end
     end
   end
+
+  describe "concurrency control" do
+    # The message "id" column uses an autoincrementing sequence. Whenever we
+    # INSERT a new message, its id is assigned the next value in that sequence.
+    # The sequence increment is immediately visible to all transactions, but the
+    # message itself is not visible to transactions other than our own until we
+    # COMMIT.
+    #
+    # As a result, concurrent transactions can lead to a scenario like:
+    #
+    #   Client A | BEGIN..INSERT..............COMMIT
+    #   Client B |    BEGIN..INSERT..COMMIT
+    #
+    # Client B will COMMIT a message, then Client A will COMMIT a message with
+    # a lower id. If we run a query during the time between these commits, we
+    # will see message B, but not message A, and might incorrectly conclude that
+    # message B is next in line.
+    #
+    # To address this, we use advisory locks to prevent concurrent creation of
+    # messages with the same type and key.
+
+    let(:key) { message.key }
+
+    it "prevents concurrent message creation with same type and key" do
+      message.metadata = {"writer" => "a"}
+      message2 = message.dup
+      message2.metadata = {"writer" => "b"}
+      @commits = 0
+
+      writer_a = Thread.new do
+        ApplicationRecord.transaction do
+          @a_begun = true
+          message.save!
+          sleep 0.4
+        end
+        @commits += 1
+      end
+      writer_b = Thread.new do
+        sleep 0.01 until @a_begun
+        ApplicationRecord.transaction do
+          message2.save!
+        end
+        @commits += 1
+      end
+
+      reader = Thread.new do
+        sleep 0.01 until @commits > 0
+        @next_in_line = message.class.next_in_line(key:, processor_name:)
+      end
+      [writer_a, writer_b, reader].each(&:join)
+
+      expect(@next_in_line.metadata["writer"]).to eq("a")
+    end
+
+    it "allows concurrent message creation with different type" do
+      message.metadata = {"writer" => "a"}
+      different_type_message.metadata = {"writer" => "b"}
+      different_type_message.key = key
+      parent_message_class =
+        message.class.ancestors
+          .intersection(different_type_message.class.ancestors)
+          .intersection([Ohm::Inbox::Message, Ohm::Outbox::Message])
+          .first
+      @commits = 0
+
+      writer_a = Thread.new do
+        ApplicationRecord.transaction do
+          @a_begun = true
+          message.save!
+          sleep 0.4
+        end
+        @commits += 1
+      end
+      writer_b = Thread.new do
+        sleep 0.01 until @a_begun
+        ApplicationRecord.transaction do
+          different_type_message.save!
+        end
+        @commits += 1
+      end
+
+      reader = Thread.new do
+        sleep 0.01 until @commits > 0
+        @next_in_line = parent_message_class.next_in_line(key:, processor_name:)
+      end
+      [writer_a, writer_b, reader].each(&:join)
+
+      expect(@next_in_line.metadata["writer"]).to eq("b")
+    end
+
+    it "allows concurrent message creation with different key" do
+      message.metadata = {"writer" => "a"}
+      key2 = SecureRandom.uuid
+      message2 = message.dup
+      message2.key = key2
+      message2.metadata = {"writer" => "b"}
+      @commits = 0
+
+      writer_a = Thread.new do
+        ApplicationRecord.transaction do
+          @a_begun = true
+          message.save!
+          sleep 0.4
+        end
+        @commits += 1
+      end
+      writer_b = Thread.new do
+        sleep 0.01 until @a_begun
+        ApplicationRecord.transaction do
+          message2.save!
+        end
+        @commits += 1
+      end
+
+      reader = Thread.new do
+        sleep 0.01 until @commits > 0
+        @next_in_line = message.class.next_in_line(key: [key, key2], processor_name:)
+      end
+      [writer_a, writer_b, reader].each(&:join)
+
+      expect(@next_in_line.metadata["writer"]).to eq("b")
+    end
+  end
 end

@@ -189,8 +189,18 @@ module Ohm
       abstract!
 
       include TransactionalMessage
-      QUEUE = "INBOX_QUEUE"
+      PERSISTENCE_QUEUE = "INBOX_PERSISTENCE_QUEUE"
+      PROCESS_QUEUE = "INBOX_PROCESS_QUEUE"
       COMPLETION = ::Ohm::Inbox::Completion
+
+      sig do
+        type_parameters(:P).params(
+          keys: T::Array[T.untyped],
+          wait: T::Boolean,
+          blk: T.proc.returns(T.type_parameter(:P))
+        ).returns(T.type_parameter(:P))
+      end
+      def self.locking_persistence_queue(keys:, wait: true, &blk); end
 
       sig do
         type_parameters(:P).params(
@@ -229,7 +239,7 @@ module Ohm
 
       include TransactionalMessage
       PERSISTENCE_QUEUE = "OUTBOX_PERSISTENCE_QUEUE"
-      TRANSMISSION_QUEUE = "OUTBOX_TRANSMISSION_QUEUE"
+      PROCESS_QUEUE = "OUTBOX_PROCESS_QUEUE"
       COMPLETION = ::Ohm::Outbox::Completion
 
       sig do
