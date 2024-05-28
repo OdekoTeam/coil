@@ -61,13 +61,11 @@ module Ohm
 
       fn = ks.reduce(blk) do |f, key|
         -> do
-          with_lock(key:, wait:) do
-            f.call
-          end
+          with_lock(key:, wait:, &f)
         end
       end
 
-      ApplicationRecord.transaction { fn.call }
+      ApplicationRecord.transaction(&fn)
     end
 
     private

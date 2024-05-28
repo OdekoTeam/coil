@@ -64,9 +64,7 @@ module Ohm
     end
 
     def locking(key, &blk)
-      message_class.locking_process_queue(keys: [key], wait: false) do
-        blk.call
-      end
+      message_class.locking_process_queue(keys: [key], wait: false, &blk)
     rescue QueueLocking::LockWaitTimeout
       raise DuplicateJobError
     end

@@ -68,9 +68,7 @@ module Ohm
     end
 
     def locking_persistence_queue(&blk)
-      self.class.locking_persistence_queue(keys: [key]) do
-        blk.call
-      end
+      self.class.locking_persistence_queue(keys: [key], &blk)
     end
 
     class_methods do
@@ -112,17 +110,13 @@ module Ohm
       def locking_persistence_queue(keys:, wait: true, &blk)
         queue_type = self::PERSISTENCE_QUEUE
         message_type = sti_name
-        QueueLocking.locking(queue_type:, message_type:, message_keys: keys, wait:) do
-          blk.call
-        end
+        QueueLocking.locking(queue_type:, message_type:, message_keys: keys, wait:, &blk)
       end
 
       def locking_process_queue(keys:, wait: true, &blk)
         queue_type = self::PROCESS_QUEUE
         message_type = sti_name
-        QueueLocking.locking(queue_type:, message_type:, message_keys: keys, wait:) do
-          blk.call
-        end
+        QueueLocking.locking(queue_type:, message_type:, message_keys: keys, wait:, &blk)
       end
     end
 
