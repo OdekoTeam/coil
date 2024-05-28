@@ -1,3 +1,5 @@
+# typed: false
+
 class CreateOhmInbox < ActiveRecord::Migration[6.1]
   def change
     create_table :ohm_inbox_messages do |t|

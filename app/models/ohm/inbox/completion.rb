@@ -1,3 +1,5 @@
+# typed: strict
+
 module Ohm
   module Inbox
     class Completion < ApplicationRecord

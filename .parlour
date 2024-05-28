@@ -1,0 +1,4 @@
+parser:
+  included_paths:
+    - app
+    - lib

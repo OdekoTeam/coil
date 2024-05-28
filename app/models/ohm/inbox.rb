@@ -1,3 +1,5 @@
+# typed: strict
+
 module Ohm
   module Inbox
     def self.table_name_prefix

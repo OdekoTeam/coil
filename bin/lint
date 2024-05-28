@@ -2,4 +2,6 @@
 
 set -euxo pipefail
 
+bundle exec srb typecheck
+
 bundle exec standardrb --parallel

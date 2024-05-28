@@ -1,3 +1,5 @@
+# typed: strict
+
 # This periodic job acts as a fallback mechanism, polling for outbox messages
 # that were not enqueued and processed automatically upon create, e.g. due to a
 # failure to push a job onto the Redis queue.

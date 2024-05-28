@@ -1,7 +1,9 @@
+# typed: true
 # frozen_string_literal: true
 
 module Ohm
   module QueueLocking
+    include Kernel # provides `loop` and `raise`
     extend self
 
     class Key
