@@ -225,7 +225,8 @@ QueueLocking.locking(queue_type:, message_type:, message_keys: ingredients) do
   Chef.make_soup(ingredients)
 end
 
-# If we don't want to wait for an already locked resource to become available:
+# The `locking` call above will wait until it's able to obtain the requested
+# lock. If we'd rather abort the operation than wait for the lock:
 QueueLocking.locking(queue_type:, message_type:, message_keys: ingredients, wait: false) do
   Chef.make_soup(ingredients)
 rescue QueueLocking::LockWaitTimeout
