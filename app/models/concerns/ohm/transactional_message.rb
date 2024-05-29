@@ -67,8 +67,8 @@ module Ohm
       self.class.unprocessed(processor_name:).where(id: ...id, key:)
     end
 
-    def locking_persistence_queue(&blk)
-      self.class.locking_persistence_queue(keys: [key], &blk)
+    def locking_persistence_queue(wait: true, &blk)
+      self.class.locking_persistence_queue(keys: [key], wait:, &blk)
     end
 
     class_methods do
