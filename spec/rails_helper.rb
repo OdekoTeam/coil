@@ -7,6 +7,7 @@ require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 require "database_cleaner/active_record"
 require "sorbet-runtime"
+require_relative "support/bypassing_readonly_attributes"
 
 # Checks for pending migrations and applies them before tests are run.
 begin
@@ -32,6 +33,8 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+  config.include BypassingReadOnlyAttributes
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!

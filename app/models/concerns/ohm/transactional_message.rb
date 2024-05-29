@@ -49,7 +49,11 @@ module Ohm
 
       validates :key, presence: true
 
+      attr_readonly :type, :key, :value
+
       around_save :locking_persistence_queue, if: :new_record?
+
+      include PreventDestruction
     end
 
     def processed?(processor_name:)

@@ -23,13 +23,7 @@ RSpec.shared_examples :enqueue_messages_job do
 
     it "does not enqueue job on update" do
       message.save!
-      expect { message.update!(key: "abc") }
-        .not_to change(job_class.jobs, :count)
-    end
-
-    it "does not enqueue job on destroy" do
-      message.save!
-      expect { message.destroy! }
+      expect { message.update!(metadata: {"abc" => 123}) }
         .not_to change(job_class.jobs, :count)
     end
   end
