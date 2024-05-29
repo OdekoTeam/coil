@@ -100,6 +100,14 @@ module Ohm
     sig { params(processor_name: String).returns(ActiveRecord::Relation) }
     def unprocessed_predecessors(processor_name:); end
 
+    sig do
+      type_parameters(:P).params(
+        wait: T::Boolean,
+        blk: T.proc.returns(T.type_parameter(:P))
+      ).returns(T.type_parameter(:P))
+    end
+    def locking_persistence_queue(wait: true, &blk); end
+
     sig { returns(ActiveRecord::Relation) }
     def completions; end
   end
