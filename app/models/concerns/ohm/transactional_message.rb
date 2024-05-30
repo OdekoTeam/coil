@@ -12,6 +12,13 @@ module Ohm
         ERR
       end
 
+      unless respond_to?(:sti_name)
+        raise <<~ERR.squish
+          Cannot include TransactionalMessage in #{self} because #{self} does not
+          use single table inheritance.
+        ERR
+      end
+
       unless const_defined?(:COMPLETION)
         raise <<~ERR.squish
           Cannot include TransactionalMessage in #{self} because
@@ -26,7 +33,23 @@ module Ohm
         ERR
       end
 
+      unless const_defined?(:PERSISTENCE_QUEUE)
+        raise <<~ERR.squish
+          Cannot include TransactionalMessage in #{self} because
+          #{self}::PERSISTENCE_QUEUE is not defined.
+        ERR
+      end
+
+      unless const_defined?(:PROCESS_QUEUE)
+        raise <<~ERR.squish
+          Cannot include TransactionalMessage in #{self} because
+          #{self}::PROCESS_QUEUE is not defined.
+        ERR
+      end
+
       validates :key, presence: true
+
+      around_save :locking_persistence_queue, if: :new_record?
     end
 
     def processed?(processor_name:)
@@ -42,6 +65,12 @@ module Ohm
 
     def unprocessed_predecessors(processor_name:)
       self.class.unprocessed(processor_name:).where(id: ...id, key:)
+    end
+
+    def locking_persistence_queue(&blk)
+      self.class.locking_persistence_queue(keys: [key]) do
+        blk.call
+      end
     end
 
     class_methods do
@@ -78,6 +107,22 @@ module Ohm
       # already processed by any of the named processors.
       def next_in_line(key:, processor_name:)
         unprocessed(processor_name:).where(key:).order(id: :asc).first
+      end
+
+      def locking_persistence_queue(keys:, wait: true, &blk)
+        queue_type = self::PERSISTENCE_QUEUE
+        message_type = sti_name
+        QueueLocking.locking(queue_type:, message_type:, message_keys: keys, wait:) do
+          blk.call
+        end
+      end
+
+      def locking_process_queue(keys:, wait: true, &blk)
+        queue_type = self::PROCESS_QUEUE
+        message_type = sti_name
+        QueueLocking.locking(queue_type:, message_type:, message_keys: keys, wait:) do
+          blk.call
+        end
       end
     end
 
