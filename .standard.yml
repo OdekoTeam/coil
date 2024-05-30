@@ -1,3 +1,7 @@
 ---
 extend_config:
   - .rubocop.yml
+
+ignore:
+  - '**/*':
+    - Style/ArgumentsForwarding

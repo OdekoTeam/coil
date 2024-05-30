@@ -149,7 +149,7 @@ RSpec.describe Ohm::TransactionalMessagesJob do
         msg2_b_data = message2.value["foo_data"].first
 
         msg2_b_data["val"] = data::MAX_INT + 1
-        message2.save!
+        bypassing_readonly_attributes(message2.class) { message2.save! }
 
         old_c_val = data.get("c")
 
@@ -214,7 +214,7 @@ RSpec.describe Ohm::TransactionalMessagesJob do
       it "processes each message in a separate transaction" do
         msg2_b_data = message2.value["foo_data"].first
         msg2_b_data["val"] = "garbage"
-        message2.save!
+        bypassing_readonly_attributes(message2.class) { message2.save! }
 
         metadata = {
           "value_schema_subject" => "com.example.Test_value",

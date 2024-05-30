@@ -49,7 +49,11 @@ module Ohm
 
       validates :key, presence: true
 
+      attr_readonly :type, :key, :value
+
       around_save :locking_persistence_queue, if: :new_record?
+
+      include PreventDestruction
     end
 
     def processed?(processor_name:)
@@ -67,10 +71,8 @@ module Ohm
       self.class.unprocessed(processor_name:).where(id: ...id, key:)
     end
 
-    def locking_persistence_queue(&blk)
-      self.class.locking_persistence_queue(keys: [key]) do
-        blk.call
-      end
+    def locking_persistence_queue(wait: true, &blk)
+      self.class.locking_persistence_queue(keys: [key], wait:, &blk)
     end
 
     class_methods do
@@ -112,17 +114,13 @@ module Ohm
       def locking_persistence_queue(keys:, wait: true, &blk)
         queue_type = self::PERSISTENCE_QUEUE
         message_type = sti_name
-        QueueLocking.locking(queue_type:, message_type:, message_keys: keys, wait:) do
-          blk.call
-        end
+        QueueLocking.locking(queue_type:, message_type:, message_keys: keys, wait:, &blk)
       end
 
       def locking_process_queue(keys:, wait: true, &blk)
         queue_type = self::PROCESS_QUEUE
         message_type = sti_name
-        QueueLocking.locking(queue_type:, message_type:, message_keys: keys, wait:) do
-          blk.call
-        end
+        QueueLocking.locking(queue_type:, message_type:, message_keys: keys, wait:, &blk)
       end
     end
 

@@ -25,6 +25,31 @@ RSpec.shared_examples :transactional_message do
     end
   end
 
+  it "prevents certain attributes from mutating" do
+    expect(message.class.readonly_attributes).to eq(["type", "key", "value"])
+  end
+
+  it "prevents message destruction" do
+    message.save!
+    expect {
+      expect { message.destroy! }.to raise_error(
+        ActiveRecord::RecordNotDestroyed
+      )
+    }.not_to change(message.class, :count)
+  end
+
+  it "prevents completion destruction" do
+    message.save!
+    message.processed(processor_name:)
+    completions = message.class::COMPLETION
+    c = completions.last
+    expect {
+      expect { c.destroy! }.to raise_error(
+        ActiveRecord::RecordNotDestroyed
+      )
+    }.not_to change(completions, :count)
+  end
+
   describe "#processed?" do
     before(:each) { message.save! }
 
@@ -68,10 +93,12 @@ RSpec.shared_examples :transactional_message do
     end
 
     it "handles complex keys" do
-      message.update!(key: {a: 1, b: 2})
-      message.processed(processor_name:)
-      message.update!(key: {b: 2, a: 1})
-      expect(message.processed?(processor_name:)).to eq(true)
+      bypassing_readonly_attributes(message.class) do
+        message.update!(key: {a: 1, b: 2})
+        message.processed(processor_name:)
+        message.update!(key: {b: 2, a: 1})
+        expect(message.processed?(processor_name:)).to eq(true)
+      end
     end
   end
 
@@ -105,16 +132,16 @@ RSpec.shared_examples :transactional_message do
     end
 
     it "handles complex keys" do
-      message.update!(key: {a: 1, b: 2})
-      message2 = message.dup.tap { |m| m.update!(key: {b: 2, a: 1}) }
-      message.processed(processor_name:)
+      complex_message = message.dup.tap { |m| m.update!(key: {a: 1, b: 2}) }
+      complex_message2 = complex_message.dup.tap { |m| m.update!(key: {b: 2, a: 1}) }
+      complex_message.processed(processor_name:)
       c = completions.last
 
-      expect { message2.processed(processor_name:) }
+      expect { complex_message2.processed(processor_name:) }
         .to change(completions, :count)
         .by(0)
         .and change { c.reload.last_completed_message_id }
-        .to(message2.id)
+        .to(complex_message2.id)
     end
   end
 
@@ -156,10 +183,10 @@ RSpec.shared_examples :transactional_message do
     end
 
     it "handles complex keys" do
-      message.update!(key: {a: 1, b: 2})
-      message2 = message.dup.tap { |m| m.update!(key: {b: 2, a: 1}) }
-      expect(message2.unprocessed_predecessors(processor_name:))
-        .to contain_exactly(message)
+      complex_message = message.dup.tap { |m| m.update!(key: {a: 1, b: 2}) }
+      complex_message2 = complex_message.dup.tap { |m| m.update!(key: {b: 2, a: 1}) }
+      expect(complex_message2.unprocessed_predecessors(processor_name:))
+        .to contain_exactly(complex_message)
     end
   end
 
@@ -187,9 +214,9 @@ RSpec.shared_examples :transactional_message do
     end
 
     it "handles complex keys" do
-      message.update!(key: {a: 1, b: 2})
-      message.processed(processor_name:)
-      expect(message.class.processed(processor_name:)).to eq([message])
+      complex_message = message.dup.tap { |m| m.update!(key: {a: 1, b: 2}) }
+      complex_message.processed(processor_name:)
+      expect(message.class.processed(processor_name:)).to eq([complex_message])
     end
 
     context "given an array of processor names" do
@@ -238,14 +265,18 @@ RSpec.shared_examples :transactional_message do
     end
 
     it "excludes other message types" do
-      message.update!(type: different_type_message.type)
-      expect(message.class.next_in_line(key:, processor_name:)).to eq(message2)
+      bypassing_readonly_attributes(message.class) do
+        message.update!(type: different_type_message.type)
+        expect(message.class.next_in_line(key:, processor_name:)).to eq(message2)
+      end
     end
 
     it "excludes other message keys" do
-      key = message.key
-      message.update!(key: SecureRandom.uuid)
-      expect(message.class.next_in_line(key:, processor_name:)).to eq(message2)
+      bypassing_readonly_attributes(message.class) do
+        key = message.key
+        message.update!(key: SecureRandom.uuid)
+        expect(message.class.next_in_line(key:, processor_name:)).to eq(message2)
+      end
     end
 
     it "returns nil when there are no unprocessed messages left" do
@@ -254,9 +285,11 @@ RSpec.shared_examples :transactional_message do
     end
 
     it "handles complex keys" do
-      message.update!(key: {a: 1, b: 2})
-      expect(message.class.next_in_line(key: {b: 2, a: 1}, processor_name:))
-        .to eq(message)
+      bypassing_readonly_attributes(message.class) do
+        message.update!(key: {a: 1, b: 2})
+        expect(message.class.next_in_line(key: {b: 2, a: 1}, processor_name:))
+          .to eq(message)
+      end
     end
 
     context "given an array of processor names" do
