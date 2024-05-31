@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ohm (0.1.1)
+    ohm (0.1.2)
       pg
       rails (>= 6.1.7)
       sidekiq (>= 5.2)
