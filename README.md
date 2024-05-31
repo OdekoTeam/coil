@@ -242,6 +242,11 @@ Install development dependencies:
 $ bundle
 ```
 
+Install pre-commit hook:
+```console
+$ bin/install-pre-commit
+```
+
 Setup database:
 ```console
 $ bin/rails db:setup

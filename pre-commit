@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+name=ohm
+
+toplevel=$(git rev-parse --show-toplevel)
+
+lib_version=$(
+    find "$toplevel"/lib/ \
+        -type f \
+        -name version.rb \
+        -exec grep -E "^\s+VERSION\s*=\s*[\"'][^\"' ]+[\"'] *\$" {} \+ \
+        | cut -d = -f 2- \
+        | tr -d " \"'"
+)
+gemfile_version=$(
+    grep -E "^\s+${name} \([^)]+\)\$" "$toplevel"/Gemfile.lock \
+    | cut -d '(' -f 2 \
+    | cut -d ')' -f 1
+)
+
+[ "$lib_version" = "$gemfile_version" ] && exit 0
+
+cat <<EOF >&2
+VERSION (${lib_version}) not found in Gemfile.lock (${gemfile_version}).
+Update Gemfile.lock by running:
+
+    bundle install
+EOF
+exit 1
