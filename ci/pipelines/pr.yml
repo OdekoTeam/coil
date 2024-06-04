@@ -15,7 +15,7 @@ resources:
   check_every: 1h
   webhook_token: ((github-webhook-token))
   source:
-    repository: OdekoTeam/ohm
+    repository: OdekoTeam/coil
     access_token: ((git-release-token))
 - name: concourse
   type: git

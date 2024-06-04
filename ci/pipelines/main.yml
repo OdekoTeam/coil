@@ -12,7 +12,7 @@ resources:
   source:
     access_token: ((git-release-token))
     owner: OdekoTeam
-    repository: ohm
+    repository: coil
 - name: repo
   webhook_token: ((github-webhook-token))
   type: git
@@ -20,7 +20,7 @@ resources:
   source:
     branch: main
     password: ((git-release-token))
-    uri: https://github.com/OdekoTeam/ohm.git
+    uri: https://github.com/OdekoTeam/coil.git
     username: ((git-user))
     private_key: ((git-ssh-private-key))
     submodule_credentials:
