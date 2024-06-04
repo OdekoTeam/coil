@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+toplevel=$(git rev-parse --show-toplevel)
+src="$toplevel"/pre-commit
+hooks="$toplevel"/.git/hooks
+target="$hooks"/pre-commit
+
+if ! [ -d "$hooks" ]
+then
+    mkdir "$hooks"
+fi
+
+if [ -e "$target" ]
+then
+    cp "$target" "$target".old.$(date +%Y%m%d%H%M%S)
+fi
+
+cp "$src" "$target"
+chmod +x "$target"
