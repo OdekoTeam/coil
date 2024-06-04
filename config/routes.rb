@@ -1,4 +1,4 @@
 # typed: false
 
-Ohm::Engine.routes.draw do
+Coil::Engine.routes.draw do
 end

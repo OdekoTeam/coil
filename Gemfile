@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# Specify your gem's dependencies in ohm.gemspec.
+# Specify your gem's dependencies in coil.gemspec.
 gemspec
 
 gem "rspec-sidekiq", group: :test
