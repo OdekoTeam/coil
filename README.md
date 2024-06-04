@@ -1,4 +1,4 @@
-# Coil [![concourse.odeko.com](https://concourse.odeko.com/api/v1/teams/main/pipelines/ohm-main/jobs/test/badge)](https://concourse.odeko.com/teams/main/pipelines/ohm-main)
+# Coil [![concourse.odeko.com](https://concourse.odeko.com/api/v1/teams/main/pipelines/coil-main/jobs/test/badge)](https://concourse.odeko.com/teams/main/pipelines/coil-main)
 
 <img src="./solenoid.svg" width="35%">
 
