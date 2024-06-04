@@ -1,4 +1,4 @@
-# Ohm [![concourse.odeko.com](https://concourse.odeko.com/api/v1/teams/main/pipelines/ohm-main/jobs/test/badge)](https://concourse.odeko.com/teams/main/pipelines/ohm-main)
+# Coil [![concourse.odeko.com](https://concourse.odeko.com/api/v1/teams/main/pipelines/ohm-main/jobs/test/badge)](https://concourse.odeko.com/teams/main/pipelines/ohm-main)
 
 <img src="./solenoid.svg" width="35%">
 
@@ -26,21 +26,18 @@ Message ordering is preserved using
 [advisory locks](https://www.postgresql.org/docs/current/explicit-locking.html#ADVISORY-LOCKS)
 as a synchronization mechanism.
 
-The name ([ohm](https://en.wikipedia.org/wiki/Ohm)) is borrowed from
-electromagnetism, partly because it's concise.
-
 ## Installation
 Add to the application's Gemfile:
 
 ```ruby
-gem "ohm", source: "https://gem.odeko.com/"
+gem "coil", source: "https://gem.odeko.com/"
 gem "schema_version_cache", source: "https://gem.odeko.com/"
 ```
 
 Install engine and migrations:
 ```console
 $ bundle
-$ bundle exec rails ohm:install:migrations
+$ bundle exec rails coil:install:migrations
 $ bundle exec rails db:migrate
 ```
 
@@ -50,8 +47,8 @@ Register periodic jobs:
 Sidekiq.configure_server do |config|
   # ...
   config.periodic do |mgr|
-    mgr.register("*/10 * * * *", "Ohm::Inbox::MessagesPeriodicJob")
-    mgr.register("5-59/10 * * * *", "Ohm::Outbox::MessagesPeriodicJob")
+    mgr.register("*/10 * * * *", "Coil::Inbox::MessagesPeriodicJob")
+    mgr.register("5-59/10 * * * *", "Coil::Outbox::MessagesPeriodicJob")
   end
 end
 ```
@@ -61,7 +58,7 @@ Filter retryable errors out of airbrake:
 # config/initializers/airbrake.rb
 Airbrake.add_filter do |notice|
   exception = notice.stash[:exception]
-  notice.ignore! if exception.is_a?(Ohm::TransactionalMessagesJob::RetryableError)
+  notice.ignore! if exception.is_a?(Coil::TransactionalMessagesJob::RetryableError)
 end
 ```
 
@@ -73,7 +70,7 @@ Set up schema version cache as described
 Define a message type and corresponding job:
 ```ruby
 # app/models/inbox/foo_message.rb
-class Inbox::FooMessage < Ohm::Inbox::Message
+class Inbox::FooMessage < Coil::Inbox::Message
   def job_class
     Inbox::FooMessagesJob
   end
@@ -81,7 +78,7 @@ end
 ```
 ```ruby
 # app/jobs/inbox/foo_messages_job.rb
-class Inbox::FooMessagesJob < Ohm::TransactionalMessagesJob
+class Inbox::FooMessagesJob < Coil::TransactionalMessagesJob
   private
 
   # Put message processing logic in this method.
@@ -149,7 +146,7 @@ end
 Define a message type and corresponding job:
 ```ruby
 # app/models/outbox/bar_message.rb
-class Outbox::BarMessage < Ohm::Outbox::Message
+class Outbox::BarMessage < Coil::Outbox::Message
   VALUE_SCHEMA_SUBJECT = "com.example.Bar_value"
 
   def job_class
@@ -159,7 +156,7 @@ end
 ```
 ```ruby
 # app/jobs/outbox/bar_messages_job.rb
-class Outbox::BarMessagesJob < Ohm::TransactionalMessagesJob
+class Outbox::BarMessagesJob < Coil::TransactionalMessagesJob
   private
 
   # Attach schema metadata to message
@@ -273,7 +270,7 @@ Regenerate type info for gems (e.g. after adding a gem):
 $ bin/tapioca gem
 ```
 
-Ohm's type annotations are declared in `rbi/ohm.rbi` to facilitate typechecking
+Coil's type annotations are declared in `rbi/coil.rbi` to facilitate typechecking
 by Rails apps that use this engine along with Sorbet. Keeping these annotations
 in a separate file avoids foisting a Sorbet runtime dependency on any app that
 uses our engine.

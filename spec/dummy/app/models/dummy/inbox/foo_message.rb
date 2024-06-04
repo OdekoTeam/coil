@@ -1,6 +1,6 @@
 # typed: strict
 
-class Dummy::Inbox::FooMessage < Ohm::Inbox::Message
+class Dummy::Inbox::FooMessage < Coil::Inbox::Message
   extend T::Sig
 
   sig { override.returns(T.class_of(Dummy::Inbox::FooMessagesJob)) }

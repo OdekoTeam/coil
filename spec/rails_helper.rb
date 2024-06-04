@@ -19,7 +19,7 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
-  # In order to test concurrent database transactions (e.g. Ohm::QueueLocking),
+  # In order to test concurrent database transactions (e.g. Coil::QueueLocking),
   # we need to disable transactional fixtures.
   # config.use_transactional_fixtures = true
   #

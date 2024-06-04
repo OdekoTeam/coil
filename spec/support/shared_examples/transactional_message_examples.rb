@@ -369,7 +369,7 @@ RSpec.shared_examples :transactional_message do
       parent_message_class =
         message.class.ancestors
           .intersection(different_type_message.class.ancestors)
-          .intersection([Ohm::Inbox::Message, Ohm::Outbox::Message])
+          .intersection([Coil::Inbox::Message, Coil::Outbox::Message])
           .first
       @commits = 0
 

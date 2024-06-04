@@ -1,6 +1,6 @@
 # typed: strict
 
-class Dummy::Inbox::FooMessagesJob < Ohm::TransactionalMessagesJob
+class Dummy::Inbox::FooMessagesJob < Coil::TransactionalMessagesJob
   extend T::Sig
   A = TypeAliases
 
