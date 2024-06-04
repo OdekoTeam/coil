@@ -10,9 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 0) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_04_163650) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gist"
   enable_extension "plpgsql"
 
+  create_table "coil_inbox_completions", force: :cascade do |t|
+    t.string "processor_name", null: false
+    t.string "message_type", null: false
+    t.jsonb "message_key", null: false
+    t.bigint "last_completed_message_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["last_completed_message_id"], name: "index_coil_inbox_completions_on_last_completed_message_id"
+    t.index ["processor_name", "message_type", "message_key", "last_completed_message_id"], name: "index_coil_inbox_completions_on_processor_message_completed"
+    t.index ["processor_name", "message_type", "message_key"], name: "index_coil_inbox_completions_processor_message_type_key_uniq", unique: true
+  end
+
+  create_table "coil_inbox_messages", force: :cascade do |t|
+    t.string "type", null: false
+    t.jsonb "key", null: false
+    t.jsonb "value", null: false
+    t.jsonb "metadata", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_coil_inbox_messages_on_created_at"
+    t.index ["type", "key"], name: "index_coil_inbox_messages_on_type_and_key"
+  end
+
+  create_table "coil_outbox_completions", force: :cascade do |t|
+    t.string "processor_name", null: false
+    t.string "message_type", null: false
+    t.jsonb "message_key", null: false
+    t.bigint "last_completed_message_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["last_completed_message_id"], name: "index_coil_outbox_completions_on_last_completed_message_id"
+    t.index ["processor_name", "message_type", "message_key", "last_completed_message_id"], name: "index_coil_outbox_completions_on_processor_message_completed"
+    t.index ["processor_name", "message_type", "message_key"], name: "index_coil_outbox_completions_processor_message_type_key_uniq", unique: true
+  end
+
+  create_table "coil_outbox_messages", force: :cascade do |t|
+    t.string "type", null: false
+    t.jsonb "key", null: false
+    t.jsonb "value", null: false
+    t.jsonb "metadata", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_coil_outbox_messages_on_created_at"
+    t.index ["type", "key"], name: "index_coil_outbox_messages_on_type_and_key"
+  end
+
+  add_foreign_key "coil_inbox_completions", "coil_inbox_messages", column: "last_completed_message_id"
+  add_foreign_key "coil_outbox_completions", "coil_outbox_messages", column: "last_completed_message_id"
 end
