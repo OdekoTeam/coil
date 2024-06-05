@@ -85,7 +85,7 @@ jobs:
           $TEXT_FILE_CONTENT
         silent: true
       attempts: 3
-- name: gem-publish
+- name: version-check
   serial: true
   plan:
   - in_parallel:
@@ -93,6 +93,28 @@ jobs:
       passed:
       - test
       trigger: true
+      params:
+        submodules: all
+        submodule_recursive: true
+      attempts: 3
+    - get: concourse
+      attempts: 3
+  - task: get-gem-version
+    file: concourse/tasks/rails/get-gem-version/default.yml
+    attempts: 3
+  - task: version-check
+    file: concourse/tasks/rails/version-check/default.yml
+    params:
+      GATED_JOB: coil-main/gem-publish
+    attempts: 3
+- name: gem-publish
+  serial: true
+  plan:
+  - in_parallel:
+    - get: repo
+      passed:
+      - version-check
+      trigger: false
       params:
         submodules: all
         submodule_recursive: true
@@ -113,7 +135,7 @@ jobs:
   - in_parallel:
     - get: repo
       passed:
-      - test
+      - gem-publish
       trigger: true
       attempts: 3
     - get: concourse
