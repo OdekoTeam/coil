@@ -219,15 +219,15 @@ end
 queue_type = "FOOD_PREP"
 message_type = "SOUP"
 ingredients = ["lentils", "tomato"]
-QueueLocking.locking(queue_type:, message_type:, message_keys: ingredients) do
+Coil::QueueLocking.locking(queue_type:, message_type:, message_keys: ingredients) do
   Chef.make_soup(ingredients)
 end
 
 # The `locking` call above will wait until it's able to obtain the requested
 # lock. If we'd rather abort the operation than wait for the lock:
-QueueLocking.locking(queue_type:, message_type:, message_keys: ingredients, wait: false) do
+Coil::QueueLocking.locking(queue_type:, message_type:, message_keys: ingredients, wait: false) do
   Chef.make_soup(ingredients)
-rescue QueueLocking::LockWaitTimeout
+rescue Coil::QueueLocking::LockWaitTimeout
   puts("Looks like someone else is already on it")
 end
 ```
