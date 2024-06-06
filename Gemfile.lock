@@ -3,7 +3,7 @@ PATH
   specs:
     coil (1.0.0)
       pg
-      rails (>= 6.1.7)
+      rails (>= 6.0.6)
       sidekiq (>= 5.2)
 
 GEM
@@ -317,7 +317,7 @@ DEPENDENCIES
   parlour (~> 8.1)
   pg
   puma
-  rails (>= 6.1.7)
+  rails (>= 6.0.6)
   rspec-rails
   rspec-sidekiq
   rubocop-sorbet
