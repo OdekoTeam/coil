@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    coil (0.1.2)
+    coil (1.0.0)
       pg
       rails (>= 6.1.7)
       sidekiq (>= 5.2)
