@@ -28,8 +28,8 @@ resources:
 - name: concourse-image-ruby
   type: registry-image
   source:
-    repository: docker.odeko.com/odeko/concourse-rails-base
-    tag: 3.1.2-slim
+    repository: docker.odeko.com/odeko/ruby-dev
+    tag: 3.1-slim
 - name: slack-alert
   type: slack-notification
   source:
