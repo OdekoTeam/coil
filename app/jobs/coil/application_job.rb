@@ -2,6 +2,6 @@
 
 module Coil
   class ApplicationJob
-    include Sidekiq::Job
+    include Sidekiq::Worker
   end
 end
