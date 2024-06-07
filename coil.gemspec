@@ -11,11 +11,11 @@ Gem::Specification.new do |spec|
     Dir["{app,config,db,lib,rbi}/**/*", "Rakefile", "README.md"]
   end
 
-  spec.add_dependency("rails", ">= 6.1.7")
+  spec.add_dependency("rails", ">= 6.0.6")
   spec.add_dependency("sidekiq", ">= 5.2")
   spec.add_dependency("pg")
 
-  spec.add_development_dependency("rails", ">= 6.1.7")
+  spec.add_development_dependency("rails", ">= 6.0.6")
   spec.add_development_dependency("sidekiq", ">= 5.2")
   spec.add_development_dependency("pg")
   spec.add_development_dependency("puma")

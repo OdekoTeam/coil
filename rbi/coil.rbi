@@ -17,7 +17,7 @@ module Coil
 end
 
 class Coil::ApplicationJob
-  include ::Sidekiq::Job
+  include ::Sidekiq::Worker
 end
 
 class Coil::ApplicationRecord < ::ActiveRecord::Base

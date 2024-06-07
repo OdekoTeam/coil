@@ -1,6 +1,6 @@
 # typed: false
 
-class CreateCoilTables < ActiveRecord::Migration[6.1]
+class CreateCoilTables < ActiveRecord::Migration[6.0]
   def change
     create_table :coil_inbox_messages do |t|
       t.string :type, null: false
