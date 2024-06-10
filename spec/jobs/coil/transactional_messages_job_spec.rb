@@ -263,5 +263,44 @@ RSpec.describe Coil::TransactionalMessagesJob do
         )
       end
     end
+
+    context "around_processing" do
+      let!(:message) do
+        Dummy::Inbox::WhoMessage.create!(key:, value:, metadata: {})
+      end
+      let(:value) do
+        {
+          "who_data" => [
+            {"id" => "a", "val" => 100},
+            {"id" => "b", "val" => 200}
+          ]
+        }
+      end
+      let(:job) { Dummy::Inbox::WhoMessagesJob.new }
+
+      it "wraps message processing" do
+        expect { job.perform(key) }
+          .to change { data.get("a") }.to(100)
+          .and change { data.get("b") }.to(200)
+          .and change { data.tracks }.to(
+            [
+              "#{job.class.name}|a|100",
+              "#{job.class.name}|b|200"
+            ]
+          )
+      end
+
+      it "has access to processor_name" do
+        expect { job.perform(key, "EventReplay:2023-05-24") }
+          .to change { data.get("a") }.to(100)
+          .and change { data.get("b") }.to(200)
+          .and change { data.tracks }.to(
+            [
+              "EventReplay:2023-05-24|a|100",
+              "EventReplay:2023-05-24|b|200"
+            ]
+          )
+      end
+    end
   end
 end
