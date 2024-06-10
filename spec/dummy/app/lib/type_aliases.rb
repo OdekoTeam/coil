@@ -1,8 +1,9 @@
 # typed: strict
 
-# The type aliases declared in rbi/coil.rbi can in fact be referenced from an
-# app that uses Coil. However, this does not seem to be the case for test Dummy
-# app, so we work around the issue by mirroring those aliases here.
+# The type aliases declared in rbi/coil.rbi are visible during static type
+# checks, but not during runtime checks. We work around that here by mirroring
+# them, allowing the Dummy app to write concise method signatures without
+# breaking its runtime checks.
 module TypeAliases
   AnyMessage = T.type_alias {
     T.any(
