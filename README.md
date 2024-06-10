@@ -98,6 +98,9 @@ end
 [message](./spec/dummy/app/models/dummy/inbox/foo_message.rb),
 [job](./spec/dummy/app/jobs/dummy/inbox/foo_messages_job.rb))
 
+(For advanced use-cases, you can also define an `around_process` job method.
+[See example](./spec/dummy/app/jobs/dummy/inbox/who_messages_job.rb))
+
 Receive messages from Kafka:
 ```ruby
 # app/consumers/my_consumer.rb

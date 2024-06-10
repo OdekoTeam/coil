@@ -280,6 +280,17 @@ class Coil::TransactionalMessagesJob < ::Coil::ApplicationJob
   sig { params(key: T.untyped, processor_name: String).returns(T.nilable(::Coil::AnyMessage)) }
   def next_message(key:, processor_name:); end
 
+  sig do
+    overridable
+      .type_parameters(:P)
+      .params(
+        message: ::Coil::AnyMessage,
+        processor_name: String,
+        blk: T.proc.returns(T.type_parameter(:P))
+      ).returns(T.type_parameter(:P))
+  end
+  def around_process(message, processor_name:, &blk); end
+
   sig { overridable.params(message: ::Coil::AnyMessage).void }
   def pre_process(message); end
 

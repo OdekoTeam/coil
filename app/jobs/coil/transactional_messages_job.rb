@@ -42,12 +42,18 @@ module Coil
           message = next_message(key:, processor_name:)
 
           if message.present?
-            pre_process(message)
-            message.processed(processor_name:)
-            process(message)
+            around_process(message, processor_name:) do
+              pre_process(message)
+              message.processed(processor_name:)
+              process(message)
+            end
           end
         end
       end
+    end
+
+    def around_process(message, processor_name:, &blk)
+      blk.call
     end
 
     def pre_process(message)
