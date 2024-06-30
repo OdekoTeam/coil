@@ -125,6 +125,18 @@ RSpec.describe Coil::TransactionalMessagesJob do
       )
     end
 
+    # ActiveRecord provides each thread with a separate database connection, so
+    # when we want to test scenarios involving concurrent connections, threads
+    # are the way to do so.
+    def thread
+      Thread.new do
+        # Don't print exception backtrace to $stderr if an exception (e.g. a
+        # failed expectation) is raised by code running in this thread.
+        Thread.current.report_on_exception = false
+        yield
+      end
+    end
+
     context "inbox" do
       let!(:message1) do
         Dummy::Inbox::FooMessage.create!(key:, value: value1, metadata: {})
@@ -168,10 +180,10 @@ RSpec.describe Coil::TransactionalMessagesJob do
         )
 
         expect {
-          thread1 = Thread.new do
+          thread1 = thread do
             job.perform(key)
           end
-          thread2 = Thread.new do
+          thread2 = thread do
             sleep 0.1
             job.perform(key)
           end
@@ -245,10 +257,10 @@ RSpec.describe Coil::TransactionalMessagesJob do
         }
 
         expect {
-          thread1 = Thread.new do
+          thread1 = thread do
             job.perform(key)
           end
-          thread2 = Thread.new do
+          thread2 = thread do
             sleep 0.1
             job.perform(key)
           end
