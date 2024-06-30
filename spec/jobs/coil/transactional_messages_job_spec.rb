@@ -192,6 +192,70 @@ RSpec.describe Coil::TransactionalMessagesJob do
           .and change { data.get("b") }.to(250)
           .and change { data.get("c") }.to(300)
       end
+
+      it "prevents query cache from leading to duplicate message processing" do
+        # If we allowed `next_message` to return a previously-cached query
+        # result, we could end up accidentally processing the same message more
+        # than once. For example:
+        #
+        # job1                            | job2
+        # --------------------------------+-------------------------------
+        # next_message: message1          |
+        # obtain lock                     |
+        # next_message: message1 (cached) |
+        #                                 | next_message: message1
+        # process message1                |
+        # release lock                    |
+        # next_message: message2          |
+        #                                 | obtain lock
+        #                                 | next_message: message1 (cached)
+        #                                 | process message1
+        #                                 | release lock
+        #                                ...
+        job1 = job.class.new
+        job2 = job.class.new
+        @next_message_calls = {job1 => 0, job2 => 0}
+
+        [job1, job2].each do |jb|
+          allow(jb).to receive(:next_message).and_wrap_original do |m, *args|
+            next_message = m.call(*args)
+            @next_message_calls[jb] += 1
+            next_message
+          end
+        end
+
+        allow(job1).to receive(:locking).and_wrap_original do |m, *args, &blk|
+          i = 0
+          sleep 0.01 while (i += 1) < 500 &&
+              @next_message_calls[job1] > 1 &&
+              @next_message_calls[job2] < 3
+          m.call(*args, &blk)
+        end
+        allow(job2).to receive(:locking).and_wrap_original do |m, *args, &blk|
+          i = 0
+          sleep 0.01 while (i += 1) < 500 &&
+              @next_message_calls[job1] < 3
+          m.call(*args, &blk)
+        end
+
+        expect(job1).to receive(:process).once.ordered.with(message1).and_call_original
+        expect(job2).to receive(:process).once.ordered.with(message2).and_call_original
+
+        expect {
+          thread1 = thread do
+            ActiveRecord::Base.connection.enable_query_cache!
+            Rails.logger.tagged("job1") { job1.perform(key) }
+          end
+          thread2 = thread do
+            ActiveRecord::Base.connection.enable_query_cache!
+            sleep 0.01 while @next_message_calls[job1] < 1
+            Rails.logger.tagged("job2") { job2.perform(key) }
+          end
+          [thread1, thread2].each(&:join)
+        }.to change { data.get("a") }.to(100)
+          .and change { data.get("b") }.to(250)
+          .and change { data.get("c") }.to(300)
+      end
     end
 
     context "outbox" do
@@ -263,6 +327,81 @@ RSpec.describe Coil::TransactionalMessagesJob do
           thread2 = thread do
             sleep 0.1
             job.perform(key)
+          end
+          [thread1, thread2].each(&:join)
+        }.to change { events.all }.to(
+          [
+            {"id" => "a", "val" => 100, "metadata" => metadata},
+            {"id" => "b", "val" => 200, "metadata" => metadata},
+            {"id" => "b", "val" => 250, "metadata" => metadata},
+            {"id" => "c", "val" => 300, "metadata" => metadata}
+          ]
+        )
+      end
+
+      it "prevents query cache from leading to duplicate message processing" do
+        # If we allowed `next_message` to return a previously-cached query
+        # result, we could end up accidentally processing the same message more
+        # than once. For example:
+        #
+        # job1                            | job2
+        # --------------------------------+-------------------------------
+        # next_message: message1          |
+        # obtain lock                     |
+        # next_message: message1 (cached) |
+        #                                 | next_message: message1
+        # process message1                |
+        # release lock                    |
+        # next_message: message2          |
+        #                                 | obtain lock
+        #                                 | next_message: message1 (cached)
+        #                                 | process message1
+        #                                 | release lock
+        #                                ...
+        job1 = job.class.new
+        job2 = job.class.new
+        @next_message_calls = {job1 => 0, job2 => 0}
+
+        [job1, job2].each do |jb|
+          allow(jb).to receive(:next_message).and_wrap_original do |m, *args|
+            next_message = m.call(*args)
+            @next_message_calls[jb] += 1
+            next_message
+          end
+        end
+
+        allow(job1).to receive(:locking).and_wrap_original do |m, *args, &blk|
+          i = 0
+          sleep 0.01 while (i += 1) < 500 &&
+              @next_message_calls[job1] > 1 &&
+              @next_message_calls[job2] < 3
+          m.call(*args, &blk)
+        end
+        allow(job2).to receive(:locking).and_wrap_original do |m, *args, &blk|
+          i = 0
+          sleep 0.01 while (i += 1) < 500 &&
+              @next_message_calls[job1] < 3
+          m.call(*args, &blk)
+        end
+
+        metadata = {
+          "value_schema_subject" => "com.example.Test_value",
+          "value_schema_id" => 1000,
+          "value_schema_version" => 1
+        }
+
+        expect(job1).to receive(:process).once.ordered.with(message1).and_call_original
+        expect(job2).to receive(:process).once.ordered.with(message2).and_call_original
+
+        expect {
+          thread1 = thread do
+            ActiveRecord::Base.connection.enable_query_cache!
+            Rails.logger.tagged("job1") { job1.perform(key) }
+          end
+          thread2 = thread do
+            ActiveRecord::Base.connection.enable_query_cache!
+            sleep 0.01 while @next_message_calls[job1] < 1
+            Rails.logger.tagged("job2") { job2.perform(key) }
           end
           [thread1, thread2].each(&:join)
         }.to change { events.all }.to(
