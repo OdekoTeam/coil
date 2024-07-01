@@ -66,7 +66,9 @@ module Coil
     end
 
     def next_message(key:, processor_name:)
-      message_class.next_in_line(key:, processor_name:)
+      message_class.uncached do
+        message_class.next_in_line(key:, processor_name:)
+      end
     end
 
     def locking(key, &blk)

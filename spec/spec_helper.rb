@@ -9,6 +9,10 @@ RSpec.configure do |config|
     # ...rather than:
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+
+    # Increase the maximum character length that RSpec will print while
+    # formatting an object, so we can see more helpful failure info.
+    expectations.max_formatted_output_length = 1600
   end
 
   config.mock_with :rspec do |mocks|
