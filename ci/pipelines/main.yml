@@ -4,6 +4,8 @@ resource_types:
   source:
     repository: cfcommunity/slack-notification-resource
     tag: latest
+    registry_mirror:
+      host: docker-mirror.odeko.com
 
 resources:
 - name: repo-release
