@@ -3,11 +3,15 @@ resource_types:
   type: registry-image
   source:
     repository: teliaoss/github-pr-resource
+    registry_mirror:
+      host: docker-mirror.odeko.com
 - name: slack-notification
   type: registry-image
   source:
     repository: cfcommunity/slack-notification-resource
     tag: latest
+    registry_mirror:
+      host: docker-mirror.odeko.com
 
 resources:
 - name: pull-request
