@@ -6,9 +6,10 @@ Gem::Specification.new do |spec|
   spec.authors = ["Odeko"]
   spec.summary = "Transactional inbox/outbox"
   spec.description = "Transactional inbox/outbox"
+  spec.license = "Apache-2.0"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    Dir["{app,config,db,lib,rbi}/**/*", "Rakefile", "README.md"]
+    Dir["{app,config,db,lib,rbi}/**/*", "LICENSE", "Rakefile", "README.md"]
   end
 
   spec.add_dependency("rails", ">= 6.0.6")
