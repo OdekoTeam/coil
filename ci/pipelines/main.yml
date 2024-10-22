@@ -157,7 +157,7 @@ jobs:
   - in_parallel:
     - get: repo
       passed:
-      - gem-publish
+      - gem-publish-open-source
       trigger: true
       attempts: 3
     - get: concourse
