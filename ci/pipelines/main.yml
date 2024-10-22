@@ -131,6 +131,26 @@ jobs:
       GEMINABOX_PRIVATE_URL: ((geminabox-url))
     attempts: 3
   on_failure: *simple_failure
+- name: gem-publish-open-source
+  serial: true
+  plan:
+  - in_parallel:
+    - get: repo
+      passed:
+      - gem-publish
+      trigger: true
+      params:
+        submodules: all
+        submodule_recursive: true
+      attempts: 3
+    - get: concourse
+      attempts: 3
+  - task: gem-publish-open-source
+    file: concourse/tasks/rails/publish-open-source/default.yml
+    params:
+      RUBYGEMS_API_KEY: ((rubygems-api-key))
+    attempts: 3
+  on_failure: *simple_failure
 - name: release
   serial: true
   plan:
