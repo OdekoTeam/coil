@@ -3,7 +3,7 @@ require_relative "lib/coil/version"
 Gem::Specification.new do |spec|
   spec.name = "coil"
   spec.version = Coil::VERSION
-  spec.authors = ["Odeko"]
+  spec.authors = ["Ivan Brennan", "Odeko Developers"]
   spec.summary = "Transactional inbox/outbox"
   spec.description = "Transactional inbox/outbox, as a Rails engine."
   spec.homepage = "https://github.com/OdekoTeam/coil"
