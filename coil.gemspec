@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.description = "Transactional inbox/outbox, as a Rails engine."
   spec.homepage = "https://github.com/OdekoTeam/coil"
   spec.license = "Apache-2.0"
+  spec.required_ruby_version = ">= 3.1.0"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     Dir["{app,config,db,lib,rbi}/**/*", "LICENSE", "Rakefile", "README.md"]
