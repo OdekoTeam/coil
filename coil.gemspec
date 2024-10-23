@@ -5,7 +5,7 @@ Gem::Specification.new do |spec|
   spec.version = Coil::VERSION
   spec.authors = ["Odeko"]
   spec.summary = "Transactional inbox/outbox"
-  spec.description = "Transactional inbox/outbox"
+  spec.description = "Transactional inbox/outbox, as a Rails engine."
   spec.homepage = "https://github.com/OdekoTeam/coil"
   spec.license = "Apache-2.0"
 
