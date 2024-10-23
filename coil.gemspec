@@ -6,6 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Odeko"]
   spec.summary = "Transactional inbox/outbox"
   spec.description = "Transactional inbox/outbox"
+  spec.homepage = "https://github.com/OdekoTeam/coil"
   spec.license = "Apache-2.0"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
