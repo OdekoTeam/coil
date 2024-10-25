@@ -1,6 +1,6 @@
 # Coil [![concourse.odeko.com](https://concourse.odeko.com/api/v1/teams/main/pipelines/coil-main/jobs/test/badge)](https://concourse.odeko.com/teams/main/pipelines/coil-main)
 
-<img src="./solenoid.svg" width="35%">
+<img src="https://raw.githubusercontent.com/OdekoTeam/coil/main/solenoid.svg" width="35%">
 
 Transactional inbox/outbox message queuing.
 
@@ -30,8 +30,8 @@ as a synchronization mechanism.
 Add to the application's Gemfile:
 
 ```ruby
-gem "coil", source: "https://gem.odeko.com/"
-gem "schema_version_cache", source: "https://gem.odeko.com/"
+gem "coil"
+gem "schema_version_cache"
 ```
 
 Install engine and migrations:
@@ -53,7 +53,7 @@ Sidekiq.configure_server do |config|
 end
 ```
 
-Filter retryable errors out of airbrake:
+Filter retryable errors out of alerting, e.g. airbrake:
 ```ruby
 # config/initializers/airbrake.rb
 Airbrake.add_filter do |notice|
