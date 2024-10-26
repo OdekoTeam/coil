@@ -15,7 +15,6 @@ RSpec.shared_examples :enqueue_messages_job do
         .to change(job_class.jobs, :count)
         .by(1)
 
-      job_class = message.job_class
       job = job_class.jobs.last
 
       expect(job["args"]).to eq([message.key, job_class.name])
