@@ -235,6 +235,15 @@ rescue Coil::QueueLocking::LockWaitTimeout
 end
 ```
 
+## Configuration
+
+To adjust the configurable settings used within your application, create an
+initializer at `config/initializers/coil.rb` with the following content, then
+uncomment and adjust the settings you wish to change:
+```ruby
+# Coil.sidekiq_queue = "default"
+```
+
 ## Development
 
 Install development dependencies:
