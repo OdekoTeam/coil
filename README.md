@@ -36,10 +36,11 @@ gem "schema_version_cache"
 
 Install engine and migrations:
 ```console
-$ bundle
-$ bundle exec rails coil:install:migrations
-$ bundle exec rails db:migrate
+$ bundle install
+$ bundle exec rails coil:install:migrations db:migrate
 ```
+(NOTE: Also run the above commands when upgrading, as newer versions may
+introduce additional migrations.)
 
 Register periodic jobs:
 ```ruby
