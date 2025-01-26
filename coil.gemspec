@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 3.1.0"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    Dir["{app,config,db,lib,rbi}/**/*", "LICENSE", "Rakefile", "README.md"]
+    Dir["{app,config,db,lib,rbi}/**/*", "CHANGELOG.md", "LICENSE", "Rakefile", "README.md"]
   end
 
   spec.add_dependency("rails", ">= 6.0.6", "< 8.0")
