@@ -51,6 +51,19 @@ RSpec.shared_examples :transactional_messages_periodic_job do
       .to change(box::FooMessagesJob.jobs, :size).by(0)
       .and change(box::BarMessagesJob.jobs, :size).by(3)
   end
+
+  it "ignores messages whose class cannot be found" do
+    parent_class = periodic_job.send(:message_parent_class)
+    legacy_type = parent_class.name.sub(/::[A-Z][A-Za-z]*\z/, "::LegacyType")
+    parent_class.where(id: bar_message_x.id).update_all(type: legacy_type)
+
+    expect { periodic_job.perform }
+      .to change(box::FooMessagesJob.jobs, :size).by(1)
+      .and change(box::BarMessagesJob.jobs, :size).by(2)
+
+    bar_jobs = box::BarMessagesJob.jobs.last(2)
+    expect(bar_jobs.map { _1["args"] }).to contain_exactly(["y"], ["z"])
+  end
 end
 
 RSpec.describe Coil::TransactionalMessagesPeriodicJob do

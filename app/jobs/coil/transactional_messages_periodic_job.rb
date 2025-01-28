@@ -12,9 +12,10 @@ module Coil
       # the distinct keys for which we have unprocessed messages (excluding
       # very recent messages, since a TransactionalMessagesJob may still be
       # processing those). Then, enqueue the necessary jobs for those keys.
-      message_parent_class.select(:type).distinct.each do |x|
-        message_class = x.class
-        job_class = x.job_class
+      message_parent_class.select(:type).distinct.pluck(:type).each do |type|
+        message_class = message_class_for(type)
+        next unless message_class.present?
+        job_class = message_class.new.job_class
 
         message_class
           .unprocessed(processor_name: job_class.name)
@@ -26,6 +27,11 @@ module Coil
     end
 
     private
+
+    def message_class_for(type)
+      message_parent_class.sti_class_for(type)
+    rescue ActiveRecord::SubclassNotFound
+    end
 
     def message_parent_class
     end
