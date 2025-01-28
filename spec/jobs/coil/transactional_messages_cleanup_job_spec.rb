@@ -63,6 +63,17 @@ RSpec.shared_examples :transactional_messages_cleanup_job do
       .and change(box::BarMessage, :count).by(-3)
   end
 
+  it "deletes messages whose class cannot be found" do
+    process_all(except: [bar_message_x])
+
+    parent_class = cleanup_job.send(:message_parent_class)
+    legacy_type = parent_class.name.sub(/::[A-Z][A-Za-z]*\z/, "::LegacyType")
+    parent_class.where(id: bar_message_x.id).update_all(type: legacy_type)
+
+    expect { cleanup_job.perform }
+      .to change(parent_class, :count).by(-5)
+  end
+
   it "ignores processors other than the message's default job processor" do
     process_all(except: [bar_message_x])
     bar_message_x.processed(processor_name: "AdditionalProcessorX")

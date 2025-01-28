@@ -56,18 +56,22 @@ module Coil
       deletions = Hash.new(0)
 
       # Identify distinct message types, their associated job types, and the
-      # processed messages that can safely be deleted. Delete in batches until
-      # finished or the deadline is exceeded.
-      message_parent_class.select(:type).distinct.each do |x|
-        message_class = x.class
-        job_class = x.job_class
+      # messages that can safely be deleted. Delete in batches until finished
+      # or the deadline is exceeded.
+      message_parent_class.select(:type).distinct.pluck(:type).each do |type|
+        message_class = message_class_for(type)
+        messages =
+          if message_class.present?
+            message_class.processed(processor_name: message_class.new.job_class.name)
+          else
+            message_parent_class.where(type:)
+          end
 
-        message_class
-          .processed(processor_name: job_class.name)
+        messages
           .where(created_at: nil...created_before)
           .in_batches(of: batch_size) do |batch|
             return ExceededDeadline.new(deletions) if Time.current > deadline
-            deletions[message_class.to_s] += batch.distinct(false).delete_all
+            deletions[type] += batch.distinct(false).delete_all
           end
       end
 
@@ -86,6 +90,11 @@ module Coil
       )
     rescue QueueLocking::LockWaitTimeout
       raise DuplicateJobError
+    end
+
+    def message_class_for(type)
+      message_parent_class.sti_class_for(type)
+    rescue ActiveRecord::SubclassNotFound
     end
 
     def message_parent_class

@@ -360,6 +360,9 @@ class Coil::TransactionalMessagesCleanupJob < ::Coil::ApplicationJob
   }
   def locking(&blk); end
 
+  sig { params(type: String).returns(T.nilable(::Coil::AnyMessageClass)) }
+  def message_class_for(type); end
+
   sig { abstract.returns(::Coil::AnyMessageClass) }
   def message_parent_class; end
 
