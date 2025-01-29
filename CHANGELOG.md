@@ -1,5 +1,9 @@
 ## main
 
+## [1.5.5](https://github.com/OdekoTeam/coil/compare/1.5.4...1.5.5) (2025-03-24)
+#### Added
+- Rails 8 support ([bcc6885](https://github.com/OdekoTeam/coil/commit/bcc6885bdbe3a7dedbc505edee0482d215fe9d91))
+
 ## [1.5.4](https://github.com/OdekoTeam/coil/compare/1.5.3...1.5.4) (2025-03-24)
 #### Added
 - Rails 7.2 support ([be1cdc4](https://github.com/OdekoTeam/coil/commit/be1cdc4bde1fb73d1ac24f3b786a1d58a748d87f))
