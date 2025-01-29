@@ -79,6 +79,16 @@ Coil::Inbox::Message::COMPLETION = Coil::Inbox::Completion
 Coil::Inbox::Message::PERSISTENCE_QUEUE = T.let(T.unsafe(nil), String)
 Coil::Inbox::Message::PROCESS_QUEUE = T.let(T.unsafe(nil), String)
 
+class Coil::Inbox::MessagesCleanupJob < ::Coil::TransactionalMessagesCleanupJob
+  private
+
+  sig { override.returns(T.class_of(::Coil::Inbox::Message)) }
+  def message_parent_class; end
+
+  sig { override.returns(ActiveSupport::Duration) }
+  def retention_period; end
+end
+
 class Coil::Inbox::MessagesPeriodicJob < ::Coil::TransactionalMessagesPeriodicJob
   private
 
@@ -139,6 +149,16 @@ end
 Coil::Outbox::Message::COMPLETION = Coil::Outbox::Completion
 Coil::Outbox::Message::PERSISTENCE_QUEUE = T.let(T.unsafe(nil), String)
 Coil::Outbox::Message::PROCESS_QUEUE = T.let(T.unsafe(nil), String)
+
+class Coil::Outbox::MessagesCleanupJob < ::Coil::TransactionalMessagesCleanupJob
+  private
+
+  sig { override.returns(T.class_of(::Coil::Outbox::Message)) }
+  def message_parent_class; end
+
+  sig { override.returns(ActiveSupport::Duration) }
+  def retention_period; end
+end
 
 class Coil::Outbox::MessagesPeriodicJob < ::Coil::TransactionalMessagesPeriodicJob
   private
@@ -310,6 +330,45 @@ end
 class Coil::TransactionalMessagesJob::DuplicateJobError < ::StandardError; end
 Coil::TransactionalMessagesJob::MAX_DURATION = T.let(T.unsafe(nil), ActiveSupport::Duration)
 class Coil::TransactionalMessagesJob::RetryableError < ::StandardError; end
+
+class Coil::TransactionalMessagesCleanupJob < ::Coil::ApplicationJob
+  abstract!
+
+  class DuplicateJobError < ::StandardError; end
+
+  MAX_DURATION = T.let(T.unsafe(nil), ActiveSupport::Duration)
+
+  sig { params(batch_size: Integer).void }
+  def perform(batch_size = 1000); end
+
+  private
+
+  Result = T.type_alias { T.any(Finished, ExceededDeadline) }
+
+  sig { params(batch_size: Integer).returns(Result) }
+  def delete_messages(batch_size); end
+
+  sig { params(batch_size: Integer).returns(Result) }
+  def _delete_messages(batch_size); end
+
+  QUEUE_TYPE = T.let(T.unsafe(nil), String)
+
+  sig {
+    type_parameters(:P)
+      .params(blk: T.proc.returns(T.type_parameter(:P)))
+      .returns(T.type_parameter(:P))
+  }
+  def locking(&blk); end
+
+  sig { params(type: String).returns(T.nilable(::Coil::AnyMessageClass)) }
+  def message_class_for(type); end
+
+  sig { abstract.returns(::Coil::AnyMessageClass) }
+  def message_parent_class; end
+
+  sig { abstract.returns(ActiveSupport::Duration) }
+  def retention_period; end
+end
 
 class Coil::TransactionalMessagesPeriodicJob < ::Coil::ApplicationJob
   abstract!

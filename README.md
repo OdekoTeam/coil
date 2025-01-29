@@ -36,10 +36,11 @@ gem "schema_version_cache"
 
 Install engine and migrations:
 ```console
-$ bundle
-$ bundle exec rails coil:install:migrations
-$ bundle exec rails db:migrate
+$ bundle install
+$ bundle exec rails coil:install:migrations db:migrate
 ```
+(_NOTE_: Also run the above commands when upgrading, as newer versions may
+introduce additional migrations.)
 
 Register periodic jobs:
 ```ruby
@@ -49,9 +50,15 @@ Sidekiq.configure_server do |config|
   config.periodic do |mgr|
     mgr.register("*/10 * * * *", "Coil::Inbox::MessagesPeriodicJob")
     mgr.register("5-59/10 * * * *", "Coil::Outbox::MessagesPeriodicJob")
+
+    mgr.register("7-59/20 * * * *", "Coil::Inbox::MessagesCleanupJob")
+    mgr.register("12-59/20 * * * *", "Coil::Outbox::MessagesCleanupJob")
   end
 end
 ```
+(_NOTE_: The cleanup jobs delete already-processed messages once their retention
+period has passed. Retention periods can be [configured](#configuration) using
+`Coil.inbox_retention_period` and `Coil.outbox_retention_period`.)
 
 Filter retryable errors out of alerting, e.g. airbrake:
 ```ruby
@@ -242,6 +249,8 @@ initializer at `config/initializers/coil.rb` with the following content, then
 uncomment and adjust the settings you wish to change:
 ```ruby
 # Coil.sidekiq_queue = "default"
+# Coil.inbox_retention_period = 12.weeks
+# Coil.outbox_retention_period = 12.weeks
 ```
 
 ## Development
