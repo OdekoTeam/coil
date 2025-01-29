@@ -1,4 +1,6 @@
 ## main
+
+## [1.5.1](https://github.com/OdekoTeam/coil/compare/1.5.0...1.5.1) (2025-01-29)
 #### Fixed
 - Avoid `ActiveRecord::SubclassNotFound` on orphaned messages ([ea3a64a](https://github.com/OdekoTeam/coil/commit/ea3a64acfcb9f05d53e242f96eb1b525761e414d))
 
