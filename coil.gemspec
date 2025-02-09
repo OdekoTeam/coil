@@ -14,6 +14,12 @@ Gem::Specification.new do |spec|
     Dir["{app,config,db,lib,rbi}/**/*", "CHANGELOG.md", "LICENSE", "Rakefile", "README.md"]
   end
 
+  spec.metadata = {
+    "bug_tracker_uri" => "https://github.com/OdekoTeam/coil/issues",
+    "changelog_uri" => "https://github.com/OdekoTeam/coil/blob/main/CHANGELOG.md",
+    "source_code_uri" => "https://github.com/OdekoTeam/coil"
+  }
+
   spec.add_dependency("rails", ">= 6.0.6", "< 8.0")
   spec.add_dependency("sidekiq", ">= 5.2", "< 8.0")
   spec.add_dependency("pg", ">= 0", "< 2.0")
