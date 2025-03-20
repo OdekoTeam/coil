@@ -29,7 +29,11 @@ module Coil
     private
 
     def message_class_for(type)
-      message_parent_class.sti_class_for(type)
+      if ActiveRecord.version < Gem::Version.new("6.1.0")
+        message_parent_class.send(:find_sti_class, type)
+      else
+        message_parent_class.sti_class_for(type)
+      end
     rescue ActiveRecord::SubclassNotFound
     end
 
