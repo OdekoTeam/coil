@@ -1,5 +1,8 @@
 ## main
 
+#### Fixed
+- Fix support for Rails versions older than 6.1.0 ([0afd25b](https://github.com/OdekoTeam/coil/commit/0afd25bf1f47371e47f3787daf81caab8b676646))
+
 ## [1.5.1](https://github.com/OdekoTeam/coil/compare/1.5.0...1.5.1) (2025-01-29)
 #### Fixed
 - Avoid `ActiveRecord::SubclassNotFound` on orphaned messages ([ea3a64a](https://github.com/OdekoTeam/coil/commit/ea3a64acfcb9f05d53e242f96eb1b525761e414d))
