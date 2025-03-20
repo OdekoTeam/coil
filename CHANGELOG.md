@@ -1,5 +1,8 @@
 ## main
 
+#### Added
+- Rails 7.2 support ([be1cdc4](https://github.com/OdekoTeam/coil/commit/be1cdc4bde1fb73d1ac24f3b786a1d58a748d87f))
+
 ## [1.5.3](https://github.com/OdekoTeam/coil/compare/1.5.2...1.5.3) (2025-03-24)
 #### Added
 - Ruby 3.2 and 3.3 support ([a4ceb7c](https://github.com/OdekoTeam/coil/commit/a4ceb7cf2cefc47ae3c14a876a0782aaec0e5c43))
