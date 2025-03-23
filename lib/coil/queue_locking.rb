@@ -60,8 +60,9 @@ module Coil
       ks = keys.uniq(&:int64).sort_by(&:int64).reverse
 
       fn = ks.reduce(blk) do |f, key|
-        -> do
-          with_lock(key:, wait:, &f)
+        ->(*args) do
+          lock(key:, wait:)
+          f.call(*args)
         end
       end
 
@@ -70,22 +71,21 @@ module Coil
 
     private
 
-    def with_lock(key:, wait:, &blk)
-      wait ? lock(key:) : try_lock(key:)
-      blk.call
+    def lock(key:, wait:)
+      wait ? acquire_lock(key:) : try_acquire_lock(key:)
     end
 
     ACQUIRE_LOCK = "pg_advisory_xact_lock"
     TRY_ACQUIRE_LOCK = "pg_try_advisory_xact_lock"
 
-    def lock(key:)
+    def acquire_lock(key:)
       command = sql(fn: ACQUIRE_LOCK, key:)
       connection.execute(command)
     rescue ActiveRecord::LockWaitTimeout
       raise LockWaitTimeout
     end
 
-    def try_lock(key:)
+    def try_acquire_lock(key:)
       query = sql(fn: TRY_ACQUIRE_LOCK, key:)
       return if connection.select_value(query)
       raise LockWaitTimeout

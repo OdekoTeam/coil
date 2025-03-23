@@ -187,7 +187,12 @@ module Coil::QueueLocking
         message_type: String,
         message_keys: T::Array[T.untyped],
         wait: T::Boolean,
-        blk: T.proc.returns(T.type_parameter(:P))
+        blk: T.any(
+          # ActiveRecord versions 7.2 and newer yield a transaction as the block arg.
+          T.proc.params(arg0: ActiveRecord::Transaction).returns(T.type_parameter(:P)),
+          # Earlier versions yield to the block with no args.
+          T.proc.returns(T.type_parameter(:P))
+        )
       ).returns(T.type_parameter(:P))
   end
   def locking(queue_type:, message_type:, message_keys:, wait: T.unsafe(nil), &blk); end
@@ -198,23 +203,16 @@ module Coil::QueueLocking
   def connection; end
 
   sig { params(key: Key).void }
-  def lock(key:); end
+  def acquire_lock(key:); end
 
   sig { params(fn: String, key: Key).returns(String) }
   def sql(fn:, key:); end
 
   sig { params(key: Key).void }
-  def try_lock(key:); end
+  def try_acquire_lock(key:); end
 
-  sig do
-    type_parameters(:P)
-      .params(
-        key: Key,
-        wait: T::Boolean,
-        blk: T.proc.returns(T.type_parameter(:P))
-      ).returns(T.type_parameter(:P))
-  end
-  def with_lock(key:, wait:, &blk); end
+  sig { params(key: Key, wait: T::Boolean).void }
+  def lock(key:, wait:); end
 end
 
 Coil::QueueLocking::ACQUIRE_LOCK = T.let(T.unsafe(nil), String)
