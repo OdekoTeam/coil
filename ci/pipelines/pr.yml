@@ -33,7 +33,7 @@ resources:
   type: registry-image
   source:
     repository: docker.odeko.com/odeko/ruby-dev
-    tag: 3.1-slim
+    tag: 3.3-slim
 - name: slack-alert
   type: slack-notification
   source:
