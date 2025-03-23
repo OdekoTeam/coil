@@ -331,10 +331,313 @@ class Psych::Handler::DumperOptions
   def line_width=(_arg0); end
 end
 
+# source://psych//lib/psych/handlers/document_stream.rb#6
+class Psych::Handlers::DocumentStream < ::Psych::TreeBuilder
+  # source://psych//lib/psych/handlers/document_stream.rb#7
+  def initialize(&block); end
+
+  # source://psych//lib/psych/handlers/document_stream.rb#17
+  def end_document(implicit_end = T.unsafe(nil)); end
+
+  # source://psych//lib/psych/handlers/document_stream.rb#12
+  def start_document(version, tag_directives, implicit); end
+end
+
+# source://psych//lib/psych/json/ruby_events.rb#4
+module Psych::JSON::RubyEvents
+  # source://psych//lib/psych/json/ruby_events.rb#10
+  def visit_DateTime(o); end
+
+  # source://psych//lib/psych/json/ruby_events.rb#14
+  def visit_String(o); end
+
+  # source://psych//lib/psych/json/ruby_events.rb#14
+  def visit_Symbol(o); end
+
+  # source://psych//lib/psych/json/ruby_events.rb#5
+  def visit_Time(o); end
+end
+
 # source://psych//lib/psych/json/stream.rb#7
 class Psych::JSON::Stream < ::Psych::Visitors::JSONTree
   include ::Psych::Streaming
   extend ::Psych::Streaming::ClassMethods
+end
+
+# source://psych//lib/psych/json/stream.rb#12
+class Psych::JSON::Stream::Emitter < ::Psych::Stream::Emitter
+  include ::Psych::JSON::YAMLEvents
+end
+
+# source://psych//lib/psych/json/tree_builder.rb#9
+class Psych::JSON::TreeBuilder < ::Psych::TreeBuilder
+  include ::Psych::JSON::YAMLEvents
+end
+
+# source://psych//lib/psych/json/yaml_events.rb#4
+module Psych::JSON::YAMLEvents
+  # source://psych//lib/psych/json/yaml_events.rb#9
+  def end_document(implicit_end = T.unsafe(nil)); end
+
+  # source://psych//lib/psych/json/yaml_events.rb#21
+  def scalar(value, anchor, tag, plain, quoted, style); end
+
+  # source://psych//lib/psych/json/yaml_events.rb#5
+  def start_document(version, tag_directives, implicit); end
+
+  # source://psych//lib/psych/json/yaml_events.rb#13
+  def start_mapping(anchor, tag, implicit, style); end
+
+  # source://psych//lib/psych/json/yaml_events.rb#17
+  def start_sequence(anchor, tag, implicit, style); end
+end
+
+# source://psych//lib/psych/nodes/alias.rb#9
+class Psych::Nodes::Alias < ::Psych::Nodes::Node
+  # source://psych//lib/psych/nodes/alias.rb#14
+  def initialize(anchor); end
+
+  # source://psych//lib/psych/nodes/alias.rb#18
+  def alias?; end
+
+  # source://psych//lib/psych/nodes/alias.rb#11
+  def anchor; end
+
+  # source://psych//lib/psych/nodes/alias.rb#11
+  def anchor=(_arg0); end
+end
+
+# source://psych//lib/psych/nodes/document.rb#12
+class Psych::Nodes::Document < ::Psych::Nodes::Node
+  # source://psych//lib/psych/nodes/document.rb#45
+  def initialize(version = T.unsafe(nil), tag_directives = T.unsafe(nil), implicit = T.unsafe(nil)); end
+
+  # source://psych//lib/psych/nodes/document.rb#60
+  def document?; end
+
+  # source://psych//lib/psych/nodes/document.rb#20
+  def implicit; end
+
+  # source://psych//lib/psych/nodes/document.rb#20
+  def implicit=(_arg0); end
+
+  # source://psych//lib/psych/nodes/document.rb#23
+  def implicit_end; end
+
+  # source://psych//lib/psych/nodes/document.rb#23
+  def implicit_end=(_arg0); end
+
+  # source://psych//lib/psych/nodes/document.rb#56
+  def root; end
+
+  # source://psych//lib/psych/nodes/document.rb#17
+  def tag_directives; end
+
+  # source://psych//lib/psych/nodes/document.rb#17
+  def tag_directives=(_arg0); end
+
+  # source://psych//lib/psych/nodes/document.rb#14
+  def version; end
+
+  # source://psych//lib/psych/nodes/document.rb#14
+  def version=(_arg0); end
+end
+
+# source://psych//lib/psych/nodes/mapping.rb#15
+class Psych::Nodes::Mapping < ::Psych::Nodes::Node
+  # source://psych//lib/psych/nodes/mapping.rb#48
+  def initialize(anchor = T.unsafe(nil), tag = T.unsafe(nil), implicit = T.unsafe(nil), style = T.unsafe(nil)); end
+
+  # source://psych//lib/psych/nodes/mapping.rb#26
+  def anchor; end
+
+  # source://psych//lib/psych/nodes/mapping.rb#26
+  def anchor=(_arg0); end
+
+  # source://psych//lib/psych/nodes/mapping.rb#32
+  def implicit; end
+
+  # source://psych//lib/psych/nodes/mapping.rb#32
+  def implicit=(_arg0); end
+
+  # source://psych//lib/psych/nodes/mapping.rb#56
+  def mapping?; end
+
+  # source://psych//lib/psych/nodes/mapping.rb#35
+  def style; end
+
+  # source://psych//lib/psych/nodes/mapping.rb#35
+  def style=(_arg0); end
+
+  # source://psych//lib/psych/nodes/mapping.rb#29
+  def tag; end
+
+  # source://psych//lib/psych/nodes/mapping.rb#29
+  def tag=(_arg0); end
+end
+
+# source://psych//lib/psych/nodes/node.rb#10
+class Psych::Nodes::Node
+  include ::Enumerable
+
+  # source://psych//lib/psych/nodes/node.rb#32
+  def initialize; end
+
+  # source://psych//lib/psych/nodes/node.rb#67
+  def alias?; end
+
+  # source://psych//lib/psych/nodes/node.rb#14
+  def children; end
+
+  # source://psych//lib/psych/nodes/node.rb#68
+  def document?; end
+
+  # source://psych//lib/psych/nodes/node.rb#39
+  def each(&block); end
+
+  # source://psych//lib/psych/nodes/node.rb#29
+  def end_column; end
+
+  # source://psych//lib/psych/nodes/node.rb#29
+  def end_column=(_arg0); end
+
+  # source://psych//lib/psych/nodes/node.rb#26
+  def end_line; end
+
+  # source://psych//lib/psych/nodes/node.rb#26
+  def end_line=(_arg0); end
+
+  # source://psych//lib/psych/nodes/node.rb#69
+  def mapping?; end
+
+  # source://psych//lib/psych/nodes/node.rb#70
+  def scalar?; end
+
+  # source://psych//lib/psych/nodes/node.rb#71
+  def sequence?; end
+
+  # source://psych//lib/psych/nodes/node.rb#23
+  def start_column; end
+
+  # source://psych//lib/psych/nodes/node.rb#23
+  def start_column=(_arg0); end
+
+  # source://psych//lib/psych/nodes/node.rb#20
+  def start_line; end
+
+  # source://psych//lib/psych/nodes/node.rb#20
+  def start_line=(_arg0); end
+
+  # source://psych//lib/psych/nodes/node.rb#72
+  def stream?; end
+
+  # source://psych//lib/psych/nodes/node.rb#17
+  def tag; end
+
+  # source://psych//lib/psych/nodes/node.rb#48
+  def to_ruby(symbolize_names: T.unsafe(nil), freeze: T.unsafe(nil), strict_integer: T.unsafe(nil)); end
+
+  # source://psych//lib/psych/nodes/node.rb#57
+  def to_yaml(io = T.unsafe(nil), options = T.unsafe(nil)); end
+
+  # source://psych//lib/psych/nodes/node.rb#48
+  def transform(symbolize_names: T.unsafe(nil), freeze: T.unsafe(nil), strict_integer: T.unsafe(nil)); end
+
+  # source://psych//lib/psych/nodes/node.rb#57
+  def yaml(io = T.unsafe(nil), options = T.unsafe(nil)); end
+end
+
+# source://psych//lib/psych/nodes/scalar.rb#8
+class Psych::Nodes::Scalar < ::Psych::Nodes::Node
+  # source://psych//lib/psych/nodes/scalar.rb#58
+  def initialize(value, anchor = T.unsafe(nil), tag = T.unsafe(nil), plain = T.unsafe(nil), quoted = T.unsafe(nil), style = T.unsafe(nil)); end
+
+  # source://psych//lib/psych/nodes/scalar.rb#31
+  def anchor; end
+
+  # source://psych//lib/psych/nodes/scalar.rb#31
+  def anchor=(_arg0); end
+
+  # source://psych//lib/psych/nodes/scalar.rb#37
+  def plain; end
+
+  # source://psych//lib/psych/nodes/scalar.rb#37
+  def plain=(_arg0); end
+
+  # source://psych//lib/psych/nodes/scalar.rb#40
+  def quoted; end
+
+  # source://psych//lib/psych/nodes/scalar.rb#40
+  def quoted=(_arg0); end
+
+  # source://psych//lib/psych/nodes/scalar.rb#67
+  def scalar?; end
+
+  # source://psych//lib/psych/nodes/scalar.rb#43
+  def style; end
+
+  # source://psych//lib/psych/nodes/scalar.rb#43
+  def style=(_arg0); end
+
+  # source://psych//lib/psych/nodes/scalar.rb#34
+  def tag; end
+
+  # source://psych//lib/psych/nodes/scalar.rb#34
+  def tag=(_arg0); end
+
+  # source://psych//lib/psych/nodes/scalar.rb#28
+  def value; end
+
+  # source://psych//lib/psych/nodes/scalar.rb#28
+  def value=(_arg0); end
+end
+
+# source://psych//lib/psych/nodes/sequence.rb#41
+class Psych::Nodes::Sequence < ::Psych::Nodes::Node
+  # source://psych//lib/psych/nodes/sequence.rb#73
+  def initialize(anchor = T.unsafe(nil), tag = T.unsafe(nil), implicit = T.unsafe(nil), style = T.unsafe(nil)); end
+
+  # source://psych//lib/psych/nodes/sequence.rb#52
+  def anchor; end
+
+  # source://psych//lib/psych/nodes/sequence.rb#52
+  def anchor=(_arg0); end
+
+  # source://psych//lib/psych/nodes/sequence.rb#58
+  def implicit; end
+
+  # source://psych//lib/psych/nodes/sequence.rb#58
+  def implicit=(_arg0); end
+
+  # source://psych//lib/psych/nodes/sequence.rb#81
+  def sequence?; end
+
+  # source://psych//lib/psych/nodes/sequence.rb#61
+  def style; end
+
+  # source://psych//lib/psych/nodes/sequence.rb#61
+  def style=(_arg0); end
+
+  # source://psych//lib/psych/nodes/sequence.rb#55
+  def tag; end
+
+  # source://psych//lib/psych/nodes/sequence.rb#55
+  def tag=(_arg0); end
+end
+
+# source://psych//lib/psych/nodes/stream.rb#8
+class Psych::Nodes::Stream < ::Psych::Nodes::Node
+  # source://psych//lib/psych/nodes/stream.rb#32
+  def initialize(encoding = T.unsafe(nil)); end
+
+  # source://psych//lib/psych/nodes/stream.rb#25
+  def encoding; end
+
+  # source://psych//lib/psych/nodes/stream.rb#25
+  def encoding=(_arg0); end
+
+  # source://psych//lib/psych/nodes/stream.rb#37
+  def stream?; end
 end
 
 # source://psych//lib/psych/parser.rb#33
@@ -527,6 +830,49 @@ class Psych::Visitors::DepthFirst < ::Psych::Visitors::Visitor
 
   # source://psych//lib/psych/visitors/depth_first.rb#11
   def visit_Psych_Nodes_Stream(o); end
+end
+
+# source://psych//lib/psych/visitors/emitter.rb#4
+class Psych::Visitors::Emitter < ::Psych::Visitors::Visitor
+  # source://psych//lib/psych/visitors/emitter.rb#5
+  def initialize(io, options = T.unsafe(nil)); end
+
+  # source://psych//lib/psych/visitors/emitter.rb#47
+  def visit_Psych_Nodes_Alias(o); end
+
+  # source://psych//lib/psych/visitors/emitter.rb#25
+  def visit_Psych_Nodes_Document(o); end
+
+  # source://psych//lib/psych/visitors/emitter.rb#41
+  def visit_Psych_Nodes_Mapping(o); end
+
+  # source://psych//lib/psych/visitors/emitter.rb#31
+  def visit_Psych_Nodes_Scalar(o); end
+
+  # source://psych//lib/psych/visitors/emitter.rb#35
+  def visit_Psych_Nodes_Sequence(o); end
+
+  # source://psych//lib/psych/visitors/emitter.rb#19
+  def visit_Psych_Nodes_Stream(o); end
+end
+
+# source://psych//lib/psych/visitors/json_tree.rb#6
+class Psych::Visitors::JSONTree < ::Psych::Visitors::YAMLTree
+  include ::Psych::JSON::RubyEvents
+
+  # source://psych//lib/psych/visitors/json_tree.rb#16
+  def accept(target); end
+
+  class << self
+    # source://psych//lib/psych/visitors/json_tree.rb#9
+    def create(options = T.unsafe(nil)); end
+  end
+end
+
+# source://psych//lib/psych/visitors/to_ruby.rb#429
+class Psych::Visitors::NoAliasRuby < ::Psych::Visitors::ToRuby
+  # source://psych//lib/psych/visitors/to_ruby.rb#430
+  def visit_Psych_Nodes_Alias(o); end
 end
 
 # source://psych//lib/psych/visitors/yaml_tree.rb#537

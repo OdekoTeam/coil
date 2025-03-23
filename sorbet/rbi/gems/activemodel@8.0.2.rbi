@@ -53,7 +53,6 @@ module ActiveModel::API
   module GeneratedClassMethods
     def __callbacks; end
     def __callbacks=(value); end
-    def __callbacks?; end
     def _validators; end
     def _validators=(value); end
     def _validators?; end
@@ -64,7 +63,6 @@ module ActiveModel::API
 
   module GeneratedInstanceMethods
     def __callbacks; end
-    def __callbacks?; end
     def _validators; end
     def _validators?; end
     def param_delimiter=(value); end
@@ -137,7 +135,7 @@ class ActiveModel::Attribute
   def type_cast(*_arg0); end
 
   # source://activemodel//lib/active_model/attribute.rb#41
-  def value; end
+  def value(&_); end
 
   # source://activemodel//lib/active_model/attribute.rb#29
   def value_before_type_cast; end
@@ -313,15 +311,18 @@ module ActiveModel::AttributeAssignment
   # source://activemodel//lib/active_model/attribute_assignment.rb#28
   def assign_attributes(new_attributes); end
 
+  # source://activemodel//lib/active_model/attribute_assignment.rb#56
+  def attribute_writer_missing(name, value); end
+
   # source://activemodel//lib/active_model/attribute_assignment.rb#28
   def attributes=(new_attributes); end
 
   private
 
-  # source://activemodel//lib/active_model/attribute_assignment.rb#46
+  # source://activemodel//lib/active_model/attribute_assignment.rb#67
   def _assign_attribute(k, v); end
 
-  # source://activemodel//lib/active_model/attribute_assignment.rb#40
+  # source://activemodel//lib/active_model/attribute_assignment.rb#61
   def _assign_attributes(attributes); end
 end
 
@@ -944,81 +945,84 @@ module ActiveModel::Dirty
   mixes_in_class_methods GeneratedClassMethods
   mixes_in_class_methods ::ActiveModel::AttributeMethods::ClassMethods
 
-  # source://activemodel//lib/active_model/dirty.rb#258
+  # source://activemodel//lib/active_model/dirty.rb#264
   def as_json(options = T.unsafe(nil)); end
 
-  # source://activemodel//lib/active_model/dirty.rb#293
+  # source://activemodel//lib/active_model/dirty.rb#300
   def attribute_changed?(attr_name, **options); end
 
-  # source://activemodel//lib/active_model/dirty.rb#360
+  # source://activemodel//lib/active_model/dirty.rb#367
   def attribute_changed_in_place?(attr_name); end
 
-  # source://activemodel//lib/active_model/dirty.rb#303
+  # source://activemodel//lib/active_model/dirty.rb#310
   def attribute_previously_changed?(attr_name, **options); end
 
-  # source://activemodel//lib/active_model/dirty.rb#308
+  # source://activemodel//lib/active_model/dirty.rb#315
   def attribute_previously_was(attr_name); end
 
-  # source://activemodel//lib/active_model/dirty.rb#298
+  # source://activemodel//lib/active_model/dirty.rb#305
   def attribute_was(attr_name); end
 
-  # source://activemodel//lib/active_model/dirty.rb#288
+  # source://activemodel//lib/active_model/dirty.rb#295
   def changed; end
 
-  # source://activemodel//lib/active_model/dirty.rb#279
+  # source://activemodel//lib/active_model/dirty.rb#286
   def changed?; end
 
-  # source://activemodel//lib/active_model/dirty.rb#336
+  # source://activemodel//lib/active_model/dirty.rb#343
   def changed_attributes; end
 
-  # source://activemodel//lib/active_model/dirty.rb#346
+  # source://activemodel//lib/active_model/dirty.rb#353
   def changes; end
 
-  # source://activemodel//lib/active_model/dirty.rb#265
+  # source://activemodel//lib/active_model/dirty.rb#272
   def changes_applied; end
 
-  # source://activemodel//lib/active_model/dirty.rb#324
+  # source://activemodel//lib/active_model/dirty.rb#331
   def clear_attribute_changes(attr_names); end
 
-  # source://activemodel//lib/active_model/dirty.rb#318
+  # source://activemodel//lib/active_model/dirty.rb#325
   def clear_changes_information; end
 
-  # source://activemodel//lib/active_model/dirty.rb#356
+  # source://activemodel//lib/active_model/dirty.rb#253
+  def init_attributes(other); end
+
+  # source://activemodel//lib/active_model/dirty.rb#363
   def previous_changes; end
 
-  # source://activemodel//lib/active_model/dirty.rb#313
+  # source://activemodel//lib/active_model/dirty.rb#320
   def restore_attributes(attr_names = T.unsafe(nil)); end
 
   private
 
-  # source://activemodel//lib/active_model/dirty.rb#392
+  # source://activemodel//lib/active_model/dirty.rb#399
   def attribute_change(attr_name); end
 
-  # source://activemodel//lib/active_model/dirty.rb#397
+  # source://activemodel//lib/active_model/dirty.rb#404
   def attribute_previous_change(attr_name); end
 
-  # source://activemodel//lib/active_model/dirty.rb#402
+  # source://activemodel//lib/active_model/dirty.rb#409
   def attribute_will_change!(attr_name); end
 
-  # source://activemodel//lib/active_model/dirty.rb#371
+  # source://activemodel//lib/active_model/dirty.rb#378
   def clear_attribute_change(attr_name); end
 
-  # source://activemodel//lib/active_model/dirty.rb#383
+  # source://activemodel//lib/active_model/dirty.rb#390
   def forget_attribute_assignments; end
 
-  # source://activemodel//lib/active_model/dirty.rb#365
+  # source://activemodel//lib/active_model/dirty.rb#372
   def init_internals; end
 
   # source://activemodel//lib/active_model/dirty.rb#248
   def initialize_dup(other); end
 
-  # source://activemodel//lib/active_model/dirty.rb#387
+  # source://activemodel//lib/active_model/dirty.rb#394
   def mutations_before_last_save; end
 
-  # source://activemodel//lib/active_model/dirty.rb#375
+  # source://activemodel//lib/active_model/dirty.rb#382
   def mutations_from_database; end
 
-  # source://activemodel//lib/active_model/dirty.rb#407
+  # source://activemodel//lib/active_model/dirty.rb#414
   def restore_attribute!(attr_name); end
 
   module GeneratedClassMethods
@@ -1145,6 +1149,14 @@ class ActiveModel::Error
 
     # source://activemodel//lib/active_model/error.rb#13
     def i18n_customize_full_message?; end
+
+    private
+
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
+    def __class_attr_i18n_customize_full_message; end
+
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
+    def __class_attr_i18n_customize_full_message=(new_value); end
   end
 end
 
@@ -1493,7 +1505,6 @@ module ActiveModel::Model
   module GeneratedClassMethods
     def __callbacks; end
     def __callbacks=(value); end
-    def __callbacks?; end
     def _validators; end
     def _validators=(value); end
     def _validators?; end
@@ -1504,7 +1515,6 @@ module ActiveModel::Model
 
   module GeneratedInstanceMethods
     def __callbacks; end
-    def __callbacks?; end
     def _validators; end
     def _validators?; end
     def param_delimiter=(value); end
@@ -1736,14 +1746,14 @@ end
 
 # source://activemodel//lib/active_model/secure_password.rb#17
 module ActiveModel::SecurePassword::ClassMethods
-  # source://activemodel//lib/active_model/secure_password.rb#101
-  def has_secure_password(attribute = T.unsafe(nil), validations: T.unsafe(nil)); end
+  # source://activemodel//lib/active_model/secure_password.rb#116
+  def has_secure_password(attribute = T.unsafe(nil), validations: T.unsafe(nil), reset_token: T.unsafe(nil)); end
 end
 
-# source://activemodel//lib/active_model/secure_password.rb#148
+# source://activemodel//lib/active_model/secure_password.rb#182
 class ActiveModel::SecurePassword::InstanceMethodsOnActivation < ::Module
-  # source://activemodel//lib/active_model/secure_password.rb#149
-  def initialize(attribute); end
+  # source://activemodel//lib/active_model/secure_password.rb#183
+  def initialize(attribute, reset_token:); end
 end
 
 # source://activemodel//lib/active_model/secure_password.rb#10
@@ -1758,7 +1768,7 @@ module ActiveModel::Serialization
 
   private
 
-  # source://activemodel//lib/active_model/serialization.rb#152
+  # source://activemodel//lib/active_model/serialization.rb#170
   def attribute_names_for_serialization; end
 
   # source://activemodel//lib/active_model/serialization.rb#184
@@ -1807,17 +1817,25 @@ class ActiveModel::StrictValidationFailed < ::StandardError; end
 module ActiveModel::Translation
   include ::ActiveModel::Naming
 
-  # source://activemodel//lib/active_model/translation.rb#46
+  # source://activemodel//lib/active_model/translation.rb#48
   def human_attribute_name(attribute, options = T.unsafe(nil)); end
 
-  # source://activemodel//lib/active_model/translation.rb#26
+  # source://activemodel//lib/active_model/translation.rb#28
   def i18n_scope; end
 
-  # source://activemodel//lib/active_model/translation.rb#34
+  # source://activemodel//lib/active_model/translation.rb#36
   def lookup_ancestors; end
+
+  class << self
+    # source://activemodel//lib/active_model/translation.rb#25
+    def raise_on_missing_translations; end
+
+    # source://activemodel//lib/active_model/translation.rb#25
+    def raise_on_missing_translations=(_arg0); end
+  end
 end
 
-# source://activemodel//lib/active_model/translation.rb#38
+# source://activemodel//lib/active_model/translation.rb#40
 ActiveModel::Translation::MISSING_TRANSLATION = T.let(T.unsafe(nil), Integer)
 
 # source://activemodel//lib/active_model/type/helpers/accepts_multiparameter_time.rb#4
@@ -2091,7 +2109,7 @@ module ActiveModel::Type::Helpers::TimeValue
 
   private
 
-  # source://activemodel//lib/active_model/type/helpers/time_value.rb#89
+  # source://activemodel//lib/active_model/type/helpers/time_value.rb#88
   def fast_string_to_time(string); end
 
   # source://activemodel//lib/active_model/type/helpers/time_value.rb#47
@@ -2311,7 +2329,7 @@ class ActiveModel::Type::Value
   def limit; end
 
   # source://activemodel//lib/active_model/type/value.rb#117
-  def map(value); end
+  def map(value, &_arg1); end
 
   # source://activemodel//lib/active_model/type/value.rb#140
   def mutable?; end
@@ -2323,7 +2341,7 @@ class ActiveModel::Type::Value
   def scale; end
 
   # source://activemodel//lib/active_model/type/value.rb#28
-  def serializable?(value); end
+  def serializable?(value, &_); end
 
   # source://activemodel//lib/active_model/type/value.rb#65
   def serialize(value); end
@@ -2368,7 +2386,7 @@ ActiveModel::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActiveModel::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://activemodel//lib/active_model/gem_version.rb#13
-ActiveModel::VERSION::PRE = T.let(T.unsafe(nil), String)
+ActiveModel::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
 
 # source://activemodel//lib/active_model/gem_version.rb#15
 ActiveModel::VERSION::STRING = T.let(T.unsafe(nil), String)
@@ -2376,12 +2394,21 @@ ActiveModel::VERSION::STRING = T.let(T.unsafe(nil), String)
 # source://activemodel//lib/active_model/gem_version.rb#12
 ActiveModel::VERSION::TINY = T.let(T.unsafe(nil), Integer)
 
-# source://activemodel//lib/active_model/validations.rb#460
+# source://activemodel//lib/active_model/validations.rb#503
+class ActiveModel::ValidationContext
+  # source://activemodel//lib/active_model/validations.rb#504
+  def context; end
+
+  # source://activemodel//lib/active_model/validations.rb#504
+  def context=(_arg0); end
+end
+
+# source://activemodel//lib/active_model/validations.rb#493
 class ActiveModel::ValidationError < ::StandardError
-  # source://activemodel//lib/active_model/validations.rb#463
+  # source://activemodel//lib/active_model/validations.rb#496
   def initialize(model); end
 
-  # source://activemodel//lib/active_model/validations.rb#461
+  # source://activemodel//lib/active_model/validations.rb#494
   def model; end
 end
 
@@ -2400,44 +2427,55 @@ module ActiveModel::Validations
   mixes_in_class_methods ::ActiveModel::Translation
   mixes_in_class_methods ::ActiveModel::Validations::HelperMethods
 
-  # source://activemodel//lib/active_model/validations.rb#330
+  # source://activemodel//lib/active_model/validations.rb#328
   def errors; end
 
-  # source://activemodel//lib/active_model/validations.rb#402
+  # source://activemodel//lib/active_model/validations.rb#372
+  def freeze; end
+
+  # source://activemodel//lib/active_model/validations.rb#408
   def invalid?(context = T.unsafe(nil)); end
 
   def read_attribute_for_validation(*_arg0); end
 
-  # source://activemodel//lib/active_model/validations.rb#363
+  # source://activemodel//lib/active_model/validations.rb#361
   def valid?(context = T.unsafe(nil)); end
 
-  # source://activemodel//lib/active_model/validations.rb#363
+  # source://activemodel//lib/active_model/validations.rb#361
   def validate(context = T.unsafe(nil)); end
 
-  # source://activemodel//lib/active_model/validations.rb#411
+  # source://activemodel//lib/active_model/validations.rb#417
   def validate!(context = T.unsafe(nil)); end
 
   # source://activemodel//lib/active_model/validations/with.rb#144
   def validates_with(*args, &block); end
 
+  # source://activemodel//lib/active_model/validations.rb#454
+  def validation_context; end
+
   private
 
-  # source://activemodel//lib/active_model/validations.rb#434
+  # source://activemodel//lib/active_model/validations.rb#463
+  def context_for_validation; end
+
+  # source://activemodel//lib/active_model/validations.rb#467
   def init_internals; end
 
-  # source://activemodel//lib/active_model/validations.rb#312
+  # source://activemodel//lib/active_model/validations.rb#310
   def initialize_dup(other); end
 
-  # source://activemodel//lib/active_model/validations.rb#445
+  # source://activemodel//lib/active_model/validations.rb#478
   def raise_validation_error; end
 
-  # source://activemodel//lib/active_model/validations.rb#440
+  # source://activemodel//lib/active_model/validations.rb#473
   def run_validations!; end
+
+  # source://activemodel//lib/active_model/validations.rb#459
+  def validation_context=(context); end
 
   module GeneratedClassMethods
     def __callbacks; end
     def __callbacks=(value); end
-    def __callbacks?; end
     def _validators; end
     def _validators=(value); end
     def _validators?; end
@@ -2445,7 +2483,6 @@ module ActiveModel::Validations
 
   module GeneratedInstanceMethods
     def __callbacks; end
-    def __callbacks?; end
     def _validators; end
     def _validators?; end
   end
@@ -2516,12 +2553,10 @@ module ActiveModel::Validations::Callbacks
   module GeneratedClassMethods
     def __callbacks; end
     def __callbacks=(value); end
-    def __callbacks?; end
   end
 
   module GeneratedInstanceMethods
     def __callbacks; end
-    def __callbacks?; end
   end
 end
 
@@ -2539,51 +2574,51 @@ module ActiveModel::Validations::Callbacks::ClassMethods
   def set_options_for_callback(options); end
 end
 
-# source://activemodel//lib/active_model/validations.rb#74
+# source://activemodel//lib/active_model/validations.rb#53
 module ActiveModel::Validations::ClassMethods
-  # source://activemodel//lib/active_model/validations.rb#284
+  # source://activemodel//lib/active_model/validations.rb#282
   def attribute_method?(attribute); end
 
-  # source://activemodel//lib/active_model/validations.rb#248
+  # source://activemodel//lib/active_model/validations.rb#246
   def clear_validators!; end
 
-  # source://activemodel//lib/active_model/validations.rb#289
+  # source://activemodel//lib/active_model/validations.rb#287
   def inherited(base); end
 
-  # source://activemodel//lib/active_model/validations.rb#171
+  # source://activemodel//lib/active_model/validations.rb#160
   def validate(*args, &block); end
 
-  # source://activemodel//lib/active_model/validations/validates.rb#106
+  # source://activemodel//lib/active_model/validations/validates.rb#111
   def validates(*attributes); end
 
-  # source://activemodel//lib/active_model/validations/validates.rb#148
+  # source://activemodel//lib/active_model/validations/validates.rb#153
   def validates!(*attributes); end
 
-  # source://activemodel//lib/active_model/validations.rb#104
+  # source://activemodel//lib/active_model/validations.rb#88
   def validates_each(*attr_names, &block); end
 
   # source://activemodel//lib/active_model/validations/with.rb#88
   def validates_with(*args, &block); end
 
-  # source://activemodel//lib/active_model/validations.rb#206
+  # source://activemodel//lib/active_model/validations.rb#204
   def validators; end
 
-  # source://activemodel//lib/active_model/validations.rb#268
+  # source://activemodel//lib/active_model/validations.rb#266
   def validators_on(*attributes); end
 
   private
 
-  # source://activemodel//lib/active_model/validations/validates.rb#161
+  # source://activemodel//lib/active_model/validations/validates.rb#166
   def _parse_validates_options(options); end
 
-  # source://activemodel//lib/active_model/validations/validates.rb#157
+  # source://activemodel//lib/active_model/validations/validates.rb#162
   def _validates_default_keys; end
 
-  # source://activemodel//lib/active_model/validations.rb#298
+  # source://activemodel//lib/active_model/validations.rb#296
   def predicate_for_validation_context(context); end
 end
 
-# source://activemodel//lib/active_model/validations.rb#108
+# source://activemodel//lib/active_model/validations.rb#92
 ActiveModel::Validations::ClassMethods::VALID_OPTIONS_FOR_VALIDATE = T.let(T.unsafe(nil), Array)
 
 # source://activemodel//lib/active_model/validations/clusivity.rb#8

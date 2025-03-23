@@ -781,12 +781,6 @@ class Rake::FileList
   def import(array); end
 
   # source://rake//lib/rake/file_list.rb#77
-  def in_groups(*args, &block); end
-
-  # source://rake//lib/rake/file_list.rb#77
-  def in_groups_of(*args, &block); end
-
-  # source://rake//lib/rake/file_list.rb#77
   def in_order_of(*args, &block); end
 
   # source://rake//lib/rake/file_list.rb#116
@@ -809,9 +803,6 @@ class Rake::FileList
 
   # source://rake//lib/rake/file_list.rb#77
   def inject(*args, &block); end
-
-  # source://rake//lib/rake/file_list.rb#77
-  def inquiry(*args, &block); end
 
   # source://rake//lib/rake/file_list.rb#77
   def insert(*args, &block); end
@@ -1022,9 +1013,6 @@ class Rake::FileList
 
   # source://rake//lib/rake/file_list.rb#77
   def sort_by!(*args, &block); end
-
-  # source://rake//lib/rake/file_list.rb#77
-  def split(*args, &block); end
 
   # source://rake//lib/rake/file_list.rb#242
   def sub(pat, rep); end

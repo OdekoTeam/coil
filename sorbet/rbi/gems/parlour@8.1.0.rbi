@@ -791,7 +791,7 @@ class Parlour::RbiGenerator::Namespace < ::Parlour::RbiGenerator::RbiObject
   # source://parlour//lib/parlour/rbi_generator/namespace.rb#482
   def create_arbitrary(code:, &block); end
 
-  # source://sorbet-runtime/0.5.11391/lib/types/private/methods/_methods.rb#257
+  # source://sorbet-runtime/0.5.11953/lib/types/private/methods/_methods.rb#257
   def create_attr(*args, **_arg1, &blk); end
 
   # source://parlour//lib/parlour/rbi_generator/namespace.rb#472
@@ -997,7 +997,7 @@ class Parlour::RbiGenerator::Namespace < ::Parlour::RbiGenerator::RbiObject
   sig { returns(T::Boolean) }
   def sealed; end
 
-  # source://sorbet-runtime/0.5.11391/lib/types/private/methods/_methods.rb#257
+  # source://sorbet-runtime/0.5.11953/lib/types/private/methods/_methods.rb#257
   def type_aliases(*args, **_arg1, &blk); end
 
   private
@@ -1684,7 +1684,7 @@ class Parlour::RbsGenerator::Namespace < ::Parlour::RbsGenerator::RbsObject
   # source://parlour//lib/parlour/rbs_generator/namespace.rb#357
   def create_arbitrary(code:, &block); end
 
-  # source://sorbet-runtime/0.5.11391/lib/types/private/methods/_methods.rb#257
+  # source://sorbet-runtime/0.5.11953/lib/types/private/methods/_methods.rb#257
   def create_attr(*args, **_arg1, &blk); end
 
   # source://parlour//lib/parlour/rbs_generator/namespace.rb#347
@@ -1849,7 +1849,7 @@ class Parlour::RbsGenerator::Namespace < ::Parlour::RbsGenerator::RbsObject
   sig { params(object: T.untyped, block: T.proc.params(x: Parlour::RbsGenerator::Namespace).void).void }
   def path(object, &block); end
 
-  # source://sorbet-runtime/0.5.11391/lib/types/private/methods/_methods.rb#257
+  # source://sorbet-runtime/0.5.11953/lib/types/private/methods/_methods.rb#257
   def type_aliases(*args, **_arg1, &blk); end
 
   private
@@ -2145,7 +2145,7 @@ class Parlour::TypeParser::IntermediateSig < ::T::Struct
   prop :params, T.nilable(T::Array[::Parser::AST::Node])
 
   class << self
-    # source://sorbet-runtime/0.5.11391/lib/types/struct.rb#13
+    # source://sorbet-runtime/0.5.11953/lib/types/struct.rb#13
     def inherited(s); end
   end
 end
@@ -2189,7 +2189,7 @@ class Parlour::TypedObject
   sig { params(comment: T.any(::String, T::Array[::String])).void }
   def add_comment(comment); end
 
-  # source://sorbet-runtime/0.5.11391/lib/types/private/methods/_methods.rb#257
+  # source://sorbet-runtime/0.5.11953/lib/types/private/methods/_methods.rb#257
   def add_comments(*args, **_arg1, &blk); end
 
   # source://parlour//lib/parlour/typed_object.rb#32
@@ -2208,14 +2208,14 @@ class Parlour::TypedObject
   sig { returns(T.nilable(::Parlour::Plugin)) }
   def generated_by; end
 
-  # source://sorbet-runtime/0.5.11391/lib/types/private/methods/_methods.rb#257
+  # source://sorbet-runtime/0.5.11953/lib/types/private/methods/_methods.rb#257
   def inspect(*args, **_arg1, &blk); end
 
   # source://parlour//lib/parlour/typed_object.rb#26
   sig { returns(::String) }
   def name; end
 
-  # source://sorbet-runtime/0.5.11391/lib/types/private/methods/_methods.rb#257
+  # source://sorbet-runtime/0.5.11953/lib/types/private/methods/_methods.rb#257
   def to_s(*args, **_arg1, &blk); end
 
   protected
