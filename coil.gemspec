@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency("sidekiq", ">= 5.2", "< 8.0")
   spec.add_dependency("pg", ">= 0", "< 2.0")
 
-  spec.add_development_dependency("rails", ">= 6.0.6", "< 8.0")
+  spec.add_development_dependency("rails", "~> 7.1.5", "< 8.0")
   spec.add_development_dependency("sidekiq", ">= 5.2", "< 8.0")
   spec.add_development_dependency("pg", ">= 0", "< 2.0")
   spec.add_development_dependency("puma", "~> 6.0")
