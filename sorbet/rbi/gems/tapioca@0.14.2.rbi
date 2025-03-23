@@ -28,13 +28,6 @@ class GitAttributes
   end
 end
 
-# We need to do the alias-method-chain dance since Bootsnap does the same,
-# and prepended modules and alias-method-chain don't play well together.
-#
-# So, why does Bootsnap do alias-method-chain and not prepend? Glad you asked!
-# That's because RubyGems does alias-method-chain for Kernel#require and such,
-# so, if Bootsnap were to do prepend, it might end up breaking RubyGems.
-#
 # source://tapioca//lib/tapioca/runtime/trackers/autoload.rb#68
 class Module
   # source://tapioca//lib/tapioca/runtime/trackers/mixin.rb#101
@@ -254,13 +247,6 @@ module T::Generic
   def type_template(variance = T.unsafe(nil), &bounds_proc); end
 end
 
-# This module intercepts calls to generic type instantiations and type variable definitions.
-# Tapioca stores the data from those calls in a `GenericTypeRegistry` which can then be used
-# to look up the original call details when we are trying to do code generation.
-#
-# We are interested in the data of the `[]`, `type_member` and `type_template` calls which
-# are all needed to generate good generic information at runtime.
-#
 # source://tapioca//lib/tapioca/sorbet_ext/generic_name_patch.rb#12
 module T::Generic::TypeStoragePatch
   # source://tapioca//lib/tapioca/sorbet_ext/generic_name_patch.rb#13
@@ -363,11 +349,6 @@ end
 
 # source://tapioca//lib/tapioca/sorbet_ext/generic_name_patch.rb#65
 module T::Types::Simple::GenericPatch
-  # This method intercepts calls to the `name` method for simple types, so that
-  # it can ask the name to the type if the type is generic, since, by this point,
-  # we've created a clone of that type with the `name` method returning the
-  # appropriate name for that specific concrete type.
-  #
   # source://tapioca//lib/tapioca/sorbet_ext/generic_name_patch.rb#70
   def name; end
 end
@@ -418,10 +399,6 @@ Tapioca::BINARY_FILE = T.let(T.unsafe(nil), String)
 # source://tapioca//lib/tapioca/bundler_ext/auto_require_hook.rb#5
 module Tapioca::BundlerExt; end
 
-# This is a module that gets prepended to `Bundler::Dependency` and
-# makes sure even gems marked as `require: false` are required during
-# `Bundler.require`.
-#
 # source://tapioca//lib/tapioca/bundler_ext/auto_require_hook.rb#9
 module Tapioca::BundlerExt::AutoRequireHook
   requires_ancestor { Bundler::Dependency }
@@ -431,8 +408,6 @@ module Tapioca::BundlerExt::AutoRequireHook
   def autorequire; end
 
   class << self
-    # @return [Boolean]
-    #
     # source://tapioca//lib/tapioca/bundler_ext/auto_require_hook.rb#26
     def enabled?; end
 
@@ -482,8 +457,6 @@ class Tapioca::Cli < ::Thor
   # source://tapioca//lib/tapioca/cli.rb#143
   def dsl(*constant_or_paths); end
 
-  # @raise [MalformattedArgumentError]
-  #
   # source://tapioca//lib/tapioca/cli.rb#259
   def gem(*gems); end
 
@@ -530,8 +503,6 @@ end
 # source://tapioca//lib/tapioca/commands.rb#5
 module Tapioca::Commands; end
 
-# @abstract It cannot be directly instantiated. Subclasses must implement the `abstract` methods below.
-#
 # source://tapioca//lib/tapioca/commands/abstract_dsl.rb#6
 class Tapioca::Commands::AbstractDsl < ::Tapioca::Commands::CommandWithoutTracker
   include ::Tapioca::SorbetHelper
@@ -656,8 +627,6 @@ class Tapioca::Commands::AbstractDsl < ::Tapioca::Commands::CommandWithoutTracke
   def verify_dsl_rbi(tmp_dir:); end
 end
 
-# @abstract It cannot be directly instantiated. Subclasses must implement the `abstract` methods below.
-#
 # source://tapioca//lib/tapioca/commands/abstract_gem.rb#6
 class Tapioca::Commands::AbstractGem < ::Tapioca::Commands::Command
   include ::Tapioca::SorbetHelper
@@ -871,8 +840,6 @@ class Tapioca::Commands::CheckShims < ::Tapioca::Commands::CommandWithoutTracker
   def execute; end
 end
 
-# @abstract It cannot be directly instantiated. Subclasses must implement the `abstract` methods below.
-#
 # source://tapioca//lib/tapioca/commands/command.rb#6
 class Tapioca::Commands::Command
   include ::Thor::Base
@@ -888,7 +855,7 @@ class Tapioca::Commands::Command
   sig { void }
   def initialize; end
 
-  # source://thor/1.3.1/lib/thor/base.rb#155
+  # source://thor/1.3.2/lib/thor/base.rb#155
   sig { returns(::Thor::Actions) }
   def file_writer; end
 
@@ -914,8 +881,6 @@ class Tapioca::Commands::Command
   sig { params(command: ::Symbol, args: ::String).returns(::String) }
   def default_command(command, *args); end
 
-  # @abstract
-  #
   # source://tapioca//lib/tapioca/commands/command.rb#34
   sig { abstract.void }
   def execute; end
@@ -931,8 +896,6 @@ class Tapioca::Commands::Command::FileWriter < ::Thor
   extend ::Thor::Actions::ClassMethods
 end
 
-# @abstract It cannot be directly instantiated. Subclasses must implement the `abstract` methods below.
-#
 # source://tapioca//lib/tapioca/commands/command_without_tracker.rb#6
 class Tapioca::Commands::CommandWithoutTracker < ::Tapioca::Commands::Command
   abstract!
@@ -1202,8 +1165,6 @@ Tapioca::DEFAULT_TODO_FILE = T.let(T.unsafe(nil), String)
 # source://tapioca//lib/tapioca/dsl/compilers.rb#5
 module Tapioca::Dsl; end
 
-# @abstract It cannot be directly instantiated. Subclasses must implement the `abstract` methods below.
-#
 # source://tapioca//lib/tapioca/dsl/compiler.rb#6
 class Tapioca::Dsl::Compiler
   extend T::Generic
@@ -1222,8 +1183,6 @@ class Tapioca::Dsl::Compiler
   sig { params(pipeline: ::Tapioca::Dsl::Pipeline, root: ::RBI::Tree, constant: ConstantType).void }
   def initialize(pipeline, root, constant); end
 
-  # NOTE: This should eventually accept an `Error` object or `Exception` rather than simply a `String`.
-  #
   # source://tapioca//lib/tapioca/dsl/compiler.rb#81
   sig { params(error: ::String).void }
   def add_error(error); end
@@ -1236,8 +1195,6 @@ class Tapioca::Dsl::Compiler
   sig { returns(ConstantType) }
   def constant; end
 
-  # @abstract
-  #
   # source://tapioca//lib/tapioca/dsl/compiler.rb#77
   sig { abstract.void }
   def decorate; end
@@ -1260,15 +1217,11 @@ class Tapioca::Dsl::Compiler
   sig { params(scope: ::RBI::Scope, method_def: T.any(::Method, ::UnboundMethod), class_method: T::Boolean).void }
   def create_method_from_def(scope, method_def, class_method: T.unsafe(nil)); end
 
-  # Get the types of each parameter from a method signature
-  #
   # source://tapioca//lib/tapioca/dsl/compiler.rb#94
   sig { params(method_def: T.any(::Method, ::UnboundMethod), signature: T.untyped).returns(T::Array[::String]) }
   def parameters_types_from_signature(method_def, signature); end
 
   class << self
-    # @abstract
-    #
     # source://tapioca//lib/tapioca/dsl/compiler.rb#34
     sig { abstract.returns(T::Enumerable[::Module]) }
     def gather_constants; end
@@ -1296,13 +1249,6 @@ end
 # source://tapioca//lib/tapioca/dsl/compilers.rb#6
 module Tapioca::Dsl::Compilers; end
 
-# DSL compilers are either built-in to Tapioca and live under the
-# `Tapioca::Dsl::Compilers` namespace (i.e. this namespace), and
-# can be referred to by just using the class name, or they live in
-# a different namespace and can only be referred to using their fully
-# qualified name. This constant encapsulates that dual lookup when
-# a compiler needs to be resolved by name.
-#
 # source://tapioca//lib/tapioca/dsl/compilers.rb#13
 Tapioca::Dsl::Compilers::NAMESPACES = T.let(T.unsafe(nil), Array)
 
@@ -1470,8 +1416,6 @@ class Tapioca::Gem::ConstantFound < ::Tapioca::Gem::Event
   def symbol; end
 end
 
-# @abstract It cannot be directly instantiated. Subclasses must implement the `abstract` methods below.
-#
 # source://tapioca//lib/tapioca/gem/events.rb#6
 class Tapioca::Gem::Event
   abstract!
@@ -1494,8 +1438,6 @@ class Tapioca::Gem::ForeignScopeNodeAdded < ::Tapioca::Gem::ScopeNodeAdded; end
 # source://tapioca//lib/tapioca/gem/listeners/base.rb#6
 module Tapioca::Gem::Listeners; end
 
-# @abstract It cannot be directly instantiated. Subclasses must implement the `abstract` methods below.
-#
 # source://tapioca//lib/tapioca/gem/listeners/base.rb#7
 class Tapioca::Gem::Listeners::Base
   abstract!
@@ -1612,16 +1554,6 @@ class Tapioca::Gem::Listeners::Methods < ::Tapioca::Gem::Listeners::Base
   sig { params(attached_class: T.nilable(::Module), method_name: ::Symbol).returns(T.nilable(T::Boolean)) }
   def method_new_in_abstract_class?(attached_class, method_name); end
 
-  # Check whether the method is defined by the constant.
-  #
-  # In most cases, it works to check that the constant is the method owner. However,
-  # in the case that a method is also defined in a module prepended to the constant, it
-  # will be owned by the prepended module, not the constant.
-  #
-  # This method implements a better way of checking whether a constant defines a method.
-  # It walks up the ancestor tree via the `super_method` method; if any of the super
-  # methods are owned by the constant, it means that the constant declares the method.
-  #
   # source://tapioca//lib/tapioca/gem/listeners/methods.rb#158
   sig { params(method: ::UnboundMethod, constant: ::Module).returns(T::Boolean) }
   def method_owned_by_constant?(method, constant); end
@@ -1907,8 +1839,6 @@ class Tapioca::Gem::MethodNodeAdded < ::Tapioca::Gem::NodeAdded
   def signature; end
 end
 
-# @abstract It cannot be directly instantiated. Subclasses must implement the `abstract` methods below.
-#
 # source://tapioca//lib/tapioca/gem/events.rb#57
 class Tapioca::Gem::NodeAdded < ::Tapioca::Gem::Event
   abstract!
@@ -1953,8 +1883,6 @@ class Tapioca::Gem::Pipeline
   sig { params(method: ::UnboundMethod).returns(T::Boolean) }
   def method_in_gem?(method); end
 
-  # Helpers
-  #
   # source://tapioca//lib/tapioca/gem/pipeline.rb#147
   sig { params(constant: ::Module).returns(T.nilable(::String)) }
   def name_of(constant); end
@@ -1992,14 +1920,10 @@ class Tapioca::Gem::Pipeline
   sig { params(symbol: ::String, constant: ::Module, node: ::RBI::Scope).void }
   def push_scope(symbol, constant, node); end
 
-  # Events handling
-  #
   # source://tapioca//lib/tapioca/gem/pipeline.rb#56
   sig { params(symbol: ::String).void }
   def push_symbol(symbol); end
 
-  # Constants and properties filtering
-  #
   # source://tapioca//lib/tapioca/gem/pipeline.rb#106
   sig { params(symbol_name: ::String).returns(T::Boolean) }
   def symbol_in_payload?(symbol_name); end
@@ -2022,8 +1946,6 @@ class Tapioca::Gem::Pipeline
   sig { params(symbol: ::String, constant: ::BasicObject).void }
   def compile_constant(symbol, constant); end
 
-  # Compiling
-  #
   # source://tapioca//lib/tapioca/gem/pipeline.rb#219
   sig { params(symbol: ::String, constant: ::Module).void }
   def compile_foreign_constant(symbol, constant); end
@@ -2052,8 +1974,6 @@ class Tapioca::Gem::Pipeline
   sig { params(event: ::Tapioca::Gem::Event).void }
   def dispatch(event); end
 
-  # Helpers
-  #
   # source://tapioca//lib/tapioca/gem/pipeline.rb#464
   sig { params(constant: T.all(::Module, ::T::Generic)).returns(::String) }
   def generic_name_of(constant); end
@@ -2070,8 +1990,6 @@ class Tapioca::Gem::Pipeline
   sig { params(constant: ::Module, class_name: T.nilable(::String)).returns(T.nilable(::String)) }
   def name_of_proxy_target(constant, class_name); end
 
-  # Events handling
-  #
   # source://tapioca//lib/tapioca/gem/pipeline.rb#172
   sig { returns(::Tapioca::Gem::Event) }
   def next_event; end
@@ -2116,17 +2034,11 @@ class Tapioca::Gem::Pipeline
   sig { params(name: ::String, constant: ::BasicObject).returns(T::Boolean) }
   def skip_object?(name, constant); end
 
-  # Constants and properties filtering
-  #
   # source://tapioca//lib/tapioca/gem/pipeline.rb#374
   sig { params(name: ::String).returns(T::Boolean) }
   def skip_symbol?(name); end
 end
 
-# this looks something like:
-# "(eval at /path/to/file.rb:123)"
-# and we are just interested in the "/path/to/file.rb" part
-#
 # source://tapioca//lib/tapioca/gem/pipeline.rb#116
 Tapioca::Gem::Pipeline::EVAL_SOURCE_FILE_PATTERN = T.let(T.unsafe(nil), Regexp)
 
@@ -2224,8 +2136,6 @@ class Tapioca::Gemfile
   sig { returns([T::Array[::Tapioca::Gemfile::GemSpec], T::Array[::String]]) }
   def load_dependencies; end
 
-  # @return [File]
-  #
   # source://tapioca//lib/tapioca/gemfile.rb#54
   def lockfile; end
 
@@ -2298,8 +2208,6 @@ class Tapioca::Gemfile::GemSpec
   sig { params(file: ::Pathname).returns(::Pathname) }
   def relative_path_for(file); end
 
-  # @return [String]
-  #
   # source://tapioca//lib/tapioca/gemfile.rb#130
   def version; end
 
@@ -2437,8 +2345,6 @@ class Tapioca::Loaders::Gem < ::Tapioca::Loaders::Loader
   end
 end
 
-# @abstract It cannot be directly instantiated. Subclasses must implement the `abstract` methods below.
-#
 # source://tapioca//lib/tapioca/loaders/loader.rb#6
 class Tapioca::Loaders::Loader
   include ::Thor::Base
@@ -2451,19 +2357,12 @@ class Tapioca::Loaders::Loader
 
   abstract!
 
-  # @abstract
-  #
   # source://tapioca//lib/tapioca/loaders/loader.rb#17
   sig { abstract.void }
   def load; end
 
   private
 
-  # Rails 7.2 renamed `eager_load_paths` to `all_eager_load_paths`, which maintains the same original functionality.
-  # The `eager_load_paths` method still exists, but doesn't return all paths anymore and causes Tapioca to miss some
-  # engine paths. The following commit is the change:
-  # https://github.com/rails/rails/commit/ebfca905db14020589c22e6937382e6f8f687664
-  #
   # source://tapioca//lib/tapioca/loaders/loader.rb#223
   sig { params(engine: T.class_of(Rails::Engine)).returns(T::Array[::String]) }
   def eager_load_paths(engine); end
@@ -2472,8 +2371,6 @@ class Tapioca::Loaders::Loader
   sig { void }
   def eager_load_rails_app; end
 
-  # @return [Array<T.class_of(Rails::Engine)>]
-  #
   # source://tapioca//lib/tapioca/loaders/loader.rb#167
   def engines; end
 
@@ -2736,12 +2633,8 @@ end
 # source://tapioca//lib/tapioca/runtime/trackers/autoload.rb#5
 module Tapioca::Runtime; end
 
-# This module should only be included when running versions of Ruby
-# older than 3.2. Because the Class#attached_object method is not
-# available, it implements finding the attached class of a singleton
-# class by iterating through ObjectSpace.
 module Tapioca::Runtime::AttachedClassOf
-  # source://tapioca//lib/tapioca/runtime/attached_class_of_legacy.rb#17
+  # source://tapioca//lib/tapioca/runtime/attached_class_of_32.rb#14
   sig { params(singleton_class: ::Class).returns(T.nilable(::Module)) }
   def attached_class_of(singleton_class); end
 end
@@ -2755,8 +2648,6 @@ class Tapioca::Runtime::DynamicMixinCompiler
   sig { params(constant: ::Module).void }
   def initialize(constant); end
 
-  # @return [Array<Symbol>]
-  #
   # source://tapioca//lib/tapioca/runtime/dynamic_mixin_compiler.rb#14
   def class_attribute_predicates; end
 
@@ -2764,8 +2655,6 @@ class Tapioca::Runtime::DynamicMixinCompiler
   sig { returns(T::Array[::Symbol]) }
   def class_attribute_readers; end
 
-  # @return [Array<Symbol>]
-  #
   # source://tapioca//lib/tapioca/runtime/dynamic_mixin_compiler.rb#14
   def class_attribute_writers; end
 
@@ -2781,8 +2670,6 @@ class Tapioca::Runtime::DynamicMixinCompiler
   sig { returns(T::Array[::Module]) }
   def dynamic_extends; end
 
-  # @return [Array<Module>]
-  #
   # source://tapioca//lib/tapioca/runtime/dynamic_mixin_compiler.rb#11
   def dynamic_includes; end
 
@@ -2794,8 +2681,6 @@ class Tapioca::Runtime::DynamicMixinCompiler
   sig { params(qualified_mixin_name: ::String).returns(T::Boolean) }
   def filtered_mixin?(qualified_mixin_name); end
 
-  # @return [Array<Symbol>]
-  #
   # source://tapioca//lib/tapioca/runtime/dynamic_mixin_compiler.rb#17
   def instance_attribute_predicates; end
 
@@ -2803,8 +2688,6 @@ class Tapioca::Runtime::DynamicMixinCompiler
   sig { returns(T::Array[::Symbol]) }
   def instance_attribute_readers; end
 
-  # @return [Array<Symbol>]
-  #
   # source://tapioca//lib/tapioca/runtime/dynamic_mixin_compiler.rb#17
   def instance_attribute_writers; end
 
@@ -2813,24 +2696,6 @@ class Tapioca::Runtime::DynamicMixinCompiler
   def module_included_by_another_dynamic_extend?(mod, dynamic_extends); end
 end
 
-# This class is responsible for storing and looking up information related to generic types.
-#
-# The class stores 2 different kinds of data, in two separate lookup tables:
-#   1. a lookup of generic type instances by name: `@generic_instances`
-#   2. a lookup of type variable serializer by constant and type variable
-#      instance: `@type_variables`
-#
-# By storing the above data, we can cheaply query each constant against this registry
-# to see if it declares any generic type variables. This becomes a simple lookup in the
-# `@type_variables` hash table with the given constant.
-#
-# If there is no entry, then we can cheaply know that we can skip generic type
-# information generation for this type.
-#
-# On the other hand, if we get a result, then the result will be a hash of type
-# variable to type variable serializers. This allows us to associate type variables
-# to the constant names that represent them, easily.
-#
 # source://tapioca//lib/tapioca/runtime/generic_type_registry.rb#23
 module Tapioca::Runtime::GenericTypeRegistry
   class << self
@@ -2842,32 +2707,10 @@ module Tapioca::Runtime::GenericTypeRegistry
     sig { params(constant: ::Module).returns(T.nilable(T::Array[::Tapioca::TypeVariableModule])) }
     def lookup_type_variables(constant); end
 
-    # This method is responsible for building the name of the instantiated concrete type
-    # and cloning the given constant so that we can return a type that is the same
-    # as the current type but is a different instance and has a different name method.
-    #
-    # We cache those cloned instances by their name in `@generic_instances`, so that
-    # we don't keep instantiating a new type every single time it is referenced.
-    # For example, `[Foo[Integer], Foo[Integer], Foo[Integer], Foo[String]]` will only
-    # result in 2 clones (1 for `Foo[Integer]` and another for `Foo[String]`) and
-    # 2 hash lookups (for the other two `Foo[Integer]`s).
-    #
-    # This method returns the created or cached clone of the constant.
-    #
     # source://tapioca//lib/tapioca/runtime/generic_type_registry.rb#65
     sig { params(constant: T.untyped, types: T.untyped).returns(::Module) }
     def register_type(constant, types); end
 
-    # This method is called from intercepted calls to `type_member` and `type_template`.
-    # We get passed all the arguments to those methods, as well as the `T::Types::TypeVariable`
-    # instance generated by the Sorbet defined `type_member`/`type_template` call on `T::Generic`.
-    #
-    # This method creates a `String` with that data and stores it in the
-    # `@type_variables` lookup table, keyed by the `constant` and `type_variable`.
-    #
-    # Finally, the original `type_variable` is returned from this method, so that the caller
-    # can return it from the original methods as well.
-    #
     # source://tapioca//lib/tapioca/runtime/generic_type_registry.rb#104
     sig { params(constant: T.untyped, type_variable: ::Tapioca::TypeVariableModule).void }
     def register_type_variable(constant, type_variable); end
@@ -2920,9 +2763,6 @@ module Tapioca::Runtime::Reflection
   sig { params(object: ::BasicObject).returns(T::Class[T.anything]) }
   def class_of(object); end
 
-  # @param constant [BasicObject]
-  # @return [Boolean]
-  #
   # source://tapioca//lib/tapioca/runtime/reflection.rb#38
   def constant_defined?(constant); end
 
@@ -2934,20 +2774,6 @@ module Tapioca::Runtime::Reflection
   sig { params(constant: ::Module).returns(T::Array[::Symbol]) }
   def constants_of(constant); end
 
-  # Returns an array with all classes that are < than the supplied class.
-  #
-  #   class C; end
-  #   descendants_of(C) # => []
-  #
-  #   class B < C; end
-  #   descendants_of(C) # => [B]
-  #
-  #   class A < B; end
-  #   descendants_of(C) # => [B, A]
-  #
-  #   class D < C; end
-  #   descendants_of(C) # => [B, A, D]
-  #
   # source://tapioca//lib/tapioca/runtime/reflection.rb#167
   sig do
     type_parameters(:U)
@@ -3001,10 +2827,6 @@ module Tapioca::Runtime::Reflection
   sig { params(constant: ::Module).returns(T.nilable(::String)) }
   def qualified_name_of(constant); end
 
-  # Examines the call stack to identify the closest location where a "require" is performed
-  # by searching for the label "<top (required)>". If none is found, it returns the location
-  # labeled "<main>", which is the original call site.
-  #
   # source://tapioca//lib/tapioca/runtime/reflection.rb#179
   sig { params(locations: T.nilable(T::Array[::Thread::Backtrace::Location])).returns(::String) }
   def resolve_loc(locations); end
@@ -3136,10 +2958,6 @@ end
 # source://tapioca//lib/tapioca/runtime/trackers/autoload.rb#11
 Tapioca::Runtime::Trackers::Autoload::NOOP_METHOD = T.let(T.unsafe(nil), Proc)
 
-# Registers a TracePoint immediately upon load to track points at which
-# classes and modules are opened for definition. This is used to track
-# correspondence between classes/modules and files, as this information isn't
-# available in the ruby runtime without extra accounting.
 module Tapioca::Runtime::Trackers::ConstantDefinition
   extend ::Tapioca::Runtime::Trackers::Tracker
   extend ::Tapioca::Runtime::AttachedClassOf
@@ -3152,10 +2970,6 @@ module Tapioca::Runtime::Trackers::ConstantDefinition
     # source://tapioca//lib/tapioca/runtime/trackers/constant_definition.rb#55
     def disable!; end
 
-    # Returns the files in which this class or module was opened. Doesn't know
-    # about situations where the class was opened prior to +require+ing,
-    # or where metaprogramming was used via +eval+, etc.
-    #
     # source://tapioca//lib/tapioca/runtime/trackers/constant_definition.rb#71
     def files_for(klass); end
 
@@ -3252,7 +3066,6 @@ module Tapioca::Runtime::Trackers::RequiredAncestor
   end
 end
 
-# @abstract Subclasses must implement the `abstract` methods below.
 module Tapioca::Runtime::Trackers::Tracker
   abstract!
 
@@ -3260,8 +3073,6 @@ module Tapioca::Runtime::Trackers::Tracker
   sig { void }
   def disable!; end
 
-  # @return [Boolean]
-  #
   # source://tapioca//lib/tapioca/runtime/trackers/tracker.rb#30
   def enabled?; end
 
@@ -3417,23 +3228,13 @@ Tapioca::TAPIOCA_DIR = T.let(T.unsafe(nil), String)
 
 # source://tapioca//lib/tapioca/sorbet_ext/generic_name_patch.rb#108
 class Tapioca::TypeVariable < ::T::Types::TypeVariable
-  # @return [TypeVariable] a new instance of TypeVariable
-  #
   # source://tapioca//lib/tapioca/sorbet_ext/generic_name_patch.rb#109
   def initialize(name, variance); end
 
-  # Returns the value of attribute name.
-  #
   # source://tapioca//lib/tapioca/sorbet_ext/generic_name_patch.rb#114
   def name; end
 end
 
-# This is subclassing from `Module` so that instances of this type will be modules.
-# The reason why we want that is because that means those instances will automatically
-# get bound to the constant names they are assigned to by Ruby. As a result, we don't
-# need to do any matching of constants to type variables to bind their names, Ruby will
-# do that automatically for us and we get the `name` method for free from `Module`.
-#
 # source://tapioca//lib/tapioca/sorbet_ext/generic_name_patch.rb#122
 class Tapioca::TypeVariableModule < ::Module
   # source://tapioca//lib/tapioca/sorbet_ext/generic_name_patch.rb#146
@@ -3495,14 +3296,14 @@ class URI::Source < ::URI::File
   sig { params(v: T.nilable(::String)).returns(T::Boolean) }
   def check_host(v); end
 
-  # source://uri/0.11.0/uri/generic.rb#243
+  # source://uri/0.13.1/uri/generic.rb#243
   def gem_name; end
 
   # source://tapioca//lib/tapioca/helpers/source_uri.rb#25
   sig { returns(T.nilable(::String)) }
   def gem_version; end
 
-  # source://uri/0.11.0/uri/generic.rb#283
+  # source://uri/0.13.1/uri/generic.rb#283
   def line_number; end
 
   # source://tapioca//lib/tapioca/helpers/source_uri.rb#51

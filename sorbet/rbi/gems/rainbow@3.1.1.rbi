@@ -37,8 +37,6 @@ end
 
 # source://rainbow//lib/rainbow/color.rb#4
 class Rainbow::Color
-  # Returns the value of attribute ground.
-  #
   # source://rainbow//lib/rainbow/color.rb#5
   def ground; end
 
@@ -53,24 +51,18 @@ end
 
 # source://rainbow//lib/rainbow/color.rb#54
 class Rainbow::Color::Indexed < ::Rainbow::Color
-  # @return [Indexed] a new instance of Indexed
-  #
   # source://rainbow//lib/rainbow/color.rb#57
   def initialize(ground, num); end
 
   # source://rainbow//lib/rainbow/color.rb#62
   def codes; end
 
-  # Returns the value of attribute num.
-  #
   # source://rainbow//lib/rainbow/color.rb#55
   def num; end
 end
 
 # source://rainbow//lib/rainbow/color.rb#69
 class Rainbow::Color::Named < ::Rainbow::Color::Indexed
-  # @return [Named] a new instance of Named
-  #
   # source://rainbow//lib/rainbow/color.rb#90
   def initialize(ground, name); end
 
@@ -88,26 +80,18 @@ Rainbow::Color::Named::NAMES = T.let(T.unsafe(nil), Hash)
 
 # source://rainbow//lib/rainbow/color.rb#100
 class Rainbow::Color::RGB < ::Rainbow::Color::Indexed
-  # @return [RGB] a new instance of RGB
-  #
   # source://rainbow//lib/rainbow/color.rb#107
   def initialize(ground, *values); end
 
-  # Returns the value of attribute b.
-  #
   # source://rainbow//lib/rainbow/color.rb#101
   def b; end
 
   # source://rainbow//lib/rainbow/color.rb#116
   def codes; end
 
-  # Returns the value of attribute g.
-  #
   # source://rainbow//lib/rainbow/color.rb#101
   def g; end
 
-  # Returns the value of attribute r.
-  #
   # source://rainbow//lib/rainbow/color.rb#101
   def r; end
 
@@ -126,8 +110,6 @@ end
 class Rainbow::Color::X11Named < ::Rainbow::Color::RGB
   include ::Rainbow::X11ColorNames
 
-  # @return [X11Named] a new instance of X11Named
-  #
   # source://rainbow//lib/rainbow/color.rb#140
   def initialize(ground, name); end
 
@@ -222,48 +204,33 @@ class Rainbow::NullPresenter < ::String
 
   private
 
-  # @return [Boolean]
-  #
   # source://rainbow//lib/rainbow/null_presenter.rb#89
   def respond_to_missing?(method_name, *args); end
 end
 
 # source://rainbow//lib/rainbow/presenter.rb#8
 class Rainbow::Presenter < ::String
-  # Sets background color of this text.
-  #
   # source://rainbow//lib/rainbow/presenter.rb#30
   def background(*values); end
 
-  # Sets background color of this text.
-  #
   # source://rainbow//lib/rainbow/presenter.rb#30
   def bg(*values); end
 
   # source://rainbow//lib/rainbow/presenter.rb#92
   def black; end
 
-  # Turns on blinking attribute for this text (not well supported by terminal
-  # emulators).
-  #
   # source://rainbow//lib/rainbow/presenter.rb#72
   def blink; end
 
   # source://rainbow//lib/rainbow/presenter.rb#108
   def blue; end
 
-  # Turns on bright/bold for this text.
-  #
   # source://rainbow//lib/rainbow/presenter.rb#45
   def bold; end
 
-  # Turns on bright/bold for this text.
-  #
   # source://rainbow//lib/rainbow/presenter.rb#45
   def bright; end
 
-  # Sets color of this text.
-  #
   # source://rainbow//lib/rainbow/presenter.rb#22
   def color(*values); end
 
@@ -273,72 +240,45 @@ class Rainbow::Presenter < ::String
   # source://rainbow//lib/rainbow/presenter.rb#116
   def cyan; end
 
-  # Turns on faint/dark for this text (not well supported by terminal
-  # emulators).
-  #
   # source://rainbow//lib/rainbow/presenter.rb#53
   def dark; end
 
-  # Turns on faint/dark for this text (not well supported by terminal
-  # emulators).
-  #
   # source://rainbow//lib/rainbow/presenter.rb#53
   def faint; end
 
-  # Sets color of this text.
-  #
   # source://rainbow//lib/rainbow/presenter.rb#22
   def fg(*values); end
 
-  # Sets color of this text.
-  #
   # source://rainbow//lib/rainbow/presenter.rb#22
   def foreground(*values); end
 
   # source://rainbow//lib/rainbow/presenter.rb#100
   def green; end
 
-  # Hides this text (set its color to the same as background).
-  #
   # source://rainbow//lib/rainbow/presenter.rb#82
   def hide; end
 
-  # Inverses current foreground/background colors.
-  #
   # source://rainbow//lib/rainbow/presenter.rb#77
   def inverse; end
 
-  # Turns on italic style for this text (not well supported by terminal
-  # emulators).
-  #
   # source://rainbow//lib/rainbow/presenter.rb#61
   def italic; end
 
   # source://rainbow//lib/rainbow/presenter.rb#112
   def magenta; end
 
-  # We take care of X11 color method call here.
-  # Such as #aqua, #ghostwhite.
-  #
   # source://rainbow//lib/rainbow/presenter.rb#126
   def method_missing(method_name, *args); end
 
   # source://rainbow//lib/rainbow/presenter.rb#96
   def red; end
 
-  # Resets terminal to default colors/backgrounds.
-  #
-  # It shouldn't be needed to use this method because all methods
-  # append terminal reset code to end of string.
-  #
   # source://rainbow//lib/rainbow/presenter.rb#40
   def reset; end
 
   # source://rainbow//lib/rainbow/presenter.rb#86
   def strike; end
 
-  # Turns on underline decoration for this text.
-  #
   # source://rainbow//lib/rainbow/presenter.rb#66
   def underline; end
 
@@ -350,8 +290,6 @@ class Rainbow::Presenter < ::String
 
   private
 
-  # @return [Boolean]
-  #
   # source://rainbow//lib/rainbow/presenter.rb#134
   def respond_to_missing?(method_name, *args); end
 
@@ -375,20 +313,12 @@ end
 
 # source://rainbow//lib/rainbow/wrapper.rb#7
 class Rainbow::Wrapper
-  # @return [Wrapper] a new instance of Wrapper
-  #
   # source://rainbow//lib/rainbow/wrapper.rb#10
   def initialize(enabled = T.unsafe(nil)); end
 
-  # Returns the value of attribute enabled.
-  #
   # source://rainbow//lib/rainbow/wrapper.rb#8
   def enabled; end
 
-  # Sets the attribute enabled
-  #
-  # @param value the value to set the attribute enabled to.
-  #
   # source://rainbow//lib/rainbow/wrapper.rb#8
   def enabled=(_arg0); end
 

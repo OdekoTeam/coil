@@ -82,8 +82,6 @@ module RSpec::Sidekiq
     # source://rspec-sidekiq//lib/rspec/sidekiq/sidekiq.rb#8
     def configuration; end
 
-    # @yield [configuration]
-    #
     # source://rspec-sidekiq//lib/rspec/sidekiq/sidekiq.rb#4
     def configure(&block); end
   end
@@ -91,57 +89,33 @@ end
 
 # source://rspec-sidekiq//lib/rspec/sidekiq/configuration.rb#6
 class RSpec::Sidekiq::Configuration
-  # @return [Configuration] a new instance of Configuration
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/configuration.rb#11
   def initialize; end
 
-  # Returns the value of attribute clear_all_enqueued_jobs.
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/configuration.rb#7
   def clear_all_enqueued_jobs; end
 
-  # Sets the attribute clear_all_enqueued_jobs
-  #
-  # @param value the value to set the attribute clear_all_enqueued_jobs to.
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/configuration.rb#7
   def clear_all_enqueued_jobs=(_arg0); end
 
-  # Returns the value of attribute enable_terminal_colours.
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/configuration.rb#7
   def enable_terminal_colours; end
 
-  # Sets the attribute enable_terminal_colours
-  #
-  # @param value the value to set the attribute enable_terminal_colours to.
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/configuration.rb#7
   def enable_terminal_colours=(_arg0); end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/configuration.rb#21
   def sidekiq_gte_7?; end
 
   # source://rspec-sidekiq//lib/rspec/sidekiq/configuration.rb#25
   def silence_warning(symbol); end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/configuration.rb#29
   def warn_for?(symbol); end
 
-  # Returns the value of attribute warn_when_jobs_not_processed_by_sidekiq.
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/configuration.rb#7
   def warn_when_jobs_not_processed_by_sidekiq; end
 
-  # Sets the attribute warn_when_jobs_not_processed_by_sidekiq
-  #
-  # @param value the value to set the attribute warn_when_jobs_not_processed_by_sidekiq to.
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/configuration.rb#7
   def warn_when_jobs_not_processed_by_sidekiq=(_arg0); end
 end
@@ -165,45 +139,6 @@ module RSpec::Sidekiq::Matchers
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_unique.rb#4
   def be_unique; end
 
-  # Passes if a Job is enqueued as the result of a block. Chainable `with`
-  # for arguments, `on` for queue, `at` for queued for a specific time, and
-  # `in` for a specific interval delay to being queued, `immediately` for
-  # queued without delay.
-  #
-  # @api public
-  # @example
-  #
-  #   expect { AwesomeJob.perform_async }.to enqueue_sidekiq_job
-  #
-  #   # A specific job class
-  #   expect { AwesomeJob.perform_async }.to enqueue_sidekiq_job(AwesomeJob)
-  #
-  #   # with specific arguments
-  #   expect { AwesomeJob.perform_async "Awesome!" }.to enqueue_sidekiq_job.with("Awesome!")
-  #
-  #   # On a specific queue
-  #   expect { AwesomeJob.set(queue: "high").perform_async }.to enqueue_sidekiq_job.on("high")
-  #
-  #   # At a specific datetime
-  #   specific_time = 1.hour.from_now
-  #   expect { AwesomeJob.perform_at(specific_time) }.to enqueue_sidekiq_job.at(specific_time)
-  #
-  #   # In a specific interval (be mindful of freezing or managing time here)
-  #   freeze_time do
-  #   expect { AwesomeJob.perform_in(1.hour) }.to enqueue_sidekiq_job.in(1.hour)
-  #   end
-  #
-  #   # Without any delay
-  #   expect { AwesomeJob.perform_async }.to enqueue_sidekiq_job.immediately
-  #   expect { AwesomeJob.perform_at(1.hour.ago) }.to enqueue_sidekiq_job.immediately
-  #
-  #   ## Composable
-  #
-  #   expect do
-  #   AwesomeJob.perform_async
-  #   OtherJob.perform_async
-  #   end.to enqueue_sidekiq_job(AwesomeJob).and enqueue_sidekiq_job(OtherJob)
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/enqueue_sidekiq_job.rb#81
   def enqueue_sidekiq_job(job_class = T.unsafe(nil)); end
 
@@ -214,160 +149,98 @@ module RSpec::Sidekiq::Matchers
   def save_backtrace(expected_backtrace = T.unsafe(nil)); end
 end
 
-# @api private
-#
 # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#174
 class RSpec::Sidekiq::Matchers::Base
   include ::RSpec::Mocks::ArgumentMatchers
   include ::RSpec::Matchers::Composable
 
-  # @api private
-  # @return [Base] a new instance of Base
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#180
   def initialize; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#178
   def actual_jobs; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#191
   def at(timestamp); end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#231
   def at_least(n); end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#236
   def at_most(n); end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#296
   def common_message; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#304
   def count_message; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#258
   def description; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#226
   def exactly(n); end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#178
   def expected_arguments; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#178
   def expected_count; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#178
   def expected_options; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#262
   def failure_message; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#315
   def failure_message_when_negated; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#322
   def formatted(thing); end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#201
   def immediately; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#196
   def in(interval); end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#178
   def klass; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#326
   def normalize_arguments(args); end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#206
   def on(queue); end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#211
   def once; end
 
-  # @api private
-  # @raise [NotImplementedError]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#300
   def prefix_message; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#246
   def set_expected_count(relativity, n); end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#221
   def thrice; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#241
   def time; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#241
   def times; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#216
   def twice; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#186
   def with(*expected_arguments); end
 end
 
 # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_delayed.rb#10
 class RSpec::Sidekiq::Matchers::BeDelayed
-  # @return [BeDelayed] a new instance of BeDelayed
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_delayed.rb#11
   def initialize(*expected_arguments); end
 
@@ -383,8 +256,6 @@ class RSpec::Sidekiq::Matchers::BeDelayed
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_delayed.rb#31
   def for(interval); end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_delayed.rb#36
   def matches?(expected_method); end
 
@@ -393,16 +264,12 @@ class RSpec::Sidekiq::Matchers::BeDelayed
 
   private
 
-  # @yield [job]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_delayed.rb#65
   def find_job(method, arguments, &block); end
 end
 
 # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_expired_in.rb#8
 class RSpec::Sidekiq::Matchers::BeExpiredIn
-  # @return [BeExpiredIn] a new instance of BeExpiredIn
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_expired_in.rb#9
   def initialize(expected_argument); end
 
@@ -415,16 +282,12 @@ class RSpec::Sidekiq::Matchers::BeExpiredIn
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_expired_in.rb#21
   def failure_message_when_negated; end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_expired_in.rb#25
   def matches?(job); end
 end
 
 # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_processed_in.rb#8
 class RSpec::Sidekiq::Matchers::BeProcessedIn
-  # @return [BeProcessedIn] a new instance of BeProcessedIn
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_processed_in.rb#9
   def initialize(expected_queue); end
 
@@ -437,16 +300,12 @@ class RSpec::Sidekiq::Matchers::BeProcessedIn
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_processed_in.rb#31
   def failure_message_when_negated; end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_processed_in.rb#21
   def matches?(job); end
 end
 
 # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_retryable.rb#8
 class RSpec::Sidekiq::Matchers::BeRetryable
-  # @return [BeRetryable] a new instance of BeRetryable
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_retryable.rb#9
   def initialize(expected_retry); end
 
@@ -459,8 +318,6 @@ class RSpec::Sidekiq::Matchers::BeRetryable
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_retryable.rb#33
   def failure_message_when_negated; end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_retryable.rb#27
   def matches?(job); end
 end
@@ -487,18 +344,12 @@ class RSpec::Sidekiq::Matchers::BeUnique::Base
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_unique.rb#39
   def for(interval); end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_unique.rb#48
   def interval_matches?; end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_unique.rb#44
   def interval_specified?; end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_unique.rb#33
   def matches?(job); end
 end
@@ -511,8 +362,6 @@ class RSpec::Sidekiq::Matchers::BeUnique::SidekiqEnterprise < ::RSpec::Sidekiq::
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_unique.rb#80
   def unique_key; end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_unique.rb#76
   def value_matches?; end
 end
@@ -525,44 +374,24 @@ class RSpec::Sidekiq::Matchers::BeUnique::SidekiqUniqueJobs < ::RSpec::Sidekiq::
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_unique.rb#66
   def unique_key; end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/be_unique.rb#62
   def value_matches?; end
 end
 
-# @api private
-#
 # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/enqueue_sidekiq_job.rb#5
 class RSpec::Sidekiq::Matchers::EnqueueSidekiqJob < ::RSpec::Sidekiq::Matchers::Base
-  # @api private
-  # @return [EnqueueSidekiqJob] a new instance of EnqueueSidekiqJob
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/enqueue_sidekiq_job.rb#8
   def initialize(job_class); end
 
-  # @api private
-  # @raise [ArgumentError]
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/enqueue_sidekiq_job.rb#19
   def matches?(proc); end
 
-  # Plus that from Base
-  #
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/enqueue_sidekiq_job.rb#6
   def original_jobs; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/enqueue_sidekiq_job.rb#33
   def prefix_message; end
 
-  # @api private
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/enqueue_sidekiq_job.rb#37
   def supports_block_expectations?; end
 end
@@ -571,15 +400,13 @@ end
 class RSpec::Sidekiq::Matchers::EnqueuedJob
   extend ::Forwardable
 
-  # @return [EnqueuedJob] a new instance of EnqueuedJob
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#89
   def initialize(job); end
 
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#105
   def ==(other); end
 
-  # source://forwardable/1.3.2/forwardable.rb#229
+  # source://forwardable/1.3.3/forwardable.rb#231
   def [](*args, **_arg1, &block); end
 
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#97
@@ -594,8 +421,6 @@ class RSpec::Sidekiq::Matchers::EnqueuedJob
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#93
   def jid; end
 
-  # Returns the value of attribute job.
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#86
   def job; end
 end
@@ -604,21 +429,15 @@ end
 class RSpec::Sidekiq::Matchers::EnqueuedJobs
   include ::Enumerable
 
-  # @return [EnqueuedJobs] a new instance of EnqueuedJobs
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#117
   def initialize(klass); end
 
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#136
   def each(&block); end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#121
   def includes?(arguments, options, count); end
 
-  # Returns the value of attribute jobs.
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#115
   def jobs; end
 
@@ -627,18 +446,12 @@ class RSpec::Sidekiq::Matchers::EnqueuedJobs
 
   private
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#155
   def arguments_matches?(job, arguments); end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#150
   def matches?(job, arguments, options); end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#161
   def options_matches?(job, options); end
 
@@ -646,118 +459,71 @@ class RSpec::Sidekiq::Matchers::EnqueuedJobs
   def unwrap_jobs(jobs); end
 end
 
-# @api private
-#
 # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/have_enqueued_sidekiq_job.rb#9
 class RSpec::Sidekiq::Matchers::HaveEnqueuedSidekiqJob < ::RSpec::Sidekiq::Matchers::Base
-  # @api private
-  # @return [HaveEnqueuedSidekiqJob] a new instance of HaveEnqueuedSidekiqJob
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/have_enqueued_sidekiq_job.rb#10
   def initialize(expected_arguments); end
 
-  # @api private
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/have_enqueued_sidekiq_job.rb#15
   def matches?(job_class); end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/have_enqueued_sidekiq_job.rb#27
   def prefix_message; end
 end
 
-# @api private
-#
 # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#36
 class RSpec::Sidekiq::Matchers::JobArguments
   include ::RSpec::Mocks::ArgumentMatchers
 
-  # @api private
-  # @return [JobArguments] a new instance of JobArguments
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#39
   def initialize(job); end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#42
   def job; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#42
   def job=(_arg0); end
 
-  # @api private
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#44
   def matches?(expected_args); end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#50
   def unwrapped_arguments; end
 
   private
 
-  # @api private
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#60
   def active_job?; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#77
   def active_job_original_args; end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#64
   def deserialized_active_job_args; end
 end
 
-# @api private
-#
 # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#5
 class RSpec::Sidekiq::Matchers::JobOptionParser
-  # @api private
-  # @return [JobOptionParser] a new instance of JobOptionParser
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#8
   def initialize(job); end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#6
   def job; end
 
-  # @api private
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#12
   def matches?(options); end
 
   private
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#18
   def at_evaluator(value); end
 
-  # @api private
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#23
   def with_context(**expected_context); end
 end
 
 # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/save_backtrace.rb#8
 class RSpec::Sidekiq::Matchers::SaveBacktrace
-  # @return [SaveBacktrace] a new instance of SaveBacktrace
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/save_backtrace.rb#9
   def initialize(expected_backtrace = T.unsafe(nil)); end
 
@@ -770,8 +536,6 @@ class RSpec::Sidekiq::Matchers::SaveBacktrace
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/save_backtrace.rb#33
   def failure_message_when_negated; end
 
-  # @return [Boolean]
-  #
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/save_backtrace.rb#27
   def matches?(job); end
 end

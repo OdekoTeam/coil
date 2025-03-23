@@ -6,302 +6,298 @@
 
 
 class ActionController::Base < ::ActionController::Metal
-  include ::ActiveSupport::Deprecation::DeprecatedConstantAccessor
   include ::ActionDispatch::Routing::PolymorphicRoutes
   include ::ActionController::Head
   include ::AbstractController::Caching::ConfigMethods
   include ::ActionController::BasicImplicitRender
   extend ::AbstractController::Helpers::Resolution
 
-  # source://activesupport/7.1.5.1/lib/active_support/callbacks.rb#70
+  # source://activesupport/7.2.2.1/lib/active_support/callbacks.rb#70
   def __callbacks; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/callbacks.rb#70
+  # source://activesupport/7.2.2.1/lib/active_support/callbacks.rb#70
   def __callbacks?; end
 
-  # source://actionpack/7.1.5.1/lib/abstract_controller/helpers.rb#12
+  # source://actionpack/7.2.2.1/lib/abstract_controller/helpers.rb#13
   def _helper_methods; end
 
-  # source://actionpack/7.1.5.1/lib/abstract_controller/helpers.rb#12
+  # source://actionpack/7.2.2.1/lib/abstract_controller/helpers.rb#13
   def _helper_methods=(_arg0); end
 
-  # source://actionpack/7.1.5.1/lib/abstract_controller/helpers.rb#12
+  # source://actionpack/7.2.2.1/lib/abstract_controller/helpers.rb#13
   def _helper_methods?; end
 
-  # source://actionview//lib/action_view/layouts.rb#216
-  def _layout_conditions(&block); end
+  # source://actionview//lib/action_view/layouts.rb#212
+  def _layout_conditions; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/callbacks.rb#963
+  # source://actionview//lib/action_view/layouts.rb#212
+  def _layout_conditions?; end
+
+  # source://activesupport/7.2.2.1/lib/active_support/callbacks.rb#924
   def _process_action_callbacks; end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/renderers.rb#31
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/renderers.rb#33
   def _renderers; end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/renderers.rb#31
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/renderers.rb#33
   def _renderers=(_arg0); end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/renderers.rb#31
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/renderers.rb#33
   def _renderers?; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.2.1/lib/active_support/callbacks.rb#912
   def _run_process_action_callbacks(&block); end
 
-  # source://actionpack/7.1.5.1/lib/abstract_controller/caching.rb#42
+  # source://actionpack/7.2.2.1/lib/abstract_controller/caching.rb#44
   def _view_cache_dependencies; end
 
-  # source://actionpack/7.1.5.1/lib/abstract_controller/caching.rb#42
+  # source://actionpack/7.2.2.1/lib/abstract_controller/caching.rb#44
   def _view_cache_dependencies=(_arg0); end
 
-  # source://actionpack/7.1.5.1/lib/abstract_controller/caching.rb#42
+  # source://actionpack/7.2.2.1/lib/abstract_controller/caching.rb#44
   def _view_cache_dependencies?; end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/params_wrapper.rb#187
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/params_wrapper.rb#185
   def _wrapper_options; end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/params_wrapper.rb#187
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/params_wrapper.rb#185
   def _wrapper_options=(_arg0); end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/params_wrapper.rb#187
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/params_wrapper.rb#185
   def _wrapper_options?; end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/flash.rb#36
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/flash.rb#38
   def alert; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def allow_forgery_protection; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def allow_forgery_protection=(value); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def asset_host; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def asset_host=(value); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def assets_dir; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def assets_dir=(value); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def csrf_token_storage_strategy; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def csrf_token_storage_strategy=(value); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def default_asset_host_protocol; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def default_asset_host_protocol=(value); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
-  def default_protect_from_forgery; end
-
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
-  def default_protect_from_forgery=(value); end
-
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def default_static_extension; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def default_static_extension=(value); end
 
-  # source://actionpack/7.1.5.1/lib/action_dispatch/routing/url_for.rb#97
+  # source://actionpack/7.2.2.1/lib/action_dispatch/routing/url_for.rb#100
   def default_url_options; end
 
-  # source://actionpack/7.1.5.1/lib/action_dispatch/routing/url_for.rb#97
+  # source://actionpack/7.2.2.1/lib/action_dispatch/routing/url_for.rb#100
   def default_url_options=(_arg0); end
 
-  # source://actionpack/7.1.5.1/lib/action_dispatch/routing/url_for.rb#97
+  # source://actionpack/7.2.2.1/lib/action_dispatch/routing/url_for.rb#100
   def default_url_options?; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def enable_fragment_cache_logging; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def enable_fragment_cache_logging=(value); end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/etag_with_template_digest.rb#29
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/etag_with_template_digest.rb#31
   def etag_with_template_digest; end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/etag_with_template_digest.rb#29
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/etag_with_template_digest.rb#31
   def etag_with_template_digest=(_arg0); end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/etag_with_template_digest.rb#29
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/etag_with_template_digest.rb#31
   def etag_with_template_digest?; end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/conditional_get.rb#13
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/conditional_get.rb#15
   def etaggers; end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/conditional_get.rb#13
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/conditional_get.rb#15
   def etaggers=(_arg0); end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/conditional_get.rb#13
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/conditional_get.rb#15
   def etaggers?; end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/flash.rb#10
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/flash.rb#12
   def flash(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def forgery_protection_origin_check; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def forgery_protection_origin_check=(value); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def forgery_protection_strategy; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def forgery_protection_strategy=(value); end
 
-  # source://actionpack/7.1.5.1/lib/abstract_controller/caching/fragments.rb#25
+  # source://actionpack/7.2.2.1/lib/abstract_controller/caching/fragments.rb#26
   def fragment_cache_keys; end
 
-  # source://actionpack/7.1.5.1/lib/abstract_controller/caching/fragments.rb#25
+  # source://actionpack/7.2.2.1/lib/abstract_controller/caching/fragments.rb#26
   def fragment_cache_keys=(_arg0); end
 
-  # source://actionpack/7.1.5.1/lib/abstract_controller/caching/fragments.rb#25
+  # source://actionpack/7.2.2.1/lib/abstract_controller/caching/fragments.rb#26
   def fragment_cache_keys?; end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/helpers.rb#65
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/helpers.rb#70
   def helpers_path; end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/helpers.rb#65
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/helpers.rb#70
   def helpers_path=(_arg0); end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/helpers.rb#65
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/helpers.rb#70
   def helpers_path?; end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/helpers.rb#66
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/helpers.rb#71
   def include_all_helpers; end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/helpers.rb#66
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/helpers.rb#71
   def include_all_helpers=(_arg0); end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/helpers.rb#66
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/helpers.rb#71
   def include_all_helpers?; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def javascripts_dir; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def javascripts_dir=(value); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def log_warning_on_csrf_failure; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def log_warning_on_csrf_failure=(value); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def logger; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def logger=(value); end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/flash.rb#36
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/flash.rb#38
   def notice; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def per_form_csrf_tokens; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def per_form_csrf_tokens=(value); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def perform_caching; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def perform_caching=(value); end
 
-  # source://actionpack/7.1.5.1/lib/abstract_controller/callbacks.rb#36
+  # source://actionpack/7.2.2.1/lib/abstract_controller/callbacks.rb#36
   def raise_on_missing_callback_actions; end
 
-  # source://actionpack/7.1.5.1/lib/abstract_controller/callbacks.rb#36
+  # source://actionpack/7.2.2.1/lib/abstract_controller/callbacks.rb#36
   def raise_on_missing_callback_actions=(val); end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/redirecting.rb#15
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/redirecting.rb#17
   def raise_on_open_redirects; end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/metal/redirecting.rb#15
+  # source://actionpack/7.2.2.1/lib/action_controller/metal/redirecting.rb#17
   def raise_on_open_redirects=(val); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def relative_url_root; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def relative_url_root=(value); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def request_forgery_protection_token; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def request_forgery_protection_token=(value); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/rescuable.rb#15
+  # source://activesupport/7.2.2.1/lib/active_support/rescuable.rb#15
   def rescue_handlers; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/rescuable.rb#15
+  # source://activesupport/7.2.2.1/lib/active_support/rescuable.rb#15
   def rescue_handlers=(_arg0); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/rescuable.rb#15
+  # source://activesupport/7.2.2.1/lib/active_support/rescuable.rb#15
   def rescue_handlers?; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
   def stylesheets_dir; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
   def stylesheets_dir=(value); end
 
   private
 
-  # source://actionview//lib/action_view/layouts.rb#330
+  # source://actionview//lib/action_view/layouts.rb#328
   def _layout(lookup_context, formats); end
 
-  # source://actionpack/7.1.5.1/lib/action_controller/base.rb#252
+  # source://actionpack/7.2.2.1/lib/action_controller/base.rb#324
   def _protected_ivars; end
 
   class << self
-    # source://activesupport/7.1.5.1/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.2.2.1/lib/active_support/callbacks.rb#70
     def __callbacks; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.2.2.1/lib/active_support/callbacks.rb#70
     def __callbacks=(value); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.2.2.1/lib/active_support/callbacks.rb#70
     def __callbacks?; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/form_builder.rb#33
+    # source://actionpack/7.2.2.1/lib/action_controller/form_builder.rb#35
     def _default_form_builder; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/form_builder.rb#33
+    # source://actionpack/7.2.2.1/lib/action_controller/form_builder.rb#35
     def _default_form_builder=(value); end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/form_builder.rb#33
+    # source://actionpack/7.2.2.1/lib/action_controller/form_builder.rb#35
     def _default_form_builder?; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/flash.rb#8
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/flash.rb#10
     def _flash_types; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/flash.rb#8
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/flash.rb#10
     def _flash_types=(value); end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/flash.rb#8
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/flash.rb#10
     def _flash_types?; end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/helpers.rb#12
+    # source://actionpack/7.2.2.1/lib/abstract_controller/helpers.rb#13
     def _helper_methods; end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/helpers.rb#12
+    # source://actionpack/7.2.2.1/lib/abstract_controller/helpers.rb#13
     def _helper_methods=(value); end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/helpers.rb#12
+    # source://actionpack/7.2.2.1/lib/abstract_controller/helpers.rb#13
     def _helper_methods?; end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/helpers.rb#16
+    # source://actionpack/7.2.2.1/lib/abstract_controller/helpers.rb#17
     def _helpers; end
 
     # source://actionview//lib/action_view/layouts.rb#211
@@ -322,226 +318,220 @@ class ActionController::Base < ::ActionController::Metal
     # source://actionview//lib/action_view/layouts.rb#212
     def _layout_conditions?; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.2.1/lib/active_support/callbacks.rb#916
     def _process_action_callbacks; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.2.1/lib/active_support/callbacks.rb#920
     def _process_action_callbacks=(value); end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/renderers.rb#31
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/renderers.rb#33
     def _renderers; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/renderers.rb#31
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/renderers.rb#33
     def _renderers=(value); end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/renderers.rb#31
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/renderers.rb#33
     def _renderers?; end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/caching.rb#42
+    # source://actionpack/7.2.2.1/lib/abstract_controller/caching.rb#44
     def _view_cache_dependencies; end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/caching.rb#42
+    # source://actionpack/7.2.2.1/lib/abstract_controller/caching.rb#44
     def _view_cache_dependencies=(value); end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/caching.rb#42
+    # source://actionpack/7.2.2.1/lib/abstract_controller/caching.rb#44
     def _view_cache_dependencies?; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/params_wrapper.rb#187
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/params_wrapper.rb#185
     def _wrapper_options; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/params_wrapper.rb#187
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/params_wrapper.rb#185
     def _wrapper_options=(value); end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/params_wrapper.rb#187
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/params_wrapper.rb#185
     def _wrapper_options?; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def allow_forgery_protection; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def allow_forgery_protection=(value); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def asset_host; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def asset_host=(value); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def assets_dir; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def assets_dir=(value); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def csrf_token_storage_strategy; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def csrf_token_storage_strategy=(value); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def default_asset_host_protocol; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def default_asset_host_protocol=(value); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
-    def default_protect_from_forgery; end
-
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
-    def default_protect_from_forgery=(value); end
-
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def default_static_extension; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def default_static_extension=(value); end
 
-    # source://actionpack/7.1.5.1/lib/action_dispatch/routing/url_for.rb#97
+    # source://actionpack/7.2.2.1/lib/action_dispatch/routing/url_for.rb#100
     def default_url_options; end
 
-    # source://actionpack/7.1.5.1/lib/action_dispatch/routing/url_for.rb#97
+    # source://actionpack/7.2.2.1/lib/action_dispatch/routing/url_for.rb#100
     def default_url_options=(value); end
 
-    # source://actionpack/7.1.5.1/lib/action_dispatch/routing/url_for.rb#97
+    # source://actionpack/7.2.2.1/lib/action_dispatch/routing/url_for.rb#100
     def default_url_options?; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def enable_fragment_cache_logging; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def enable_fragment_cache_logging=(value); end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/etag_with_template_digest.rb#29
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/etag_with_template_digest.rb#31
     def etag_with_template_digest; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/etag_with_template_digest.rb#29
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/etag_with_template_digest.rb#31
     def etag_with_template_digest=(value); end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/etag_with_template_digest.rb#29
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/etag_with_template_digest.rb#31
     def etag_with_template_digest?; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/conditional_get.rb#13
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/conditional_get.rb#15
     def etaggers; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/conditional_get.rb#13
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/conditional_get.rb#15
     def etaggers=(value); end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/conditional_get.rb#13
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/conditional_get.rb#15
     def etaggers?; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def forgery_protection_origin_check; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def forgery_protection_origin_check=(value); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def forgery_protection_strategy; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def forgery_protection_strategy=(value); end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/caching/fragments.rb#25
+    # source://actionpack/7.2.2.1/lib/abstract_controller/caching/fragments.rb#26
     def fragment_cache_keys; end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/caching/fragments.rb#25
+    # source://actionpack/7.2.2.1/lib/abstract_controller/caching/fragments.rb#26
     def fragment_cache_keys=(value); end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/caching/fragments.rb#25
+    # source://actionpack/7.2.2.1/lib/abstract_controller/caching/fragments.rb#26
     def fragment_cache_keys?; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/helpers.rb#65
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/helpers.rb#70
     def helpers_path; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/helpers.rb#65
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/helpers.rb#70
     def helpers_path=(value); end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/helpers.rb#65
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/helpers.rb#70
     def helpers_path?; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/helpers.rb#66
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/helpers.rb#71
     def include_all_helpers; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/helpers.rb#66
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/helpers.rb#71
     def include_all_helpers=(value); end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/helpers.rb#66
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/helpers.rb#71
     def include_all_helpers?; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def javascripts_dir; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def javascripts_dir=(value); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def log_warning_on_csrf_failure; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def log_warning_on_csrf_failure=(value); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def logger; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def logger=(value); end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal.rb#262
+    # source://actionpack/7.2.2.1/lib/action_controller/metal.rb#288
     def middleware_stack; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def per_form_csrf_tokens; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def per_form_csrf_tokens=(value); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def perform_caching; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def perform_caching=(value); end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/callbacks.rb#36
+    # source://actionpack/7.2.2.1/lib/abstract_controller/callbacks.rb#36
     def raise_on_missing_callback_actions; end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/callbacks.rb#36
+    # source://actionpack/7.2.2.1/lib/abstract_controller/callbacks.rb#36
     def raise_on_missing_callback_actions=(val); end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/redirecting.rb#15
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/redirecting.rb#17
     def raise_on_open_redirects; end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal/redirecting.rb#15
+    # source://actionpack/7.2.2.1/lib/action_controller/metal/redirecting.rb#17
     def raise_on_open_redirects=(val); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def relative_url_root; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def relative_url_root=(value); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def request_forgery_protection_token; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def request_forgery_protection_token=(value); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/rescuable.rb#15
+    # source://activesupport/7.2.2.1/lib/active_support/rescuable.rb#15
     def rescue_handlers; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/rescuable.rb#15
+    # source://activesupport/7.2.2.1/lib/active_support/rescuable.rb#15
     def rescue_handlers=(value); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/rescuable.rb#15
+    # source://activesupport/7.2.2.1/lib/active_support/rescuable.rb#15
     def rescue_handlers?; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#115
     def stylesheets_dir; end
 
-    # source://activesupport/7.1.5.1/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.2.1/lib/active_support/configurable.rb#116
     def stylesheets_dir=(value); end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/base.rb#184
+    # source://actionpack/7.2.2.1/lib/action_controller/base.rb#222
     def without_modules(*modules); end
   end
 end
@@ -685,7 +675,7 @@ ActionView::AbstractRenderer::RenderedTemplate::EMPTY_SPACER = T.let(T.unsafe(ni
 # source://actionview//lib/action_view/template/error.rb#8
 class ActionView::ActionViewError < ::StandardError; end
 
-# source://actionview//lib/action_view/base.rb#140
+# source://actionview//lib/action_view/base.rb#157
 class ActionView::Base
   include ::ActionView::Context
   include ::ERB::Escape
@@ -723,49 +713,49 @@ class ActionView::Base
   extend ::ActionView::Helpers::UrlHelper::ClassMethods
   extend ::ActionView::Helpers::SanitizeHelper::ClassMethods
 
-  # source://actionview//lib/action_view/base.rb#227
+  # source://actionview//lib/action_view/base.rb#244
   def initialize(lookup_context, assigns, controller); end
 
-  # source://actionview//lib/action_view/base.rb#164
+  # source://actionview//lib/action_view/base.rb#181
   def _routes; end
 
-  # source://actionview//lib/action_view/base.rb#164
+  # source://actionview//lib/action_view/base.rb#181
   def _routes=(_arg0); end
 
-  # source://actionview//lib/action_view/base.rb#164
+  # source://actionview//lib/action_view/base.rb#181
   def _routes?; end
 
-  # source://actionview//lib/action_view/base.rb#244
+  # source://actionview//lib/action_view/base.rb#261
   def _run(method, template, locals, buffer, add_to_stack: T.unsafe(nil), has_strict_locals: T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/base.rb#162
+  # source://actionview//lib/action_view/base.rb#179
   def annotate_rendered_view_with_filenames; end
 
-  # source://actionview//lib/action_view/base.rb#162
+  # source://actionview//lib/action_view/base.rb#179
   def annotate_rendered_view_with_filenames=(val); end
 
-  # source://actionview//lib/action_view/base.rb#206
+  # source://actionview//lib/action_view/base.rb#223
   def assign(new_assigns); end
 
-  # source://activesupport/7.1.5.1/lib/active_support/core_ext/module/attr_internal.rb#33
+  # source://activesupport/7.2.2.1/lib/active_support/core_ext/module/attr_internal.rb#44
   def assigns; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/core_ext/module/attr_internal.rb#33
+  # source://activesupport/7.2.2.1/lib/active_support/core_ext/module/attr_internal.rb#44
   def assigns=(_arg0); end
 
-  # source://actionview//lib/action_view/base.rb#159
+  # source://actionview//lib/action_view/base.rb#176
   def automatically_disable_submit_tag; end
 
-  # source://actionview//lib/action_view/base.rb#159
+  # source://actionview//lib/action_view/base.rb#176
   def automatically_disable_submit_tag=(val); end
 
-  # source://actionview//lib/action_view/base.rb#269
+  # source://actionview//lib/action_view/base.rb#287
   def compiled_method_container; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/core_ext/module/attr_internal.rb#33
+  # source://activesupport/7.2.2.1/lib/active_support/core_ext/module/attr_internal.rb#44
   def config; end
 
-  # source://activesupport/7.1.5.1/lib/active_support/core_ext/module/attr_internal.rb#33
+  # source://activesupport/7.2.2.1/lib/active_support/core_ext/module/attr_internal.rb#44
   def config=(_arg0); end
 
   # source://actionview//lib/action_view/helpers/translation_helper.rb#18
@@ -774,98 +764,98 @@ class ActionView::Base
   # source://actionview//lib/action_view/helpers/translation_helper.rb#18
   def debug_missing_translation=(val); end
 
-  # source://actionview//lib/action_view/base.rb#156
+  # source://actionview//lib/action_view/base.rb#173
   def default_formats; end
 
-  # source://actionview//lib/action_view/base.rb#156
+  # source://actionview//lib/action_view/base.rb#173
   def default_formats=(val); end
 
-  # source://actionview//lib/action_view/base.rb#144
+  # source://actionview//lib/action_view/base.rb#161
   def field_error_proc; end
 
-  # source://actionview//lib/action_view/base.rb#144
+  # source://actionview//lib/action_view/base.rb#161
   def field_error_proc=(val); end
 
-  # source://actionview//lib/action_view/base.rb#204
+  # source://actionview//lib/action_view/base.rb#221
   def formats(*_arg0, **_arg1, &_arg2); end
 
-  # source://actionview//lib/action_view/base.rb#204
+  # source://actionview//lib/action_view/base.rb#221
   def formats=(arg); end
 
-  # source://actionview//lib/action_view/base.rb#277
+  # source://actionview//lib/action_view/base.rb#295
   def in_rendering_context(options); end
 
-  # source://actionview//lib/action_view/base.rb#204
+  # source://actionview//lib/action_view/base.rb#221
   def locale(*_arg0, **_arg1, &_arg2); end
 
-  # source://actionview//lib/action_view/base.rb#204
+  # source://actionview//lib/action_view/base.rb#221
   def locale=(arg); end
 
-  # source://actionview//lib/action_view/base.rb#165
+  # source://actionview//lib/action_view/base.rb#182
   def logger; end
 
-  # source://actionview//lib/action_view/base.rb#165
+  # source://actionview//lib/action_view/base.rb#182
   def logger=(_arg0); end
 
-  # source://actionview//lib/action_view/base.rb#165
+  # source://actionview//lib/action_view/base.rb#182
   def logger?; end
 
-  # source://actionview//lib/action_view/base.rb#201
+  # source://actionview//lib/action_view/base.rb#218
   def lookup_context; end
 
-  # source://actionview//lib/action_view/base.rb#153
+  # source://actionview//lib/action_view/base.rb#170
   def prefix_partial_path_with_controller_namespace; end
 
-  # source://actionview//lib/action_view/base.rb#153
+  # source://actionview//lib/action_view/base.rb#170
   def prefix_partial_path_with_controller_namespace=(_arg0); end
 
-  # source://actionview//lib/action_view/base.rb#153
+  # source://actionview//lib/action_view/base.rb#170
   def prefix_partial_path_with_controller_namespace?; end
 
-  # source://actionview//lib/action_view/base.rb#148
+  # source://actionview//lib/action_view/base.rb#165
   def streaming_completion_on_exception; end
 
-  # source://actionview//lib/action_view/base.rb#148
+  # source://actionview//lib/action_view/base.rb#165
   def streaming_completion_on_exception=(val); end
 
-  # source://actionview//lib/action_view/base.rb#204
+  # source://actionview//lib/action_view/base.rb#221
   def view_paths(*_arg0, **_arg1, &_arg2); end
 
-  # source://actionview//lib/action_view/base.rb#204
+  # source://actionview//lib/action_view/base.rb#221
   def view_paths=(arg); end
 
-  # source://actionview//lib/action_view/base.rb#201
+  # source://actionview//lib/action_view/base.rb#218
   def view_renderer; end
 
   class << self
-    # source://actionview//lib/action_view/base.rb#164
+    # source://actionview//lib/action_view/base.rb#181
     def _routes; end
 
-    # source://actionview//lib/action_view/base.rb#164
+    # source://actionview//lib/action_view/base.rb#181
     def _routes=(value); end
 
-    # source://actionview//lib/action_view/base.rb#164
+    # source://actionview//lib/action_view/base.rb#181
     def _routes?; end
 
-    # source://actionview//lib/action_view/base.rb#162
+    # source://actionview//lib/action_view/base.rb#179
     def annotate_rendered_view_with_filenames; end
 
-    # source://actionview//lib/action_view/base.rb#162
+    # source://actionview//lib/action_view/base.rb#179
     def annotate_rendered_view_with_filenames=(val); end
 
-    # source://actionview//lib/action_view/base.rb#159
+    # source://actionview//lib/action_view/base.rb#176
     def automatically_disable_submit_tag; end
 
-    # source://actionview//lib/action_view/base.rb#159
+    # source://actionview//lib/action_view/base.rb#176
     def automatically_disable_submit_tag=(val); end
 
-    # source://actionview//lib/action_view/base.rb#170
+    # source://actionview//lib/action_view/base.rb#187
     def cache_template_loading; end
 
-    # source://actionview//lib/action_view/base.rb#174
+    # source://actionview//lib/action_view/base.rb#191
     def cache_template_loading=(value); end
 
-    # source://actionview//lib/action_view/base.rb#196
+    # source://actionview//lib/action_view/base.rb#213
     def changed?(other); end
 
     # source://actionview//lib/action_view/helpers/translation_helper.rb#18
@@ -874,64 +864,64 @@ class ActionView::Base
     # source://actionview//lib/action_view/helpers/translation_helper.rb#18
     def debug_missing_translation=(val); end
 
-    # source://actionview//lib/action_view/helpers/form_helper.rb#2759
+    # source://actionview//lib/action_view/helpers/form_helper.rb#2764
     def default_form_builder; end
 
-    # source://actionview//lib/action_view/helpers/form_helper.rb#2759
+    # source://actionview//lib/action_view/helpers/form_helper.rb#2764
     def default_form_builder=(val); end
 
-    # source://actionview//lib/action_view/base.rb#156
+    # source://actionview//lib/action_view/base.rb#173
     def default_formats; end
 
-    # source://actionview//lib/action_view/base.rb#156
+    # source://actionview//lib/action_view/base.rb#173
     def default_formats=(val); end
 
-    # source://actionview//lib/action_view/base.rb#213
+    # source://actionview//lib/action_view/base.rb#230
     def empty; end
 
-    # source://actionview//lib/action_view/base.rb#168
+    # source://actionview//lib/action_view/base.rb#185
     def erb_trim_mode=(arg); end
 
-    # source://actionview//lib/action_view/base.rb#144
+    # source://actionview//lib/action_view/base.rb#161
     def field_error_proc; end
 
-    # source://actionview//lib/action_view/base.rb#144
+    # source://actionview//lib/action_view/base.rb#161
     def field_error_proc=(val); end
 
-    # source://actionview//lib/action_view/base.rb#165
+    # source://actionview//lib/action_view/base.rb#182
     def logger; end
 
-    # source://actionview//lib/action_view/base.rb#165
+    # source://actionview//lib/action_view/base.rb#182
     def logger=(value); end
 
-    # source://actionview//lib/action_view/base.rb#165
+    # source://actionview//lib/action_view/base.rb#182
     def logger?; end
 
-    # source://actionview//lib/action_view/base.rb#153
+    # source://actionview//lib/action_view/base.rb#170
     def prefix_partial_path_with_controller_namespace; end
 
-    # source://actionview//lib/action_view/base.rb#153
+    # source://actionview//lib/action_view/base.rb#170
     def prefix_partial_path_with_controller_namespace=(value); end
 
-    # source://actionview//lib/action_view/base.rb#153
+    # source://actionview//lib/action_view/base.rb#170
     def prefix_partial_path_with_controller_namespace?; end
 
-    # source://actionview//lib/action_view/base.rb#148
+    # source://actionview//lib/action_view/base.rb#165
     def streaming_completion_on_exception; end
 
-    # source://actionview//lib/action_view/base.rb#148
+    # source://actionview//lib/action_view/base.rb#165
     def streaming_completion_on_exception=(val); end
 
-    # source://actionview//lib/action_view/base.rb#221
+    # source://actionview//lib/action_view/base.rb#238
     def with_context(context, assigns = T.unsafe(nil), controller = T.unsafe(nil)); end
 
-    # source://actionview//lib/action_view/base.rb#182
+    # source://actionview//lib/action_view/base.rb#199
     def with_empty_template_cache; end
 
-    # source://actionview//lib/action_view/base.rb#217
+    # source://actionview//lib/action_view/base.rb#234
     def with_view_paths(view_paths, assigns = T.unsafe(nil), controller = T.unsafe(nil)); end
 
-    # source://actionview//lib/action_view/base.rb#178
+    # source://actionview//lib/action_view/base.rb#195
     def xss_safe?; end
   end
 end
@@ -944,24 +934,27 @@ class ActionView::CacheExpiry::ViewReloader
   # source://actionview//lib/action_view/cache_expiry.rb#6
   def initialize(watcher:, &block); end
 
-  # source://actionview//lib/action_view/cache_expiry.rb#22
+  # source://actionview//lib/action_view/cache_expiry.rb#21
   def execute; end
 
-  # source://actionview//lib/action_view/cache_expiry.rb#18
+  # source://actionview//lib/action_view/cache_expiry.rb#16
   def updated?; end
 
   private
 
-  # source://actionview//lib/action_view/cache_expiry.rb#58
+  # source://actionview//lib/action_view/cache_expiry.rb#64
   def all_view_paths; end
 
-  # source://actionview//lib/action_view/cache_expiry.rb#54
+  # source://actionview//lib/action_view/cache_expiry.rb#37
+  def build_watcher; end
+
+  # source://actionview//lib/action_view/cache_expiry.rb#60
   def dirs_to_watch; end
 
-  # source://actionview//lib/action_view/cache_expiry.rb#36
+  # source://actionview//lib/action_view/cache_expiry.rb#55
   def rebuild_watcher; end
 
-  # source://actionview//lib/action_view/cache_expiry.rb#32
+  # source://actionview//lib/action_view/cache_expiry.rb#33
   def reload!; end
 end
 
@@ -1178,45 +1171,45 @@ ActionView::DependencyTracker::ERBTracker::STRING = T.let(T.unsafe(nil), Regexp)
 # source://actionview//lib/action_view/dependency_tracker/erb_tracker.rb#16
 ActionView::DependencyTracker::ERBTracker::VARIABLE_OR_METHOD_CHAIN = T.let(T.unsafe(nil), Regexp)
 
-# source://actionview//lib/action_view/dependency_tracker/ripper_tracker.rb#5
-class ActionView::DependencyTracker::RipperTracker
-  # source://actionview//lib/action_view/dependency_tracker/ripper_tracker.rb#20
-  def initialize(name, template, view_paths = T.unsafe(nil)); end
+# source://actionview//lib/action_view/dependency_tracker/ruby_tracker.rb#5
+class ActionView::DependencyTracker::RubyTracker
+  # source://actionview//lib/action_view/dependency_tracker/ruby_tracker.rb#20
+  def initialize(name, template, view_paths = T.unsafe(nil), parser_class: T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/dependency_tracker/ripper_tracker.rb#12
+  # source://actionview//lib/action_view/dependency_tracker/ruby_tracker.rb#12
   def dependencies; end
 
   private
 
-  # source://actionview//lib/action_view/dependency_tracker/ripper_tracker.rb#38
+  # source://actionview//lib/action_view/dependency_tracker/ruby_tracker.rb#39
   def explicit_dependencies; end
 
-  # source://actionview//lib/action_view/dependency_tracker/ripper_tracker.rb#25
+  # source://actionview//lib/action_view/dependency_tracker/ruby_tracker.rb#26
   def name; end
 
-  # source://actionview//lib/action_view/dependency_tracker/ripper_tracker.rb#27
+  # source://actionview//lib/action_view/dependency_tracker/ruby_tracker.rb#28
   def render_dependencies; end
 
-  # source://actionview//lib/action_view/dependency_tracker/ripper_tracker.rb#46
+  # source://actionview//lib/action_view/dependency_tracker/ruby_tracker.rb#47
   def resolve_directories(wildcard_dependencies); end
 
-  # source://actionview//lib/action_view/dependency_tracker/ripper_tracker.rb#25
+  # source://actionview//lib/action_view/dependency_tracker/ruby_tracker.rb#26
   def template; end
 
-  # source://actionview//lib/action_view/dependency_tracker/ripper_tracker.rb#25
+  # source://actionview//lib/action_view/dependency_tracker/ruby_tracker.rb#26
   def view_paths; end
 
   class << self
-    # source://actionview//lib/action_view/dependency_tracker/ripper_tracker.rb#8
+    # source://actionview//lib/action_view/dependency_tracker/ruby_tracker.rb#8
     def call(name, template, view_paths = T.unsafe(nil)); end
 
-    # source://actionview//lib/action_view/dependency_tracker/ripper_tracker.rb#16
+    # source://actionview//lib/action_view/dependency_tracker/ruby_tracker.rb#16
     def supports_view_paths?; end
   end
 end
 
-# source://actionview//lib/action_view/dependency_tracker/ripper_tracker.rb#6
-ActionView::DependencyTracker::RipperTracker::EXPLICIT_DEPENDENCY = T.let(T.unsafe(nil), Regexp)
+# source://actionview//lib/action_view/dependency_tracker/ruby_tracker.rb#6
+ActionView::DependencyTracker::RubyTracker::EXPLICIT_DEPENDENCY = T.let(T.unsafe(nil), Regexp)
 
 # source://actionview//lib/action_view/digestor.rb#6
 class ActionView::Digestor
@@ -1301,56 +1294,56 @@ ActionView::ENCODING_FLAG = T.let(T.unsafe(nil), String)
 # source://actionview//lib/action_view/template/error.rb#11
 class ActionView::EncodingError < ::StandardError; end
 
-# source://actionview//lib/action_view/template/resolver.rb#93
+# source://actionview//lib/action_view/template/resolver.rb#91
 class ActionView::FileSystemResolver < ::ActionView::Resolver
-  # source://actionview//lib/action_view/template/resolver.rb#96
+  # source://actionview//lib/action_view/template/resolver.rb#94
   def initialize(path); end
 
-  # source://actionview//lib/action_view/template/resolver.rb#115
+  # source://actionview//lib/action_view/template/resolver.rb#113
   def ==(resolver); end
 
-  # source://actionview//lib/action_view/template/resolver.rb#120
+  # source://actionview//lib/action_view/template/resolver.rb#118
   def all_template_paths; end
 
-  # source://actionview//lib/action_view/template/resolver.rb#129
+  # source://actionview//lib/action_view/template/resolver.rb#127
   def built_templates; end
 
-  # source://actionview//lib/action_view/template/resolver.rb#104
+  # source://actionview//lib/action_view/template/resolver.rb#102
   def clear_cache; end
 
-  # source://actionview//lib/action_view/template/resolver.rb#115
+  # source://actionview//lib/action_view/template/resolver.rb#113
   def eql?(resolver); end
 
-  # source://actionview//lib/action_view/template/resolver.rb#94
+  # source://actionview//lib/action_view/template/resolver.rb#92
   def path; end
 
-  # source://actionview//lib/action_view/template/resolver.rb#110
+  # source://actionview//lib/action_view/template/resolver.rb#108
   def to_path; end
 
-  # source://actionview//lib/action_view/template/resolver.rb#110
+  # source://actionview//lib/action_view/template/resolver.rb#108
   def to_s; end
 
   private
 
-  # source://actionview//lib/action_view/template/resolver.rb#134
+  # source://actionview//lib/action_view/template/resolver.rb#132
   def _find_all(name, prefix, partial, details, key, locals); end
 
-  # source://actionview//lib/action_view/template/resolver.rb#153
+  # source://actionview//lib/action_view/template/resolver.rb#151
   def build_unbound_template(template); end
 
-  # source://actionview//lib/action_view/template/resolver.rb#211
+  # source://actionview//lib/action_view/template/resolver.rb#209
   def escape_entry(entry); end
 
-  # source://actionview//lib/action_view/template/resolver.rb#183
+  # source://actionview//lib/action_view/template/resolver.rb#181
   def filter_and_sort_by_details(templates, requested_details); end
 
-  # source://actionview//lib/action_view/template/resolver.rb#149
+  # source://actionview//lib/action_view/template/resolver.rb#147
   def source_for_template(template); end
 
-  # source://actionview//lib/action_view/template/resolver.rb#198
+  # source://actionview//lib/action_view/template/resolver.rb#196
   def template_glob(glob); end
 
-  # source://actionview//lib/action_view/template/resolver.rb#166
+  # source://actionview//lib/action_view/template/resolver.rb#164
   def unbound_templates_from_path(path); end
 end
 
@@ -1440,13 +1433,13 @@ module ActionView::Helpers::AssetTagHelper
   # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#28
   def apply_stylesheet_media_default=(val); end
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#581
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#593
   def audio_tag(*sources); end
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#259
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#271
   def auto_discovery_link_tag(type = T.unsafe(nil), url_options = T.unsafe(nil), tag_options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#300
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#312
   def favicon_link_tag(source = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#26
@@ -1461,16 +1454,16 @@ module ActionView::Helpers::AssetTagHelper
   # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#25
   def image_loading=(val); end
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#418
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#430
   def image_tag(source, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#111
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#113
   def javascript_include_tag(*sources); end
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#479
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#491
   def picture_tag(*sources, &block); end
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#343
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#355
   def preload_link_tag(source, options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#27
@@ -1479,30 +1472,30 @@ module ActionView::Helpers::AssetTagHelper
   # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#27
   def preload_links_header=(val); end
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#193
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#202
   def stylesheet_link_tag(*sources); end
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#549
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#561
   def video_tag(*sources); end
 
   private
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#622
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#634
   def check_for_image_tag_errors(options); end
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#613
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#625
   def extract_dimensions(size); end
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#586
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#598
   def multiple_sources_tag_builder(type, sources); end
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#603
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#615
   def resolve_asset_source(asset_type, source, skip_pipeline); end
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#628
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#640
   def resolve_link_as(extname, mime_type); end
 
-  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#642
+  # source://actionview//lib/action_view/helpers/asset_tag_helper.rb#654
   def send_preload_links_header(preload_links, max_header_size: T.unsafe(nil)); end
 
   class << self
@@ -1532,7 +1525,7 @@ module ActionView::Helpers::AssetTagHelper
   end
 end
 
-# source://actionview//lib/action_view/helpers/asset_tag_helper.rb#640
+# source://actionview//lib/action_view/helpers/asset_tag_helper.rb#652
 ActionView::Helpers::AssetTagHelper::MAX_HEADER_SIZE = T.let(T.unsafe(nil), Integer)
 
 # source://actionview//lib/action_view/helpers/asset_url_helper.rb#121
@@ -2057,13 +2050,13 @@ end
 class ActionView::Helpers::FormBuilder
   include ::ActionView::ModelNaming
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1715
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1717
   def initialize(object_name, object, template, options); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2644
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2649
   def button(value = T.unsafe(nil), options = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2468
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2474
   def check_box(method, options = T.unsafe(nil), checked_value = T.unsafe(nil), unchecked_value = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/form_options_helper.rb#908
@@ -2075,133 +2068,133 @@ class ActionView::Helpers::FormBuilder
   # source://actionview//lib/action_view/helpers/form_options_helper.rb#860
   def collection_select(method, collection, value_method, text_method, options = T.unsafe(nil), html_options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2042
   def color_field(method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2070
   def date_field(method, options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/date_helper.rb#1237
   def date_select(method, options = T.unsafe(nil), html_options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2084
   def datetime_field(method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2091
   def datetime_local_field(method, options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/date_helper.rb#1261
   def datetime_select(method, options = T.unsafe(nil), html_options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2119
   def email_field(method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2665
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2670
   def emitted_hidden_id?; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1680
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1682
   def field_helpers; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1680
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1682
   def field_helpers=(_arg0); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1680
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1682
   def field_helpers?; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1772
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1774
   def field_id(method, *suffixes, namespace: T.unsafe(nil), index: T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1792
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1794
   def field_name(method, *methods, multiple: T.unsafe(nil), index: T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2322
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2328
   def fields(scope = T.unsafe(nil), model: T.unsafe(nil), **options, &block); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2284
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2290
   def fields_for(record_name, record_object = T.unsafe(nil), fields_options = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2551
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2557
   def file_field(method, options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/form_options_helper.rb#872
   def grouped_collection_select(method, collection, group_method, group_label_method, option_key_method, option_value_method, options = T.unsafe(nil), html_options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2512
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2518
   def hidden_field(method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1752
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1754
   def id; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1692
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1694
   def index; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2399
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2405
   def label(method, text = T.unsafe(nil), options = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2098
   def month_field(method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1692
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1694
   def multipart; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1695
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1697
   def multipart=(multipart); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1692
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1694
   def multipart?; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2126
   def number_field(method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1690
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1692
   def object; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1690
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1692
   def object=(_arg0); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1690
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1692
   def object_name; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1690
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1692
   def object_name=(_arg0); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1690
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1692
   def options; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1690
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1692
   def options=(_arg0); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2028
   def password_field(method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2063
   def phone_field(method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2490
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2496
   def radio_button(method, tag_value, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2133
   def range_field(method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2049
   def search_field(method, options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/form_options_helper.rb#848
   def select(method, choices = T.unsafe(nil), options = T.unsafe(nil), html_options = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2583
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2589
   def submit(value = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2056
   def telephone_field(method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2035
   def text_area(method, options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/form_helper.rb#2021
   def text_field(method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2077
   def time_field(method, options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/date_helper.rb#1249
@@ -2210,16 +2203,16 @@ class ActionView::Helpers::FormBuilder
   # source://actionview//lib/action_view/helpers/form_options_helper.rb#884
   def time_zone_select(method, priority_zones = T.unsafe(nil), options = T.unsafe(nil), html_options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1711
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1713
   def to_model; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1707
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1709
   def to_partial_path; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2112
   def url_field(method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2021
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2105
   def week_field(method, options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/form_options_helper.rb#896
@@ -2227,43 +2220,43 @@ class ActionView::Helpers::FormBuilder
 
   private
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2750
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2755
   def convert_to_legacy_options(options); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2732
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2737
   def fields_for_nested_model(name, object, fields_options, block); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2703
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2708
   def fields_for_with_nested_attributes(association_name, association, options, block); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2699
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2704
   def nested_attributes_association?(association_name); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2745
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2750
   def nested_child_index(name); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2670
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2675
   def objectify_options(options); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#2676
+  # source://actionview//lib/action_view/helpers/form_helper.rb#2681
   def submit_default_value; end
 
   class << self
-    # source://actionview//lib/action_view/helpers/form_helper.rb#1703
+    # source://actionview//lib/action_view/helpers/form_helper.rb#1705
     def _to_partial_path; end
 
-    # source://actionview//lib/action_view/helpers/form_helper.rb#1680
+    # source://actionview//lib/action_view/helpers/form_helper.rb#1682
     def field_helpers; end
 
-    # source://actionview//lib/action_view/helpers/form_helper.rb#1680
+    # source://actionview//lib/action_view/helpers/form_helper.rb#1682
     def field_helpers=(value); end
 
-    # source://actionview//lib/action_view/helpers/form_helper.rb#1680
+    # source://actionview//lib/action_view/helpers/form_helper.rb#1682
     def field_helpers?; end
   end
 end
 
-# source://actionview//lib/action_view/helpers/form_helper.rb#112
+# source://actionview//lib/action_view/helpers/form_helper.rb#113
 module ActionView::Helpers::FormHelper
   include ::ActionView::ModelNaming
   include ::ActionView::RecordIdentifier
@@ -2276,139 +2269,139 @@ module ActionView::Helpers::FormHelper
   mixes_in_class_methods ::ActionView::Helpers::UrlHelper::ClassMethods
   mixes_in_class_methods ::ActionView::Helpers::SanitizeHelper::ClassMethods
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1586
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1588
   def _object_for_form_builder(object); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1343
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1345
   def check_box(object_name, method, options = T.unsafe(nil), checked_value = T.unsafe(nil), unchecked_value = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1373
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1375
   def color_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1437
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1439
   def date_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1510
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1512
   def datetime_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1510
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1512
   def datetime_local_field(object_name, method, options = T.unsafe(nil)); end
 
   def default_form_builder; end
   def default_form_builder=(_arg0); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1564
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1566
   def email_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1077
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1079
   def fields(scope = T.unsafe(nil), model: T.unsafe(nil), **options, &block); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1026
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1028
   def fields_for(record_name, record_object = T.unsafe(nil), options = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1245
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1247
   def file_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#434
+  # source://actionview//lib/action_view/helpers/form_helper.rb#435
   def form_for(record, options = T.unsafe(nil), &block); end
 
   # source://actionview//lib/action_view/helpers/form_helper.rb#755
   def form_with(model: T.unsafe(nil), scope: T.unsafe(nil), url: T.unsafe(nil), format: T.unsafe(nil), **options, &block); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#480
+  # source://actionview//lib/action_view/helpers/form_helper.rb#481
   def form_with_generates_ids; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#480
+  # source://actionview//lib/action_view/helpers/form_helper.rb#481
   def form_with_generates_ids=(val); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#478
+  # source://actionview//lib/action_view/helpers/form_helper.rb#479
   def form_with_generates_remote_forms; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#478
+  # source://actionview//lib/action_view/helpers/form_helper.rb#479
   def form_with_generates_remote_forms=(val); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1212
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1214
   def hidden_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1149
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1151
   def label(object_name, method, content_or_options = T.unsafe(nil), options = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1529
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1531
   def month_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#482
+  # source://actionview//lib/action_view/helpers/form_helper.rb#483
   def multiple_file_field_include_hidden; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#482
+  # source://actionview//lib/action_view/helpers/form_helper.rb#483
   def multiple_file_field_include_hidden=(val); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1573
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1575
   def number_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1194
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1196
   def password_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1405
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1407
   def phone_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1365
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1367
   def radio_button(object_name, method, tag_value, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1582
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1584
   def range_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1396
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1398
   def search_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1405
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1407
   def telephone_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1275
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1277
   def text_area(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1173
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1175
   def text_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1475
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1477
   def time_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1555
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1557
   def url_field(object_name, method, options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1546
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1548
   def week_field(object_name, method, options = T.unsafe(nil)); end
 
   private
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#464
+  # source://actionview//lib/action_view/helpers/form_helper.rb#465
   def apply_form_for_options!(object, options); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1620
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1622
   def default_form_builder_class; end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1591
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1593
   def html_options_for_form_with(url_for_options = T.unsafe(nil), model = T.unsafe(nil), html: T.unsafe(nil), local: T.unsafe(nil), skip_enforcing_utf8: T.unsafe(nil), **options); end
 
-  # source://actionview//lib/action_view/helpers/form_helper.rb#1606
+  # source://actionview//lib/action_view/helpers/form_helper.rb#1608
   def instantiate_builder(record_name, record_object, options); end
 
   class << self
-    # source://actionview//lib/action_view/helpers/form_helper.rb#480
+    # source://actionview//lib/action_view/helpers/form_helper.rb#481
     def form_with_generates_ids; end
 
-    # source://actionview//lib/action_view/helpers/form_helper.rb#480
+    # source://actionview//lib/action_view/helpers/form_helper.rb#481
     def form_with_generates_ids=(val); end
 
-    # source://actionview//lib/action_view/helpers/form_helper.rb#478
+    # source://actionview//lib/action_view/helpers/form_helper.rb#479
     def form_with_generates_remote_forms; end
 
-    # source://actionview//lib/action_view/helpers/form_helper.rb#478
+    # source://actionview//lib/action_view/helpers/form_helper.rb#479
     def form_with_generates_remote_forms=(val); end
 
-    # source://actionview//lib/action_view/helpers/form_helper.rb#482
+    # source://actionview//lib/action_view/helpers/form_helper.rb#483
     def multiple_file_field_include_hidden; end
 
-    # source://actionview//lib/action_view/helpers/form_helper.rb#482
+    # source://actionview//lib/action_view/helpers/form_helper.rb#483
     def multiple_file_field_include_hidden=(val); end
   end
 end
@@ -2496,22 +2489,22 @@ module ActionView::Helpers::FormTagHelper
   mixes_in_class_methods ::ActionView::Helpers::UrlHelper::ClassMethods
   mixes_in_class_methods ::ActionView::Helpers::SanitizeHelper::ClassMethods
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#605
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#566
   def button_tag(content_or_options = T.unsafe(nil), options = T.unsafe(nil), &block); end
 
   # source://actionview//lib/action_view/helpers/form_tag_helper.rb#455
   def check_box_tag(name, *args); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#703
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#666
   def color_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#773
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#736
   def date_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#801
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#795
   def datetime_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#801
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#795
   def datetime_local_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/form_tag_helper.rb#29
@@ -2520,7 +2513,7 @@ module ActionView::Helpers::FormTagHelper
   # source://actionview//lib/action_view/helpers/form_tag_helper.rb#29
   def default_enforce_utf8=(val); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#875
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#897
   def email_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/form_tag_helper.rb#26
@@ -2535,8 +2528,11 @@ module ActionView::Helpers::FormTagHelper
   # source://actionview//lib/action_view/helpers/form_tag_helper.rb#132
   def field_name(object_name, method_name, *method_names, multiple: T.unsafe(nil), index: T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#677
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#638
   def field_set_tag(legend = T.unsafe(nil), options = T.unsafe(nil), &block); end
+
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#638
+  def fieldset_tag(legend = T.unsafe(nil), options = T.unsafe(nil), &block); end
 
   # source://actionview//lib/action_view/helpers/form_tag_helper.rb#347
   def file_field_tag(name, options = T.unsafe(nil)); end
@@ -2547,40 +2543,40 @@ module ActionView::Helpers::FormTagHelper
   # source://actionview//lib/action_view/helpers/form_tag_helper.rb#308
   def hidden_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#651
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#612
   def image_submit_tag(source, options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/form_tag_helper.rb#281
   def label_tag(name = T.unsafe(nil), content_or_options = T.unsafe(nil), options = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#816
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#824
   def month_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#923
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#945
   def number_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/form_tag_helper.rb#380
   def password_field_tag(name = T.unsafe(nil), value = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#749
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#712
   def phone_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/form_tag_helper.rb#491
   def radio_button_tag(name, value, *args); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#937
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#970
   def range_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#726
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#689
   def search_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/form_tag_helper.rb#201
   def select_tag(name, option_tags = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#544
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#525
   def submit_tag(value = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#749
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#712
   def telephone_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # source://actionview//lib/action_view/helpers/form_tag_helper.rb#413
@@ -2589,39 +2585,39 @@ module ActionView::Helpers::FormTagHelper
   # source://actionview//lib/action_view/helpers/form_tag_helper.rb#263
   def text_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#787
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#767
   def time_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#852
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#874
   def url_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#943
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#976
   def utf8_enforcer_tag; end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#829
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#851
   def week_field_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
   private
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#1040
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#1073
   def convert_direct_upload_option_to_url(options); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#978
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#1011
   def extra_tags_for_form(html_options); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#1008
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#1041
   def form_tag_html(html_options); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#1014
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#1047
   def form_tag_with_body(html_options, content); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#951
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#984
   def html_options_for_form(url_for_options, options); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#1021
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#1054
   def sanitize_to_id(name); end
 
-  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#1025
+  # source://actionview//lib/action_view/helpers/form_tag_helper.rb#1058
   def set_default_disable_with(value, tag_options); end
 
   class << self
@@ -2790,55 +2786,55 @@ module ActionView::Helpers::SanitizeHelper::ClassMethods
   # source://actionview//lib/action_view/helpers/sanitize_helper.rb#165
   def sanitized_allowed_attributes; end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#34
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#34
   def sanitized_allowed_attributes=(attributes); end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#47
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#47
   def sanitized_allowed_css_keywords; end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#48
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#48
   def sanitized_allowed_css_keywords=(_); end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#47
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#47
   def sanitized_allowed_css_properties; end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#48
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#48
   def sanitized_allowed_css_properties=(_); end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#47
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#47
   def sanitized_allowed_protocols; end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#48
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#48
   def sanitized_allowed_protocols=(_); end
 
   # source://actionview//lib/action_view/helpers/sanitize_helper.rb#161
   def sanitized_allowed_tags; end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#24
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#24
   def sanitized_allowed_tags=(tags); end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#47
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#47
   def sanitized_bad_tags; end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#48
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#48
   def sanitized_bad_tags=(_); end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#47
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#47
   def sanitized_protocol_separator; end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#48
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#48
   def sanitized_protocol_separator=(_); end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#47
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#47
   def sanitized_shorthand_css_properties; end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#48
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#48
   def sanitized_shorthand_css_properties=(_); end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#47
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#47
   def sanitized_uri_attributes; end
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#48
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#48
   def sanitized_uri_attributes=(_); end
 
   # source://actionview//lib/action_view/helpers/sanitize_helper.rb#157
@@ -2846,108 +2842,503 @@ module ActionView::Helpers::SanitizeHelper::ClassMethods
 
   private
 
-  # source://rails-html-sanitizer/1.6.0/lib/rails-html-sanitizer.rb#52
+  # source://rails-html-sanitizer/1.6.2/lib/rails-html-sanitizer.rb#52
   def deprecate_option(name); end
 end
 
-# source://actionview//lib/action_view/helpers/tag_helper.rb#15
+# source://actionview//lib/action_view/helpers/tag_helper.rb#17
 module ActionView::Helpers::TagHelper
   include ::ActionView::Helpers::CaptureHelper
   include ::ActionView::Helpers::OutputSafetyHelper
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#386
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#571
   def cdata_section(content); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#366
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#551
   def class_names(*args); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#346
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#529
   def content_tag(name, content_or_options_with_block = T.unsafe(nil), options = T.unsafe(nil), escape = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#398
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#583
   def escape_once(html); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#309
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#492
   def tag(name = T.unsafe(nil), options = T.unsafe(nil), open = T.unsafe(nil), escape = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#366
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#551
   def token_list(*args); end
 
   private
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#403
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#593
   def build_tag_values(*args); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#423
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#588
+  def ensure_valid_html5_tag_name(name); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#613
   def tag_builder; end
 
   class << self
-    # source://actionview//lib/action_view/helpers/tag_helper.rb#403
+    # source://actionview//lib/action_view/helpers/tag_helper.rb#593
     def build_tag_values(*args); end
+
+    # source://actionview//lib/action_view/helpers/tag_helper.rb#588
+    def ensure_valid_html5_tag_name(name); end
   end
 end
 
-# source://actionview//lib/action_view/helpers/tag_helper.rb#32
+# source://actionview//lib/action_view/helpers/tag_helper.rb#34
 ActionView::Helpers::TagHelper::ARIA_PREFIXES = T.let(T.unsafe(nil), Set)
 
-# source://actionview//lib/action_view/helpers/tag_helper.rb#19
+# source://actionview//lib/action_view/helpers/tag_helper.rb#21
 ActionView::Helpers::TagHelper::BOOLEAN_ATTRIBUTES = T.let(T.unsafe(nil), Set)
 
-# source://actionview//lib/action_view/helpers/tag_helper.rb#33
+# source://actionview//lib/action_view/helpers/tag_helper.rb#35
 ActionView::Helpers::TagHelper::DATA_PREFIXES = T.let(T.unsafe(nil), Set)
 
-# source://actionview//lib/action_view/helpers/tag_helper.rb#41
+# source://actionview//lib/action_view/helpers/tag_helper.rb#43
 ActionView::Helpers::TagHelper::PRE_CONTENT_STRINGS = T.let(T.unsafe(nil), Hash)
 
-# source://actionview//lib/action_view/helpers/tag_helper.rb#35
+# source://actionview//lib/action_view/helpers/tag_helper.rb#37
 ActionView::Helpers::TagHelper::TAG_TYPES = T.let(T.unsafe(nil), Hash)
 
-# source://actionview//lib/action_view/helpers/tag_helper.rb#45
+# source://actionview//lib/action_view/helpers/tag_helper.rb#47
 class ActionView::Helpers::TagHelper::TagBuilder
   include ::ActionView::Helpers::CaptureHelper
   include ::ActionView::Helpers::OutputSafetyHelper
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#52
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#229
   def initialize(view_context); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#61
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#390
+  def a(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#393
+  def abbr(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#396
+  def address(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#292
+  def animate(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#299
+  def animate_motion(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#306
+  def animate_transform(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#96
+  def area(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#399
+  def article(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#402
+  def aside(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#238
   def attributes(attributes); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#132
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#405
+  def audio(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#408
+  def b(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#110
+  def base(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#411
+  def bdi(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#414
+  def bdo(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#417
+  def blockquote(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#420
+  def body(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#303
   def boolean_tag_option(key); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#79
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#124
+  def br(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#423
+  def button(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#426
+  def canvas(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#429
+  def caption(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#313
+  def circle(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#432
+  def cite(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#435
+  def code(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#138
+  def col(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#438
+  def colgroup(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#252
   def content_tag_string(name, content, options, escape = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#65
-  def p(*arguments, **options, &block); end
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#441
+  def data(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#136
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#444
+  def datalist(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#447
+  def dd(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#450
+  def del(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#453
+  def details(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#456
+  def dfn(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#459
+  def dialog(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#462
+  def div(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#465
+  def dl(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#468
+  def dt(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#320
+  def ellipse(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#471
+  def em(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#152
+  def embed(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#474
+  def fieldset(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#477
+  def figcaption(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#480
+  def figure(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#483
+  def footer(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#486
+  def form(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#489
+  def h1(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#492
+  def h2(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#495
+  def h3(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#498
+  def h4(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#501
+  def h5(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#504
+  def h6(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#507
+  def head(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#510
+  def header(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#513
+  def hgroup(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#166
+  def hr(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#516
+  def html(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#519
+  def i(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#522
+  def iframe(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#180
+  def img(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#194
+  def input(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#525
+  def ins(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#528
+  def kbd(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#208
+  def keygen(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#531
+  def label(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#534
+  def legend(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#537
+  def li(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#327
+  def line(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#222
+  def link(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#540
+  def main(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#543
+  def map(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#546
+  def mark(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#549
+  def menu(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#236
+  def meta(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#552
+  def meter(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#555
+  def nav(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#558
+  def noscript(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#561
+  def object(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#564
+  def ol(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#567
+  def optgroup(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#570
+  def option(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#573
+  def output(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#576
+  def p(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#334
+  def path(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#579
+  def picture(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#341
+  def polygon(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#348
+  def polyline(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#582
+  def portal(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#585
+  def pre(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#588
+  def progress(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#591
+  def q(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#355
+  def rect(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#594
+  def rp(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#597
+  def rt(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#600
+  def ruby(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#603
+  def s(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#606
+  def samp(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#609
+  def script(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#612
+  def search(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#615
+  def section(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#618
+  def select(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#248
+  def self_closing_tag_string(name, options, escape = T.unsafe(nil), tag_suffix = T.unsafe(nil)); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#362
+  def set(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#621
+  def slot(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#624
+  def small(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#250
+  def source(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#627
+  def span(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#369
+  def stop(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#630
+  def strong(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#633
+  def style(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#636
+  def sub(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#639
+  def summary(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#642
+  def sup(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#645
+  def table(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#307
   def tag_option(key, value, escape); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#90
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#261
   def tag_options(options, escape = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#69
-  def tag_string(name, content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#242
+  def tag_string(name, content = T.unsafe(nil), options, escape: T.unsafe(nil), &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#648
+  def tbody(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#651
+  def td(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#654
+  def template(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#657
+  def textarea(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#660
+  def tfoot(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#663
+  def th(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#666
+  def thead(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#669
+  def time(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#672
+  def title(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#675
+  def tr(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#264
+  def track(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#678
+  def u(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#681
+  def ul(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#376
+  def use(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#684
+  def var(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#687
+  def video(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#383
+  def view(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
+
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#278
+  def wbr(content = T.unsafe(nil), escape: T.unsafe(nil), **options, &block); end
 
   private
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#166
-  def method_missing(called, *args, **options, &block); end
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#337
+  def method_missing(called, *args, escape: T.unsafe(nil), **options, &block); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#154
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#325
   def prefix_tag_option(prefix, key, value, escape); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#162
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#333
   def respond_to_missing?(*args); end
+
+  class << self
+    # source://actionview//lib/action_view/helpers/tag_helper.rb#51
+    def define_element(name, code_generator:, method_name: T.unsafe(nil)); end
+
+    # source://actionview//lib/action_view/helpers/tag_helper.rb#82
+    def define_self_closing_element(name, code_generator:, method_name: T.unsafe(nil)); end
+
+    # source://actionview//lib/action_view/helpers/tag_helper.rb#61
+    def define_void_element(name, code_generator:, method_name: T.unsafe(nil)); end
+  end
 end
-
-# source://actionview//lib/action_view/helpers/tag_helper.rb#49
-ActionView::Helpers::TagHelper::TagBuilder::HTML_VOID_ELEMENTS = T.let(T.unsafe(nil), Set)
-
-# source://actionview//lib/action_view/helpers/tag_helper.rb#50
-ActionView::Helpers::TagHelper::TagBuilder::SVG_SELF_CLOSING_ELEMENTS = T.let(T.unsafe(nil), Set)
 
 # source://actionview//lib/action_view/helpers/tags.rb#5
 module ActionView::Helpers::Tags
@@ -3617,7 +4008,7 @@ module ActionView::Helpers::UrlHelper
 
   mixes_in_class_methods ::ActionView::Helpers::UrlHelper::ClassMethods
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#357
+  # source://actionview//lib/action_view/helpers/url_helper.rb#296
   def button_to(name = T.unsafe(nil), options = T.unsafe(nil), html_options = T.unsafe(nil), &block); end
 
   # source://actionview//lib/action_view/helpers/url_helper.rb#35
@@ -3626,28 +4017,28 @@ module ActionView::Helpers::UrlHelper
   # source://actionview//lib/action_view/helpers/url_helper.rb#35
   def button_to_generates_button_tag=(val); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#611
+  # source://actionview//lib/action_view/helpers/url_helper.rb#550
   def current_page?(options = T.unsafe(nil), check_parameters: T.unsafe(nil), **options_as_kwargs); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#234
+  # source://actionview//lib/action_view/helpers/url_helper.rb#198
   def link_to(name = T.unsafe(nil), options = T.unsafe(nil), html_options = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#498
+  # source://actionview//lib/action_view/helpers/url_helper.rb#437
   def link_to_if(condition, name, options = T.unsafe(nil), html_options = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#475
+  # source://actionview//lib/action_view/helpers/url_helper.rb#414
   def link_to_unless(condition, name, options = T.unsafe(nil), html_options = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#451
+  # source://actionview//lib/action_view/helpers/url_helper.rb#390
   def link_to_unless_current(name, options = T.unsafe(nil), html_options = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#548
+  # source://actionview//lib/action_view/helpers/url_helper.rb#487
   def mail_to(email_address, name = T.unsafe(nil), html_options = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#745
+  # source://actionview//lib/action_view/helpers/url_helper.rb#671
   def phone_to(phone_number, name = T.unsafe(nil), html_options = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#694
+  # source://actionview//lib/action_view/helpers/url_helper.rb#620
   def sms_to(phone_number, name = T.unsafe(nil), html_options = T.unsafe(nil), &block); end
 
   # source://actionview//lib/action_view/helpers/url_helper.rb#38
@@ -3661,34 +4052,34 @@ module ActionView::Helpers::UrlHelper
   # source://actionview//lib/action_view/helpers/url_helper.rb#55
   def _filtered_referrer; end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#788
+  # source://actionview//lib/action_view/helpers/url_helper.rb#714
   def add_method_to_attributes!(html_options, method); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#759
+  # source://actionview//lib/action_view/helpers/url_helper.rb#685
   def convert_options_to_data_attributes(options, html_options); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#782
+  # source://actionview//lib/action_view/helpers/url_helper.rb#708
   def link_to_remote_options?(options); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#799
+  # source://actionview//lib/action_view/helpers/url_helper.rb#725
   def method_for_options(options); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#817
+  # source://actionview//lib/action_view/helpers/url_helper.rb#743
   def method_not_get_method?(method); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#836
+  # source://actionview//lib/action_view/helpers/url_helper.rb#762
   def method_tag(method); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#882
+  # source://actionview//lib/action_view/helpers/url_helper.rb#808
   def remove_trailing_slash!(url_string); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#856
+  # source://actionview//lib/action_view/helpers/url_helper.rb#782
   def to_form_params(attribute, namespace = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#822
+  # source://actionview//lib/action_view/helpers/url_helper.rb#748
   def token_tag(token = T.unsafe(nil), form_options: T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/url_helper.rb#774
+  # source://actionview//lib/action_view/helpers/url_helper.rb#700
   def url_target(name, options); end
 
   class << self
@@ -3709,10 +4100,10 @@ module ActionView::Helpers::UrlHelper::ClassMethods
   def _url_for_modules; end
 end
 
-# source://actionview//lib/action_view/helpers/url_helper.rb#564
+# source://actionview//lib/action_view/helpers/url_helper.rb#503
 ActionView::Helpers::UrlHelper::RFC2396_PARSER = T.let(T.unsafe(nil), URI::RFC2396_Parser)
 
-# source://actionview//lib/action_view/helpers/url_helper.rb#809
+# source://actionview//lib/action_view/helpers/url_helper.rb#735
 ActionView::Helpers::UrlHelper::STRINGIFIED_COMMON_METHODS = T.let(T.unsafe(nil), Hash)
 
 # source://actionview//lib/action_view/rendering.rb#8
@@ -3745,35 +4136,35 @@ module ActionView::Layouts
   mixes_in_class_methods ::ActionView::Rendering::ClassMethods
   mixes_in_class_methods ::ActionView::Layouts::ClassMethods
 
-  # source://actionview//lib/action_view/layouts.rb#363
+  # source://actionview//lib/action_view/layouts.rb#361
   def initialize(*_arg0); end
 
-  # source://actionview//lib/action_view/layouts.rb#352
+  # source://actionview//lib/action_view/layouts.rb#350
   def _normalize_options(options); end
 
   def action_has_layout=(_arg0); end
 
-  # source://actionview//lib/action_view/layouts.rb#374
+  # source://actionview//lib/action_view/layouts.rb#372
   def action_has_layout?; end
 
   private
 
-  # source://actionview//lib/action_view/layouts.rb#379
+  # source://actionview//lib/action_view/layouts.rb#377
   def _conditional_layout?; end
 
-  # source://actionview//lib/action_view/layouts.rb#417
+  # source://actionview//lib/action_view/layouts.rb#415
   def _default_layout(lookup_context, formats, require_layout = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/layouts.rb#432
+  # source://actionview//lib/action_view/layouts.rb#430
   def _include_layout?(options); end
 
-  # source://actionview//lib/action_view/layouts.rb#384
+  # source://actionview//lib/action_view/layouts.rb#382
   def _layout(*_arg0); end
 
-  # source://actionview//lib/action_view/layouts.rb#390
+  # source://actionview//lib/action_view/layouts.rb#388
   def _layout_for_option(name); end
 
-  # source://actionview//lib/action_view/layouts.rb#403
+  # source://actionview//lib/action_view/layouts.rb#401
   def _normalize_layout(value); end
 
   module GeneratedClassMethods
@@ -3785,31 +4176,34 @@ module ActionView::Layouts
     def _layout_conditions?; end
   end
 
-  module GeneratedInstanceMethods; end
+  module GeneratedInstanceMethods
+    def _layout_conditions; end
+    def _layout_conditions?; end
+  end
 end
 
-# source://actionview//lib/action_view/layouts.rb#219
+# source://actionview//lib/action_view/layouts.rb#217
 module ActionView::Layouts::ClassMethods
-  # source://actionview//lib/action_view/layouts.rb#285
+  # source://actionview//lib/action_view/layouts.rb#283
   def _write_layout_method; end
 
-  # source://actionview//lib/action_view/layouts.rb#220
+  # source://actionview//lib/action_view/layouts.rb#218
   def inherited(klass); end
 
-  # source://actionview//lib/action_view/layouts.rb#271
+  # source://actionview//lib/action_view/layouts.rb#269
   def layout(layout, conditions = T.unsafe(nil)); end
 
   private
 
-  # source://actionview//lib/action_view/layouts.rb#347
+  # source://actionview//lib/action_view/layouts.rb#345
   def _implied_layout_name; end
 end
 
-# source://actionview//lib/action_view/layouts.rb#227
+# source://actionview//lib/action_view/layouts.rb#225
 module ActionView::Layouts::ClassMethods::LayoutConditions
   private
 
-  # source://actionview//lib/action_view/layouts.rb#235
+  # source://actionview//lib/action_view/layouts.rb#233
   def _conditional_layout?; end
 end
 
@@ -3834,17 +4228,17 @@ class ActionView::LogSubscriber < ::ActiveSupport::LogSubscriber
 
   private
 
-  # source://actionview//lib/action_view/log_subscriber.rb#117
+  # source://actionview//lib/action_view/log_subscriber.rb#121
   def cache_message(payload); end
 
-  # source://actionview//lib/action_view/log_subscriber.rb#109
+  # source://actionview//lib/action_view/log_subscriber.rb#113
   def render_count(payload); end
 
   class << self
-    # source://actionview//lib/action_view/log_subscriber.rb#101
+    # source://actionview//lib/action_view/log_subscriber.rb#105
     def attach_to(*_arg0); end
 
-    # source://activesupport/7.1.5.1/lib/active_support/log_subscriber.rb#88
+    # source://activesupport/7.2.2.1/lib/active_support/log_subscriber.rb#84
     def log_levels; end
   end
 end
@@ -3855,6 +4249,9 @@ class ActionView::LogSubscriber::Start
 
   # source://actionview//lib/action_view/log_subscriber.rb#97
   def finish(name, id, payload); end
+
+  # source://actionview//lib/action_view/log_subscriber.rb#100
+  def silenced?(_); end
 
   # source://actionview//lib/action_view/log_subscriber.rb#79
   def start(name, id, payload); end
@@ -4415,738 +4812,52 @@ ActionView::RecordIdentifier::JOIN = T.let(T.unsafe(nil), String)
 # source://actionview//lib/action_view/record_identifier.rb#67
 ActionView::RecordIdentifier::NEW = T.let(T.unsafe(nil), String)
 
-# source://actionview//lib/action_view/ripper_ast_parser.rb#6
-class ActionView::RenderParser
-  # source://actionview//lib/action_view/render_parser.rb#7
-  def initialize(name, code); end
+# source://actionview//lib/action_view/render_parser.rb#4
+module ActionView::RenderParser; end
 
-  # source://actionview//lib/action_view/render_parser.rb#13
-  def render_calls; end
-
-  private
-
-  # source://actionview//lib/action_view/render_parser.rb#22
-  def directory; end
-
-  # source://actionview//lib/action_view/render_parser.rb#184
-  def layout_to_virtual_path(layout_path); end
-
-  # source://actionview//lib/action_view/render_parser.rb#40
-  def normalize_args(string, options_hash); end
-
-  # source://actionview//lib/action_view/render_parser.rb#72
-  def parse_hash(node); end
-
-  # source://actionview//lib/action_view/render_parser.rb#76
-  def parse_hash_to_symbols(node); end
-
-  # source://actionview//lib/action_view/render_parser.rb#48
-  def parse_render(node); end
-
-  # source://actionview//lib/action_view/render_parser.rb#95
-  def parse_render_from_options(options_hash); end
-
-  # source://actionview//lib/action_view/render_parser.rb#155
-  def parse_str(node); end
-
-  # source://actionview//lib/action_view/render_parser.rb#159
-  def parse_sym(node); end
-
-  # source://actionview//lib/action_view/render_parser.rb#176
-  def partial_to_virtual_path(render_type, partial_path); end
-
-  # source://actionview//lib/action_view/render_parser.rb#164
-  def render_template_with_layout?(render_type, options_hash); end
-
-  # source://actionview//lib/action_view/render_parser.rb#170
-  def render_template_with_spacer?(options_hash); end
-
-  # source://actionview//lib/action_view/render_parser.rb#26
-  def resolve_path_directory(path); end
-end
-
-# source://actionview//lib/action_view/render_parser.rb#90
+# source://actionview//lib/action_view/render_parser.rb#5
 ActionView::RenderParser::ALL_KNOWN_KEYS = T.let(T.unsafe(nil), Array)
 
-# source://actionview//lib/action_view/render_parser.rb#92
-ActionView::RenderParser::RENDER_TYPE_KEYS = T.let(T.unsafe(nil), Array)
+# source://actionview//lib/action_view/render_parser.rb#8
+class ActionView::RenderParser::Base
+  # source://actionview//lib/action_view/render_parser.rb#9
+  def initialize(name, code); end
 
-# source://actionview//lib/action_view/ripper_ast_parser.rb#7
-module ActionView::RenderParser::RipperASTParser
-  extend ::ActionView::RenderParser::RipperASTParser
+  private
 
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#188
-  def parse_render_nodes(code); end
+  # source://actionview//lib/action_view/render_parser.rb#15
+  def directory; end
+
+  # source://actionview//lib/action_view/render_parser.rb#19
+  def partial_to_virtual_path(render_type, partial_path); end
 end
 
-# source://actionview//lib/action_view/ripper_ast_parser.rb#8
-class ActionView::RenderParser::RipperASTParser::Node < ::Array
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#11
-  def initialize(type, arr, opts = T.unsafe(nil)); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#35
-  def argument_nodes; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#57
-  def call?; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#65
-  def call_method_name; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#16
-  def children; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#25
-  def fcall?; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#29
-  def fcall_named?(name); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#74
-  def hash?; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#88
-  def hash_from_body(body); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#20
-  def inspect; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#45
-  def string?; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#96
-  def symbol?; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#78
-  def to_hash; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#69
-  def to_string; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#100
-  def to_symbol; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#9
-  def type; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#61
-  def variable_name; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#49
-  def variable_reference?; end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#53
-  def vcall?; end
-end
-
-# source://actionview//lib/action_view/ripper_ast_parser.rb#111
-class ActionView::RenderParser::RipperASTParser::NodeParser < ::Ripper
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_BEGIN(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_CHAR(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_END(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on___end__(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_alias(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_alias_error(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_aref(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_aref_field(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_arg_ambiguous(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_arg_paren(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_args_add(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_args_add_block(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_args_add_star(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_args_forward(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#116
-  def on_args_new(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_array(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_aryptn(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_assign(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_assign_error(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_assoc_new(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_assoc_splat(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_assoclist_from_args(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_backref(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_backtick(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_bare_assoc_hash(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_begin(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_binary(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_block_var(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_blockarg(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_bodystmt(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_brace_block(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_break(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_call(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_case(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_class(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_class_name_error(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_comma(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_command(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_command_call(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_comment(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_const(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_const_path_field(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_const_path_ref(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_const_ref(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_cvar(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_def(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_defined(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_defs(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_do_block(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_dot2(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_dot3(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_dyna_symbol(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_else(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_elsif(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_embdoc(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_embdoc_beg(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_embdoc_end(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_embexpr_beg(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_embexpr_end(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_embvar(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_ensure(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_excessed_comma(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_fcall(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_field(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_float(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_fndptn(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_for(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_gvar(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_hash(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_heredoc_beg(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_heredoc_dedent(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_heredoc_end(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_hshptn(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_ident(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_if(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_if_mod(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_ifop(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_ignored_nl(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_ignored_sp(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_imaginary(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_in(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_int(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_ivar(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_kw(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_kwrest_param(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_label(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_label_end(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_lambda(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_lbrace(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_lbracket(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_lparen(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_magic_comment(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_massign(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_method_add_arg(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_method_add_block(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_mlhs_add(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_mlhs_add_post(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_mlhs_add_star(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#116
-  def on_mlhs_new(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_mlhs_paren(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_module(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_mrhs_add(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_mrhs_add_star(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#116
-  def on_mrhs_new(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_mrhs_new_from_args(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_next(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_nl(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_nokw_param(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_op(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_opassign(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_operator_ambiguous(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_param_error(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_params(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_paren(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_parse_error(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_period(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_program(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_qsymbols_add(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_qsymbols_beg(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#116
-  def on_qsymbols_new(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_qwords_add(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_qwords_beg(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#116
-  def on_qwords_new(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_rational(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_rbrace(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_rbracket(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_redo(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_regexp_add(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_regexp_beg(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_regexp_end(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_regexp_literal(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#116
-  def on_regexp_new(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_rescue(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_rescue_mod(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_rest_param(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_retry(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_return(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_return0(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_rparen(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_sclass(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_semicolon(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_sp(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_stmts_add(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#116
-  def on_stmts_new(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_string_add(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_string_concat(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_string_content(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_string_dvar(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_string_embexpr(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_string_literal(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_super(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_symbeg(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_symbol(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_symbol_literal(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_symbols_add(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_symbols_beg(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#116
-  def on_symbols_new(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_tlambda(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_tlambeg(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_top_const_field(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_top_const_ref(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_tstring_beg(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_tstring_content(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_tstring_end(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_unary(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_undef(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_unless(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_unless_mod(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_until(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_until_mod(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_var_alias(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_var_field(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_var_ref(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_vcall(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_void_stmt(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_when(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_while(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_while_mod(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_word_add(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#116
-  def on_word_new(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_words_add(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_words_beg(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#116
-  def on_words_new(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#140
-  def on_words_sep(tok); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#123
-  def on_xstring_add(list, item); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_xstring_literal(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#116
-  def on_xstring_new(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_yield(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_yield0(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#131
-  def on_zsuper(*args); end
-end
-
-# source://actionview//lib/action_view/ripper_ast_parser.rb#147
-class ActionView::RenderParser::RipperASTParser::RenderCallExtractor < ::ActionView::RenderParser::RipperASTParser::NodeParser
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#152
-  def initialize(*args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#148
+# source://actionview//lib/action_view/render_parser.rb#37
+ActionView::RenderParser::Default = ActionView::RenderParser::PrismRenderParser
+
+# source://actionview//lib/action_view/render_parser/prism_render_parser.rb#5
+class ActionView::RenderParser::PrismRenderParser < ::ActionView::RenderParser::Base
+  # source://actionview//lib/action_view/render_parser/prism_render_parser.rb#6
   def render_calls; end
 
   private
 
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#177
-  def on_arg_paren(content); end
+  # source://actionview//lib/action_view/render_parser/prism_render_parser.rb#43
+  def render_call_options(node); end
 
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#163
-  def on_command(name, *args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#159
-  def on_fcall(name, *args); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#181
-  def on_paren(content); end
-
-  # source://actionview//lib/action_view/ripper_ast_parser.rb#167
-  def on_render_call(node); end
+  # source://actionview//lib/action_view/render_parser/prism_render_parser.rb#97
+  def render_call_template(node); end
 end
 
-# source://actionview//lib/action_view/ripper_ast_parser.rb#150
-ActionView::RenderParser::RipperASTParser::RenderCallExtractor::METHODS_TO_PARSE = T.let(T.unsafe(nil), Array)
+# source://actionview//lib/action_view/render_parser.rb#6
+ActionView::RenderParser::RENDER_TYPE_KEYS = T.let(T.unsafe(nil), Array)
 
 # source://actionview//lib/action_view/renderer/renderer.rb#15
 class ActionView::Renderer
   # source://actionview//lib/action_view/renderer/renderer.rb#18
   def initialize(lookup_context); end
 
-  # source://actionview//lib/action_view/renderer/renderer.rb#58
+  # source://actionview//lib/action_view/renderer/renderer.rb#52
   def cache_hits; end
 
   # source://actionview//lib/action_view/renderer/renderer.rb#16
@@ -5161,28 +4872,25 @@ class ActionView::Renderer
   # source://actionview//lib/action_view/renderer/renderer.rb#40
   def render_body(context, options); end
 
-  # source://actionview//lib/action_view/renderer/renderer.rb#54
+  # source://actionview//lib/action_view/renderer/renderer.rb#48
   def render_partial(context, options, &block); end
-
-  # source://actionview//lib/action_view/renderer/renderer.rb#66
-  def render_partial_to_object(context, options, &block); end
-
-  # source://actionview//lib/action_view/renderer/renderer.rb#49
-  def render_template(context, options); end
-
-  # source://actionview//lib/action_view/renderer/renderer.rb#62
-  def render_template_to_object(context, options); end
 
   # source://actionview//lib/action_view/renderer/renderer.rb#27
   def render_to_object(context, options); end
 
   private
 
-  # source://actionview//lib/action_view/renderer/renderer.rb#109
+  # source://actionview//lib/action_view/renderer/renderer.rb#103
   def collection_from_object(object); end
 
-  # source://actionview//lib/action_view/renderer/renderer.rb#102
+  # source://actionview//lib/action_view/renderer/renderer.rb#96
   def collection_from_options(options); end
+
+  # source://actionview//lib/action_view/renderer/renderer.rb#61
+  def render_partial_to_object(context, options, &block); end
+
+  # source://actionview//lib/action_view/renderer/renderer.rb#57
+  def render_template_to_object(context, options); end
 end
 
 # source://actionview//lib/action_view/rendering.rb#26
@@ -5202,7 +4910,6 @@ module ActionView::Rendering
   # source://actionview//lib/action_view/rendering.rb#119
   def render_to_body(options = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/rendering.rb#30
   def rendered_format; end
 
   # source://actionview//lib/action_view/rendering.rb#109
@@ -5252,59 +4959,57 @@ end
 
 # source://actionview//lib/action_view/template/resolver.rb#12
 class ActionView::Resolver
-  include ::ActiveSupport::Deprecation::DeprecatedConstantAccessor
-
-  # source://actionview//lib/action_view/template/resolver.rb#72
+  # source://actionview//lib/action_view/template/resolver.rb#70
   def all_template_paths; end
 
-  # source://actionview//lib/action_view/template/resolver.rb#67
+  # source://actionview//lib/action_view/template/resolver.rb#65
   def built_templates; end
 
-  # source://actionview//lib/action_view/template/resolver.rb#53
+  # source://actionview//lib/action_view/template/resolver.rb#51
   def caching; end
 
-  # source://actionview//lib/action_view/template/resolver.rb#53
+  # source://actionview//lib/action_view/template/resolver.rb#51
   def caching=(val); end
 
-  # source://actionview//lib/action_view/template/resolver.rb#82
-  def caching?(&block); end
+  # source://actionview//lib/action_view/template/resolver.rb#80
+  def caching?(&_arg0); end
 
-  # source://actionview//lib/action_view/template/resolver.rb#59
+  # source://actionview//lib/action_view/template/resolver.rb#57
   def clear_cache; end
 
-  # source://actionview//lib/action_view/template/resolver.rb#63
+  # source://actionview//lib/action_view/template/resolver.rb#61
   def find_all(name, prefix = T.unsafe(nil), partial = T.unsafe(nil), details = T.unsafe(nil), key = T.unsafe(nil), locals = T.unsafe(nil)); end
 
   private
 
-  # source://actionview//lib/action_view/template/resolver.rb#78
+  # source://actionview//lib/action_view/template/resolver.rb#76
   def _find_all(name, prefix, partial, details, key, locals); end
 
-  # source://actionview//lib/action_view/template/resolver.rb#87
+  # source://actionview//lib/action_view/template/resolver.rb#85
   def find_templates(name, prefix, partial, details, locals = T.unsafe(nil)); end
 
   class << self
-    # source://actionview//lib/action_view/template/resolver.rb#53
+    # source://actionview//lib/action_view/template/resolver.rb#51
     def caching; end
 
-    # source://actionview//lib/action_view/template/resolver.rb#53
+    # source://actionview//lib/action_view/template/resolver.rb#51
     def caching=(val); end
 
-    # source://actionview//lib/action_view/template/resolver.rb#53
+    # source://actionview//lib/action_view/template/resolver.rb#51
     def caching?; end
   end
 end
 
-# source://actionview//lib/action_view/template/resolver.rb#15
+# source://actionview//lib/action_view/template/resolver.rb#13
 class ActionView::Resolver::PathParser
-  # source://actionview//lib/action_view/template/resolver.rb#18
+  # source://actionview//lib/action_view/template/resolver.rb#16
   def build_path_regex; end
 
-  # source://actionview//lib/action_view/template/resolver.rb#39
+  # source://actionview//lib/action_view/template/resolver.rb#37
   def parse(path); end
 end
 
-# source://actionview//lib/action_view/template/resolver.rb#16
+# source://actionview//lib/action_view/template/resolver.rb#14
 class ActionView::Resolver::PathParser::ParsedPath < ::Struct
   def details; end
   def details=(_); end
@@ -5438,115 +5143,115 @@ class ActionView::Template
   extend ::ActiveSupport::Autoload
   extend ::ActionView::Template::Handlers
 
-  # source://actionview//lib/action_view/template.rb#186
+  # source://actionview//lib/action_view/template.rb#200
   def initialize(source, identifier, handler, locals:, format: T.unsafe(nil), variant: T.unsafe(nil), virtual_path: T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/template.rb#298
+  # source://actionview//lib/action_view/template.rb#322
   def encode!; end
 
-  # source://actionview//lib/action_view/template.rb#182
+  # source://actionview//lib/action_view/template.rb#196
   def format; end
 
-  # source://actionview//lib/action_view/template.rb#181
+  # source://actionview//lib/action_view/template.rb#195
   def handler; end
 
-  # source://actionview//lib/action_view/template.rb#181
+  # source://actionview//lib/action_view/template.rb#195
   def identifier; end
 
-  # source://actionview//lib/action_view/template.rb#277
+  # source://actionview//lib/action_view/template.rb#301
   def inspect; end
 
-  # source://actionview//lib/action_view/template.rb#210
+  # source://actionview//lib/action_view/template.rb#224
   def locals; end
 
-  # source://actionview//lib/action_view/template.rb#364
+  # source://actionview//lib/action_view/template.rb#388
   def marshal_dump; end
 
-  # source://actionview//lib/action_view/template.rb#368
+  # source://actionview//lib/action_view/template.rb#392
   def marshal_load(array); end
 
-  # source://actionview//lib/action_view/template.rb#373
+  # source://actionview//lib/action_view/template.rb#397
   def method_name; end
 
-  # source://actionview//lib/action_view/template.rb#248
+  # source://actionview//lib/action_view/template.rb#272
   def render(view, locals, buffer = T.unsafe(nil), implicit_locals: T.unsafe(nil), add_to_stack: T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/template.rb#273
+  # source://actionview//lib/action_view/template.rb#297
   def short_identifier; end
 
-  # source://actionview//lib/action_view/template.rb#281
+  # source://actionview//lib/action_view/template.rb#305
   def source; end
 
-  # source://actionview//lib/action_view/template.rb#218
+  # source://actionview//lib/action_view/template.rb#232
   def spot(location); end
 
-  # source://actionview//lib/action_view/template.rb#343
+  # source://actionview//lib/action_view/template.rb#367
   def strict_locals!; end
 
-  # source://actionview//lib/action_view/template.rb#357
+  # source://actionview//lib/action_view/template.rb#381
   def strict_locals?; end
 
-  # source://actionview//lib/action_view/template.rb#238
+  # source://actionview//lib/action_view/template.rb#262
   def supports_streaming?; end
 
-  # source://actionview//lib/action_view/template.rb#228
+  # source://actionview//lib/action_view/template.rb#252
   def translate_location(backtrace_location, spot); end
 
-  # source://actionview//lib/action_view/template.rb#269
+  # source://actionview//lib/action_view/template.rb#293
   def type; end
 
-  # source://actionview//lib/action_view/template.rb#182
+  # source://actionview//lib/action_view/template.rb#196
   def variable; end
 
-  # source://actionview//lib/action_view/template.rb#182
+  # source://actionview//lib/action_view/template.rb#196
   def variant; end
 
-  # source://actionview//lib/action_view/template.rb#182
+  # source://actionview//lib/action_view/template.rb#196
   def virtual_path; end
 
   private
 
-  # source://actionview//lib/action_view/template.rb#477
+  # source://actionview//lib/action_view/template.rb#501
   def compile(mod); end
 
-  # source://actionview//lib/action_view/template.rb#395
+  # source://actionview//lib/action_view/template.rb#419
   def compile!(view); end
 
-  # source://actionview//lib/action_view/template.rb#420
+  # source://actionview//lib/action_view/template.rb#444
   def compiled_source; end
 
-  # source://actionview//lib/action_view/template.rb#382
+  # source://actionview//lib/action_view/template.rb#406
   def find_node_by_id(node, node_id); end
 
-  # source://actionview//lib/action_view/template.rb#525
+  # source://actionview//lib/action_view/template.rb#550
   def handle_render_error(view, e); end
 
-  # source://actionview//lib/action_view/template.rb#547
+  # source://actionview//lib/action_view/template.rb#575
   def identifier_method_name; end
 
-  # source://actionview//lib/action_view/template.rb#551
+  # source://actionview//lib/action_view/template.rb#579
   def instrument(action, &block); end
 
-  # source://actionview//lib/action_view/template.rb#559
+  # source://actionview//lib/action_view/template.rb#587
   def instrument_payload; end
 
-  # source://actionview//lib/action_view/template.rb#555
+  # source://actionview//lib/action_view/template.rb#583
   def instrument_render_template(&block); end
 
-  # source://actionview//lib/action_view/template.rb#534
+  # source://actionview//lib/action_view/template.rb#562
   def locals_code; end
 
-  # source://actionview//lib/action_view/template.rb#517
+  # source://actionview//lib/action_view/template.rb#542
   def offset; end
 
   class << self
-    # source://actionview//lib/action_view/template.rb#167
+    # source://actionview//lib/action_view/template.rb#181
     def frozen_string_literal; end
 
-    # source://actionview//lib/action_view/template.rb#167
+    # source://actionview//lib/action_view/template.rb#181
     def frozen_string_literal=(_arg0); end
 
-    # source://actionview//lib/action_view/template.rb#171
+    # source://actionview//lib/action_view/template.rb#185
     def mime_types_implementation=(implementation); end
   end
 end
@@ -5835,11 +5540,14 @@ end
 # source://actionview//lib/action_view/template/inline.rb#8
 ActionView::Template::Inline::Finalizer = T.let(T.unsafe(nil), Proc)
 
-# source://actionview//lib/action_view/template.rb#285
+# source://actionview//lib/action_view/template.rb#309
 ActionView::Template::LEADING_ENCODING_REGEXP = T.let(T.unsafe(nil), Regexp)
 
-# source://actionview//lib/action_view/template.rb#184
+# source://actionview//lib/action_view/template.rb#198
 ActionView::Template::NONE = T.let(T.unsafe(nil), Object)
+
+# source://actionview//lib/action_view/template.rb#559
+ActionView::Template::RUBY_RESERVED_KEYWORDS = T.let(T.unsafe(nil), Array)
 
 # source://actionview//lib/action_view/template/raw_file.rb#6
 class ActionView::Template::RawFile
@@ -5870,7 +5578,7 @@ class ActionView::Template::Renderable
   # source://actionview//lib/action_view/template/renderable.rb#7
   def initialize(renderable); end
 
-  # source://actionview//lib/action_view/template/renderable.rb#19
+  # source://actionview//lib/action_view/template/renderable.rb#25
   def format; end
 
   # source://actionview//lib/action_view/template/renderable.rb#11
@@ -5959,7 +5667,7 @@ class ActionView::Template::Text
   def type=(_arg0); end
 end
 
-# source://actionview//lib/action_view/template.rb#176
+# source://actionview//lib/action_view/template.rb#190
 ActionView::Template::Types = Mime
 
 # source://actionview//lib/action_view/template_details.rb#4
@@ -6116,7 +5824,6 @@ class ActionView::TestCase < ::ActiveSupport::TestCase
   include ::Rails::Dom::Testing::Assertions::SelectorAssertions
   include ::Rails::Dom::Testing::Assertions
   include ::ActionDispatch::Assertions
-  include ::ActiveSupport::Deprecation::DeprecatedConstantAccessor
   include ::AbstractController::Helpers
   include ::ActiveSupport::Benchmarkable
   include ::ActionView::Helpers::ActiveModelHelper
@@ -6160,13 +5867,13 @@ class ActionView::TestCase < ::ActiveSupport::TestCase
   extend ::ActiveSupport::Testing::ConstantLookup::ClassMethods
   extend ::ActionView::TestCase::Behavior::ClassMethods
 
-  # source://actionpack/7.1.5.1/lib/abstract_controller/helpers.rb#12
+  # source://actionpack/7.2.2.1/lib/abstract_controller/helpers.rb#13
   def _helper_methods; end
 
-  # source://actionpack/7.1.5.1/lib/abstract_controller/helpers.rb#12
+  # source://actionpack/7.2.2.1/lib/abstract_controller/helpers.rb#13
   def _helper_methods=(_arg0); end
 
-  # source://actionpack/7.1.5.1/lib/abstract_controller/helpers.rb#12
+  # source://actionpack/7.2.2.1/lib/abstract_controller/helpers.rb#13
   def _helper_methods?; end
 
   # source://actionview//lib/action_view/helpers/translation_helper.rb#18
@@ -6176,28 +5883,28 @@ class ActionView::TestCase < ::ActiveSupport::TestCase
   def debug_missing_translation=(val); end
 
   class << self
-    # source://activesupport/7.1.5.1/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.2.2.1/lib/active_support/callbacks.rb#70
     def __callbacks; end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/helpers.rb#12
+    # source://actionpack/7.2.2.1/lib/abstract_controller/helpers.rb#13
     def _helper_methods; end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/helpers.rb#12
+    # source://actionpack/7.2.2.1/lib/abstract_controller/helpers.rb#13
     def _helper_methods=(value); end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/helpers.rb#12
+    # source://actionpack/7.2.2.1/lib/abstract_controller/helpers.rb#13
     def _helper_methods?; end
 
-    # source://actionpack/7.1.5.1/lib/abstract_controller/helpers.rb#16
+    # source://actionpack/7.2.2.1/lib/abstract_controller/helpers.rb#17
     def _helpers; end
 
-    # source://actionview//lib/action_view/test_case.rb#201
+    # source://actionview//lib/action_view/test_case.rb#200
     def content_class; end
 
-    # source://actionview//lib/action_view/test_case.rb#201
+    # source://actionview//lib/action_view/test_case.rb#200
     def content_class=(value); end
 
-    # source://actionview//lib/action_view/test_case.rb#201
+    # source://actionview//lib/action_view/test_case.rb#200
     def content_class?; end
 
     # source://actionview//lib/action_view/helpers/translation_helper.rb#18
@@ -6243,10 +5950,10 @@ module ActionView::TestCase::Behavior
   mixes_in_class_methods ::ActiveSupport::Testing::ConstantLookup::ClassMethods
   mixes_in_class_methods ::ActionView::TestCase::Behavior::ClassMethods
 
-  # source://actionview//lib/action_view/test_case.rb#298
+  # source://actionview//lib/action_view/test_case.rb#297
   def _routes; end
 
-  # source://actionview//lib/action_view/test_case.rb#233
+  # source://actionview//lib/action_view/test_case.rb#232
   def config; end
 
   # source://actionview//lib/action_view/test_case.rb#63
@@ -6264,7 +5971,7 @@ module ActionView::TestCase::Behavior
   # source://actionview//lib/action_view/test_case.rb#63
   def output_buffer=(_arg0); end
 
-  # source://actionview//lib/action_view/test_case.rb#237
+  # source://actionview//lib/action_view/test_case.rb#236
   def render(options = T.unsafe(nil), local_assigns = T.unsafe(nil), &block); end
 
   # source://actionview//lib/action_view/test_case.rb#63
@@ -6273,7 +5980,7 @@ module ActionView::TestCase::Behavior
   # source://actionview//lib/action_view/test_case.rb#63
   def rendered=(_arg0); end
 
-  # source://actionview//lib/action_view/test_case.rb#243
+  # source://actionview//lib/action_view/test_case.rb#242
   def rendered_views; end
 
   # source://actionview//lib/action_view/test_case.rb#63
@@ -6282,30 +5989,30 @@ module ActionView::TestCase::Behavior
   # source://actionview//lib/action_view/test_case.rb#63
   def request=(_arg0); end
 
-  # source://actionview//lib/action_view/test_case.rb#221
+  # source://actionview//lib/action_view/test_case.rb#220
   def setup_with_controller; end
 
   private
 
-  # source://actionview//lib/action_view/test_case.rb#405
+  # source://actionview//lib/action_view/test_case.rb#404
   def _user_defined_ivars; end
 
-  # source://actionview//lib/action_view/test_case.rb#357
+  # source://actionview//lib/action_view/test_case.rb#356
   def _view; end
 
-  # source://actionview//lib/action_view/test_case.rb#333
+  # source://actionview//lib/action_view/test_case.rb#332
   def document_root_element; end
 
-  # source://actionview//lib/action_view/test_case.rb#419
-  def method_missing(selector, *args, **_arg2); end
+  # source://actionview//lib/action_view/test_case.rb#418
+  def method_missing(selector, *_arg1, **_arg2, &_arg3); end
 
-  # source://actionview//lib/action_view/test_case.rb#436
+  # source://actionview//lib/action_view/test_case.rb#434
   def respond_to_missing?(name, include_private = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/test_case.rb#357
+  # source://actionview//lib/action_view/test_case.rb#356
   def view; end
 
-  # source://actionview//lib/action_view/test_case.rb#413
+  # source://actionview//lib/action_view/test_case.rb#412
   def view_assigns; end
 
   module GeneratedClassMethods
@@ -6329,10 +6036,10 @@ module ActionView::TestCase::Behavior::ClassMethods
   # source://actionview//lib/action_view/test_case.rb#164
   def determine_default_helper_class(name); end
 
-  # source://actionview//lib/action_view/test_case.rb#184
+  # source://actionview//lib/action_view/test_case.rb#183
   def helper_class; end
 
-  # source://actionview//lib/action_view/test_case.rb#182
+  # source://actionview//lib/action_view/test_case.rb#181
   def helper_class=(_arg0); end
 
   # source://actionview//lib/action_view/test_case.rb#170
@@ -6341,7 +6048,7 @@ module ActionView::TestCase::Behavior::ClassMethods
   # source://actionview//lib/action_view/test_case.rb#66
   def inherited(descendant); end
 
-  # source://actionview//lib/action_view/test_case.rb#188
+  # source://actionview//lib/action_view/test_case.rb#187
   def new(*_arg0); end
 
   # source://actionview//lib/action_view/test_case.rb#148
@@ -6352,26 +6059,26 @@ module ActionView::TestCase::Behavior::ClassMethods
 
   private
 
-  # source://actionview//lib/action_view/test_case.rb#194
+  # source://actionview//lib/action_view/test_case.rb#193
   def include_helper_modules!; end
 end
 
-# source://actionview//lib/action_view/test_case.rb#370
+# source://actionview//lib/action_view/test_case.rb#369
 ActionView::TestCase::Behavior::INTERNAL_IVARS = T.let(T.unsafe(nil), Array)
 
-# source://actionview//lib/action_view/test_case.rb#337
+# source://actionview//lib/action_view/test_case.rb#336
 module ActionView::TestCase::Behavior::Locals
-  # source://actionview//lib/action_view/test_case.rb#340
+  # source://actionview//lib/action_view/test_case.rb#339
   def render(options = T.unsafe(nil), local_assigns = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/test_case.rb#338
+  # source://actionview//lib/action_view/test_case.rb#337
   def rendered_views; end
 
-  # source://actionview//lib/action_view/test_case.rb#338
+  # source://actionview//lib/action_view/test_case.rb#337
   def rendered_views=(_arg0); end
 end
 
-# source://actionview//lib/action_view/test_case.rb#302
+# source://actionview//lib/action_view/test_case.rb#301
 class ActionView::TestCase::Behavior::RenderedViewContent < ::String
   # source://actionview//lib/action_view/test_case.rb#150
   def html; end
@@ -6380,30 +6087,30 @@ class ActionView::TestCase::Behavior::RenderedViewContent < ::String
   def json; end
 end
 
-# source://actionview//lib/action_view/test_case.rb#306
+# source://actionview//lib/action_view/test_case.rb#305
 class ActionView::TestCase::Behavior::RenderedViewsCollection
-  # source://actionview//lib/action_view/test_case.rb#307
+  # source://actionview//lib/action_view/test_case.rb#306
   def initialize; end
 
-  # source://actionview//lib/action_view/test_case.rb#311
+  # source://actionview//lib/action_view/test_case.rb#310
   def add(view, locals); end
 
-  # source://actionview//lib/action_view/test_case.rb#316
+  # source://actionview//lib/action_view/test_case.rb#315
   def locals_for(view); end
 
-  # source://actionview//lib/action_view/test_case.rb#320
+  # source://actionview//lib/action_view/test_case.rb#319
   def rendered_views; end
 
-  # source://actionview//lib/action_view/test_case.rb#324
+  # source://actionview//lib/action_view/test_case.rb#323
   def view_rendered?(view, expected_locals); end
 end
 
 # source://actionview//lib/action_view/test_case.rb#0
 module ActionView::TestCase::HelperMethods
-  # source://actionview//lib/action_view/test_case.rb#215
+  # source://actionview//lib/action_view/test_case.rb#214
   def _test_case; end
 
-  # source://actionview//lib/action_view/test_case.rb#211
+  # source://actionview//lib/action_view/test_case.rb#210
   def protect_against_forgery?; end
 end
 
@@ -6438,7 +6145,7 @@ class ActionView::TestCase::TestController < ::ActionController::Base
 
   private
 
-  # source://actionview//lib/action_view/layouts.rb#330
+  # source://actionview//lib/action_view/layouts.rb#328
   def _layout(lookup_context, formats); end
 
   class << self
@@ -6451,7 +6158,7 @@ class ActionView::TestCase::TestController < ::ActionController::Base
     # source://actionview//lib/action_view/test_case.rb#23
     def controller_path=(_arg0); end
 
-    # source://actionpack/7.1.5.1/lib/action_controller/metal.rb#262
+    # source://actionpack/7.2.2.1/lib/action_controller/metal.rb#288
     def middleware_stack; end
   end
 end

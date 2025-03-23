@@ -8,7 +8,7 @@
 # source://database_cleaner-active_record//lib/database_cleaner/active_record/version.rb#1
 module DatabaseCleaner
   class << self
-    # source://forwardable/1.3.2/forwardable.rb#229
+    # source://forwardable/1.3.3/forwardable.rb#231
     def [](*args, **_arg1, &block); end
 
     # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#17
@@ -23,10 +23,10 @@ module DatabaseCleaner
     # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#17
     def allow_remote_database_url=(_arg0); end
 
-    # source://forwardable/1.3.2/forwardable.rb#229
+    # source://forwardable/1.3.3/forwardable.rb#231
     def clean(*args, **_arg1, &block); end
 
-    # source://forwardable/1.3.2/forwardable.rb#229
+    # source://forwardable/1.3.3/forwardable.rb#231
     def clean_with(*args, **_arg1, &block); end
 
     # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#22
@@ -35,13 +35,13 @@ module DatabaseCleaner
     # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#25
     def cleaners=(_arg0); end
 
-    # source://forwardable/1.3.2/forwardable.rb#229
+    # source://forwardable/1.3.3/forwardable.rb#231
     def cleaning(*args, **_arg1, &block); end
 
-    # source://forwardable/1.3.2/forwardable.rb#229
+    # source://forwardable/1.3.3/forwardable.rb#231
     def start(*args, **_arg1, &block); end
 
-    # source://forwardable/1.3.2/forwardable.rb#229
+    # source://forwardable/1.3.3/forwardable.rb#231
     def strategy=(*args, **_arg1, &block); end
 
     # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#17
@@ -74,15 +74,9 @@ class DatabaseCleaner::ActiveRecord::Base < ::DatabaseCleaner::Strategy
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/base.rb#39
   def connection_class; end
 
-  # Returns the value of attribute connection_hash.
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/base.rb#37
   def connection_hash; end
 
-  # Sets the attribute connection_hash
-  #
-  # @param value the value to set the attribute connection_hash to.
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/base.rb#37
   def connection_hash=(_arg0); end
 
@@ -120,8 +114,6 @@ end
 
 # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#61
 class DatabaseCleaner::ActiveRecord::ConnectionWrapper < ::SimpleDelegator
-  # @return [ConnectionWrapper] a new instance of ConnectionWrapper
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#62
   def initialize(connection); end
 end
@@ -131,9 +123,6 @@ module DatabaseCleaner::ActiveRecord::ConnectionWrapper::AbstractAdapter
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#84
   def database_cleaner_table_cache; end
 
-  # used to be called views but that can clash with gems like schema_plus
-  # this gem is not meant to be exposing such an extra interface any way
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#80
   def database_cleaner_view_cache; end
 
@@ -160,18 +149,9 @@ module DatabaseCleaner::ActiveRecord::ConnectionWrapper::AbstractMysqlAdapter
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#119
   def auto_increment_value(table); end
 
-  # This method tells us if the given table has been inserted into since its
-  # last truncation. Note that the table might have been populated, which
-  # increased the auto-increment counter, but then cleaned again such that
-  # it appears empty now.
-  #
-  # @return [Boolean]
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#132
   def has_been_used?(table); end
 
-  # @return [Boolean]
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#136
   def has_rows?(table); end
 
@@ -198,23 +178,12 @@ module DatabaseCleaner::ActiveRecord::ConnectionWrapper::PostgreSQLAdapter
 
   private
 
-  # Returns a boolean indicating if the given table has an auto-inc number higher than 0.
-  # Note, this is different than an empty table since an table may populated, the index increased,
-  # but then the table is cleaned.  In other words, this function tells us if the given table
-  # was ever inserted into.
-  #
-  # @return [Boolean]
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#218
   def has_been_used?(table); end
 
-  # @return [Boolean]
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#229
   def has_rows?(table); end
 
-  # @return [Boolean]
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#225
   def has_sequence?(table); end
 
@@ -241,18 +210,12 @@ module DatabaseCleaner::ActiveRecord::ConnectionWrapper::SQLiteAdapter
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#164
   def fetch_sequences; end
 
-  # @return [Boolean]
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#170
   def has_been_used?(table, sequences); end
 
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#175
   def row_count(table); end
 
-  # Returns a boolean indicating if the SQLite database is using the sqlite_sequence table.
-  #
-  # @return [Boolean]
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#180
   def uses_sequence?; end
 end
@@ -273,8 +236,6 @@ class DatabaseCleaner::ActiveRecord::Deletion < ::DatabaseCleaner::ActiveRecord:
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/deletion.rb#19
   def delete_tables(connection, table_names); end
 
-  # @return [Boolean]
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/deletion.rb#66
   def information_schema_exists?(connection); end
 
@@ -299,8 +260,6 @@ end
 
 # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#7
 class DatabaseCleaner::ActiveRecord::Truncation < ::DatabaseCleaner::ActiveRecord::Base
-  # @return [Truncation] a new instance of Truncation
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#8
   def initialize(opts = T.unsafe(nil)); end
 
@@ -309,8 +268,6 @@ class DatabaseCleaner::ActiveRecord::Truncation < ::DatabaseCleaner::ActiveRecor
 
   private
 
-  # @return [Boolean]
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#52
   def cache_tables?; end
 
@@ -320,8 +277,6 @@ class DatabaseCleaner::ActiveRecord::Truncation < ::DatabaseCleaner::ActiveRecor
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#45
   def migration_storage_names; end
 
-  # @return [Boolean]
-  #
   # source://database_cleaner-active_record//lib/database_cleaner/active_record/truncation.rb#56
   def pre_count?; end
 
