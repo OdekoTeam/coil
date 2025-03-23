@@ -173,9 +173,9 @@ RSpec.describe Coil::TransactionalMessagesJob do
 
       it "prevents duplicate jobs from processing messages out of order" do
         allow_any_instance_of(message1.class).to(
-          receive(:processed).and_wrap_original do |m, *args|
+          receive(:processed).and_wrap_original do |m, **kwargs|
             sleep 0.4 if m.receiver == message1
-            m.call(*args)
+            m.call(**kwargs)
           end
         )
 
@@ -217,8 +217,8 @@ RSpec.describe Coil::TransactionalMessagesJob do
         @next_message_calls = {job1 => 0, job2 => 0}
 
         [job1, job2].each do |jb|
-          allow(jb).to receive(:next_message).and_wrap_original do |m, *args|
-            next_message = m.call(*args)
+          allow(jb).to receive(:next_message).and_wrap_original do |m, **kwargs|
+            next_message = m.call(**kwargs)
             @next_message_calls[jb] += 1
             next_message
           end
@@ -309,9 +309,9 @@ RSpec.describe Coil::TransactionalMessagesJob do
 
       it "prevents duplicate jobs from processing messages out of order" do
         allow_any_instance_of(message1.class).to(
-          receive(:processed).and_wrap_original do |m, *args|
+          receive(:processed).and_wrap_original do |m, **kwargs|
             sleep 0.4 if m.receiver == message1
-            m.call(*args)
+            m.call(**kwargs)
           end
         )
         metadata = {
@@ -363,8 +363,8 @@ RSpec.describe Coil::TransactionalMessagesJob do
         @next_message_calls = {job1 => 0, job2 => 0}
 
         [job1, job2].each do |jb|
-          allow(jb).to receive(:next_message).and_wrap_original do |m, *args|
-            next_message = m.call(*args)
+          allow(jb).to receive(:next_message).and_wrap_original do |m, **kwargs|
+            next_message = m.call(**kwargs)
             @next_message_calls[jb] += 1
             next_message
           end
