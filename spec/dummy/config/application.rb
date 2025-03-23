@@ -23,8 +23,8 @@ require "coil"
 
 module Dummy
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 8.0
+    # Initialize configuration defaults for loaded Rails version.
+    config.load_defaults Rails::VERSION::STRING.to_f
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
