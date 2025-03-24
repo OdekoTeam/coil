@@ -10,15 +10,13 @@ module RuboCop; end
 
 # source://standard//lib/standard/rubocop/ext.rb#17
 class RuboCop::CommentConfig
-  # @return [CommentConfig] a new instance of CommentConfig
-  #
   # source://standard//lib/standard/rubocop/ext.rb#20
   def initialize(processed_source); end
 
   # source://rubocop/1.63.5/lib/rubocop/comment_config.rb#63
   def comment_only_line?(line_number); end
 
-  # source://forwardable/1.3.2/forwardable.rb#229
+  # source://forwardable/1.3.3/forwardable.rb#231
   def config(*args, **_arg1, &block); end
 
   # source://rubocop/1.63.5/lib/rubocop/comment_config.rb#51
@@ -36,7 +34,7 @@ class RuboCop::CommentConfig
   # source://rubocop/1.63.5/lib/rubocop/comment_config.rb#30
   def processed_source; end
 
-  # source://forwardable/1.3.2/forwardable.rb#229
+  # source://forwardable/1.3.3/forwardable.rb#231
   def registry(*args, **_arg1, &block); end
 
   private
@@ -215,8 +213,6 @@ module Standard; end
 
 # source://standard//lib/standard/builds_config.rb#8
 class Standard::BuildsConfig
-  # @return [BuildsConfig] a new instance of BuildsConfig
-  #
   # source://standard//lib/standard/builds_config.rb#9
   def initialize; end
 
@@ -226,8 +222,6 @@ end
 
 # source://standard//lib/standard/cli.rb#5
 class Standard::Cli
-  # @return [Cli] a new instance of Cli
-  #
   # source://standard//lib/standard/cli.rb#6
   def initialize(argv); end
 
@@ -237,48 +231,13 @@ end
 
 # source://standard//lib/standard/builds_config.rb#6
 class Standard::Config < ::Struct
-  # Returns the value of attribute paths
-  #
-  # @return [Object] the current value of paths
   def paths; end
-
-  # Sets the attribute paths
-  #
-  # @param value [Object] the value to set the attribute paths to.
-  # @return [Object] the newly set value
   def paths=(_); end
-
-  # Returns the value of attribute rubocop_config_store
-  #
-  # @return [Object] the current value of rubocop_config_store
   def rubocop_config_store; end
-
-  # Sets the attribute rubocop_config_store
-  #
-  # @param value [Object] the value to set the attribute rubocop_config_store to.
-  # @return [Object] the newly set value
   def rubocop_config_store=(_); end
-
-  # Returns the value of attribute rubocop_options
-  #
-  # @return [Object] the current value of rubocop_options
   def rubocop_options; end
-
-  # Sets the attribute rubocop_options
-  #
-  # @param value [Object] the value to set the attribute rubocop_options to.
-  # @return [Object] the newly set value
   def rubocop_options=(_); end
-
-  # Returns the value of attribute runner
-  #
-  # @return [Object] the current value of runner
   def runner; end
-
-  # Sets the attribute runner
-  #
-  # @param value [Object] the value to set the attribute runner to.
-  # @return [Object] the newly set value
   def runner=(_); end
 
   class << self
@@ -292,8 +251,6 @@ end
 
 # source://standard//lib/standard/creates_config_store/assigns_rubocop_yaml.rb#3
 class Standard::CreatesConfigStore
-  # @return [CreatesConfigStore] a new instance of CreatesConfigStore
-  #
   # source://standard//lib/standard/creates_config_store.rb#10
   def initialize; end
 
@@ -314,8 +271,6 @@ class Standard::CreatesConfigStore::ConfiguresIgnoredPaths
 
   private
 
-  # @return [Boolean]
-  #
   # source://standard//lib/standard/creates_config_store/configures_ignored_paths.rb#41
   def absolute?(path); end
 
@@ -331,8 +286,6 @@ Standard::CreatesConfigStore::ConfiguresIgnoredPaths::DEFAULT_IGNORES = T.let(T.
 
 # source://standard//lib/standard/creates_config_store/merges_user_config_extensions.rb#5
 class Standard::CreatesConfigStore::MergesUserConfigExtensions
-  # @return [MergesUserConfigExtensions] a new instance of MergesUserConfigExtensions
-  #
   # source://standard//lib/standard/creates_config_store/merges_user_config_extensions.rb#24
   def initialize; end
 
@@ -342,8 +295,6 @@ end
 
 # source://standard//lib/standard/creates_config_store/merges_user_config_extensions.rb#6
 class Standard::CreatesConfigStore::MergesUserConfigExtensions::ExtendConfigPlugin < ::LintRoller::Plugin
-  # @return [ExtendConfigPlugin] a new instance of ExtendConfigPlugin
-  #
   # source://standard//lib/standard/creates_config_store/merges_user_config_extensions.rb#7
   def initialize(path); end
 
@@ -368,14 +319,6 @@ class Standard::CreatesConfigStore::SetsTargetRubyVersion
   def normalize_version(version); end
 end
 
-# This is minimum version that Rubocop can parse, not the minimum
-# version it can run on (e.g. TargetRubyVersion).  See the following
-# for more details:
-#
-# https://docs.rubocop.org/rubocop/configuration.html#setting-the-target-ruby-version
-#
-# https://github.com/rubocop/rubocop/blob/master/lib/rubocop/target_ruby.rb
-#
 # source://standard//lib/standard/creates_config_store/sets_target_ruby_version.rb#10
 Standard::CreatesConfigStore::SetsTargetRubyVersion::MIN_TARGET_RUBY_VERSION = T.let(T.unsafe(nil), String)
 
@@ -472,8 +415,6 @@ end
 
 # source://standard//lib/standard/lsp/logger.rb#3
 class Standard::Lsp::Logger
-  # @return [Logger] a new instance of Logger
-  #
   # source://standard//lib/standard/lsp/logger.rb#4
   def initialize; end
 
@@ -489,8 +430,6 @@ Standard::Lsp::Proto = LanguageServer::Protocol
 
 # source://standard//lib/standard/lsp/routes.rb#5
 class Standard::Lsp::Routes
-  # @return [Routes] a new instance of Routes
-  #
   # source://standard//lib/standard/lsp/routes.rb#6
   def initialize(writer, logger, standardizer); end
 
@@ -534,8 +473,6 @@ Standard::Lsp::SEV = LanguageServer::Protocol::Constant::DiagnosticSeverity
 
 # source://standard//lib/standard/lsp/server.rb#11
 class Standard::Lsp::Server
-  # @return [Server] a new instance of Server
-  #
   # source://standard//lib/standard/lsp/server.rb#12
   def initialize(config); end
 
@@ -545,23 +482,9 @@ end
 
 # source://standard//lib/standard/lsp/standardizer.rb#5
 class Standard::Lsp::Standardizer
-  # @return [Standardizer] a new instance of Standardizer
-  #
   # source://standard//lib/standard/lsp/standardizer.rb#6
   def initialize(config, logger); end
 
-  # This abuses the --stdin option of rubocop and reads the formatted text
-  # from the options[:stdin] that rubocop mutates. This depends on
-  # parallel: false as well as the fact that rubocop doesn't otherwise dup
-  # or reassign that options object. Risky business!
-  #
-  # Reassigning options[:stdin] is done here:
-  #   https://github.com/rubocop/rubocop/blob/master/lib/rubocop/cop/team.rb#L131
-  # Printing options[:stdin]
-  #   https://github.com/rubocop/rubocop/blob/master/lib/rubocop/cli/command/execute_runner.rb#L95
-  # Setting `parallel: true` would break this here:
-  #   https://github.com/rubocop/rubocop/blob/master/lib/rubocop/runner.rb#L72
-  #
   # source://standard//lib/standard/lsp/standardizer.rb#23
   def format(path, text); end
 
@@ -605,37 +528,11 @@ end
 
 # source://standard//lib/standard/merges_settings.rb#5
 class Standard::MergesSettings::Settings < ::Struct
-  # Returns the value of attribute options
-  #
-  # @return [Object] the current value of options
   def options; end
-
-  # Sets the attribute options
-  #
-  # @param value [Object] the value to set the attribute options to.
-  # @return [Object] the newly set value
   def options=(_); end
-
-  # Returns the value of attribute paths
-  #
-  # @return [Object] the current value of paths
   def paths; end
-
-  # Sets the attribute paths
-  #
-  # @param value [Object] the value to set the attribute paths to.
-  # @return [Object] the newly set value
   def paths=(_); end
-
-  # Returns the value of attribute runner
-  #
-  # @return [Object] the current value of runner
   def runner; end
-
-  # Sets the attribute runner
-  #
-  # @param value [Object] the value to set the attribute runner to.
-  # @return [Object] the newly set value
   def runner=(_); end
 
   class << self
@@ -652,8 +549,6 @@ module Standard::Plugin; end
 
 # source://standard//lib/standard/plugin/combines_plugin_configs.rb#3
 class Standard::Plugin::CombinesPluginConfigs
-  # @return [CombinesPluginConfigs] a new instance of CombinesPluginConfigs
-  #
   # source://standard//lib/standard/plugin/combines_plugin_configs.rb#4
   def initialize; end
 
@@ -680,8 +575,6 @@ end
 
 # source://standard//lib/standard/plugin/initializes_plugins.rb#3
 class Standard::Plugin::InitializesPlugins
-  # @return [InitializesPlugins] a new instance of InitializesPlugins
-  #
   # source://standard//lib/standard/plugin/initializes_plugins.rb#4
   def initialize; end
 
@@ -691,8 +584,6 @@ end
 
 # source://standard//lib/standard/plugin/merges_plugins_into_rubocop_config.rb#3
 class Standard::Plugin::MergesPluginsIntoRubocopConfig
-  # @return [MergesPluginsIntoRubocopConfig] a new instance of MergesPluginsIntoRubocopConfig
-  #
   # source://standard//lib/standard/plugin/merges_plugins_into_rubocop_config.rb#24
   def initialize; end
 
@@ -722,22 +613,9 @@ class Standard::Plugin::MergesPluginsIntoRubocopConfig
   # source://standard//lib/standard/plugin/merges_plugins_into_rubocop_config.rb#134
   def fake_out_rubocop_default_configuration(options_config); end
 
-  # Always deletes nil entries, always overwrites arrays
-  # This is a simplified version of rubocop's ConfigLoader#merge:
-  # https://github.com/rubocop/rubocop/blob/v1.48.1/lib/rubocop/config_loader_resolver.rb#L98
-  #
   # source://standard//lib/standard/plugin/merges_plugins_into_rubocop_config.rb#163
   def merge(old_hash, new_hash); end
 
-  # This is how we ensure "first-in wins": plugins can override AllCops settings that are
-  # set by RuboCop's default configuration, but once a plugin sets an AllCop setting, they
-  # have exclusive first-in-wins rights to that setting.
-  #
-  # The one exception to this are array fields, because we don't want to
-  # overwrite the AllCops defaults but rather munge the arrays (`existing |
-  # new`) to allow plugins to add to the array, for example Include and
-  # Exclude paths and patterns.
-  #
   # source://standard//lib/standard/plugin/merges_plugins_into_rubocop_config.rb#77
   def merge_all_cop_settings(existing_all_cops, new_all_cops, already_configured_keys); end
 
@@ -747,24 +625,13 @@ class Standard::Plugin::MergesPluginsIntoRubocopConfig
   # source://standard//lib/standard/plugin/merges_plugins_into_rubocop_config.rb#110
   def merge_config_into_standard!(options_config, plugin_config, permit_merging:); end
 
-  # Avoid a warning that would otherwise be emitted by any plugin that set TargetRailsVersion
-  # because it's not a default AllCops key specified in RuboCop's embedded default config.
-  #
-  # See: https://github.com/rubocop/rubocop/pull/11833
-  #
   # source://standard//lib/standard/plugin/merges_plugins_into_rubocop_config.rb#146
   def set_target_rails_version_on_all_cops_because_its_technically_not_allowed!(options_config); end
 end
 
-# AllCops keys that standard does not allow to be set by plugins
-#
 # source://standard//lib/standard/plugin/merges_plugins_into_rubocop_config.rb#10
 Standard::Plugin::MergesPluginsIntoRubocopConfig::DISALLOWED_ALLCOPS_KEYS = T.let(T.unsafe(nil), Array)
 
-# Blank configuration object to merge plugins into, with only the following spared:
-#   - AllCops keys set to avoid warnings about unknown properties
-#   - Lint/Syntax must be set to avoid a nil error when verifying inherited configs
-#
 # source://standard//lib/standard/plugin/merges_plugins_into_rubocop_config.rb#7
 Standard::Plugin::MergesPluginsIntoRubocopConfig::MANDATORY_RUBOCOP_CONFIG_KEYS = T.let(T.unsafe(nil), Array)
 
@@ -830,10 +697,6 @@ class Standard::Runners::Rubocop
 
   private
 
-  # This is a workaround for an issue with how `parallel` and `stdin`
-  # interact when invoked in this way. See:
-  #   https://github.com/standardrb/standard/issues/536
-  #
   # source://standard//lib/standard/runners/rubocop.rb#23
   def without_parallelizing_in_stdin_mode(options); end
 end

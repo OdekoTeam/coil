@@ -294,7 +294,7 @@ class Parlour::Plugin
   end
 end
 
-# source://parlour//lib/parlour/rbi_generator/parameter.rb#5
+# source://parlour//lib/parlour/rbi_generator/parameter.rb#4
 class Parlour::RbiGenerator < ::Parlour::Generator
   # source://parlour//lib/parlour/rbi_generator.rb#9
   def initialize(**hash); end
@@ -1271,7 +1271,7 @@ class Parlour::RbiGenerator::TypeAlias < ::Parlour::RbiGenerator::RbiObject
   def type; end
 end
 
-# source://parlour//lib/parlour/rbs_generator/rbs_object.rb#8
+# source://parlour//lib/parlour/rbs_generator/rbs_object.rb#3
 class Parlour::RbsGenerator < ::Parlour::Generator
   # source://parlour//lib/parlour/rbs_generator.rb#5
   def initialize(**hash); end
@@ -2432,7 +2432,7 @@ class Parlour::Types::Nilable < ::Parlour::Types::Type
   def type; end
 end
 
-# source://parlour//lib/parlour/types.rb#505
+# source://parlour//lib/parlour/types.rb#504
 class Parlour::Types::Proc < ::Parlour::Types::Type
   # source://parlour//lib/parlour/types.rb#533
   sig do
