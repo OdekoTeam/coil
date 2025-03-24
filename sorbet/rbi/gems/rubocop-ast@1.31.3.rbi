@@ -424,6 +424,9 @@ module RuboCop::AST::CollectionNode
   def excluding(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
+  def extract!(*args, **_arg1, &block); end
+
+  # source://forwardable/1.3.3/forwardable.rb#231
   def extract_options!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.3/forwardable.rb#231

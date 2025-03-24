@@ -20,19 +20,19 @@ Gem::Specification.new do |spec|
     "source_code_uri" => "https://github.com/OdekoTeam/coil"
   }
 
-  spec.add_dependency("rails", ">= 6.0.6", "< 8.0")
+  spec.add_dependency("rails", ">= 6.0.6", "< 9.0")
   spec.add_dependency("sidekiq", ">= 5.2", "< 8.0")
   spec.add_dependency("pg", ">= 0", "< 2.0")
 
-  spec.add_development_dependency("rails", "~> 7.2.2", "< 8.0")
+  spec.add_development_dependency("rails", "~> 8.0", "< 9.0")
   spec.add_development_dependency("sidekiq", ">= 5.2", "< 8.0")
   spec.add_development_dependency("pg", ">= 0", "< 2.0")
   spec.add_development_dependency("puma", "~> 6.0")
   spec.add_development_dependency("rspec-rails", "~> 6.1")
   spec.add_development_dependency("standard", "~> 1.36")
-  spec.add_development_dependency("rubocop-sorbet", "~> 0.8")
+  spec.add_development_dependency("rubocop-sorbet", "~> 0.9")
   spec.add_development_dependency("debug", "~> 1.0")
   spec.add_development_dependency("sorbet", "~> 0.5")
-  spec.add_development_dependency("tapioca", "~> 0.14")
+  spec.add_development_dependency("tapioca", "~> 0.16")
   spec.add_development_dependency("parlour", "~> 8.1")
 end

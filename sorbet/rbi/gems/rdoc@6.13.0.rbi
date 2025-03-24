@@ -1231,6 +1231,24 @@ class RDoc::Generator::JsonIndex
   def search_string(string); end
 end
 
+# source://rdoc//lib/rdoc/generator/markup.rb#8
+module RDoc::Generator::Markup
+  # source://rdoc//lib/rdoc/generator/markup.rb#13
+  def aref_to(target_path); end
+
+  # source://rdoc//lib/rdoc/generator/markup.rb#20
+  def as_href(from_path); end
+
+  # source://rdoc//lib/rdoc/generator/markup.rb#50
+  def cvs_url(url, full_path); end
+
+  # source://rdoc//lib/rdoc/generator/markup.rb#27
+  def description; end
+
+  # source://rdoc//lib/rdoc/generator/markup.rb#34
+  def formatter; end
+end
+
 # source://rdoc//lib/rdoc/generator/pot.rb#56
 class RDoc::Generator::POT
   # source://rdoc//lib/rdoc/generator/pot.rb#68
@@ -5981,6 +5999,35 @@ RDoc::RI::Driver::RDOC_REFS_REGEXP = T.let(T.unsafe(nil), Regexp)
 
 # source://rdoc//lib/rdoc/ri/formatter.rb#5
 module RDoc::RI::Formatter; end
+
+# source://rdoc//lib/rdoc/ri/paths.rb#8
+module RDoc::RI::Paths
+  class << self
+    # source://rdoc//lib/rdoc/ri/paths.rb#33
+    def each(system = T.unsafe(nil), site = T.unsafe(nil), home = T.unsafe(nil), gems = T.unsafe(nil), *extra_dirs); end
+
+    # source://rdoc//lib/rdoc/ri/paths.rb#55
+    def gem_dir(name, version); end
+
+    # source://rdoc//lib/rdoc/ri/paths.rb#70
+    def gemdirs(filter = T.unsafe(nil)); end
+
+    # source://rdoc//lib/rdoc/ri/paths.rb#115
+    def home_dir; end
+
+    # source://rdoc//lib/rdoc/ri/paths.rb#125
+    def path(system = T.unsafe(nil), site = T.unsafe(nil), home = T.unsafe(nil), gems = T.unsafe(nil), *extra_dirs); end
+
+    # source://rdoc//lib/rdoc/ri/paths.rb#137
+    def raw_path(system, site, home, gems, *extra_dirs); end
+
+    # source://rdoc//lib/rdoc/ri/paths.rb#154
+    def site_dir; end
+
+    # source://rdoc//lib/rdoc/ri/paths.rb#167
+    def system_dir; end
+  end
+end
 
 # source://rdoc//lib/rdoc/ri/store.rb#4
 RDoc::RI::Store = RDoc::Store

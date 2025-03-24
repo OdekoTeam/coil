@@ -746,6 +746,128 @@ class REXML::Formatters::Pretty < ::REXML::Formatters::Default
   def wrap(string, width); end
 end
 
+# source://rexml//lib/rexml/functions.rb#10
+module REXML::Functions
+  class << self
+    # source://rexml//lib/rexml/functions.rb#317
+    def boolean(object = T.unsafe(nil)); end
+
+    # source://rexml//lib/rexml/functions.rb#417
+    def ceiling(number); end
+
+    # source://rexml//lib/rexml/functions.rb#370
+    def compare_language(lang1, lang2); end
+
+    # source://rexml//lib/rexml/functions.rb#190
+    def concat(*objects); end
+
+    # source://rexml//lib/rexml/functions.rb#204
+    def contains(string, test); end
+
+    # source://rexml//lib/rexml/functions.rb#38
+    def context=(value); end
+
+    # source://rexml//lib/rexml/functions.rb#60
+    def count(node_set); end
+
+    # source://rexml//lib/rexml/functions.rb#347
+    def false; end
+
+    # source://rexml//lib/rexml/functions.rb#413
+    def floor(number); end
+
+    # source://rexml//lib/rexml/functions.rb#87
+    def get_namespace(node_set = T.unsafe(nil)); end
+
+    # source://rexml//lib/rexml/functions.rb#66
+    def id(object); end
+
+    # source://rexml//lib/rexml/functions.rb#352
+    def lang(language); end
+
+    # source://rexml//lib/rexml/functions.rb#51
+    def last; end
+
+    # source://rexml//lib/rexml/functions.rb#69
+    def local_name(node_set = T.unsafe(nil)); end
+
+    # source://rexml//lib/rexml/functions.rb#80
+    def name(node_set = T.unsafe(nil)); end
+
+    # source://rexml//lib/rexml/functions.rb#35
+    def namespace_context; end
+
+    # source://rexml//lib/rexml/functions.rb#33
+    def namespace_context=(x); end
+
+    # source://rexml//lib/rexml/functions.rb#76
+    def namespace_uri(node_set = T.unsafe(nil)); end
+
+    # source://rexml//lib/rexml/functions.rb#265
+    def normalize_space(string = T.unsafe(nil)); end
+
+    # source://rexml//lib/rexml/functions.rb#337
+    def not(object); end
+
+    # source://rexml//lib/rexml/functions.rb#387
+    def number(object = T.unsafe(nil)); end
+
+    # source://rexml//lib/rexml/functions.rb#55
+    def position; end
+
+    # source://rexml//lib/rexml/functions.rb#432
+    def processing_instruction(node); end
+
+    # source://rexml//lib/rexml/functions.rb#421
+    def round(number); end
+
+    # source://rexml//lib/rexml/functions.rb#436
+    def send(name, *args); end
+
+    # source://rexml//lib/rexml/functions.rb#26
+    def singleton_method_added(name); end
+
+    # source://rexml//lib/rexml/functions.rb#199
+    def starts_with(string, test); end
+
+    # source://rexml//lib/rexml/functions.rb#138
+    def string(object = T.unsafe(nil)); end
+
+    # source://rexml//lib/rexml/functions.rb#261
+    def string_length(string); end
+
+    # source://rexml//lib/rexml/functions.rb#178
+    def string_value(o); end
+
+    # source://rexml//lib/rexml/functions.rb#228
+    def substring(string, start, length = T.unsafe(nil)); end
+
+    # source://rexml//lib/rexml/functions.rb#220
+    def substring_after(string, test); end
+
+    # source://rexml//lib/rexml/functions.rb#209
+    def substring_before(string, test); end
+
+    # source://rexml//lib/rexml/functions.rb#408
+    def sum(nodes); end
+
+    # source://rexml//lib/rexml/functions.rb#40
+    def text; end
+
+    # source://rexml//lib/rexml/functions.rb#275
+    def translate(string, tr1, tr2); end
+
+    # source://rexml//lib/rexml/functions.rb#342
+    def true; end
+
+    # source://rexml//lib/rexml/functions.rb#36
+    def variables; end
+
+    # source://rexml//lib/rexml/functions.rb#34
+    def variables=(x); end
+  end
+end
+
 # source://rexml//lib/rexml/source.rb#140
 class REXML::IOSource < ::REXML::Source
   # source://rexml//lib/rexml/source.rb#144
@@ -839,6 +961,33 @@ end
 
 # source://rexml//lib/rexml/namespace.rb#13
 REXML::Namespace::NAME_WITHOUT_NAMESPACE = T.let(T.unsafe(nil), Regexp)
+
+# source://rexml//lib/rexml/node.rb#9
+module REXML::Node
+  # source://rexml//lib/rexml/node.rb#54
+  def each_recursive(&block); end
+
+  # source://rexml//lib/rexml/node.rb#63
+  def find_first_recursive(&block); end
+
+  # source://rexml//lib/rexml/node.rb#39
+  def indent(to, ind); end
+
+  # source://rexml//lib/rexml/node.rb#72
+  def index_in_parent; end
+
+  # source://rexml//lib/rexml/node.rb#11
+  def next_sibling_node; end
+
+  # source://rexml//lib/rexml/node.rb#48
+  def parent?; end
+
+  # source://rexml//lib/rexml/node.rb#17
+  def previous_sibling_node; end
+
+  # source://rexml//lib/rexml/node.rb#27
+  def to_s(indent = T.unsafe(nil)); end
+end
 
 # source://rexml//lib/rexml/doctype.rb#280
 class REXML::NotationDecl < ::REXML::Child
@@ -1227,6 +1376,23 @@ class REXML::ReferenceWriter
   def write(output); end
 end
 
+# source://rexml//lib/rexml/security.rb#3
+module REXML::Security
+  class << self
+    # source://rexml//lib/rexml/security.rb#12
+    def entity_expansion_limit; end
+
+    # source://rexml//lib/rexml/security.rb#7
+    def entity_expansion_limit=(val); end
+
+    # source://rexml//lib/rexml/security.rb#24
+    def entity_expansion_text_limit; end
+
+    # source://rexml//lib/rexml/security.rb#19
+    def entity_expansion_text_limit=(val); end
+  end
+end
+
 # source://rexml//lib/rexml/source.rb#31
 class REXML::Source
   include ::REXML::Encoding
@@ -1280,6 +1446,14 @@ class REXML::Source
 
   # source://rexml//lib/rexml/source.rb#127
   def encoding_updated; end
+end
+
+# source://rexml//lib/rexml/source.rb#7
+class REXML::SourceFactory
+  class << self
+    # source://rexml//lib/rexml/source.rb#11
+    def create_from(arg); end
+  end
 end
 
 # source://rexml//lib/rexml/text.rb#11
@@ -1444,6 +1618,22 @@ class REXML::XMLDecl < ::REXML::Child
   class << self
     # source://rexml//lib/rexml/xmldecl.rb#92
     def default; end
+  end
+end
+
+# source://rexml//lib/rexml/xpath.rb#7
+class REXML::XPath
+  include ::REXML::Functions
+
+  class << self
+    # source://rexml//lib/rexml/xpath.rb#60
+    def each(element, path = T.unsafe(nil), namespaces = T.unsafe(nil), variables = T.unsafe(nil), options = T.unsafe(nil), &block); end
+
+    # source://rexml//lib/rexml/xpath.rb#31
+    def first(element, path = T.unsafe(nil), namespaces = T.unsafe(nil), variables = T.unsafe(nil), options = T.unsafe(nil)); end
+
+    # source://rexml//lib/rexml/xpath.rb#72
+    def match(element, path = T.unsafe(nil), namespaces = T.unsafe(nil), variables = T.unsafe(nil), options = T.unsafe(nil)); end
   end
 end
 
