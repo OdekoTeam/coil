@@ -1,5 +1,8 @@
 ## main
 
+#### Fixed
+- Type-signature compatibility with Rails versions older than 7.2 ([8f5aced](https://github.com/OdekoTeam/coil/commit/8f5aced1e11540a249fdaf5d44ce3ac3b9e6f9e5))
+
 ## [1.5.5](https://github.com/OdekoTeam/coil/compare/1.5.4...1.5.5) (2025-03-24)
 #### Added
 - Rails 8 support ([bcc6885](https://github.com/OdekoTeam/coil/commit/bcc6885bdbe3a7dedbc505edee0482d215fe9d91))
