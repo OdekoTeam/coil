@@ -175,6 +175,11 @@ module Coil::PreventDestruction
   def prevent_destruction; end
 end
 
+# ActiveRecord::Transaction was first defined in version 7.2
+module ActiveRecord
+  class Transaction; end unless defined?(ActiveRecord::Transaction)
+end
+
 module Coil::QueueLocking
   include ::Kernel
   extend ::Coil::QueueLocking
