@@ -1,5 +1,6 @@
 ## main
 
+## [1.5.6](https://github.com/OdekoTeam/coil/compare/1.5.5...1.5.6) (2025-04-02)
 #### Fixed
 - Type-signature compatibility with Rails versions older than 7.2 ([8f5aced](https://github.com/OdekoTeam/coil/commit/8f5aced1e11540a249fdaf5d44ce3ac3b9e6f9e5))
 
