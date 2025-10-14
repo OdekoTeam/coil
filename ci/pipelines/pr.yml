@@ -34,6 +34,13 @@ resources:
   source:
     repository: docker.odeko.com/odeko/ruby-dev
     tag: 3.3-slim
+- name: trivy-image
+  type: registry-image
+  source:
+    repository: aquasec/trivy
+    tag: "latest"
+    registry_mirror:
+      host: docker-mirror.odeko.com
 - name: slack-alert
   type: slack-notification
   source:
@@ -52,6 +59,8 @@ jobs:
     - get: concourse
       attempts: 3
     - get: concourse-image-ruby
+      attempts: 3
+    - get: trivy-image
       attempts: 3
   - in_parallel:
     - put: update-pr-status
@@ -78,6 +87,14 @@ jobs:
       image: concourse-image-ruby
       file: concourse/tasks/rails/test/lint.yml
       attempts: 3
+    - task: dependency-scan
+      input_mapping:
+        repo: pull-request
+      image: trivy-image
+      file: concourse/tasks/common/trivy-scan.yml
+      params:
+        TRIVY_EXIT_CODE: "0"
+      attempts: 1
   on_failure:
     do:
     - in_parallel:

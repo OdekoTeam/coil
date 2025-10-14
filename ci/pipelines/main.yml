@@ -42,6 +42,13 @@ resources:
   source:
     repository: docker.odeko.com/odeko/ruby-dev
     tag: 3.3-slim
+# trivy-image is used for dependency scanning
+- name: trivy-image
+  type: registry-image
+  icon: docker
+  source:
+    repository: aquasec/trivy
+    tag: "latest"
 - name: slack-alert
   type: slack-notification
   source:
@@ -59,6 +66,8 @@ jobs:
       attempts: 3
     - get: concourse-image-ruby
       attempts: 3
+    - get: trivy-image
+      attempts: 3
   - in_parallel:
     - task: test
       image: concourse-image-ruby
@@ -71,6 +80,13 @@ jobs:
       image: concourse-image-ruby
       file: concourse/tasks/rails/test/lint.yml
       attempts: 3
+    # Run dependency-scan task to scan for vulnerable libraries used
+    # by our code
+    - task: dependency-scan
+      image: trivy-image
+      file: concourse/tasks/common/trivy-scan.yml
+      params:
+        TRIVY_EXIT_CODE: "0"
   on_failure: &simple_failure
     do:
     - task: slack-message
