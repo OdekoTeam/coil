@@ -217,8 +217,7 @@ GEM
     regexp_parser (2.9.2)
     reline (0.6.0)
       io-console (~> 0.5)
-    rexml (3.2.8)
-      strscan (>= 3.0.9)
+    rexml (3.4.4)
     rspec-core (3.13.0)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.0)
@@ -293,7 +292,6 @@ GEM
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.21.0)
     stringio (3.1.5)
-    strscan (3.1.0)
     tapioca (0.16.11)
       benchmark
       bundler (>= 2.2.25)
