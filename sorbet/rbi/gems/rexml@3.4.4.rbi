@@ -43,103 +43,106 @@ class REXML::Attribute
   # source://rexml//lib/rexml/attribute.rb#106
   def ==(other); end
 
-  # source://rexml//lib/rexml/attribute.rb#163
+  # source://rexml//lib/rexml/attribute.rb#161
   def clone; end
 
   # source://rexml//lib/rexml/attribute.rb#132
   def doctype; end
 
+  # source://rexml//lib/rexml/attribute.rb#205
+  def document; end
+
   # source://rexml//lib/rexml/attribute.rb#15
   def element; end
 
-  # source://rexml//lib/rexml/attribute.rb#171
+  # source://rexml//lib/rexml/attribute.rb#169
   def element=(element); end
 
   # source://rexml//lib/rexml/attribute.rb#111
   def hash; end
 
-  # source://rexml//lib/rexml/attribute.rb#197
+  # source://rexml//lib/rexml/attribute.rb#195
   def inspect; end
 
   # source://rexml//lib/rexml/attribute.rb#95
   def namespace(arg = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/attribute.rb#193
+  # source://rexml//lib/rexml/attribute.rb#191
   def node_type; end
 
-  # source://rexml//lib/rexml/attribute.rb#157
+  # source://rexml//lib/rexml/attribute.rb#155
   def normalized=(new_normalized); end
 
   # source://rexml//lib/rexml/attribute.rb#70
   def prefix; end
 
-  # source://rexml//lib/rexml/attribute.rb#184
+  # source://rexml//lib/rexml/attribute.rb#182
   def remove; end
 
-  # source://rexml//lib/rexml/attribute.rb#140
+  # source://rexml//lib/rexml/attribute.rb#137
   def to_s; end
 
   # source://rexml//lib/rexml/attribute.rb#121
   def to_string; end
 
-  # source://rexml//lib/rexml/attribute.rb#149
+  # source://rexml//lib/rexml/attribute.rb#146
   def value; end
 
-  # source://rexml//lib/rexml/attribute.rb#189
+  # source://rexml//lib/rexml/attribute.rb#187
   def write(output, indent = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/attribute.rb#203
+  # source://rexml//lib/rexml/attribute.rb#201
   def xpath; end
 end
 
-# source://rexml//lib/rexml/element.rb#2141
+# source://rexml//lib/rexml/element.rb#2131
 class REXML::Attributes < ::Hash
-  # source://rexml//lib/rexml/element.rb#2160
+  # source://rexml//lib/rexml/element.rb#2150
   def initialize(element); end
 
-  # source://rexml//lib/rexml/element.rb#2537
+  # source://rexml//lib/rexml/element.rb#2516
   def <<(attribute); end
 
-  # source://rexml//lib/rexml/element.rb#2185
+  # source://rexml//lib/rexml/element.rb#2175
   def [](name); end
 
-  # source://rexml//lib/rexml/element.rb#2369
+  # source://rexml//lib/rexml/element.rb#2358
   def []=(name, value); end
 
-  # source://rexml//lib/rexml/element.rb#2537
+  # source://rexml//lib/rexml/element.rb#2516
   def add(attribute); end
 
-  # source://rexml//lib/rexml/element.rb#2490
+  # source://rexml//lib/rexml/element.rb#2471
   def delete(attribute); end
 
-  # source://rexml//lib/rexml/element.rb#2559
+  # source://rexml//lib/rexml/element.rb#2538
   def delete_all(name); end
 
-  # source://rexml//lib/rexml/element.rb#2287
+  # source://rexml//lib/rexml/element.rb#2276
   def each; end
 
-  # source://rexml//lib/rexml/element.rb#2254
+  # source://rexml//lib/rexml/element.rb#2243
   def each_attribute; end
 
-  # source://rexml//lib/rexml/element.rb#2313
+  # source://rexml//lib/rexml/element.rb#2302
   def get_attribute(name); end
 
-  # source://rexml//lib/rexml/element.rb#2585
+  # source://rexml//lib/rexml/element.rb#2564
   def get_attribute_ns(namespace, name); end
 
-  # source://rexml//lib/rexml/element.rb#2225
+  # source://rexml//lib/rexml/element.rb#2214
   def length; end
 
-  # source://rexml//lib/rexml/element.rb#2446
+  # source://rexml//lib/rexml/element.rb#2426
   def namespaces; end
 
-  # source://rexml//lib/rexml/element.rb#2421
+  # source://rexml//lib/rexml/element.rb#2400
   def prefixes; end
 
-  # source://rexml//lib/rexml/element.rb#2225
+  # source://rexml//lib/rexml/element.rb#2214
   def size; end
 
-  # source://rexml//lib/rexml/element.rb#2207
+  # source://rexml//lib/rexml/element.rb#2196
   def to_a; end
 end
 
@@ -168,7 +171,7 @@ class REXML::Child
   # source://rexml//lib/rexml/child.rb#18
   def initialize(parent = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/child.rb#91
+  # source://rexml//lib/rexml/child.rb#90
   def bytes; end
 
   # source://rexml//lib/rexml/child.rb#85
@@ -234,15 +237,15 @@ end
 # source://rexml//lib/rexml/xpath_parser.rb#11
 module REXML::DClonable; end
 
-# source://rexml//lib/rexml/doctype.rb#242
+# source://rexml//lib/rexml/doctype.rb#238
 class REXML::Declaration < ::REXML::Child
-  # source://rexml//lib/rexml/doctype.rb#243
+  # source://rexml//lib/rexml/doctype.rb#239
   def initialize(src); end
 
-  # source://rexml//lib/rexml/doctype.rb#248
+  # source://rexml//lib/rexml/doctype.rb#244
   def to_s; end
 
-  # source://rexml//lib/rexml/doctype.rb#255
+  # source://rexml//lib/rexml/doctype.rb#251
   def write(output, indent); end
 end
 
@@ -253,7 +256,7 @@ class REXML::DocType < ::REXML::Parent
   # source://rexml//lib/rexml/doctype.rb#80
   def initialize(first, parent = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/doctype.rb#185
+  # source://rexml//lib/rexml/doctype.rb#181
   def add(child); end
 
   # source://rexml//lib/rexml/doctype.rb#125
@@ -271,7 +274,7 @@ class REXML::DocType < ::REXML::Parent
   # source://rexml//lib/rexml/doctype.rb#66
   def entities; end
 
-  # source://rexml//lib/rexml/doctype.rb#181
+  # source://rexml//lib/rexml/doctype.rb#177
   def entity(name); end
 
   # source://rexml//lib/rexml/doctype.rb#66
@@ -286,16 +289,16 @@ class REXML::DocType < ::REXML::Parent
   # source://rexml//lib/rexml/doctype.rb#111
   def node_type; end
 
-  # source://rexml//lib/rexml/doctype.rb#229
+  # source://rexml//lib/rexml/doctype.rb#225
   def notation(name); end
 
-  # source://rexml//lib/rexml/doctype.rb#221
+  # source://rexml//lib/rexml/doctype.rb#217
   def notations; end
 
-  # source://rexml//lib/rexml/doctype.rb#195
+  # source://rexml//lib/rexml/doctype.rb#191
   def public; end
 
-  # source://rexml//lib/rexml/doctype.rb#207
+  # source://rexml//lib/rexml/doctype.rb#203
   def system; end
 
   # source://rexml//lib/rexml/doctype.rb#149
@@ -307,296 +310,317 @@ class REXML::Document < ::REXML::Element
   # source://rexml//lib/rexml/document.rb#92
   def initialize(source = T.unsafe(nil), context = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/document.rb#170
+  # source://rexml//lib/rexml/document.rb#174
   def <<(child); end
 
-  # source://rexml//lib/rexml/document.rb#170
+  # source://rexml//lib/rexml/document.rb#174
   def add(child); end
 
-  # source://rexml//lib/rexml/document.rb#209
+  # source://rexml//lib/rexml/document.rb#213
   def add_element(arg = T.unsafe(nil), arg2 = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/document.rb#120
+  # source://rexml//lib/rexml/document.rb#124
   def clone; end
 
-  # source://rexml//lib/rexml/document.rb#241
+  # source://rexml//lib/rexml/document.rb#245
   def doctype; end
 
-  # source://rexml//lib/rexml/document.rb#442
+  # source://rexml//lib/rexml/document.rb#448
   def document; end
 
-  # source://rexml//lib/rexml/document.rb#290
+  # source://rexml//lib/rexml/document.rb#294
   def encoding; end
 
-  # source://rexml//lib/rexml/document.rb#433
+  # source://rexml//lib/rexml/document.rb#437
   def entity_expansion_count; end
 
-  # source://rexml//lib/rexml/document.rb#129
+  # source://rexml//lib/rexml/document.rb#438
+  def entity_expansion_limit=(_arg0); end
+
+  # source://rexml//lib/rexml/document.rb#439
+  def entity_expansion_text_limit; end
+
+  # source://rexml//lib/rexml/document.rb#439
+  def entity_expansion_text_limit=(_arg0); end
+
+  # source://rexml//lib/rexml/document.rb#133
   def expanded_name; end
 
-  # source://rexml//lib/rexml/document.rb#129
+  # source://rexml//lib/rexml/document.rb#133
   def name; end
 
-  # source://rexml//lib/rexml/document.rb#110
+  # source://rexml//lib/rexml/document.rb#114
   def node_type; end
 
-  # source://rexml//lib/rexml/document.rb#435
+  # source://rexml//lib/rexml/document.rb#441
   def record_entity_expansion; end
 
-  # source://rexml//lib/rexml/document.rb#225
+  # source://rexml//lib/rexml/document.rb#229
   def root; end
 
-  # source://rexml//lib/rexml/document.rb#305
+  # source://rexml//lib/rexml/document.rb#309
   def stand_alone?; end
 
-  # source://rexml//lib/rexml/document.rb#275
+  # source://rexml//lib/rexml/document.rb#279
   def version; end
 
-  # source://rexml//lib/rexml/document.rb#365
+  # source://rexml//lib/rexml/document.rb#369
   def write(*arguments); end
 
-  # source://rexml//lib/rexml/document.rb#258
+  # source://rexml//lib/rexml/document.rb#262
   def xml_decl; end
 
   private
 
-  # source://rexml//lib/rexml/document.rb#447
+  # source://rexml//lib/rexml/document.rb#467
   def build(source); end
 
+  # source://rexml//lib/rexml/document.rb#458
+  def enable_cache; end
+
+  # source://rexml//lib/rexml/document.rb#454
+  def namespaces_cache; end
+
+  # source://rexml//lib/rexml/document.rb#454
+  def namespaces_cache=(_arg0); end
+
   class << self
-    # source://rexml//lib/rexml/document.rb#415
+    # source://rexml//lib/rexml/document.rb#419
     def entity_expansion_limit; end
 
-    # source://rexml//lib/rexml/document.rb#408
+    # source://rexml//lib/rexml/document.rb#412
     def entity_expansion_limit=(val); end
 
-    # source://rexml//lib/rexml/document.rb#429
+    # source://rexml//lib/rexml/document.rb#433
     def entity_expansion_text_limit; end
 
-    # source://rexml//lib/rexml/document.rb#422
+    # source://rexml//lib/rexml/document.rb#426
     def entity_expansion_text_limit=(val); end
 
-    # source://rexml//lib/rexml/document.rb#401
+    # source://rexml//lib/rexml/document.rb#405
     def parse_stream(source, listener); end
   end
 end
 
-# source://rexml//lib/rexml/element.rb#279
+# source://rexml//lib/rexml/element.rb#271
 class REXML::Element < ::REXML::Parent
   include ::REXML::XMLTokens
   include ::REXML::Namespace
 
-  # source://rexml//lib/rexml/element.rb#327
+  # source://rexml//lib/rexml/element.rb#319
   def initialize(arg = T.unsafe(nil), parent = T.unsafe(nil), context = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#1245
+  # source://rexml//lib/rexml/element.rb#1238
   def [](name_or_index); end
 
-  # source://rexml//lib/rexml/element.rb#1349
+  # source://rexml//lib/rexml/element.rb#1336
   def add_attribute(key, value = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#1380
+  # source://rexml//lib/rexml/element.rb#1367
   def add_attributes(hash); end
 
-  # source://rexml//lib/rexml/element.rb#731
+  # source://rexml//lib/rexml/element.rb#725
   def add_element(element, attrs = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#654
+  # source://rexml//lib/rexml/element.rb#648
   def add_namespace(prefix, uri = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#1146
+  # source://rexml//lib/rexml/element.rb#1139
   def add_text(text); end
 
-  # source://rexml//lib/rexml/element.rb#1286
+  # source://rexml//lib/rexml/element.rb#1279
   def attribute(name, namespace = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#286
+  # source://rexml//lib/rexml/element.rb#278
   def attributes; end
 
-  # source://rexml//lib/rexml/element.rb#1424
+  # source://rexml//lib/rexml/element.rb#1411
   def cdatas; end
 
-  # source://rexml//lib/rexml/element.rb#391
+  # source://rexml//lib/rexml/element.rb#383
   def clone; end
 
-  # source://rexml//lib/rexml/element.rb#1445
+  # source://rexml//lib/rexml/element.rb#1432
   def comments; end
 
-  # source://rexml//lib/rexml/element.rb#289
+  # source://rexml//lib/rexml/element.rb#281
   def context; end
 
-  # source://rexml//lib/rexml/element.rb#289
+  # source://rexml//lib/rexml/element.rb#281
   def context=(_arg0); end
 
-  # source://rexml//lib/rexml/element.rb#1399
+  # source://rexml//lib/rexml/element.rb#1386
   def delete_attribute(key); end
 
-  # source://rexml//lib/rexml/element.rb#777
+  # source://rexml//lib/rexml/element.rb#771
   def delete_element(element); end
 
-  # source://rexml//lib/rexml/element.rb#686
+  # source://rexml//lib/rexml/element.rb#680
   def delete_namespace(namespace = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#478
+  # source://rexml//lib/rexml/element.rb#475
   def document; end
 
-  # source://rexml//lib/rexml/element.rb#929
+  # source://rexml//lib/rexml/element.rb#923
   def each_element(xpath = T.unsafe(nil), &block); end
 
-  # source://rexml//lib/rexml/element.rb#846
+  # source://rexml//lib/rexml/element.rb#840
   def each_element_with_attribute(key, value = T.unsafe(nil), max = T.unsafe(nil), name = T.unsafe(nil), &block); end
 
-  # source://rexml//lib/rexml/element.rb#903
+  # source://rexml//lib/rexml/element.rb#897
   def each_element_with_text(text = T.unsafe(nil), max = T.unsafe(nil), name = T.unsafe(nil), &block); end
 
-  # source://rexml//lib/rexml/element.rb#286
+  # source://rexml//lib/rexml/element.rb#278
   def elements; end
 
-  # source://rexml//lib/rexml/element.rb#948
+  # source://rexml//lib/rexml/element.rb#942
   def get_elements(xpath); end
 
-  # source://rexml//lib/rexml/element.rb#1052
+  # source://rexml//lib/rexml/element.rb#1045
   def get_text(path = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#1319
+  # source://rexml//lib/rexml/element.rb#1306
   def has_attributes?; end
 
-  # source://rexml//lib/rexml/element.rb#793
+  # source://rexml//lib/rexml/element.rb#787
   def has_elements?; end
 
-  # source://rexml//lib/rexml/element.rb#1001
+  # source://rexml//lib/rexml/element.rb#995
   def has_text?; end
 
-  # source://rexml//lib/rexml/element.rb#516
+  # source://rexml//lib/rexml/element.rb#512
   def ignore_whitespace_nodes; end
 
-  # source://rexml//lib/rexml/element.rb#366
+  # source://rexml//lib/rexml/element.rb#358
   def inspect; end
 
-  # source://rexml//lib/rexml/element.rb#1466
+  # source://rexml//lib/rexml/element.rb#1453
   def instructions; end
 
-  # source://rexml//lib/rexml/element.rb#621
+  # source://rexml//lib/rexml/element.rb#619
   def namespace(prefix = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#594
+  # source://rexml//lib/rexml/element.rb#590
   def namespaces; end
 
-  # source://rexml//lib/rexml/element.rb#962
+  # source://rexml//lib/rexml/element.rb#956
   def next_element; end
 
-  # source://rexml//lib/rexml/element.rb#1167
+  # source://rexml//lib/rexml/element.rb#1160
   def node_type; end
 
-  # source://rexml//lib/rexml/element.rb#568
+  # source://rexml//lib/rexml/element.rb#564
   def prefixes; end
 
-  # source://rexml//lib/rexml/element.rb#978
+  # source://rexml//lib/rexml/element.rb#972
   def previous_element; end
 
-  # source://rexml//lib/rexml/element.rb#536
+  # source://rexml//lib/rexml/element.rb#532
   def raw; end
 
-  # source://rexml//lib/rexml/element.rb#451
+  # source://rexml//lib/rexml/element.rb#443
   def root; end
 
-  # source://rexml//lib/rexml/element.rb#430
+  # source://rexml//lib/rexml/element.rb#422
   def root_node; end
 
-  # source://rexml//lib/rexml/element.rb#1029
+  # source://rexml//lib/rexml/element.rb#1023
   def text(path = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#1088
+  # source://rexml//lib/rexml/element.rb#1081
   def text=(text); end
 
-  # source://rexml//lib/rexml/element.rb#1482
+  # source://rexml//lib/rexml/element.rb#1469
   def texts; end
 
-  # source://rexml//lib/rexml/element.rb#493
+  # source://rexml//lib/rexml/element.rb#489
   def whitespace; end
 
-  # source://rexml//lib/rexml/element.rb#1508
+  # source://rexml//lib/rexml/element.rb#1495
   def write(output = T.unsafe(nil), indent = T.unsafe(nil), transitive = T.unsafe(nil), ie_hack = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#1191
+  # source://rexml//lib/rexml/element.rb#1184
   def xpath; end
 
   private
 
-  # source://rexml//lib/rexml/element.rb#1525
+  # source://rexml//lib/rexml/element.rb#1519
   def __to_xpath_helper(node); end
 
-  # source://rexml//lib/rexml/element.rb#1540
+  # source://rexml//lib/rexml/element.rb#1511
+  def calculate_namespaces; end
+
+  # source://rexml//lib/rexml/element.rb#1534
   def each_with_something(test, max = T.unsafe(nil), name = T.unsafe(nil)); end
 end
 
-# source://rexml//lib/rexml/doctype.rb#261
+# source://rexml//lib/rexml/doctype.rb#257
 class REXML::ElementDecl < ::REXML::Declaration
-  # source://rexml//lib/rexml/doctype.rb#262
+  # source://rexml//lib/rexml/doctype.rb#258
   def initialize(src); end
 end
 
-# source://rexml//lib/rexml/element.rb#1595
+# source://rexml//lib/rexml/element.rb#1589
 class REXML::Elements
   include ::Enumerable
 
-  # source://rexml//lib/rexml/element.rb#1608
+  # source://rexml//lib/rexml/element.rb#1602
   def initialize(parent); end
 
-  # source://rexml//lib/rexml/element.rb#1925
+  # source://rexml//lib/rexml/element.rb#1915
   def <<(element = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#1680
+  # source://rexml//lib/rexml/element.rb#1674
   def [](index, name = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#1735
+  # source://rexml//lib/rexml/element.rb#1725
   def []=(index, element); end
 
-  # source://rexml//lib/rexml/element.rb#1925
+  # source://rexml//lib/rexml/element.rb#1915
   def add(element = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#1988
+  # source://rexml//lib/rexml/element.rb#1978
   def collect(xpath = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#1825
+  # source://rexml//lib/rexml/element.rb#1815
   def delete(element); end
 
-  # source://rexml//lib/rexml/element.rb#1851
+  # source://rexml//lib/rexml/element.rb#1841
   def delete_all(xpath); end
 
-  # source://rexml//lib/rexml/element.rb#1967
+  # source://rexml//lib/rexml/element.rb#1957
   def each(xpath = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#1755
+  # source://rexml//lib/rexml/element.rb#1745
   def empty?; end
 
-  # source://rexml//lib/rexml/element.rb#1773
+  # source://rexml//lib/rexml/element.rb#1763
   def index(element); end
 
-  # source://rexml//lib/rexml/element.rb#2073
+  # source://rexml//lib/rexml/element.rb#2063
   def inject(xpath = T.unsafe(nil), initial = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/element.rb#1623
+  # source://rexml//lib/rexml/element.rb#1617
   def parent; end
 
-  # source://rexml//lib/rexml/element.rb#2097
+  # source://rexml//lib/rexml/element.rb#2087
   def size; end
 
-  # source://rexml//lib/rexml/element.rb#2121
+  # source://rexml//lib/rexml/element.rb#2111
   def to_a(xpath = T.unsafe(nil)); end
 
   private
 
-  # source://rexml//lib/rexml/element.rb#2129
+  # source://rexml//lib/rexml/element.rb#2119
   def literalize(name); end
 end
 
 # source://rexml//lib/rexml/encoding.rb#4
 module REXML::Encoding
-  # source://rexml//lib/rexml/encoding.rb#29
+  # source://rexml//lib/rexml/encoding.rb#26
   def decode(string); end
 
-  # source://rexml//lib/rexml/encoding.rb#25
+  # source://rexml//lib/rexml/encoding.rb#22
   def encode(string); end
 
   # source://rexml//lib/rexml/encoding.rb#6
@@ -607,7 +631,7 @@ module REXML::Encoding
 
   private
 
-  # source://rexml//lib/rexml/encoding.rb#34
+  # source://rexml//lib/rexml/encoding.rb#31
   def find_encoding(name); end
 end
 
@@ -615,62 +639,54 @@ end
 class REXML::Entity < ::REXML::Child
   include ::REXML::XMLTokens
 
-  # source://rexml//lib/rexml/entity.rb#33
+  # source://rexml//lib/rexml/entity.rb#34
   def initialize(stream, value = T.unsafe(nil), parent = T.unsafe(nil), reference = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/entity.rb#22
+  # source://rexml//lib/rexml/entity.rb#23
   def external; end
 
-  # source://rexml//lib/rexml/entity.rb#22
+  # source://rexml//lib/rexml/entity.rb#23
   def name; end
 
-  # source://rexml//lib/rexml/entity.rb#22
+  # source://rexml//lib/rexml/entity.rb#23
   def ndata; end
 
-  # source://rexml//lib/rexml/entity.rb#85
+  # source://rexml//lib/rexml/entity.rb#86
   def normalized; end
 
-  # source://rexml//lib/rexml/entity.rb#138
-  def parent=(other); end
-
-  # source://rexml//lib/rexml/entity.rb#22
+  # source://rexml//lib/rexml/entity.rb#23
   def pubid; end
 
-  # source://rexml//lib/rexml/entity.rb#22
+  # source://rexml//lib/rexml/entity.rb#23
   def ref; end
 
-  # source://rexml//lib/rexml/entity.rb#119
+  # source://rexml//lib/rexml/entity.rb#120
   def to_s; end
 
   # source://rexml//lib/rexml/entity.rb#73
   def unnormalized; end
 
-  # source://rexml//lib/rexml/entity.rb#134
+  # source://rexml//lib/rexml/entity.rb#23
   def value; end
 
-  # source://rexml//lib/rexml/entity.rb#97
+  # source://rexml//lib/rexml/entity.rb#98
   def write(out, indent = T.unsafe(nil)); end
 
-  private
-
-  # source://rexml//lib/rexml/entity.rb#144
-  def resolve_value; end
-
   class << self
-    # source://rexml//lib/rexml/entity.rb#66
+    # source://rexml//lib/rexml/entity.rb#67
     def matches?(string); end
   end
 end
 
-# source://rexml//lib/rexml/doctype.rb#267
+# source://rexml//lib/rexml/doctype.rb#263
 class REXML::ExternalEntity < ::REXML::Child
-  # source://rexml//lib/rexml/doctype.rb#268
+  # source://rexml//lib/rexml/doctype.rb#264
   def initialize(src); end
 
-  # source://rexml//lib/rexml/doctype.rb#272
+  # source://rexml//lib/rexml/doctype.rb#268
   def to_s; end
 
-  # source://rexml//lib/rexml/doctype.rb#275
+  # source://rexml//lib/rexml/doctype.rb#271
   def write(output, indent); end
 end
 
@@ -868,35 +884,38 @@ module REXML::Functions
   end
 end
 
-# source://rexml//lib/rexml/source.rb#140
+# source://rexml//lib/rexml/source.rb#220
 class REXML::IOSource < ::REXML::Source
-  # source://rexml//lib/rexml/source.rb#144
+  # source://rexml//lib/rexml/source.rb#224
   def initialize(arg, block_size = T.unsafe(nil), encoding = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/source.rb#217
+  # source://rexml//lib/rexml/source.rb#329
   def current_line; end
 
-  # source://rexml//lib/rexml/source.rb#212
+  # source://rexml//lib/rexml/source.rb#324
   def empty?; end
 
-  # source://rexml//lib/rexml/source.rb#189
+  # source://rexml//lib/rexml/source.rb#284
   def ensure_buffer; end
 
-  # source://rexml//lib/rexml/source.rb#196
+  # source://rexml//lib/rexml/source.rb#288
   def match(pattern, cons = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/source.rb#165
-  def read(term = T.unsafe(nil)); end
+  # source://rexml//lib/rexml/source.rb#307
+  def match?(pattern, cons = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/source.rb#175
+  # source://rexml//lib/rexml/source.rb#245
+  def read(term = T.unsafe(nil), min_bytes = T.unsafe(nil)); end
+
+  # source://rexml//lib/rexml/source.rb#266
   def read_until(term); end
 
   private
 
-  # source://rexml//lib/rexml/source.rb#259
+  # source://rexml//lib/rexml/source.rb#376
   def encoding_updated; end
 
-  # source://rexml//lib/rexml/source.rb#239
+  # source://rexml//lib/rexml/source.rb#351
   def readline(term = T.unsafe(nil)); end
 end
 
@@ -967,13 +986,13 @@ module REXML::Node
   # source://rexml//lib/rexml/node.rb#54
   def each_recursive(&block); end
 
-  # source://rexml//lib/rexml/node.rb#63
+  # source://rexml//lib/rexml/node.rb#67
   def find_first_recursive(&block); end
 
   # source://rexml//lib/rexml/node.rb#39
   def indent(to, ind); end
 
-  # source://rexml//lib/rexml/node.rb#72
+  # source://rexml//lib/rexml/node.rb#76
   def index_in_parent; end
 
   # source://rexml//lib/rexml/node.rb#11
@@ -989,30 +1008,30 @@ module REXML::Node
   def to_s(indent = T.unsafe(nil)); end
 end
 
-# source://rexml//lib/rexml/doctype.rb#280
+# source://rexml//lib/rexml/doctype.rb#276
 class REXML::NotationDecl < ::REXML::Child
-  # source://rexml//lib/rexml/doctype.rb#282
+  # source://rexml//lib/rexml/doctype.rb#278
   def initialize(name, middle, pub, sys); end
 
-  # source://rexml//lib/rexml/doctype.rb#307
+  # source://rexml//lib/rexml/doctype.rb#302
   def name; end
 
-  # source://rexml//lib/rexml/doctype.rb#281
+  # source://rexml//lib/rexml/doctype.rb#277
   def public; end
 
-  # source://rexml//lib/rexml/doctype.rb#281
+  # source://rexml//lib/rexml/doctype.rb#277
   def public=(_arg0); end
 
-  # source://rexml//lib/rexml/doctype.rb#281
+  # source://rexml//lib/rexml/doctype.rb#277
   def system; end
 
-  # source://rexml//lib/rexml/doctype.rb#281
+  # source://rexml//lib/rexml/doctype.rb#277
   def system=(_arg0); end
 
-  # source://rexml//lib/rexml/doctype.rb#290
+  # source://rexml//lib/rexml/doctype.rb#286
   def to_s; end
 
-  # source://rexml//lib/rexml/doctype.rb#300
+  # source://rexml//lib/rexml/doctype.rb#295
   def write(output, indent = T.unsafe(nil)); end
 end
 
@@ -1143,113 +1162,165 @@ class REXML::ParseException < ::RuntimeError
   def to_s; end
 end
 
-# source://rexml//lib/rexml/parsers/baseparser.rb#29
+# source://rexml//lib/rexml/parsers/baseparser.rb#57
 class REXML::Parsers::BaseParser
-  include ::REXML::Parsers::BaseParser::Private
-
-  # source://rexml//lib/rexml/parsers/baseparser.rb#128
+  # source://rexml//lib/rexml/parsers/baseparser.rb#164
   def initialize(source); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#133
+  # source://rexml//lib/rexml/parsers/baseparser.rb#175
   def add_listener(listener); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#159
+  # source://rexml//lib/rexml/parsers/baseparser.rb#210
   def empty?; end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#446
+  # source://rexml//lib/rexml/parsers/baseparser.rb#537
   def entity(reference, entities); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#164
+  # source://rexml//lib/rexml/parsers/baseparser.rb#180
+  def entity_expansion_count; end
+
+  # source://rexml//lib/rexml/parsers/baseparser.rb#181
+  def entity_expansion_limit=(_arg0); end
+
+  # source://rexml//lib/rexml/parsers/baseparser.rb#182
+  def entity_expansion_text_limit=(_arg0); end
+
+  # source://rexml//lib/rexml/parsers/baseparser.rb#215
   def has_next?; end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#457
+  # source://rexml//lib/rexml/parsers/baseparser.rb#548
   def normalize(input, entities = T.unsafe(nil), entity_filter = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#180
+  # source://rexml//lib/rexml/parsers/baseparser.rb#231
   def peek(depth = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#149
+  # source://rexml//lib/rexml/parsers/baseparser.rb#200
   def position; end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#195
+  # source://rexml//lib/rexml/parsers/baseparser.rb#246
   def pull; end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#137
+  # source://rexml//lib/rexml/parsers/baseparser.rb#189
+  def reset; end
+
+  # source://rexml//lib/rexml/parsers/baseparser.rb#179
   def source; end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#139
+  # source://rexml//lib/rexml/parsers/baseparser.rb#184
   def stream=(source); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#473
+  # source://rexml//lib/rexml/parsers/baseparser.rb#564
   def unnormalize(string, entities = T.unsafe(nil), filter = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#170
+  # source://rexml//lib/rexml/parsers/baseparser.rb#221
   def unshift(token); end
 
   private
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#502
+  # source://rexml//lib/rexml/parsers/baseparser.rb#613
+  def add_namespace(prefix, uri); end
+
+  # source://rexml//lib/rexml/parsers/baseparser.rb#646
   def need_source_encoding_update?(xml_declaration_encoding); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#613
-  def parse_attributes(prefixes, curr_ns); end
+  # source://rexml//lib/rexml/parsers/baseparser.rb#652
+  def normalize_xml_declaration_encoding(xml_declaration_encoding); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#521
+  # source://rexml//lib/rexml/parsers/baseparser.rb#849
+  def parse_attribute_value_with_equal(name); end
+
+  # source://rexml//lib/rexml/parsers/baseparser.rb#868
+  def parse_attributes(prefixes); end
+
+  # source://rexml//lib/rexml/parsers/baseparser.rb#669
   def parse_id(base_error_message, accept_external_id:, accept_public_id:); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#549
+  # source://rexml//lib/rexml/parsers/baseparser.rb#697
   def parse_id_invalid_details(accept_external_id:, accept_public_id:); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#508
+  # source://rexml//lib/rexml/parsers/baseparser.rb#656
   def parse_name(base_error_message); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#587
-  def process_instruction(start_position); end
+  # source://rexml//lib/rexml/parsers/baseparser.rb#628
+  def pop_namespaces_restore; end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#203
+  # source://rexml//lib/rexml/parsers/baseparser.rb#735
+  def process_comment; end
+
+  # source://rexml//lib/rexml/parsers/baseparser.rb#747
+  def process_instruction; end
+
+  # source://rexml//lib/rexml/parsers/baseparser.rb#256
   def pull_event; end
+
+  # source://rexml//lib/rexml/parsers/baseparser.rb#622
+  def push_namespaces_restore; end
+
+  # source://rexml//lib/rexml/parsers/baseparser.rb#639
+  def record_entity_expansion(delta = T.unsafe(nil)); end
+
+  # source://rexml//lib/rexml/parsers/baseparser.rb#831
+  def scan_quote; end
+
+  # source://rexml//lib/rexml/parsers/baseparser.rb#769
+  def xml_declaration; end
 end
 
-# source://rexml//lib/rexml/parsers/baseparser.rb#102
+# source://rexml//lib/rexml/parsers/baseparser.rb#130
 REXML::Parsers::BaseParser::EXTERNAL_ID_PUBLIC = T.let(T.unsafe(nil), Regexp)
 
-# source://rexml//lib/rexml/parsers/baseparser.rb#103
+# source://rexml//lib/rexml/parsers/baseparser.rb#131
 REXML::Parsers::BaseParser::EXTERNAL_ID_SYSTEM = T.let(T.unsafe(nil), Regexp)
 
-# source://rexml//lib/rexml/parsers/baseparser.rb#104
+# source://rexml//lib/rexml/parsers/baseparser.rb#132
 REXML::Parsers::BaseParser::PUBLIC_ID = T.let(T.unsafe(nil), Regexp)
 
-# source://rexml//lib/rexml/parsers/baseparser.rb#115
+# source://rexml//lib/rexml/parsers/baseparser.rb#143
 module REXML::Parsers::BaseParser::Private; end
 
-# source://rexml//lib/rexml/parsers/baseparser.rb#119
+# source://rexml//lib/rexml/parsers/baseparser.rb#148
 REXML::Parsers::BaseParser::Private::ATTLISTDECL_END = T.let(T.unsafe(nil), Regexp)
 
-# source://rexml//lib/rexml/parsers/baseparser.rb#118
+# source://rexml//lib/rexml/parsers/baseparser.rb#153
+REXML::Parsers::BaseParser::Private::CARRIAGE_RETURN_NEWLINE_PATTERN = T.let(T.unsafe(nil), Regexp)
+
+# source://rexml//lib/rexml/parsers/baseparser.rb#154
+REXML::Parsers::BaseParser::Private::CHARACTER_REFERENCES = T.let(T.unsafe(nil), Regexp)
+
+# source://rexml//lib/rexml/parsers/baseparser.rb#146
 REXML::Parsers::BaseParser::Private::CLOSE_PATTERN = T.let(T.unsafe(nil), Regexp)
 
-# source://rexml//lib/rexml/parsers/baseparser.rb#123
+# source://rexml//lib/rexml/parsers/baseparser.rb#155
+REXML::Parsers::BaseParser::Private::DEFAULT_ENTITIES_PATTERNS = T.let(T.unsafe(nil), Hash)
+
+# source://rexml//lib/rexml/parsers/baseparser.rb#152
 REXML::Parsers::BaseParser::Private::ENTITYDECL_PATTERN = T.let(T.unsafe(nil), Regexp)
 
-# source://rexml//lib/rexml/parsers/baseparser.rb#121
+# source://rexml//lib/rexml/parsers/baseparser.rb#147
+REXML::Parsers::BaseParser::Private::EQUAL_PATTERN = T.let(T.unsafe(nil), Regexp)
+
+# source://rexml//lib/rexml/parsers/baseparser.rb#150
 REXML::Parsers::BaseParser::Private::GEDECL_PATTERN = T.let(T.unsafe(nil), String)
 
-# source://rexml//lib/rexml/parsers/baseparser.rb#116
-REXML::Parsers::BaseParser::Private::INSTRUCTION_END = T.let(T.unsafe(nil), Regexp)
-
-# source://rexml//lib/rexml/parsers/baseparser.rb#120
+# source://rexml//lib/rexml/parsers/baseparser.rb#149
 REXML::Parsers::BaseParser::Private::NAME_PATTERN = T.let(T.unsafe(nil), Regexp)
 
-# source://rexml//lib/rexml/parsers/baseparser.rb#122
+# source://rexml//lib/rexml/parsers/baseparser.rb#151
 REXML::Parsers::BaseParser::Private::PEDECL_PATTERN = T.let(T.unsafe(nil), String)
 
-# source://rexml//lib/rexml/parsers/baseparser.rb#117
+# source://rexml//lib/rexml/parsers/baseparser.rb#144
+REXML::Parsers::BaseParser::Private::PEREFERENCE_PATTERN = T.let(T.unsafe(nil), Regexp)
+
+# source://rexml//lib/rexml/parsers/baseparser.rb#145
 REXML::Parsers::BaseParser::Private::TAG_PATTERN = T.let(T.unsafe(nil), Regexp)
 
-# source://rexml//lib/rexml/parsers/baseparser.rb#38
+# source://rexml//lib/rexml/parsers/baseparser.rb#160
+REXML::Parsers::BaseParser::Private::XML_PREFIXED_NAMESPACE = T.let(T.unsafe(nil), String)
+
+# source://rexml//lib/rexml/parsers/baseparser.rb#66
 REXML::Parsers::BaseParser::QNAME = T.let(T.unsafe(nil), Regexp)
 
-# source://rexml//lib/rexml/parsers/baseparser.rb#37
+# source://rexml//lib/rexml/parsers/baseparser.rb#65
 REXML::Parsers::BaseParser::QNAME_STR = T.let(T.unsafe(nil), String)
 
 # source://rexml//lib/rexml/parsers/streamparser.rb#6
@@ -1261,6 +1332,15 @@ class REXML::Parsers::StreamParser
   def add_listener(listener); end
 
   # source://rexml//lib/rexml/parsers/streamparser.rb#17
+  def entity_expansion_count; end
+
+  # source://rexml//lib/rexml/parsers/streamparser.rb#21
+  def entity_expansion_limit=(limit); end
+
+  # source://rexml//lib/rexml/parsers/streamparser.rb#25
+  def entity_expansion_text_limit=(limit); end
+
+  # source://rexml//lib/rexml/parsers/streamparser.rb#29
   def parse; end
 end
 
@@ -1393,65 +1473,92 @@ module REXML::Security
   end
 end
 
-# source://rexml//lib/rexml/source.rb#31
+# source://rexml//lib/rexml/source.rb#61
 class REXML::Source
   include ::REXML::Encoding
 
-  # source://rexml//lib/rexml/source.rb#41
+  # source://rexml//lib/rexml/source.rb#88
   def initialize(arg, encoding = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/source.rb#53
+  # source://rexml//lib/rexml/source.rb#101
   def buffer; end
 
-  # source://rexml//lib/rexml/source.rb#57
+  # source://rexml//lib/rexml/source.rb#111
   def buffer_encoding=(encoding); end
 
-  # source://rexml//lib/rexml/source.rb#100
+  # source://rexml//lib/rexml/source.rb#180
   def current_line; end
 
-  # source://rexml//lib/rexml/source.rb#95
+  # source://rexml//lib/rexml/source.rb#105
+  def drop_parsed_content; end
+
+  # source://rexml//lib/rexml/source.rb#175
   def empty?; end
 
-  # source://rexml//lib/rexml/source.rb#35
+  # source://rexml//lib/rexml/source.rb#65
   def encoding; end
 
-  # source://rexml//lib/rexml/source.rb#63
+  # source://rexml//lib/rexml/source.rb#117
   def encoding=(enc); end
 
-  # source://rexml//lib/rexml/source.rb#75
+  # source://rexml//lib/rexml/source.rb#135
   def ensure_buffer; end
 
-  # source://rexml//lib/rexml/source.rb#34
+  # source://rexml//lib/rexml/source.rb#64
   def line; end
 
-  # source://rexml//lib/rexml/source.rb#78
+  # source://rexml//lib/rexml/source.rb#138
   def match(pattern, cons = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/source.rb#86
+  # source://rexml//lib/rexml/source.rb#146
+  def match?(pattern, cons = T.unsafe(nil)); end
+
+  # source://rexml//lib/rexml/source.rb#166
+  def peek_byte; end
+
+  # source://rexml//lib/rexml/source.rb#158
   def position; end
 
-  # source://rexml//lib/rexml/source.rb#90
+  # source://rexml//lib/rexml/source.rb#162
   def position=(pos); end
 
-  # source://rexml//lib/rexml/source.rb#68
+  # source://rexml//lib/rexml/source.rb#122
   def read(term = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/source.rb#71
+  # source://rexml//lib/rexml/source.rb#125
   def read_until(term); end
+
+  # source://rexml//lib/rexml/source.rb#170
+  def scan_byte; end
+
+  # source://rexml//lib/rexml/source.rb#154
+  def skip_spaces; end
 
   private
 
-  # source://rexml//lib/rexml/source.rb#109
+  # source://rexml//lib/rexml/source.rb#189
   def detect_encoding; end
 
-  # source://rexml//lib/rexml/source.rb#127
+  # source://rexml//lib/rexml/source.rb#207
   def encoding_updated; end
 end
 
-# source://rexml//lib/rexml/source.rb#7
+# source://rexml//lib/rexml/source.rb#67
+module REXML::Source::Private; end
+
+# source://rexml//lib/rexml/source.rb#70
+REXML::Source::Private::PRE_DEFINED_TERM_PATTERNS = T.let(T.unsafe(nil), Hash)
+
+# source://rexml//lib/rexml/source.rb#69
+REXML::Source::Private::SCANNER_RESET_SIZE = T.let(T.unsafe(nil), Integer)
+
+# source://rexml//lib/rexml/source.rb#68
+REXML::Source::Private::SPACES_PATTERN = T.let(T.unsafe(nil), Regexp)
+
+# source://rexml//lib/rexml/source.rb#38
 class REXML::SourceFactory
   class << self
-    # source://rexml//lib/rexml/source.rb#11
+    # source://rexml//lib/rexml/source.rb#42
     def create_from(arg); end
   end
 end
@@ -1460,34 +1567,34 @@ end
 class REXML::Text < ::REXML::Child
   include ::Comparable
 
-  # source://rexml//lib/rexml/text.rb#94
+  # source://rexml//lib/rexml/text.rb#79
   def initialize(arg, respect_whitespace = T.unsafe(nil), parent = T.unsafe(nil), raw = T.unsafe(nil), entity_filter = T.unsafe(nil), illegal = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/text.rb#194
+  # source://rexml//lib/rexml/text.rb#189
   def <<(to_append); end
 
-  # source://rexml//lib/rexml/text.rb#203
+  # source://rexml//lib/rexml/text.rb#198
   def <=>(other); end
 
-  # source://rexml//lib/rexml/text.rb#184
+  # source://rexml//lib/rexml/text.rb#179
   def clone; end
 
-  # source://rexml//lib/rexml/text.rb#207
+  # source://rexml//lib/rexml/text.rb#202
   def doctype; end
 
-  # source://rexml//lib/rexml/text.rb#179
+  # source://rexml//lib/rexml/text.rb#174
   def empty?; end
 
-  # source://rexml//lib/rexml/text.rb#278
+  # source://rexml//lib/rexml/text.rb#271
   def indent_text(string, level = T.unsafe(nil), style = T.unsafe(nil), indentfirstline = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/text.rb#233
+  # source://rexml//lib/rexml/text.rb#225
   def inspect; end
 
-  # source://rexml//lib/rexml/text.rb#175
+  # source://rexml//lib/rexml/text.rb#170
   def node_type; end
 
-  # source://rexml//lib/rexml/text.rb#125
+  # source://rexml//lib/rexml/text.rb#110
   def parent=(parent); end
 
   # source://rexml//lib/rexml/text.rb#21
@@ -1496,47 +1603,47 @@ class REXML::Text < ::REXML::Child
   # source://rexml//lib/rexml/text.rb#21
   def raw=(_arg0); end
 
-  # source://rexml//lib/rexml/text.rb#228
+  # source://rexml//lib/rexml/text.rb#220
   def to_s; end
 
-  # source://rexml//lib/rexml/text.rb#250
+  # source://rexml//lib/rexml/text.rb#242
   def value; end
 
-  # source://rexml//lib/rexml/text.rb#261
+  # source://rexml//lib/rexml/text.rb#254
   def value=(val); end
 
-  # source://rexml//lib/rexml/text.rb#267
+  # source://rexml//lib/rexml/text.rb#260
   def wrap(string, width, addnewline = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/text.rb#293
+  # source://rexml//lib/rexml/text.rb#288
   def write(writer, indent = T.unsafe(nil), transitive = T.unsafe(nil), ie_hack = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/text.rb#325
+  # source://rexml//lib/rexml/text.rb#318
   def write_with_substitution(out, input); end
 
-  # source://rexml//lib/rexml/text.rb#305
+  # source://rexml//lib/rexml/text.rb#300
   def xpath; end
 
   private
 
-  # source://rexml//lib/rexml/text.rb#338
+  # source://rexml//lib/rexml/text.rb#331
   def clear_cache; end
 
   class << self
-    # source://rexml//lib/rexml/text.rb#131
-    def check(string, pattern, doctype); end
+    # source://rexml//lib/rexml/text.rb#116
+    def check(string, pattern, doctype = T.unsafe(nil)); end
 
-    # source://rexml//lib/rexml/text.rb#407
+    # source://rexml//lib/rexml/text.rb#401
     def expand(ref, doctype, filter); end
 
-    # source://rexml//lib/rexml/text.rb#370
+    # source://rexml//lib/rexml/text.rb#363
     def normalize(input, doctype = T.unsafe(nil), entity_filter = T.unsafe(nil)); end
 
-    # source://rexml//lib/rexml/text.rb#344
+    # source://rexml//lib/rexml/text.rb#337
     def read_with_substitution(input, illegal = T.unsafe(nil)); end
 
-    # source://rexml//lib/rexml/text.rb#394
-    def unnormalize(string, doctype = T.unsafe(nil), filter = T.unsafe(nil), illegal = T.unsafe(nil)); end
+    # source://rexml//lib/rexml/text.rb#387
+    def unnormalize(string, doctype = T.unsafe(nil), filter = T.unsafe(nil), illegal = T.unsafe(nil), entity_expansion_text_limit: T.unsafe(nil)); end
   end
 end
 
@@ -1626,29 +1733,29 @@ class REXML::XPath
   include ::REXML::Functions
 
   class << self
-    # source://rexml//lib/rexml/xpath.rb#60
+    # source://rexml//lib/rexml/xpath.rb#55
     def each(element, path = T.unsafe(nil), namespaces = T.unsafe(nil), variables = T.unsafe(nil), options = T.unsafe(nil), &block); end
 
     # source://rexml//lib/rexml/xpath.rb#31
     def first(element, path = T.unsafe(nil), namespaces = T.unsafe(nil), variables = T.unsafe(nil), options = T.unsafe(nil)); end
 
-    # source://rexml//lib/rexml/xpath.rb#72
+    # source://rexml//lib/rexml/xpath.rb#62
     def match(element, path = T.unsafe(nil), namespaces = T.unsafe(nil), variables = T.unsafe(nil), options = T.unsafe(nil)); end
   end
 end
 
-# source://rexml//lib/rexml/xpath_parser.rb#963
+# source://rexml//lib/rexml/xpath_parser.rb#965
 class REXML::XPathNode
-  # source://rexml//lib/rexml/xpath_parser.rb#965
+  # source://rexml//lib/rexml/xpath_parser.rb#967
   def initialize(node, context = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#964
+  # source://rexml//lib/rexml/xpath_parser.rb#966
   def context; end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#974
+  # source://rexml//lib/rexml/xpath_parser.rb#976
   def position; end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#964
+  # source://rexml//lib/rexml/xpath_parser.rb#966
   def raw_node; end
 end
 
@@ -1659,108 +1766,108 @@ class REXML::XPathParser
   # source://rexml//lib/rexml/xpath_parser.rb#60
   def initialize(strict: T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#94
+  # source://rexml//lib/rexml/xpath_parser.rb#107
   def []=(variable_name, value); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#103
+  # source://rexml//lib/rexml/xpath_parser.rb#116
   def first(path_stack, node); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#84
-  def get_first(path, nodeset); end
+  # source://rexml//lib/rexml/xpath_parser.rb#97
+  def get_first(path, node); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#139
-  def match(path_stack, nodeset); end
+  # source://rexml//lib/rexml/xpath_parser.rb#153
+  def match(path_stack, node); end
 
   # source://rexml//lib/rexml/xpath_parser.rb#69
   def namespaces=(namespaces = T.unsafe(nil)); end
 
   # source://rexml//lib/rexml/xpath_parser.rb#79
-  def parse(path, nodeset); end
+  def parse(path, node); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#89
-  def predicate(path, nodeset); end
+  # source://rexml//lib/rexml/xpath_parser.rb#102
+  def predicate(path, node); end
 
   # source://rexml//lib/rexml/xpath_parser.rb#74
   def variables=(vars = T.unsafe(nil)); end
 
   private
 
-  # source://rexml//lib/rexml/xpath_parser.rb#779
+  # source://rexml//lib/rexml/xpath_parser.rb#781
   def child(nodeset); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#920
+  # source://rexml//lib/rexml/xpath_parser.rb#922
   def compare(a, operator, b); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#682
+  # source://rexml//lib/rexml/xpath_parser.rb#687
   def descendant(nodeset, include_self); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#693
+  # source://rexml//lib/rexml/xpath_parser.rb#698
   def descendant_recursive(raw_node, new_nodeset, new_nodes, include_self); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#942
+  # source://rexml//lib/rexml/xpath_parser.rb#944
   def each_unnode(nodeset); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#641
+  # source://rexml//lib/rexml/xpath_parser.rb#646
   def enter(tag, *args); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#819
+  # source://rexml//lib/rexml/xpath_parser.rb#821
   def equality_relational_compare(set1, op, set2); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#591
+  # source://rexml//lib/rexml/xpath_parser.rb#596
   def evaluate_predicate(expression, nodesets); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#175
+  # source://rexml//lib/rexml/xpath_parser.rb#186
   def expr(path_stack, nodeset, context = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#582
+  # source://rexml//lib/rexml/xpath_parser.rb#587
   def filter_nodeset(nodeset); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#749
+  # source://rexml//lib/rexml/xpath_parser.rb#754
   def following(node); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#760
+  # source://rexml//lib/rexml/xpath_parser.rb#765
   def following_node_of(node); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#163
+  # source://rexml//lib/rexml/xpath_parser.rb#174
   def get_namespace(node, prefix); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#646
+  # source://rexml//lib/rexml/xpath_parser.rb#651
   def leave(tag, *args); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#767
+  # source://rexml//lib/rexml/xpath_parser.rb#771
   def next_sibling_node(node); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#477
+  # source://rexml//lib/rexml/xpath_parser.rb#488
   def node_test(path_stack, nodesets, any_type: T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#806
+  # source://rexml//lib/rexml/xpath_parser.rb#808
   def norm(b); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#894
+  # source://rexml//lib/rexml/xpath_parser.rb#896
   def normalize_compare_values(a, operator, b); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#712
+  # source://rexml//lib/rexml/xpath_parser.rb#717
   def preceding(node); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#734
+  # source://rexml//lib/rexml/xpath_parser.rb#739
   def preceding_node_of(node); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#659
+  # source://rexml//lib/rexml/xpath_parser.rb#664
   def sort(array_of_nodes, order); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#441
+  # source://rexml//lib/rexml/xpath_parser.rb#452
   def step(path_stack, any_type: T.unsafe(nil), order: T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#154
+  # source://rexml//lib/rexml/xpath_parser.rb#165
   def strict?; end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#634
+  # source://rexml//lib/rexml/xpath_parser.rb#639
   def trace(*args); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#954
+  # source://rexml//lib/rexml/xpath_parser.rb#956
   def unnode(nodeset); end
 
-  # source://rexml//lib/rexml/xpath_parser.rb#881
+  # source://rexml//lib/rexml/xpath_parser.rb#883
   def value_type(value); end
 end
 
