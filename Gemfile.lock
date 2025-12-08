@@ -331,7 +331,7 @@ DEPENDENCIES
   parlour (~> 8.1)
   pg (>= 0, < 2.0)
   puma (~> 6.0)
-  rails (~> 8.0, < 9.0)
+  rails (~> 8.0)
   rspec-rails (~> 6.1)
   rspec-sidekiq
   rubocop-sorbet
