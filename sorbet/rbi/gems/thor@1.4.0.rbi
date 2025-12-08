@@ -236,7 +236,7 @@ module Thor::Actions
   # source://thor//lib/thor/actions/file_manipulation.rb#145
   def chmod(path, mode, config = T.unsafe(nil)); end
 
-  # source://thor//lib/thor/actions/file_manipulation.rb#308
+  # source://thor//lib/thor/actions/file_manipulation.rb#333
   def comment_lines(path, flag, *args); end
 
   # source://thor//lib/thor/actions/file_manipulation.rb#20
@@ -266,8 +266,11 @@ module Thor::Actions
   # source://thor//lib/thor/actions/file_manipulation.rb#81
   def get(source, *args, &block); end
 
-  # source://thor//lib/thor/actions/file_manipulation.rb#262
+  # source://thor//lib/thor/actions/file_manipulation.rb#291
   def gsub_file(path, flag, *args, &block); end
+
+  # source://thor//lib/thor/actions/file_manipulation.rb#263
+  def gsub_file!(path, flag, *args, &block); end
 
   # source://thor//lib/thor/actions.rb#200
   def in_root; end
@@ -299,10 +302,10 @@ module Thor::Actions
   # source://thor//lib/thor/actions.rb#114
   def relative_to_original_destination_root(path, remove_dot = T.unsafe(nil)); end
 
-  # source://thor//lib/thor/actions/file_manipulation.rb#325
+  # source://thor//lib/thor/actions/file_manipulation.rb#350
   def remove_dir(path, config = T.unsafe(nil)); end
 
-  # source://thor//lib/thor/actions/file_manipulation.rb#325
+  # source://thor//lib/thor/actions/file_manipulation.rb#350
   def remove_file(path, config = T.unsafe(nil)); end
 
   # source://thor//lib/thor/actions.rb#248
@@ -320,7 +323,7 @@ module Thor::Actions
   # source://thor//lib/thor/actions.rb#308
   def thor(command, *args); end
 
-  # source://thor//lib/thor/actions/file_manipulation.rb#289
+  # source://thor//lib/thor/actions/file_manipulation.rb#314
   def uncomment_lines(path, flag, *args); end
 
   protected
@@ -333,19 +336,22 @@ module Thor::Actions
 
   private
 
-  # source://thor//lib/thor/actions/file_manipulation.rb#346
+  # source://thor//lib/thor/actions/file_manipulation.rb#385
+  def actually_gsub_file(path, flag, args, error_on_no_change, &block); end
+
+  # source://thor//lib/thor/actions/file_manipulation.rb#371
   def capture(*args); end
 
-  # source://thor//lib/thor/actions/file_manipulation.rb#342
+  # source://thor//lib/thor/actions/file_manipulation.rb#367
   def concat(string); end
 
-  # source://thor//lib/thor/actions/file_manipulation.rb#337
+  # source://thor//lib/thor/actions/file_manipulation.rb#362
   def output_buffer; end
 
-  # source://thor//lib/thor/actions/file_manipulation.rb#337
+  # source://thor//lib/thor/actions/file_manipulation.rb#362
   def output_buffer=(_arg0); end
 
-  # source://thor//lib/thor/actions/file_manipulation.rb#350
+  # source://thor//lib/thor/actions/file_manipulation.rb#375
   def with_output_buffer(buf = T.unsafe(nil)); end
 
   class << self
@@ -354,9 +360,9 @@ module Thor::Actions
   end
 end
 
-# source://thor//lib/thor/actions/file_manipulation.rb#362
+# source://thor//lib/thor/actions/file_manipulation.rb#398
 class Thor::Actions::CapturableERB < ::ERB
-  # source://thor//lib/thor/actions/file_manipulation.rb#363
+  # source://thor//lib/thor/actions/file_manipulation.rb#399
   def set_eoutvar(compiler, eoutvar = T.unsafe(nil)); end
 end
 
@@ -1635,9 +1641,6 @@ class Thor::Shell::Basic
 
   # source://thor//lib/thor/shell/basic.rb#296
   def file_collision_help(block_given); end
-
-  # source://thor//lib/thor/shell/basic.rb#383
-  def git_merge_tool; end
 
   # source://thor//lib/thor/shell/basic.rb#286
   def is?(value); end
