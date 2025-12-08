@@ -1,5 +1,8 @@
 ## main
 
+#### Changed
+- CI enforce vulnerability scans ([94974b5](https://github.com/OdekoTeam/coil/commit/94974b52f8c835d7f6811983eb511f3460a7abf1))
+
 #### Fix
 - Update development dependencies to address security vulnerabilities ([820208c](https://github.com/OdekoTeam/coil/commit/820208c9a2d06b03d02fa1b1bb368a63b9b79613))
 
