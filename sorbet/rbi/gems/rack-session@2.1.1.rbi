@@ -8,7 +8,7 @@
 # source://rack-session//lib/rack/session/constants.rb#7
 module Rack
   class << self
-    # source://rack/3.1.12/lib/rack/version.rb#18
+    # source://rack/3.2.4/lib/rack/version.rb#14
     def release; end
   end
 end
