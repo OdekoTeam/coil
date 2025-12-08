@@ -334,11 +334,11 @@ DEPENDENCIES
   rails (~> 8.0)
   rspec-rails (~> 6.1)
   rspec-sidekiq
-  rubocop-sorbet
+  rubocop-sorbet (~> 0.9)
   sidekiq (~> 7.2)
   sorbet (~> 0.5)
   standard (~> 1.36)
-  tapioca
+  tapioca (~> 0.16)
 
 BUNDLED WITH
    2.5.22
