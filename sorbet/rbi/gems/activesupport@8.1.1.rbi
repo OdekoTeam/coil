@@ -5,10 +5,22 @@
 # Please instead update this file by running `bin/tapioca gem activesupport`.
 
 
-# source://activesupport//lib/active_support/deep_mergeable.rb#3
+# source://activesupport//lib/active_support/delegation.rb#3
 module ActiveSupport
   extend ::ActiveSupport::LazyLoadHooks
   extend ::ActiveSupport::Autoload
+
+  # source://activesupport//lib/active_support.rb#114
+  def filter_parameters; end
+
+  # source://activesupport//lib/active_support.rb#114
+  def filter_parameters=(val); end
+
+  # source://activesupport//lib/active_support.rb#106
+  def parallelize_test_databases; end
+
+  # source://activesupport//lib/active_support.rb#106
+  def parallelize_test_databases=(val); end
 
   # source://activesupport//lib/active_support/json/decoding.rb#9
   def parse_json_times; end
@@ -16,35 +28,35 @@ module ActiveSupport
   # source://activesupport//lib/active_support/json/decoding.rb#9
   def parse_json_times=(val); end
 
-  # source://activesupport//lib/active_support.rb#100
+  # source://activesupport//lib/active_support.rb#104
   def test_order; end
 
-  # source://activesupport//lib/active_support.rb#100
+  # source://activesupport//lib/active_support.rb#104
   def test_order=(val); end
 
-  # source://activesupport//lib/active_support.rb#101
+  # source://activesupport//lib/active_support.rb#105
   def test_parallelization_threshold; end
 
-  # source://activesupport//lib/active_support.rb#101
+  # source://activesupport//lib/active_support.rb#105
   def test_parallelization_threshold=(val); end
 
   class << self
-    # source://activesupport//lib/active_support.rb#106
+    # source://activesupport//lib/active_support.rb#116
     def cache_format_version; end
 
-    # source://activesupport//lib/active_support.rb#110
+    # source://activesupport//lib/active_support.rb#120
     def cache_format_version=(value); end
 
     # source://activesupport//lib/active_support/deprecator.rb#4
     def deprecator; end
 
-    # source://activesupport//lib/active_support.rb#94
+    # source://activesupport//lib/active_support.rb#98
     def eager_load!; end
 
-    # source://activesupport//lib/active_support.rb#104
+    # source://activesupport//lib/active_support.rb#109
     def error_reporter; end
 
-    # source://activesupport//lib/active_support.rb#104
+    # source://activesupport//lib/active_support.rb#109
     def error_reporter=(_arg0); end
 
     # source://activesupport//lib/active_support/json/encoding.rb#8
@@ -52,6 +64,24 @@ module ActiveSupport
 
     # source://activesupport//lib/active_support/json/encoding.rb#8
     def escape_html_entities_in_json=(arg); end
+
+    # source://activesupport//lib/active_support/json/encoding.rb#8
+    def escape_js_separators_in_json(*_arg0, **_arg1, &_arg2); end
+
+    # source://activesupport//lib/active_support/json/encoding.rb#8
+    def escape_js_separators_in_json=(arg); end
+
+    # source://activesupport//lib/active_support.rb#112
+    def event_reporter; end
+
+    # source://activesupport//lib/active_support.rb#112
+    def event_reporter=(_arg0); end
+
+    # source://activesupport//lib/active_support.rb#114
+    def filter_parameters; end
+
+    # source://activesupport//lib/active_support.rb#114
+    def filter_parameters=(val); end
 
     # source://activesupport//lib/active_support/gem_version.rb#5
     def gem_version; end
@@ -62,22 +92,28 @@ module ActiveSupport
     # source://activesupport//lib/active_support/json/encoding.rb#8
     def json_encoder=(arg); end
 
+    # source://activesupport//lib/active_support.rb#106
+    def parallelize_test_databases; end
+
+    # source://activesupport//lib/active_support.rb#106
+    def parallelize_test_databases=(val); end
+
     # source://activesupport//lib/active_support/json/decoding.rb#9
     def parse_json_times; end
 
     # source://activesupport//lib/active_support/json/decoding.rb#9
     def parse_json_times=(val); end
 
-    # source://activesupport//lib/active_support.rb#100
+    # source://activesupport//lib/active_support.rb#104
     def test_order; end
 
-    # source://activesupport//lib/active_support.rb#100
+    # source://activesupport//lib/active_support.rb#104
     def test_order=(val); end
 
-    # source://activesupport//lib/active_support.rb#101
+    # source://activesupport//lib/active_support.rb#105
     def test_parallelization_threshold; end
 
-    # source://activesupport//lib/active_support.rb#101
+    # source://activesupport//lib/active_support.rb#105
     def test_parallelization_threshold=(val); end
 
     # source://activesupport//lib/active_support/json/encoding.rb#8
@@ -86,10 +122,10 @@ module ActiveSupport
     # source://activesupport//lib/active_support/json/encoding.rb#8
     def time_precision=(arg); end
 
-    # source://activesupport//lib/active_support.rb#114
+    # source://activesupport//lib/active_support.rb#124
     def to_time_preserves_timezone; end
 
-    # source://activesupport//lib/active_support.rb#118
+    # source://activesupport//lib/active_support.rb#131
     def to_time_preserves_timezone=(value); end
 
     # source://activesupport//lib/active_support/json/encoding.rb#8
@@ -98,10 +134,10 @@ module ActiveSupport
     # source://activesupport//lib/active_support/json/encoding.rb#8
     def use_standard_json_time_format=(arg); end
 
-    # source://activesupport//lib/active_support.rb#134
+    # source://activesupport//lib/active_support.rb#139
     def utc_to_local_returns_utc_offset_times; end
 
-    # source://activesupport//lib/active_support.rb#138
+    # source://activesupport//lib/active_support.rb#143
     def utc_to_local_returns_utc_offset_times=(value); end
 
     # source://activesupport//lib/active_support/version.rb#7
@@ -184,55 +220,64 @@ class ActiveSupport::BacktraceCleaner
   # source://activesupport//lib/active_support/backtrace_cleaner.rb#35
   def initialize; end
 
-  # source://activesupport//lib/active_support/backtrace_cleaner.rb#83
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#154
   def add_filter(&block); end
 
-  # source://activesupport//lib/active_support/backtrace_cleaner.rb#92
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#163
   def add_silencer(&block); end
 
   # source://activesupport//lib/active_support/backtrace_cleaner.rb#45
   def clean(backtrace, kind = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/backtrace_cleaner.rb#61
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#73
   def clean_frame(frame, kind = T.unsafe(nil)); end
+
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#67
+  def clean_locations(locations, kind = T.unsafe(nil)); end
 
   # source://activesupport//lib/active_support/backtrace_cleaner.rb#45
   def filter(backtrace, kind = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/backtrace_cleaner.rb#106
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#94
+  def first_clean_frame(kind = T.unsafe(nil)); end
+
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#113
+  def first_clean_location(kind = T.unsafe(nil)); end
+
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#177
   def remove_filters!; end
 
-  # source://activesupport//lib/active_support/backtrace_cleaner.rb#99
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#170
   def remove_silencers!; end
 
   private
 
-  # source://activesupport//lib/active_support/backtrace_cleaner.rb#127
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#198
   def add_core_silencer; end
 
-  # source://activesupport//lib/active_support/backtrace_cleaner.rb#118
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#189
   def add_gem_filter; end
 
-  # source://activesupport//lib/active_support/backtrace_cleaner.rb#131
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#202
   def add_gem_silencer; end
 
-  # source://activesupport//lib/active_support/backtrace_cleaner.rb#135
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#206
   def add_stdlib_silencer; end
 
-  # source://activesupport//lib/active_support/backtrace_cleaner.rb#139
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#210
   def filter_backtrace(backtrace); end
 
-  # source://activesupport//lib/active_support/backtrace_cleaner.rb#113
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#184
   def initialize_copy(_other); end
 
-  # source://activesupport//lib/active_support/backtrace_cleaner.rb#155
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#226
   def noise(backtrace); end
 
-  # source://activesupport//lib/active_support/backtrace_cleaner.rb#147
+  # source://activesupport//lib/active_support/backtrace_cleaner.rb#218
   def silence(backtrace); end
 end
 
-# source://activesupport//lib/active_support/backtrace_cleaner.rb#111
+# source://activesupport//lib/active_support/backtrace_cleaner.rb#182
 ActiveSupport::BacktraceCleaner::FORMATTED_GEMS_PATTERN = T.let(T.unsafe(nil), Regexp)
 
 # source://activesupport//lib/active_support/benchmark.rb#4
@@ -260,86 +305,89 @@ class ActiveSupport::BroadcastLogger
   include ::ActiveSupport::LoggerSilence
   include ::ActiveSupport::LoggerThreadSafeLevel
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#82
+  # source://activesupport//lib/active_support/broadcast_logger.rb#81
   def initialize(*loggers); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#112
-  def <<(message); end
+  # source://activesupport//lib/active_support/broadcast_logger.rb#128
+  def <<(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#116
+  # source://activesupport//lib/active_support/broadcast_logger.rb#128
   def add(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#93
+  # source://activesupport//lib/active_support/broadcast_logger.rb#92
   def broadcast_to(*loggers); end
 
   # source://activesupport//lib/active_support/broadcast_logger.rb#78
   def broadcasts; end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#162
-  def close; end
+  # source://activesupport//lib/active_support/broadcast_logger.rb#128
+  def close(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#121
+  # source://activesupport//lib/active_support/broadcast_logger.rb#128
   def debug(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#173
+  # source://activesupport//lib/active_support/broadcast_logger.rb#146
   def debug!; end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#168
+  # source://activesupport//lib/active_support/broadcast_logger.rb#141
   def debug?; end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#133
+  # source://activesupport//lib/active_support/broadcast_logger.rb#128
   def error(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#206
+  # source://activesupport//lib/active_support/broadcast_logger.rb#179
   def error!; end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#201
+  # source://activesupport//lib/active_support/broadcast_logger.rb#174
   def error?; end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#137
+  # source://activesupport//lib/active_support/broadcast_logger.rb#128
   def fatal(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#217
+  # source://activesupport//lib/active_support/broadcast_logger.rb#190
   def fatal!; end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#212
+  # source://activesupport//lib/active_support/broadcast_logger.rb#185
   def fatal?; end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#79
-  def formatter; end
+  # source://activesupport//lib/active_support/broadcast_logger.rb#128
+  def formatter(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#145
-  def formatter=(formatter); end
+  # source://activesupport//lib/active_support/broadcast_logger.rb#128
+  def formatter=(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#125
+  # source://activesupport//lib/active_support/broadcast_logger.rb#128
   def info(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#184
+  # source://activesupport//lib/active_support/broadcast_logger.rb#157
   def info!; end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#179
+  # source://activesupport//lib/active_support/broadcast_logger.rb#152
   def info?; end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#108
+  # source://activesupport//lib/active_support/broadcast_logger.rb#135
   def level; end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#151
-  def level=(level); end
+  # source://activesupport//lib/active_support/broadcast_logger.rb#128
+  def level=(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#156
+  # source://activesupport//lib/active_support/broadcast_logger.rb#113
+  def local_level; end
+
+  # source://activesupport//lib/active_support/broadcast_logger.rb#107
   def local_level=(level); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#116
+  # source://activesupport//lib/active_support/broadcast_logger.rb#128
   def log(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#80
+  # source://activesupport//lib/active_support/broadcast_logger.rb#79
   def progname; end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#80
+  # source://activesupport//lib/active_support/broadcast_logger.rb#79
   def progname=(_arg0); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#151
-  def sev_threshold=(level); end
+  # source://activesupport//lib/active_support/broadcast_logger.rb#128
+  def sev_threshold=(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/logger_silence.rb#12
   def silencer; end
@@ -347,33 +395,33 @@ class ActiveSupport::BroadcastLogger
   # source://activesupport//lib/active_support/logger_silence.rb#12
   def silencer=(val); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#104
+  # source://activesupport//lib/active_support/broadcast_logger.rb#103
   def stop_broadcasting_to(logger); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#141
+  # source://activesupport//lib/active_support/broadcast_logger.rb#128
   def unknown(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#129
+  # source://activesupport//lib/active_support/broadcast_logger.rb#128
   def warn(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#195
+  # source://activesupport//lib/active_support/broadcast_logger.rb#168
   def warn!; end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#190
+  # source://activesupport//lib/active_support/broadcast_logger.rb#163
   def warn?; end
 
   private
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#230
-  def dispatch(&block); end
+  # source://activesupport//lib/active_support/broadcast_logger.rb#202
+  def dispatch(method, *args, **kwargs, &block); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#221
+  # source://activesupport//lib/active_support/broadcast_logger.rb#194
   def initialize_copy(other); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#235
+  # source://activesupport//lib/active_support/broadcast_logger.rb#222
   def method_missing(name, *_arg1, **_arg2, &_arg3); end
 
-  # source://activesupport//lib/active_support/broadcast_logger.rb#247
+  # source://activesupport//lib/active_support/broadcast_logger.rb#234
   def respond_to_missing?(method, include_all); end
 
   class << self
@@ -385,27 +433,30 @@ class ActiveSupport::BroadcastLogger
   end
 end
 
+# source://activesupport//lib/active_support/broadcast_logger.rb#121
+ActiveSupport::BroadcastLogger::LOGGER_METHODS = T.let(T.unsafe(nil), Array)
+
 # source://activesupport//lib/active_support/cache/entry.rb#6
 module ActiveSupport::Cache
   class << self
-    # source://activesupport//lib/active_support/cache.rb#111
+    # source://activesupport//lib/active_support/cache.rb#113
     def expand_cache_key(key, namespace = T.unsafe(nil)); end
 
-    # source://activesupport//lib/active_support/cache.rb#58
+    # source://activesupport//lib/active_support/cache.rb#60
     def format_version; end
 
-    # source://activesupport//lib/active_support/cache.rb#58
+    # source://activesupport//lib/active_support/cache.rb#60
     def format_version=(_arg0); end
 
-    # source://activesupport//lib/active_support/cache.rb#85
+    # source://activesupport//lib/active_support/cache.rb#87
     def lookup_store(store = T.unsafe(nil), *parameters); end
 
     private
 
-    # source://activesupport//lib/active_support/cache.rb#123
+    # source://activesupport//lib/active_support/cache.rb#125
     def retrieve_cache_key(key); end
 
-    # source://activesupport//lib/active_support/cache.rb#135
+    # source://activesupport//lib/active_support/cache.rb#137
     def retrieve_store_class(store); end
   end
 end
@@ -496,10 +547,10 @@ class ActiveSupport::Cache::Coder::StringDeserializer
   def load(payload); end
 end
 
-# source://activesupport//lib/active_support/cache.rb#45
+# source://activesupport//lib/active_support/cache.rb#47
 ActiveSupport::Cache::DEFAULT_COMPRESS_LIMIT = T.let(T.unsafe(nil), Integer)
 
-# source://activesupport//lib/active_support/cache.rb#49
+# source://activesupport//lib/active_support/cache.rb#51
 class ActiveSupport::Cache::DeserializationError < ::StandardError; end
 
 # source://activesupport//lib/active_support/cache/entry.rb#14
@@ -726,19 +777,19 @@ ActiveSupport::Cache::MemoryStore::PER_ENTRY_OVERHEAD = T.let(T.unsafe(nil), Int
 class ActiveSupport::Cache::NullStore < ::ActiveSupport::Cache::Store
   include ::ActiveSupport::Cache::Strategy::LocalCache
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#85
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#98
   def cleanup(options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#79
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#92
   def clear(options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#104
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#117
   def decrement(name, amount = T.unsafe(nil), **options); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#91
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#104
   def delete_matched(matcher, options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#97
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#110
   def increment(name, amount = T.unsafe(nil), **options); end
 
   # source://activesupport//lib/active_support/cache/null_store.rb#37
@@ -746,19 +797,19 @@ class ActiveSupport::Cache::NullStore < ::ActiveSupport::Cache::Store
 
   private
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#198
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#211
   def delete_entry(key, **_arg1); end
 
   # source://activesupport//lib/active_support/cache/null_store.rb#42
   def read_entry(key, **s); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#146
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#159
   def read_serialized_entry(key, raw: T.unsafe(nil), **options); end
 
   # source://activesupport//lib/active_support/cache/null_store.rb#49
   def write_entry(key, entry, **_arg2); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#189
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#202
   def write_serialized_entry(key, payload, **_arg2); end
 
   class << self
@@ -767,7 +818,7 @@ class ActiveSupport::Cache::NullStore < ::ActiveSupport::Cache::Store
   end
 end
 
-# source://activesupport//lib/active_support/cache.rb#41
+# source://activesupport//lib/active_support/cache.rb#43
 ActiveSupport::Cache::OPTION_ALIASES = T.let(T.unsafe(nil), Hash)
 
 # source://activesupport//lib/active_support/cache/serializer_with_fallback.rb#8
@@ -873,236 +924,266 @@ end
 # source://activesupport//lib/active_support/cache/serializer_with_fallback.rb#144
 ActiveSupport::Cache::SerializerWithFallback::SERIALIZERS = T.let(T.unsafe(nil), Hash)
 
-# source://activesupport//lib/active_support/cache.rb#188
+# source://activesupport//lib/active_support/cache.rb#190
 class ActiveSupport::Cache::Store
-  # source://activesupport//lib/active_support/cache.rb#295
+  # source://activesupport//lib/active_support/cache.rb#300
   def initialize(options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#749
+  # source://activesupport//lib/active_support/cache.rb#785
   def cleanup(options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#759
+  # source://activesupport//lib/active_support/cache.rb#795
   def clear(options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#740
+  # source://activesupport//lib/active_support/cache.rb#750
   def decrement(name, amount = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#676
+  # source://activesupport//lib/active_support/cache.rb#686
   def delete(name, options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#722
+  # source://activesupport//lib/active_support/cache.rb#732
   def delete_matched(matcher, options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#689
+  # source://activesupport//lib/active_support/cache.rb#699
   def delete_multi(names, options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#703
+  # source://activesupport//lib/active_support/cache.rb#713
   def exist?(name, options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#444
+  # source://activesupport//lib/active_support/cache.rb#452
   def fetch(name, options = T.unsafe(nil), &block); end
 
-  # source://activesupport//lib/active_support/cache.rb#595
+  # source://activesupport//lib/active_support/cache.rb#603
   def fetch_multi(*names); end
 
-  # source://activesupport//lib/active_support/cache.rb#731
+  # source://activesupport//lib/active_support/cache.rb#741
   def increment(name, amount = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#189
+  # source://activesupport//lib/active_support/cache.rb#197
   def logger; end
 
-  # source://activesupport//lib/active_support/cache.rb#189
+  # source://activesupport//lib/active_support/cache.rb#197
   def logger=(val); end
 
-  # source://activesupport//lib/active_support/cache.rb#322
+  # source://activesupport//lib/active_support/cache.rb#330
   def mute; end
 
-  # source://activesupport//lib/active_support/cache.rb#713
+  # source://activesupport//lib/active_support/cache.rb#800
+  def namespace; end
+
+  # source://activesupport//lib/active_support/cache.rb#806
+  def namespace=(namespace); end
+
+  # source://activesupport//lib/active_support/cache.rb#723
   def new_entry(value, options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#192
+  # source://activesupport//lib/active_support/cache.rb#200
   def options; end
 
-  # source://activesupport//lib/active_support/cache.rb#190
+  # source://activesupport//lib/active_support/cache.rb#198
   def raise_on_invalid_cache_expiration_time; end
 
-  # source://activesupport//lib/active_support/cache.rb#190
+  # source://activesupport//lib/active_support/cache.rb#198
   def raise_on_invalid_cache_expiration_time=(val); end
 
-  # source://activesupport//lib/active_support/cache.rb#498
+  # source://activesupport//lib/active_support/cache.rb#506
   def read(name, options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#536
+  # source://activesupport//lib/active_support/cache.rb#762
+  def read_counter(name, **options); end
+
+  # source://activesupport//lib/active_support/cache.rb#544
   def read_multi(*names); end
 
-  # source://activesupport//lib/active_support/cache.rb#192
+  # source://activesupport//lib/active_support/cache.rb#200
   def silence; end
 
-  # source://activesupport//lib/active_support/cache.rb#316
+  # source://activesupport//lib/active_support/cache.rb#324
   def silence!; end
 
-  # source://activesupport//lib/active_support/cache.rb#192
+  # source://activesupport//lib/active_support/cache.rb#200
   def silence?; end
 
-  # source://activesupport//lib/active_support/cache.rb#662
+  # source://activesupport//lib/active_support/cache.rb#672
   def write(name, value, options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#551
+  # source://activesupport//lib/active_support/cache.rb#775
+  def write_counter(name, value, **options); end
+
+  # source://activesupport//lib/active_support/cache.rb#559
   def write_multi(hash, options = T.unsafe(nil)); end
 
   private
 
-  # source://activesupport//lib/active_support/cache.rb#1010
+  # source://activesupport//lib/active_support/cache.rb#1074
   def _instrument(operation, multi: T.unsafe(nil), options: T.unsafe(nil), **payload, &block); end
 
-  # source://activesupport//lib/active_support/cache.rb#764
+  # source://activesupport//lib/active_support/cache.rb#811
   def default_serializer; end
 
-  # source://activesupport//lib/active_support/cache.rb#850
+  # source://activesupport//lib/active_support/cache.rb#897
   def delete_entry(key, **options); end
 
-  # source://activesupport//lib/active_support/cache.rb#856
+  # source://activesupport//lib/active_support/cache.rb#903
   def delete_multi_entries(entries, **options); end
 
-  # source://activesupport//lib/active_support/cache.rb#815
+  # source://activesupport//lib/active_support/cache.rb#862
   def deserialize_entry(payload, **_arg1); end
 
-  # source://activesupport//lib/active_support/cache.rb#973
+  # source://activesupport//lib/active_support/cache.rb#984
+  def expand_and_namespace_key(key, options = T.unsafe(nil)); end
+
+  # source://activesupport//lib/active_support/cache.rb#1037
   def expanded_key(key); end
 
-  # source://activesupport//lib/active_support/cache.rb#994
+  # source://activesupport//lib/active_support/cache.rb#1058
   def expanded_version(key); end
 
-  # source://activesupport//lib/active_support/cache.rb#1047
+  # source://activesupport//lib/active_support/cache.rb#1111
   def get_entry_value(entry, name, options); end
 
-  # source://activesupport//lib/active_support/cache.rb#1031
+  # source://activesupport//lib/active_support/cache.rb#1095
   def handle_expired_entry(entry, key, options); end
 
-  # source://activesupport//lib/active_support/cache.rb#890
+  # source://activesupport//lib/active_support/cache.rb#937
   def handle_invalid_expires_in(message); end
 
-  # source://activesupport//lib/active_support/cache.rb#1002
+  # source://activesupport//lib/active_support/cache.rb#1066
   def instrument(operation, key, options = T.unsafe(nil), &block); end
 
-  # source://activesupport//lib/active_support/cache.rb#1006
+  # source://activesupport//lib/active_support/cache.rb#1070
   def instrument_multi(operation, keys, options = T.unsafe(nil), &block); end
 
-  # source://activesupport//lib/active_support/cache.rb#779
+  # source://activesupport//lib/active_support/cache.rb#826
   def key_matcher(pattern, options); end
 
-  # source://activesupport//lib/active_support/cache.rb#861
+  # source://activesupport//lib/active_support/cache.rb#908
   def merged_options(call_options); end
 
-  # source://activesupport//lib/active_support/cache.rb#948
+  # source://activesupport//lib/active_support/cache.rb#1012
   def namespace_key(key, call_options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#932
+  # source://activesupport//lib/active_support/cache.rb#979
   def normalize_key(key, options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#901
+  # source://activesupport//lib/active_support/cache.rb#948
   def normalize_options(options); end
 
-  # source://activesupport//lib/active_support/cache.rb#990
+  # source://activesupport//lib/active_support/cache.rb#1054
   def normalize_version(key, options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache.rb#796
+  # source://activesupport//lib/active_support/cache.rb#843
   def read_entry(key, **options); end
 
-  # source://activesupport//lib/active_support/cache.rb#823
+  # source://activesupport//lib/active_support/cache.rb#870
   def read_multi_entries(names, **options); end
 
-  # source://activesupport//lib/active_support/cache.rb#1052
+  # source://activesupport//lib/active_support/cache.rb#1116
   def save_block_result_to_cache(name, key, options); end
 
-  # source://activesupport//lib/active_support/cache.rb#806
+  # source://activesupport//lib/active_support/cache.rb#853
   def serialize_entry(entry, **options); end
 
-  # source://activesupport//lib/active_support/cache.rb#912
+  # source://activesupport//lib/active_support/cache.rb#991
+  def truncate_key(key); end
+
+  # source://activesupport//lib/active_support/cache.rb#959
   def validate_options(options); end
 
-  # source://activesupport//lib/active_support/cache.rb#802
+  # source://activesupport//lib/active_support/cache.rb#849
   def write_entry(key, entry, **options); end
 
-  # source://activesupport//lib/active_support/cache.rb#842
+  # source://activesupport//lib/active_support/cache.rb#889
   def write_multi_entries(hash, **options); end
 
   class << self
-    # source://activesupport//lib/active_support/cache.rb#189
+    # source://activesupport//lib/active_support/cache.rb#197
     def logger; end
 
-    # source://activesupport//lib/active_support/cache.rb#189
+    # source://activesupport//lib/active_support/cache.rb#197
     def logger=(val); end
 
-    # source://activesupport//lib/active_support/cache.rb#190
+    # source://activesupport//lib/active_support/cache.rb#198
     def raise_on_invalid_cache_expiration_time; end
 
-    # source://activesupport//lib/active_support/cache.rb#190
+    # source://activesupport//lib/active_support/cache.rb#198
     def raise_on_invalid_cache_expiration_time=(val); end
 
     private
 
-    # source://activesupport//lib/active_support/cache.rb#200
+    # source://activesupport//lib/active_support/cache.rb#205
     def retrieve_pool_options(options); end
   end
 end
 
-# source://activesupport//lib/active_support/cache.rb#51
+# source://activesupport//lib/active_support/cache.rb#192
+ActiveSupport::Cache::Store::DEFAULT_POOL_OPTIONS = T.let(T.unsafe(nil), Hash)
+
+# source://activesupport//lib/active_support/cache.rb#195
+ActiveSupport::Cache::Store::MAX_KEY_SIZE = T.let(T.unsafe(nil), Integer)
+
+# source://activesupport//lib/active_support/cache.rb#53
 module ActiveSupport::Cache::Strategy; end
 
 # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#13
 module ActiveSupport::Cache::Strategy::LocalCache
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#85
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#98
   def cleanup(options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#79
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#92
   def clear(options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#104
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#117
   def decrement(name, amount = T.unsafe(nil), **options); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#91
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#104
   def delete_matched(matcher, options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#111
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#124
   def fetch_multi(*names, &block); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#97
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#110
   def increment(name, amount = T.unsafe(nil), **options); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#73
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#82
+  def local_cache; end
+
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#88
   def middleware; end
+
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#72
+  def new_local_cache; end
+
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#77
+  def unset_local_cache; end
 
   # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#67
   def with_local_cache(&block); end
 
   private
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#221
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#230
   def bypass_local_cache(&block); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#198
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#211
   def delete_entry(key, **_arg1); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#217
-  def local_cache; end
-
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#213
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#226
   def local_cache_key; end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#160
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#173
   def read_multi_entries(names, **options); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#146
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#159
   def read_serialized_entry(key, raw: T.unsafe(nil), **options); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#225
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#234
   def use_temporary_local_cache(temporary_cache); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#203
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#216
   def write_cache_value(name, value, **options); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#189
+  # source://activesupport//lib/active_support/cache/strategy/local_cache.rb#202
   def write_serialized_entry(key, payload, **_arg2); end
 end
 
@@ -1143,46 +1224,49 @@ end
 
 # source://activesupport//lib/active_support/cache/strategy/local_cache_middleware.rb#13
 class ActiveSupport::Cache::Strategy::LocalCache::Middleware
-  # source://activesupport//lib/active_support/cache/strategy/local_cache_middleware.rb#16
-  def initialize(name, local_cache_key); end
+  # source://activesupport//lib/active_support/cache/strategy/local_cache_middleware.rb#17
+  def initialize(name, cache); end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache_middleware.rb#27
+  # source://activesupport//lib/active_support/cache/strategy/local_cache_middleware.rb#15
+  def cache; end
+
+  # source://activesupport//lib/active_support/cache/strategy/local_cache_middleware.rb#15
+  def cache=(_arg0); end
+
+  # source://activesupport//lib/active_support/cache/strategy/local_cache_middleware.rb#28
   def call(env); end
-
-  # source://activesupport//lib/active_support/cache/strategy/local_cache_middleware.rb#14
-  def local_cache_key; end
 
   # source://activesupport//lib/active_support/cache/strategy/local_cache_middleware.rb#14
   def name; end
 
-  # source://activesupport//lib/active_support/cache/strategy/local_cache_middleware.rb#22
+  # source://activesupport//lib/active_support/cache/strategy/local_cache_middleware.rb#23
   def new(app); end
 end
 
 # source://activesupport//lib/active_support/cache.rb#26
 ActiveSupport::Cache::UNIVERSAL_OPTIONS = T.let(T.unsafe(nil), Array)
 
-# source://activesupport//lib/active_support/cache.rb#1068
+# source://activesupport//lib/active_support/cache.rb#1132
 class ActiveSupport::Cache::WriteOptions
-  # source://activesupport//lib/active_support/cache.rb#1069
+  # source://activesupport//lib/active_support/cache.rb#1133
   def initialize(options); end
 
-  # source://activesupport//lib/active_support/cache.rb#1093
+  # source://activesupport//lib/active_support/cache.rb#1157
   def expires_at; end
 
-  # source://activesupport//lib/active_support/cache.rb#1100
+  # source://activesupport//lib/active_support/cache.rb#1164
   def expires_at=(expires_at); end
 
-  # source://activesupport//lib/active_support/cache.rb#1081
+  # source://activesupport//lib/active_support/cache.rb#1145
   def expires_in; end
 
-  # source://activesupport//lib/active_support/cache.rb#1088
+  # source://activesupport//lib/active_support/cache.rb#1152
   def expires_in=(expires_in); end
 
-  # source://activesupport//lib/active_support/cache.rb#1073
+  # source://activesupport//lib/active_support/cache.rb#1137
   def version; end
 
-  # source://activesupport//lib/active_support/cache.rb#1077
+  # source://activesupport//lib/active_support/cache.rb#1141
   def version=(version); end
 end
 
@@ -1195,7 +1279,7 @@ class ActiveSupport::CachingKeyGenerator
   def generate_key(*args); end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#64
+# source://activesupport//lib/active_support/callbacks.rb#65
 module ActiveSupport::Callbacks
   extend ::ActiveSupport::Concern
   include GeneratedInstanceMethods
@@ -1204,12 +1288,12 @@ module ActiveSupport::Callbacks
   mixes_in_class_methods ::ActiveSupport::Callbacks::ClassMethods
   mixes_in_class_methods ::ActiveSupport::DescendantsTracker
 
-  # source://activesupport//lib/active_support/callbacks.rb#96
+  # source://activesupport//lib/active_support/callbacks.rb#97
   def run_callbacks(kind, type = T.unsafe(nil)); end
 
   private
 
-  # source://activesupport//lib/active_support/callbacks.rb#149
+  # source://activesupport//lib/active_support/callbacks.rb#150
   def halted_callback_hook(filter, name); end
 
   module GeneratedClassMethods
@@ -1222,363 +1306,369 @@ module ActiveSupport::Callbacks
   end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#72
+# source://activesupport//lib/active_support/callbacks.rb#73
 ActiveSupport::Callbacks::CALLBACK_FILTER_TYPES = T.let(T.unsafe(nil), Array)
 
-# source://activesupport//lib/active_support/callbacks.rb#336
+# source://activesupport//lib/active_support/callbacks.rb#337
 module ActiveSupport::Callbacks::CallTemplate
   class << self
-    # source://activesupport//lib/active_support/callbacks.rb#494
+    # source://activesupport//lib/active_support/callbacks.rb#495
     def build(filter, callback); end
   end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#395
+# source://activesupport//lib/active_support/callbacks.rb#396
 class ActiveSupport::Callbacks::CallTemplate::InstanceExec0
-  # source://activesupport//lib/active_support/callbacks.rb#396
+  # source://activesupport//lib/active_support/callbacks.rb#397
   def initialize(block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#400
+  # source://activesupport//lib/active_support/callbacks.rb#401
   def expand(target, value, block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#410
+  # source://activesupport//lib/active_support/callbacks.rb#411
   def inverted_lambda; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#404
+  # source://activesupport//lib/active_support/callbacks.rb#405
   def make_lambda; end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#417
+# source://activesupport//lib/active_support/callbacks.rb#418
 class ActiveSupport::Callbacks::CallTemplate::InstanceExec1
-  # source://activesupport//lib/active_support/callbacks.rb#418
+  # source://activesupport//lib/active_support/callbacks.rb#419
   def initialize(block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#422
+  # source://activesupport//lib/active_support/callbacks.rb#423
   def expand(target, value, block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#432
+  # source://activesupport//lib/active_support/callbacks.rb#433
   def inverted_lambda; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#426
+  # source://activesupport//lib/active_support/callbacks.rb#427
   def make_lambda; end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#439
+# source://activesupport//lib/active_support/callbacks.rb#440
 class ActiveSupport::Callbacks::CallTemplate::InstanceExec2
-  # source://activesupport//lib/active_support/callbacks.rb#440
+  # source://activesupport//lib/active_support/callbacks.rb#441
   def initialize(block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#444
+  # source://activesupport//lib/active_support/callbacks.rb#445
   def expand(target, value, block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#456
+  # source://activesupport//lib/active_support/callbacks.rb#457
   def inverted_lambda; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#449
+  # source://activesupport//lib/active_support/callbacks.rb#450
   def make_lambda; end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#337
+# source://activesupport//lib/active_support/callbacks.rb#338
 class ActiveSupport::Callbacks::CallTemplate::MethodCall
-  # source://activesupport//lib/active_support/callbacks.rb#338
+  # source://activesupport//lib/active_support/callbacks.rb#339
   def initialize(method); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#355
+  # source://activesupport//lib/active_support/callbacks.rb#356
   def expand(target, value, block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#365
+  # source://activesupport//lib/active_support/callbacks.rb#366
   def inverted_lambda; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#359
+  # source://activesupport//lib/active_support/callbacks.rb#360
   def make_lambda; end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#372
+# source://activesupport//lib/active_support/callbacks.rb#373
 class ActiveSupport::Callbacks::CallTemplate::ObjectCall
-  # source://activesupport//lib/active_support/callbacks.rb#373
+  # source://activesupport//lib/active_support/callbacks.rb#374
   def initialize(target, method); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#378
+  # source://activesupport//lib/active_support/callbacks.rb#379
   def expand(target, value, block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#388
+  # source://activesupport//lib/active_support/callbacks.rb#389
   def inverted_lambda; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#382
+  # source://activesupport//lib/active_support/callbacks.rb#383
   def make_lambda; end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#464
+# source://activesupport//lib/active_support/callbacks.rb#465
 class ActiveSupport::Callbacks::CallTemplate::ProcCall
-  # source://activesupport//lib/active_support/callbacks.rb#465
+  # source://activesupport//lib/active_support/callbacks.rb#466
   def initialize(target); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#469
+  # source://activesupport//lib/active_support/callbacks.rb#470
   def expand(target, value, block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#479
+  # source://activesupport//lib/active_support/callbacks.rb#480
   def inverted_lambda; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#473
+  # source://activesupport//lib/active_support/callbacks.rb#474
   def make_lambda; end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#230
+# source://activesupport//lib/active_support/callbacks.rb#231
 class ActiveSupport::Callbacks::Callback
-  # source://activesupport//lib/active_support/callbacks.rb#245
+  # source://activesupport//lib/active_support/callbacks.rb#246
   def initialize(name, filter, kind, options, chain_config); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#299
+  # source://activesupport//lib/active_support/callbacks.rb#300
   def apply(callback_sequence); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#243
+  # source://activesupport//lib/active_support/callbacks.rb#244
   def chain_config; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#281
+  # source://activesupport//lib/active_support/callbacks.rb#282
   def compiled; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#303
+  # source://activesupport//lib/active_support/callbacks.rb#304
   def current_scopes; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#272
+  # source://activesupport//lib/active_support/callbacks.rb#273
   def duplicates?(other); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#243
+  # source://activesupport//lib/active_support/callbacks.rb#244
   def filter; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#242
+  # source://activesupport//lib/active_support/callbacks.rb#243
   def kind; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#242
+  # source://activesupport//lib/active_support/callbacks.rb#243
   def kind=(_arg0); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#268
+  # source://activesupport//lib/active_support/callbacks.rb#269
   def matches?(_kind, _filter); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#256
+  # source://activesupport//lib/active_support/callbacks.rb#257
   def merge_conditional_options(chain, if_option:, unless_option:); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#242
+  # source://activesupport//lib/active_support/callbacks.rb#243
   def name; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#242
+  # source://activesupport//lib/active_support/callbacks.rb#243
   def name=(_arg0); end
 
   private
 
-  # source://activesupport//lib/active_support/callbacks.rb#311
+  # source://activesupport//lib/active_support/callbacks.rb#312
   def check_conditionals(conditionals); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#326
+  # source://activesupport//lib/active_support/callbacks.rb#327
   def conditions_lambdas; end
 
   class << self
-    # source://activesupport//lib/active_support/callbacks.rb#231
+    # source://activesupport//lib/active_support/callbacks.rb#232
     def build(chain, filter, kind, options); end
   end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#308
+# source://activesupport//lib/active_support/callbacks.rb#309
 ActiveSupport::Callbacks::Callback::EMPTY_ARRAY = T.let(T.unsafe(nil), Array)
 
-# source://activesupport//lib/active_support/callbacks.rb#567
+# source://activesupport//lib/active_support/callbacks.rb#568
 class ActiveSupport::Callbacks::CallbackChain
   include ::Enumerable
 
-  # source://activesupport//lib/active_support/callbacks.rb#572
+  # source://activesupport//lib/active_support/callbacks.rb#573
   def initialize(name, config); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#632
+  # source://activesupport//lib/active_support/callbacks.rb#633
   def append(*callbacks); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#600
+  # source://activesupport//lib/active_support/callbacks.rb#601
   def clear; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#614
+  # source://activesupport//lib/active_support/callbacks.rb#615
   def compile(type); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#570
+  # source://activesupport//lib/active_support/callbacks.rb#571
   def config; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#594
+  # source://activesupport//lib/active_support/callbacks.rb#595
   def delete(o); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#584
+  # source://activesupport//lib/active_support/callbacks.rb#585
   def each(&block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#586
+  # source://activesupport//lib/active_support/callbacks.rb#587
   def empty?; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#585
+  # source://activesupport//lib/active_support/callbacks.rb#586
   def index(o); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#588
+  # source://activesupport//lib/active_support/callbacks.rb#589
   def insert(index, o); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#570
+  # source://activesupport//lib/active_support/callbacks.rb#571
   def name; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#636
+  # source://activesupport//lib/active_support/callbacks.rb#637
   def prepend(*callbacks); end
 
   protected
 
-  # source://activesupport//lib/active_support/callbacks.rb#641
+  # source://activesupport//lib/active_support/callbacks.rb#642
   def chain; end
 
   private
 
-  # source://activesupport//lib/active_support/callbacks.rb#644
+  # source://activesupport//lib/active_support/callbacks.rb#645
   def append_one(callback); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#664
-  def default_terminator; end
-
-  # source://activesupport//lib/active_support/callbacks.rb#607
+  # source://activesupport//lib/active_support/callbacks.rb#608
   def initialize_copy(other); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#651
+  # source://activesupport//lib/active_support/callbacks.rb#652
   def prepend_one(callback); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#658
+  # source://activesupport//lib/active_support/callbacks.rb#659
   def remove_duplicates(callback); end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#518
+# source://activesupport//lib/active_support/callbacks.rb#675
+ActiveSupport::Callbacks::CallbackChain::DEFAULT_TERMINATOR = T.let(T.unsafe(nil), ActiveSupport::Callbacks::CallbackChain::DefaultTerminator)
+
+# source://activesupport//lib/active_support/callbacks.rb#665
+class ActiveSupport::Callbacks::CallbackChain::DefaultTerminator
+  # source://activesupport//lib/active_support/callbacks.rb#666
+  def call(target, result_lambda); end
+end
+
+# source://activesupport//lib/active_support/callbacks.rb#519
 class ActiveSupport::Callbacks::CallbackSequence
-  # source://activesupport//lib/active_support/callbacks.rb#519
+  # source://activesupport//lib/active_support/callbacks.rb#520
   def initialize(nested = T.unsafe(nil), call_template = T.unsafe(nil), user_conditions = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#534
+  # source://activesupport//lib/active_support/callbacks.rb#535
   def after(after); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#540
+  # source://activesupport//lib/active_support/callbacks.rb#541
   def around(call_template, user_conditions); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#528
+  # source://activesupport//lib/active_support/callbacks.rb#529
   def before(before); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#554
+  # source://activesupport//lib/active_support/callbacks.rb#555
   def expand_call_template(arg, block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#550
+  # source://activesupport//lib/active_support/callbacks.rb#551
   def final?; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#562
+  # source://activesupport//lib/active_support/callbacks.rb#563
   def invoke_after(arg); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#558
+  # source://activesupport//lib/active_support/callbacks.rb#559
   def invoke_before(arg); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#548
+  # source://activesupport//lib/active_support/callbacks.rb#549
   def nested; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#544
+  # source://activesupport//lib/active_support/callbacks.rb#545
   def skip?(arg); end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#676
+# source://activesupport//lib/active_support/callbacks.rb#678
 module ActiveSupport::Callbacks::ClassMethods
-  # source://activesupport//lib/active_support/callbacks.rb#686
+  # source://activesupport//lib/active_support/callbacks.rb#688
   def __update_callbacks(name); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#901
+  # source://activesupport//lib/active_support/callbacks.rb#903
   def define_callbacks(*names); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#677
+  # source://activesupport//lib/active_support/callbacks.rb#679
   def normalize_callback_params(filters, block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#811
+  # source://activesupport//lib/active_support/callbacks.rb#813
   def reset_callbacks(name); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#737
+  # source://activesupport//lib/active_support/callbacks.rb#739
   def set_callback(name, *filter_list, &block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#786
+  # source://activesupport//lib/active_support/callbacks.rb#788
   def skip_callback(name, *filter_list, &block); end
 
   protected
 
-  # source://activesupport//lib/active_support/callbacks.rb#932
+  # source://activesupport//lib/active_support/callbacks.rb#939
   def get_callbacks(name); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#936
+  # source://activesupport//lib/active_support/callbacks.rb#943
   def set_callbacks(name, callbacks); end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#152
+# source://activesupport//lib/active_support/callbacks.rb#153
 module ActiveSupport::Callbacks::Conditionals; end
 
-# source://activesupport//lib/active_support/callbacks.rb#153
+# source://activesupport//lib/active_support/callbacks.rb#154
 class ActiveSupport::Callbacks::Conditionals::Value
-  # source://activesupport//lib/active_support/callbacks.rb#154
+  # source://activesupport//lib/active_support/callbacks.rb#155
   def initialize(&block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#157
+  # source://activesupport//lib/active_support/callbacks.rb#158
   def call(target, value); end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#161
+# source://activesupport//lib/active_support/callbacks.rb#162
 module ActiveSupport::Callbacks::Filters; end
 
-# source://activesupport//lib/active_support/callbacks.rb#193
+# source://activesupport//lib/active_support/callbacks.rb#194
 class ActiveSupport::Callbacks::Filters::After
-  # source://activesupport//lib/active_support/callbacks.rb#195
+  # source://activesupport//lib/active_support/callbacks.rb#196
   def initialize(user_callback, user_conditions, chain_config); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#213
+  # source://activesupport//lib/active_support/callbacks.rb#214
   def apply(callback_sequence); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#201
+  # source://activesupport//lib/active_support/callbacks.rb#202
   def call(env); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#194
+  # source://activesupport//lib/active_support/callbacks.rb#195
   def halting; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#194
+  # source://activesupport//lib/active_support/callbacks.rb#195
   def user_callback; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#194
+  # source://activesupport//lib/active_support/callbacks.rb#195
   def user_conditions; end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#218
+# source://activesupport//lib/active_support/callbacks.rb#219
 class ActiveSupport::Callbacks::Filters::Around
-  # source://activesupport//lib/active_support/callbacks.rb#219
+  # source://activesupport//lib/active_support/callbacks.rb#220
   def initialize(user_callback, user_conditions); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#224
+  # source://activesupport//lib/active_support/callbacks.rb#225
   def apply(callback_sequence); end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#164
+# source://activesupport//lib/active_support/callbacks.rb#165
 class ActiveSupport::Callbacks::Filters::Before
-  # source://activesupport//lib/active_support/callbacks.rb#165
+  # source://activesupport//lib/active_support/callbacks.rb#166
   def initialize(user_callback, user_conditions, chain_config, filter, name); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#188
+  # source://activesupport//lib/active_support/callbacks.rb#189
   def apply(callback_sequence); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#172
+  # source://activesupport//lib/active_support/callbacks.rb#173
   def call(env); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#170
+  # source://activesupport//lib/active_support/callbacks.rb#171
   def filter; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#170
+  # source://activesupport//lib/active_support/callbacks.rb#171
   def halted_lambda; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#170
+  # source://activesupport//lib/active_support/callbacks.rb#171
   def name; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#170
+  # source://activesupport//lib/active_support/callbacks.rb#171
   def user_callback; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#170
+  # source://activesupport//lib/active_support/callbacks.rb#171
   def user_conditions; end
 end
 
-# source://activesupport//lib/active_support/callbacks.rb#162
+# source://activesupport//lib/active_support/callbacks.rb#163
 class ActiveSupport::Callbacks::Filters::Environment < ::Struct
   def halted; end
   def halted=(_); end
@@ -1689,25 +1779,8 @@ end
 # source://activesupport//lib/active_support/concurrency/share_lock.rb#6
 module ActiveSupport::Concurrency; end
 
-# source://activesupport//lib/active_support/concurrency/load_interlock_aware_monitor.rb#32
-class ActiveSupport::Concurrency::LoadInterlockAwareMonitor < ::Monitor
-  include ::ActiveSupport::Concurrency::LoadInterlockAwareMonitorMixin
-end
-
-# source://activesupport//lib/active_support/concurrency/load_interlock_aware_monitor.rb#7
-module ActiveSupport::Concurrency::LoadInterlockAwareMonitorMixin
-  # source://activesupport//lib/active_support/concurrency/load_interlock_aware_monitor.rb#13
-  def mon_enter; end
-
-  # source://activesupport//lib/active_support/concurrency/load_interlock_aware_monitor.rb#18
-  def synchronize(&block); end
-end
-
 # source://activesupport//lib/active_support/concurrency/load_interlock_aware_monitor.rb#9
-ActiveSupport::Concurrency::LoadInterlockAwareMonitorMixin::EXCEPTION_IMMEDIATE = T.let(T.unsafe(nil), Hash)
-
-# source://activesupport//lib/active_support/concurrency/load_interlock_aware_monitor.rb#8
-ActiveSupport::Concurrency::LoadInterlockAwareMonitorMixin::EXCEPTION_NEVER = T.let(T.unsafe(nil), Hash)
+ActiveSupport::Concurrency::LoadInterlockAwareMonitor = Monitor
 
 # source://activesupport//lib/active_support/concurrency/null_lock.rb#5
 module ActiveSupport::Concurrency::NullLock
@@ -1763,59 +1836,66 @@ class ActiveSupport::Concurrency::ShareLock
   def wait_for(method, &block); end
 end
 
-# source://activesupport//lib/active_support/concurrency/load_interlock_aware_monitor.rb#36
-class ActiveSupport::Concurrency::ThreadLoadInterlockAwareMonitor
-  include ::ActiveSupport::Concurrency::LoadInterlockAwareMonitorMixin
-
-  # source://activesupport//lib/active_support/concurrency/load_interlock_aware_monitor.rb#39
+# source://activesupport//lib/active_support/concurrency/thread_monitor.rb#5
+class ActiveSupport::Concurrency::ThreadMonitor
+  # source://activesupport//lib/active_support/concurrency/thread_monitor.rb#10
   def initialize; end
 
-  # source://activesupport//lib/active_support/concurrency/load_interlock_aware_monitor.rb#13
-  def mon_enter; end
+  # source://activesupport//lib/active_support/concurrency/thread_monitor.rb#16
+  def synchronize(&block); end
 
   private
 
-  # source://activesupport//lib/active_support/concurrency/load_interlock_aware_monitor.rb#60
+  # source://activesupport//lib/active_support/concurrency/thread_monitor.rb#37
+  def mon_enter; end
+
+  # source://activesupport//lib/active_support/concurrency/thread_monitor.rb#43
   def mon_exit; end
 
-  # source://activesupport//lib/active_support/concurrency/load_interlock_aware_monitor.rb#46
+  # source://activesupport//lib/active_support/concurrency/thread_monitor.rb#29
   def mon_try_enter; end
 end
 
-# source://activesupport//lib/active_support/configurable.rb#11
+# source://activesupport//lib/active_support/concurrency/thread_monitor.rb#7
+ActiveSupport::Concurrency::ThreadMonitor::EXCEPTION_IMMEDIATE = T.let(T.unsafe(nil), Hash)
+
+# source://activesupport//lib/active_support/concurrency/thread_monitor.rb#6
+ActiveSupport::Concurrency::ThreadMonitor::EXCEPTION_NEVER = T.let(T.unsafe(nil), Hash)
+
+# source://activesupport//lib/active_support/configurable.rb#17
 module ActiveSupport::Configurable
   extend ::ActiveSupport::Concern
 
   mixes_in_class_methods ::ActiveSupport::Configurable::ClassMethods
 
-  # source://activesupport//lib/active_support/configurable.rb#155
+  # source://activesupport//lib/active_support/configurable.rb#189
   def config; end
 end
 
-# source://activesupport//lib/active_support/configurable.rb#29
+# source://activesupport//lib/active_support/configurable.rb#35
 module ActiveSupport::Configurable::ClassMethods
-  # source://activesupport//lib/active_support/configurable.rb#30
+  # source://activesupport//lib/active_support/configurable.rb#49
   def config; end
 
-  # source://activesupport//lib/active_support/configurable.rb#39
+  # source://activesupport//lib/active_support/configurable.rb#73
   def configure; end
 
   private
 
-  # source://activesupport//lib/active_support/configurable.rb#111
+  # source://activesupport//lib/active_support/configurable.rb#145
   def config_accessor(*names, instance_reader: T.unsafe(nil), instance_writer: T.unsafe(nil), instance_accessor: T.unsafe(nil), default: T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/configurable.rb#132
+  # source://activesupport//lib/active_support/configurable.rb#166
   def inherited(subclass); end
 end
 
-# source://activesupport//lib/active_support/configurable.rb#14
+# source://activesupport//lib/active_support/configurable.rb#20
 class ActiveSupport::Configurable::Configuration < ::ActiveSupport::InheritableOptions
-  # source://activesupport//lib/active_support/configurable.rb#15
+  # source://activesupport//lib/active_support/configurable.rb#21
   def compile_methods!; end
 
   class << self
-    # source://activesupport//lib/active_support/configurable.rb#20
+    # source://activesupport//lib/active_support/configurable.rb#26
     def compile_methods!(keys); end
   end
 end
@@ -1844,6 +1924,49 @@ end
 
 # source://activesupport//lib/active_support/configuration_file.rb#10
 class ActiveSupport::ConfigurationFile::FormatError < ::StandardError; end
+
+# source://activesupport//lib/active_support/continuous_integration.rb#24
+class ActiveSupport::ContinuousIntegration
+  # source://activesupport//lib/active_support/continuous_integration.rb#64
+  def initialize; end
+
+  # source://activesupport//lib/active_support/continuous_integration.rb#111
+  def echo(text, type:); end
+
+  # source://activesupport//lib/active_support/continuous_integration.rb#86
+  def failure(title, subtitle = T.unsafe(nil)); end
+
+  # source://activesupport//lib/active_support/continuous_integration.rb#98
+  def heading(heading, subtitle = T.unsafe(nil), type: T.unsafe(nil), padding: T.unsafe(nil)); end
+
+  # source://activesupport//lib/active_support/continuous_integration.rb#116
+  def report(title, &block); end
+
+  # source://activesupport//lib/active_support/continuous_integration.rb#33
+  def results; end
+
+  # source://activesupport//lib/active_support/continuous_integration.rb#75
+  def step(title, *command); end
+
+  # source://activesupport//lib/active_support/continuous_integration.rb#81
+  def success?; end
+
+  private
+
+  # source://activesupport//lib/active_support/continuous_integration.rb#141
+  def colorize(text, type); end
+
+  # source://activesupport//lib/active_support/continuous_integration.rb#134
+  def timing; end
+
+  class << self
+    # source://activesupport//lib/active_support/continuous_integration.rb#55
+    def run(title = T.unsafe(nil), subtitle = T.unsafe(nil), &block); end
+  end
+end
+
+# source://activesupport//lib/active_support/continuous_integration.rb#25
+ActiveSupport::ContinuousIntegration::COLORS = T.let(T.unsafe(nil), Hash)
 
 # source://activesupport//lib/active_support/core_ext/erb/util.rb#6
 module ActiveSupport::CoreExt; end
@@ -1876,100 +1999,100 @@ module ActiveSupport::CoreExt::ERBUtilPrivate
   def unwrapped_html_escape(s); end
 end
 
-# source://activesupport//lib/active_support/current_attributes.rb#92
+# source://activesupport//lib/active_support/current_attributes.rb#93
 class ActiveSupport::CurrentAttributes
   include ::ActiveSupport::Callbacks
   extend ::ActiveSupport::Callbacks::ClassMethods
   extend ::ActiveSupport::DescendantsTracker
 
-  # source://activesupport//lib/active_support/current_attributes.rb#199
+  # source://activesupport//lib/active_support/current_attributes.rb#205
   def initialize; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#69
+  # source://activesupport//lib/active_support/callbacks.rb#70
   def __callbacks; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#924
+  # source://activesupport//lib/active_support/callbacks.rb#927
   def _reset_callbacks; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#912
-  def _run_reset_callbacks(&block); end
+  # source://activesupport//lib/active_support/callbacks.rb#910
+  def _run_reset_callbacks; end
 
-  # source://activesupport//lib/active_support/current_attributes.rb#197
+  # source://activesupport//lib/active_support/callbacks.rb#915
+  def _run_reset_callbacks!(&block); end
+
+  # source://activesupport//lib/active_support/current_attributes.rb#209
   def attributes; end
 
-  # source://activesupport//lib/active_support/current_attributes.rb#197
+  # source://activesupport//lib/active_support/current_attributes.rb#203
   def attributes=(_arg0); end
 
-  # source://activesupport//lib/active_support/current_attributes.rb#195
+  # source://activesupport//lib/active_support/current_attributes.rb#201
   def defaults; end
 
-  # source://activesupport//lib/active_support/current_attributes.rb#195
+  # source://activesupport//lib/active_support/current_attributes.rb#201
   def defaults?; end
 
-  # source://activesupport//lib/active_support/current_attributes.rb#218
+  # source://activesupport//lib/active_support/current_attributes.rb#228
   def reset; end
 
-  # source://activesupport//lib/active_support/current_attributes.rb#213
+  # source://activesupport//lib/active_support/current_attributes.rb#223
   def set(attributes, &block); end
 
   private
 
-  # source://activesupport//lib/active_support/current_attributes.rb#225
+  # source://activesupport//lib/active_support/current_attributes.rb#235
   def resolve_defaults; end
 
   class << self
-    # source://activesupport//lib/active_support/callbacks.rb#69
+    # source://activesupport//lib/active_support/callbacks.rb#70
     def __callbacks; end
 
-    # source://activesupport//lib/active_support/callbacks.rb#69
+    # source://activesupport//lib/active_support/callbacks.rb#70
     def __callbacks=(value); end
 
-    # source://activesupport//lib/active_support/callbacks.rb#916
+    # source://activesupport//lib/active_support/callbacks.rb#919
     def _reset_callbacks; end
 
-    # source://activesupport//lib/active_support/callbacks.rb#920
+    # source://activesupport//lib/active_support/callbacks.rb#923
     def _reset_callbacks=(value); end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#149
+    # source://activesupport//lib/active_support/current_attributes.rb#150
     def after_reset(*methods, &block); end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#114
+    # source://activesupport//lib/active_support/current_attributes.rb#115
     def attribute(*names, default: T.unsafe(nil)); end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#191
+    # source://activesupport//lib/active_support/current_attributes.rb#197
     def attributes(&_arg0); end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#191
+    # source://activesupport//lib/active_support/current_attributes.rb#197
     def attributes=(arg); end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#144
+    # source://activesupport//lib/active_support/current_attributes.rb#145
     def before_reset(*methods, &block); end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#160
+    # source://activesupport//lib/active_support/current_attributes.rb#157
     def clear_all; end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#195
+    # source://activesupport//lib/active_support/current_attributes.rb#201
     def defaults; end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#195
+    # source://activesupport//lib/active_support/current_attributes.rb#201
     def defaults=(value); end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#195
+    # source://activesupport//lib/active_support/current_attributes.rb#201
     def defaults?; end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#102
+    # source://activesupport//lib/active_support/current_attributes.rb#103
     def instance; end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#154
+    # source://activesupport//lib/active_support/current_attributes.rb#155
     def reset(*_arg0, **_arg1, &_arg2); end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#156
-    def reset_all; end
-
-    # source://activesupport//lib/active_support/current_attributes.rb#149
+    # source://activesupport//lib/active_support/current_attributes.rb#150
     def resets(*methods, &block); end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#154
+    # source://activesupport//lib/active_support/current_attributes.rb#155
     def set(*_arg0, **_arg1, &_arg2); end
 
     private
@@ -1986,30 +2109,30 @@ class ActiveSupport::CurrentAttributes
     # source://activesupport//lib/active_support/class_attribute.rb#17
     def __class_attr_defaults=(new_value); end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#170
+    # source://activesupport//lib/active_support/current_attributes.rb#169
     def current_instances; end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#174
+    # source://activesupport//lib/active_support/current_attributes.rb#173
     def current_instances_key; end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#166
+    # source://activesupport//lib/active_support/current_attributes.rb#165
     def generated_attribute_methods; end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#186
+    # source://activesupport//lib/active_support/current_attributes.rb#185
     def method_added(name); end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#178
+    # source://activesupport//lib/active_support/current_attributes.rb#177
     def method_missing(name, *_arg1, **_arg2, &_arg3); end
 
-    # source://activesupport//lib/active_support/current_attributes.rb#182
+    # source://activesupport//lib/active_support/current_attributes.rb#181
     def respond_to_missing?(name, _); end
   end
 end
 
-# source://activesupport//lib/active_support/current_attributes.rb#96
+# source://activesupport//lib/active_support/current_attributes.rb#97
 ActiveSupport::CurrentAttributes::INVALID_ATTRIBUTE_NAMES = T.let(T.unsafe(nil), Array)
 
-# source://activesupport//lib/active_support/current_attributes.rb#98
+# source://activesupport//lib/active_support/current_attributes.rb#99
 ActiveSupport::CurrentAttributes::NOT_SET = T.let(T.unsafe(nil), Object)
 
 # source://activesupport//lib/active_support/deep_mergeable.rb#6
@@ -2052,40 +2175,40 @@ end
 # source://activesupport//lib/active_support/dependencies/interlock.rb#6
 module ActiveSupport::Dependencies
   class << self
-    # source://activesupport//lib/active_support/dependencies.rb#61
+    # source://activesupport//lib/active_support/dependencies.rb#66
     def _autoloaded_tracked_classes; end
 
-    # source://activesupport//lib/active_support/dependencies.rb#61
+    # source://activesupport//lib/active_support/dependencies.rb#66
     def _autoloaded_tracked_classes=(_arg0); end
 
-    # source://activesupport//lib/active_support/dependencies.rb#55
+    # source://activesupport//lib/active_support/dependencies.rb#60
     def _eager_load_paths; end
 
-    # source://activesupport//lib/active_support/dependencies.rb#55
+    # source://activesupport//lib/active_support/dependencies.rb#60
     def _eager_load_paths=(_arg0); end
 
-    # source://activesupport//lib/active_support/dependencies.rb#48
+    # source://activesupport//lib/active_support/dependencies.rb#53
     def autoload_once_paths; end
 
-    # source://activesupport//lib/active_support/dependencies.rb#48
+    # source://activesupport//lib/active_support/dependencies.rb#53
     def autoload_once_paths=(_arg0); end
 
-    # source://activesupport//lib/active_support/dependencies.rb#42
+    # source://activesupport//lib/active_support/dependencies.rb#47
     def autoload_paths; end
 
-    # source://activesupport//lib/active_support/dependencies.rb#42
+    # source://activesupport//lib/active_support/dependencies.rb#47
     def autoload_paths=(_arg0); end
 
-    # source://activesupport//lib/active_support/dependencies.rb#68
+    # source://activesupport//lib/active_support/dependencies.rb#73
     def autoloader; end
 
-    # source://activesupport//lib/active_support/dependencies.rb#68
+    # source://activesupport//lib/active_support/dependencies.rb#73
     def autoloader=(_arg0); end
 
-    # source://activesupport//lib/active_support/dependencies.rb#75
+    # source://activesupport//lib/active_support/dependencies.rb#80
     def clear; end
 
-    # source://activesupport//lib/active_support/dependencies.rb#93
+    # source://activesupport//lib/active_support/dependencies.rb#98
     def eager_load?(path); end
 
     # source://activesupport//lib/active_support/dependencies.rb#9
@@ -2100,10 +2223,10 @@ module ActiveSupport::Dependencies
     # source://activesupport//lib/active_support/dependencies.rb#16
     def run_interlock(&block); end
 
-    # source://activesupport//lib/active_support/dependencies.rb#83
+    # source://activesupport//lib/active_support/dependencies.rb#88
     def search_for_file(relpath); end
 
-    # source://activesupport//lib/active_support/dependencies.rb#30
+    # source://activesupport//lib/active_support/dependencies.rb#35
     def unload_interlock(&block); end
   end
 end
@@ -2113,31 +2236,31 @@ class ActiveSupport::Dependencies::Interlock
   # source://activesupport//lib/active_support/dependencies/interlock.rb#8
   def initialize; end
 
-  # source://activesupport//lib/active_support/dependencies/interlock.rb#32
+  # source://activesupport//lib/active_support/dependencies/interlock.rb#37
   def done_running; end
 
-  # source://activesupport//lib/active_support/dependencies/interlock.rb#24
+  # source://activesupport//lib/active_support/dependencies/interlock.rb#29
   def done_unloading; end
 
   # source://activesupport//lib/active_support/dependencies/interlock.rb#12
   def loading(&block); end
 
-  # source://activesupport//lib/active_support/dependencies/interlock.rb#40
+  # source://activesupport//lib/active_support/dependencies/interlock.rb#45
   def permit_concurrent_loads(&block); end
 
-  # source://activesupport//lib/active_support/dependencies/interlock.rb#44
+  # source://activesupport//lib/active_support/dependencies/interlock.rb#50
   def raw_state(&block); end
 
-  # source://activesupport//lib/active_support/dependencies/interlock.rb#36
+  # source://activesupport//lib/active_support/dependencies/interlock.rb#41
   def running(&block); end
 
-  # source://activesupport//lib/active_support/dependencies/interlock.rb#28
+  # source://activesupport//lib/active_support/dependencies/interlock.rb#33
   def start_running; end
 
-  # source://activesupport//lib/active_support/dependencies/interlock.rb#20
+  # source://activesupport//lib/active_support/dependencies/interlock.rb#25
   def start_unloading; end
 
-  # source://activesupport//lib/active_support/dependencies/interlock.rb#16
+  # source://activesupport//lib/active_support/dependencies/interlock.rb#21
   def unloading(&block); end
 end
 
@@ -2415,11 +2538,11 @@ module ActiveSupport::Deprecation::Reporting
   # source://activesupport//lib/active_support/deprecation/reporting.rb#140
   def extract_callstack(callstack); end
 
-  # source://activesupport//lib/active_support/deprecation/reporting.rb#155
+  # source://activesupport//lib/active_support/deprecation/reporting.rb#157
   def ignored_callstack?(path); end
 end
 
-# source://activesupport//lib/active_support/deprecation/reporting.rb#153
+# source://activesupport//lib/active_support/deprecation/reporting.rb#154
 ActiveSupport::Deprecation::Reporting::LIB_DIR = T.let(T.unsafe(nil), String)
 
 # source://activesupport//lib/active_support/deprecation/reporting.rb#152
@@ -2857,18 +2980,27 @@ end
 # source://activesupport//lib/active_support/duration.rb#131
 ActiveSupport::Duration::VARIABLE_PARTS = T.let(T.unsafe(nil), Array)
 
-# source://activesupport//lib/active_support/core_ext/range/each.rb#6
-module ActiveSupport::EachTimeWithZone
-  # source://activesupport//lib/active_support/core_ext/range/each.rb#7
-  def each(&block); end
+# source://activesupport//lib/active_support/editor.rb#6
+class ActiveSupport::Editor
+  # source://activesupport//lib/active_support/editor.rb#48
+  def initialize(url_pattern); end
 
-  # source://activesupport//lib/active_support/core_ext/range/each.rb#12
-  def step(n = T.unsafe(nil), &block); end
+  # source://activesupport//lib/active_support/editor.rb#52
+  def url_for(path, line); end
 
-  private
+  class << self
+    # source://activesupport//lib/active_support/editor.rb#28
+    def current; end
 
-  # source://activesupport//lib/active_support/core_ext/range/each.rb#18
-  def ensure_iteration_allowed; end
+    # source://activesupport//lib/active_support/editor.rb#39
+    def find(name); end
+
+    # source://activesupport//lib/active_support/editor.rb#17
+    def register(name, url_pattern, aliases: T.unsafe(nil)); end
+
+    # source://activesupport//lib/active_support/editor.rb#43
+    def reset; end
+  end
 end
 
 # source://activesupport//lib/active_support/encrypted_configuration.rb#35
@@ -3055,16 +3187,19 @@ class ActiveSupport::ErrorReporter
   # source://activesupport//lib/active_support/error_reporter.rb#35
   def initialize(*subscribers, logger: T.unsafe(nil)); end
 
+  # source://activesupport//lib/active_support/error_reporter.rb#218
+  def add_middleware(middleware); end
+
   # source://activesupport//lib/active_support/error_reporter.rb#31
   def debug_mode; end
 
   # source://activesupport//lib/active_support/error_reporter.rb#31
   def debug_mode=(_arg0); end
 
-  # source://activesupport//lib/active_support/error_reporter.rb#185
+  # source://activesupport//lib/active_support/error_reporter.rb#186
   def disable(subscriber); end
 
-  # source://activesupport//lib/active_support/error_reporter.rb#78
+  # source://activesupport//lib/active_support/error_reporter.rb#79
   def handle(*error_classes, severity: T.unsafe(nil), context: T.unsafe(nil), fallback: T.unsafe(nil), source: T.unsafe(nil)); end
 
   # source://activesupport//lib/active_support/error_reporter.rb#31
@@ -3073,27 +3208,27 @@ class ActiveSupport::ErrorReporter
   # source://activesupport//lib/active_support/error_reporter.rb#31
   def logger=(_arg0); end
 
-  # source://activesupport//lib/active_support/error_reporter.rb#114
+  # source://activesupport//lib/active_support/error_reporter.rb#115
   def record(*error_classes, severity: T.unsafe(nil), context: T.unsafe(nil), source: T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/error_reporter.rb#216
+  # source://activesupport//lib/active_support/error_reporter.rb#233
   def report(error, handled: T.unsafe(nil), severity: T.unsafe(nil), context: T.unsafe(nil), source: T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/error_reporter.rb#201
+  # source://activesupport//lib/active_support/error_reporter.rb#202
   def set_context(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/error_reporter.rb#161
+  # source://activesupport//lib/active_support/error_reporter.rb#162
   def subscribe(subscriber); end
 
-  # source://activesupport//lib/active_support/error_reporter.rb#145
+  # source://activesupport//lib/active_support/error_reporter.rb#146
   def unexpected(error, severity: T.unsafe(nil), context: T.unsafe(nil), source: T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/error_reporter.rb#176
+  # source://activesupport//lib/active_support/error_reporter.rb#177
   def unsubscribe(subscriber); end
 
   private
 
-  # source://activesupport//lib/active_support/error_reporter.rb#252
+  # source://activesupport//lib/active_support/error_reporter.rb#278
   def ensure_backtrace(error); end
 end
 
@@ -3103,35 +3238,176 @@ ActiveSupport::ErrorReporter::DEFAULT_RESCUE = T.let(T.unsafe(nil), Array)
 # source://activesupport//lib/active_support/error_reporter.rb#28
 ActiveSupport::ErrorReporter::DEFAULT_SOURCE = T.let(T.unsafe(nil), String)
 
+# source://activesupport//lib/active_support/error_reporter.rb#298
+class ActiveSupport::ErrorReporter::ErrorContextMiddlewareStack
+  # source://activesupport//lib/active_support/error_reporter.rb#299
+  def initialize; end
+
+  # source://activesupport//lib/active_support/error_reporter.rb#313
+  def execute(error, handled:, severity:, context:, source:); end
+
+  # source://activesupport//lib/active_support/error_reporter.rb#304
+  def use(middleware); end
+end
+
 # source://activesupport//lib/active_support/error_reporter.rb#27
 ActiveSupport::ErrorReporter::SEVERITIES = T.let(T.unsafe(nil), Array)
 
 # source://activesupport//lib/active_support/error_reporter.rb#33
 class ActiveSupport::ErrorReporter::UnexpectedError < ::Exception; end
 
+# source://activesupport//lib/active_support/event_reporter.rb#49
+class ActiveSupport::EventContext
+  class << self
+    # source://activesupport//lib/active_support/event_reporter.rb#65
+    def clear; end
+
+    # source://activesupport//lib/active_support/event_reporter.rb#54
+    def context; end
+
+    # source://activesupport//lib/active_support/event_reporter.rb#58
+    def set_context(context_hash); end
+  end
+end
+
+# source://activesupport//lib/active_support/event_reporter.rb#50
+ActiveSupport::EventContext::EMPTY_CONTEXT = T.let(T.unsafe(nil), Hash)
+
+# source://activesupport//lib/active_support/event_reporter.rb#51
+ActiveSupport::EventContext::FIBER_KEY = T.let(T.unsafe(nil), Symbol)
+
+# source://activesupport//lib/active_support/event_reporter.rb#271
+class ActiveSupport::EventReporter
+  # source://activesupport//lib/active_support/event_reporter.rb#286
+  def initialize(*subscribers, raise_on_error: T.unsafe(nil)); end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#525
+  def clear_context; end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#530
+  def context; end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#435
+  def debug(name_or_object, payload = T.unsafe(nil), caller_depth: T.unsafe(nil), **kwargs); end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#276
+  def debug_mode=(_arg0); end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#420
+  def debug_mode?; end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#363
+  def notify(name_or_object, payload = T.unsafe(nil), caller_depth: T.unsafe(nil), **kwargs); end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#274
+  def raise_on_error=(_arg0); end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#534
+  def reload_payload_filter; end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#520
+  def set_context(context); end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#311
+  def subscribe(subscriber, &filter); end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#278
+  def subscribers; end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#497
+  def tagged(*args, **kwargs, &block); end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#326
+  def unsubscribe(subscriber); end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#410
+  def with_debug; end
+
+  private
+
+  # source://activesupport//lib/active_support/event_reporter.rb#544
+  def context_store; end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#579
+  def handle_unexpected_args(name_or_object, payload, kwargs); end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#548
+  def payload_filter; end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#540
+  def raise_on_error?; end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#555
+  def resolve_name(name_or_object); end
+
+  # source://activesupport//lib/active_support/event_reporter.rb#564
+  def resolve_payload(name_or_object, payload, **kwargs); end
+
+  class << self
+    # source://activesupport//lib/active_support/event_reporter.rb#281
+    def context_store; end
+
+    # source://activesupport//lib/active_support/event_reporter.rb#281
+    def context_store=(_arg0); end
+  end
+end
+
 # source://activesupport//lib/active_support/execution_context.rb#4
 module ActiveSupport::ExecutionContext
   class << self
-    # source://activesupport//lib/active_support/execution_context.rb#34
+    # source://activesupport//lib/active_support/execution_context.rb#69
     def []=(key, value); end
 
-    # source://activesupport//lib/active_support/execution_context.rb#7
+    # source://activesupport//lib/active_support/execution_context.rb#40
     def after_change(&block); end
 
-    # source://activesupport//lib/active_support/execution_context.rb#43
+    # source://activesupport//lib/active_support/execution_context.rb#96
     def clear; end
 
-    # source://activesupport//lib/active_support/execution_context.rb#13
+    # source://activesupport//lib/active_support/execution_context.rb#100
+    def current_attributes_instances; end
+
+    # source://activesupport//lib/active_support/execution_context.rb#38
+    def nestable; end
+
+    # source://activesupport//lib/active_support/execution_context.rb#38
+    def nestable=(_arg0); end
+
+    # source://activesupport//lib/active_support/execution_context.rb#87
+    def pop; end
+
+    # source://activesupport//lib/active_support/execution_context.rb#78
+    def push; end
+
+    # source://activesupport//lib/active_support/execution_context.rb#46
     def set(**options); end
 
-    # source://activesupport//lib/active_support/execution_context.rb#39
+    # source://activesupport//lib/active_support/execution_context.rb#74
     def to_h; end
 
     private
 
-    # source://activesupport//lib/active_support/execution_context.rb#48
-    def store; end
+    # source://activesupport//lib/active_support/execution_context.rb#105
+    def record; end
   end
+end
+
+# source://activesupport//lib/active_support/execution_context.rb#5
+class ActiveSupport::ExecutionContext::Record
+  # source://activesupport//lib/active_support/execution_context.rb#8
+  def initialize; end
+
+  # source://activesupport//lib/active_support/execution_context.rb#6
+  def current_attributes_instances; end
+
+  # source://activesupport//lib/active_support/execution_context.rb#21
+  def pop; end
+
+  # source://activesupport//lib/active_support/execution_context.rb#14
+  def push; end
+
+  # source://activesupport//lib/active_support/execution_context.rb#6
+  def store; end
 end
 
 # source://activesupport//lib/active_support/execution_wrapper.rb#7
@@ -3140,20 +3416,26 @@ class ActiveSupport::ExecutionWrapper
   extend ::ActiveSupport::Callbacks::ClassMethods
   extend ::ActiveSupport::DescendantsTracker
 
-  # source://activesupport//lib/active_support/callbacks.rb#69
+  # source://activesupport//lib/active_support/callbacks.rb#70
   def __callbacks; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#924
+  # source://activesupport//lib/active_support/callbacks.rb#927
   def _complete_callbacks; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#924
+  # source://activesupport//lib/active_support/callbacks.rb#927
   def _run_callbacks; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#912
-  def _run_complete_callbacks(&block); end
+  # source://activesupport//lib/active_support/callbacks.rb#910
+  def _run_complete_callbacks; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#912
-  def _run_run_callbacks(&block); end
+  # source://activesupport//lib/active_support/callbacks.rb#915
+  def _run_complete_callbacks!(&block); end
+
+  # source://activesupport//lib/active_support/callbacks.rb#910
+  def _run_run_callbacks; end
+
+  # source://activesupport//lib/active_support/callbacks.rb#915
+  def _run_run_callbacks!(&block); end
 
   # source://activesupport//lib/active_support/execution_wrapper.rb#141
   def complete; end
@@ -3173,22 +3455,22 @@ class ActiveSupport::ExecutionWrapper
   def hook_state; end
 
   class << self
-    # source://activesupport//lib/active_support/callbacks.rb#69
+    # source://activesupport//lib/active_support/callbacks.rb#70
     def __callbacks; end
 
-    # source://activesupport//lib/active_support/callbacks.rb#69
+    # source://activesupport//lib/active_support/callbacks.rb#70
     def __callbacks=(value); end
 
-    # source://activesupport//lib/active_support/callbacks.rb#916
+    # source://activesupport//lib/active_support/callbacks.rb#919
     def _complete_callbacks; end
 
-    # source://activesupport//lib/active_support/callbacks.rb#920
+    # source://activesupport//lib/active_support/callbacks.rb#923
     def _complete_callbacks=(value); end
 
-    # source://activesupport//lib/active_support/callbacks.rb#916
+    # source://activesupport//lib/active_support/callbacks.rb#919
     def _run_callbacks; end
 
-    # source://activesupport//lib/active_support/callbacks.rb#920
+    # source://activesupport//lib/active_support/callbacks.rb#923
     def _run_callbacks=(value); end
 
     # source://activesupport//lib/active_support/execution_wrapper.rb#118
@@ -3276,33 +3558,33 @@ class ActiveSupport::FileUpdateChecker
   # source://activesupport//lib/active_support/file_update_checker.rb#44
   def initialize(files, dirs = T.unsafe(nil), &block); end
 
-  # source://activesupport//lib/active_support/file_update_checker.rb#82
+  # source://activesupport//lib/active_support/file_update_checker.rb#85
   def execute; end
 
-  # source://activesupport//lib/active_support/file_update_checker.rb#92
+  # source://activesupport//lib/active_support/file_update_checker.rb#95
   def execute_if_updated; end
 
-  # source://activesupport//lib/active_support/file_update_checker.rb#63
+  # source://activesupport//lib/active_support/file_update_checker.rb#66
   def updated?; end
 
   private
 
-  # source://activesupport//lib/active_support/file_update_checker.rb#158
+  # source://activesupport//lib/active_support/file_update_checker.rb#160
   def compile_ext(array); end
 
-  # source://activesupport//lib/active_support/file_update_checker.rb#144
+  # source://activesupport//lib/active_support/file_update_checker.rb#147
   def compile_glob(hash); end
 
-  # source://activesupport//lib/active_support/file_update_checker.rb#154
+  # source://activesupport//lib/active_support/file_update_checker.rb#156
   def escape(key); end
 
-  # source://activesupport//lib/active_support/file_update_checker.rb#122
+  # source://activesupport//lib/active_support/file_update_checker.rb#125
   def max_mtime(paths); end
 
-  # source://activesupport//lib/active_support/file_update_checker.rb#111
+  # source://activesupport//lib/active_support/file_update_checker.rb#114
   def updated_at(paths); end
 
-  # source://activesupport//lib/active_support/file_update_checker.rb#103
+  # source://activesupport//lib/active_support/file_update_checker.rb#106
   def watched; end
 end
 
@@ -3354,61 +3636,61 @@ class ActiveSupport::HashWithIndifferentAccess < ::Hash
   # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#70
   def initialize(constructor = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#168
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#184
   def [](key); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#98
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#101
   def []=(key, value); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#181
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#197
   def assoc(key); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#371
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#390
   def compact; end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#320
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#334
   def deep_symbolize_keys; end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#223
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#239
   def default(key = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#303
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#317
   def delete(key); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#208
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#224
   def dig(*args); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#264
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#280
   def dup; end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#311
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#325
   def except(*keys); end
 
   # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#58
   def extractable_options?; end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#195
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#211
   def fetch(key, *extras); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#251
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#267
   def fetch_values(*indices, &block); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#151
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#167
   def has_key?(key); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#151
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#167
   def include?(key); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#151
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#167
   def key?(key); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#151
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#167
   def member?(key); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#273
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#287
   def merge(*hashes, &block); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#132
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#148
   def merge!(*other_hashes, &block); end
 
   # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#66
@@ -3417,87 +3699,90 @@ class ActiveSupport::HashWithIndifferentAccess < ::Hash
   def regular_update(*_arg0); end
   def regular_writer(_arg0, _arg1); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#328
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#342
   def reject(*args, &block); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#298
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#312
   def replace(other_hash); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#283
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#297
   def reverse_merge(other_hash); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#289
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#303
   def reverse_merge!(other_hash); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#323
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#337
   def select(*args, &block); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#361
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#380
   def slice(*keys); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#366
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#385
   def slice!(*keys); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#98
-  def store(key, value); end
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#115
+  def store(key, value, convert_value: T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#318
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#332
   def symbolize_keys; end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#376
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#395
   def to_hash; end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#318
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#332
   def to_options; end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#321
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#335
   def to_options!; end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#383
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#401
   def to_proc; end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#340
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#354
   def transform_keys(hash = T.unsafe(nil), &block); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#345
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#366
   def transform_keys!(hash = T.unsafe(nil), &block); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#333
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#347
   def transform_values(&block); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#132
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#148
   def update(*other_hashes, &block); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#237
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#253
   def values_at(*keys); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#283
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#297
   def with_defaults(other_hash); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#289
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#303
   def with_defaults!(other_hash); end
 
   # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#62
   def with_indifferent_access; end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#311
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#325
   def without(*keys); end
 
   private
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#388
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#406
+  def cast(other); end
+
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#410
   def convert_key(key); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#392
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#414
   def convert_value(value, conversion: T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#405
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#427
   def convert_value_to_hash(value); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#416
-  def set_defaults(target); end
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#438
+  def copy_defaults(target); end
 
-  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#424
+  # source://activesupport//lib/active_support/hash_with_indifferent_access.rb#447
   def update_with_single_argument(other_hash, block); end
 
   class << self
@@ -3506,7 +3791,7 @@ class ActiveSupport::HashWithIndifferentAccess < ::Hash
   end
 end
 
-# source://activesupport//lib/active_support/hash_with_indifferent_access.rb#338
+# source://activesupport//lib/active_support/hash_with_indifferent_access.rb#352
 ActiveSupport::HashWithIndifferentAccess::NOT_GIVEN = T.let(T.unsafe(nil), Object)
 
 # source://activesupport//lib/active_support/html_safe_translation.rb#4
@@ -3531,7 +3816,7 @@ module ActiveSupport::HtmlSafeTranslation
   def i18n_option?(name); end
 end
 
-# source://activesupport//lib/active_support/inflector/inflections.rb#7
+# source://activesupport//lib/active_support/inflector/inflections.rb#8
 module ActiveSupport::Inflector
   extend ::ActiveSupport::Inflector
 
@@ -3562,7 +3847,7 @@ module ActiveSupport::Inflector
   # source://activesupport//lib/active_support/inflector/methods.rb#135
   def humanize(lower_case_and_underscored_word, capitalize: T.unsafe(nil), keep_id_suffix: T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#265
+  # source://activesupport//lib/active_support/inflector/inflections.rb#281
   def inflections(locale = T.unsafe(nil)); end
 
   # source://activesupport//lib/active_support/inflector/methods.rb#334
@@ -3610,91 +3895,112 @@ end
 # source://activesupport//lib/active_support/inflector/transliterate.rb#8
 ActiveSupport::Inflector::ALLOWED_ENCODINGS_FOR_TRANSLITERATE = T.let(T.unsafe(nil), Array)
 
-# source://activesupport//lib/active_support/inflector/inflections.rb#30
+# source://activesupport//lib/active_support/inflector/inflections.rb#31
 class ActiveSupport::Inflector::Inflections
-  # source://activesupport//lib/active_support/inflector/inflections.rb#80
+  # source://activesupport//lib/active_support/inflector/inflections.rb#96
   def initialize; end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#142
+  # source://activesupport//lib/active_support/inflector/inflections.rb#158
   def acronym(word); end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#76
+  # source://activesupport//lib/active_support/inflector/inflections.rb#92
   def acronyms; end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#78
+  # source://activesupport//lib/active_support/inflector/inflections.rb#94
   def acronyms_camelize_regex; end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#78
+  # source://activesupport//lib/active_support/inflector/inflections.rb#94
   def acronyms_underscore_regex; end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#231
+  # source://activesupport//lib/active_support/inflector/inflections.rb#247
   def clear(scope = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#220
+  # source://activesupport//lib/active_support/inflector/inflections.rb#236
   def human(rule, replacement); end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#76
+  # source://activesupport//lib/active_support/inflector/inflections.rb#92
   def humans; end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#174
+  # source://activesupport//lib/active_support/inflector/inflections.rb#190
   def irregular(singular, plural); end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#151
+  # source://activesupport//lib/active_support/inflector/inflections.rb#167
   def plural(rule, replacement); end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#76
+  # source://activesupport//lib/active_support/inflector/inflections.rb#92
   def plurals; end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#161
+  # source://activesupport//lib/active_support/inflector/inflections.rb#177
   def singular(rule, replacement); end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#76
+  # source://activesupport//lib/active_support/inflector/inflections.rb#92
   def singulars; end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#208
+  # source://activesupport//lib/active_support/inflector/inflections.rb#224
   def uncountable(*words); end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#76
+  # source://activesupport//lib/active_support/inflector/inflections.rb#92
   def uncountables; end
 
   private
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#250
+  # source://activesupport//lib/active_support/inflector/inflections.rb#266
   def define_acronym_regex_patterns; end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#86
+  # source://activesupport//lib/active_support/inflector/inflections.rb#102
   def initialize_dup(orig); end
 
   class << self
-    # source://activesupport//lib/active_support/inflector/inflections.rb#65
+    # source://activesupport//lib/active_support/inflector/inflections.rb#77
     def instance(locale = T.unsafe(nil)); end
 
-    # source://activesupport//lib/active_support/inflector/inflections.rb#69
+    # source://activesupport//lib/active_support/inflector/inflections.rb#83
     def instance_or_fallback(locale); end
   end
 end
 
-# source://activesupport//lib/active_support/inflector/inflections.rb#33
-class ActiveSupport::Inflector::Inflections::Uncountables < ::Array
-  # source://activesupport//lib/active_support/inflector/inflections.rb#34
+# source://activesupport//lib/active_support/inflector/inflections.rb#35
+class ActiveSupport::Inflector::Inflections::Uncountables
+  include ::Enumerable
+
+  # source://activesupport//lib/active_support/inflector/inflections.rb#40
   def initialize; end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#44
-  def <<(*word); end
+  # source://activesupport//lib/active_support/inflector/inflections.rb#50
+  def <<(word); end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#48
+  # source://activesupport//lib/active_support/inflector/inflections.rb#38
+  def ==(arg); end
+
+  # source://activesupport//lib/active_support/inflector/inflections.rb#61
   def add(words); end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#39
+  # source://activesupport//lib/active_support/inflector/inflections.rb#45
   def delete(entry); end
 
-  # source://activesupport//lib/active_support/inflector/inflections.rb#55
+  # source://activesupport//lib/active_support/inflector/inflections.rb#38
+  def each(*_arg0, **_arg1, &_arg2); end
+
+  # source://activesupport//lib/active_support/inflector/inflections.rb#38
+  def empty?(*_arg0, **_arg1, &_arg2); end
+
+  # source://activesupport//lib/active_support/inflector/inflections.rb#57
+  def flatten; end
+
+  # source://activesupport//lib/active_support/inflector/inflections.rb#38
+  def pop(*_arg0, **_arg1, &_arg2); end
+
+  # source://activesupport//lib/active_support/inflector/inflections.rb#38
+  def to_a(*_arg0, **_arg1, &_arg2); end
+
+  # source://activesupport//lib/active_support/inflector/inflections.rb#38
+  def to_ary(*_arg0, **_arg1, &_arg2); end
+
+  # source://activesupport//lib/active_support/inflector/inflections.rb#38
+  def to_s(*_arg0, **_arg1, &_arg2); end
+
+  # source://activesupport//lib/active_support/inflector/inflections.rb#68
   def uncountable?(str); end
-
-  private
-
-  # source://activesupport//lib/active_support/inflector/inflections.rb#60
-  def to_regex(string); end
 end
 
 # source://activesupport//lib/active_support/ordered_options.rb#89
@@ -3740,19 +4046,19 @@ end
 # source://activesupport//lib/active_support/isolated_execution_state.rb#4
 module ActiveSupport::IsolatedExecutionState
   class << self
-    # source://activesupport//lib/active_support/isolated_execution_state.rb#35
+    # source://activesupport//lib/active_support/isolated_execution_state.rb#31
     def [](key); end
 
-    # source://activesupport//lib/active_support/isolated_execution_state.rb#39
+    # source://activesupport//lib/active_support/isolated_execution_state.rb#37
     def []=(key, value); end
 
-    # source://activesupport//lib/active_support/isolated_execution_state.rb#51
+    # source://activesupport//lib/active_support/isolated_execution_state.rb#50
     def clear; end
 
-    # source://activesupport//lib/active_support/isolated_execution_state.rb#55
+    # source://activesupport//lib/active_support/isolated_execution_state.rb#54
     def context; end
 
-    # source://activesupport//lib/active_support/isolated_execution_state.rb#47
+    # source://activesupport//lib/active_support/isolated_execution_state.rb#46
     def delete(key); end
 
     # source://activesupport//lib/active_support/isolated_execution_state.rb#11
@@ -3761,46 +4067,38 @@ module ActiveSupport::IsolatedExecutionState
     # source://activesupport//lib/active_support/isolated_execution_state.rb#13
     def isolation_level=(level); end
 
-    # source://activesupport//lib/active_support/isolated_execution_state.rb#43
+    # source://activesupport//lib/active_support/isolated_execution_state.rb#42
     def key?(key); end
 
     # source://activesupport//lib/active_support/isolated_execution_state.rb#11
     def scope; end
 
-    # source://activesupport//lib/active_support/isolated_execution_state.rb#59
-    def share_with(other); end
-
-    # source://activesupport//lib/active_support/isolated_execution_state.rb#31
-    def unique_id; end
-
-    private
-
-    # source://activesupport//lib/active_support/isolated_execution_state.rb#67
-    def state; end
+    # source://activesupport//lib/active_support/isolated_execution_state.rb#58
+    def share_with(other, &block); end
   end
 end
 
 # source://activesupport//lib/active_support/json/decoding.rb#11
 module ActiveSupport::JSON
   class << self
-    # source://activesupport//lib/active_support/json/decoding.rb#22
-    def decode(json); end
+    # source://activesupport//lib/active_support/json/decoding.rb#24
+    def decode(json, options = T.unsafe(nil)); end
 
-    # source://activesupport//lib/active_support/json/encoding.rb#40
+    # source://activesupport//lib/active_support/json/encoding.rb#47
     def dump(value, options = T.unsafe(nil)); end
 
-    # source://activesupport//lib/active_support/json/encoding.rb#40
+    # source://activesupport//lib/active_support/json/encoding.rb#47
     def encode(value, options = T.unsafe(nil)); end
 
-    # source://activesupport//lib/active_support/json/decoding.rb#22
-    def load(json); end
+    # source://activesupport//lib/active_support/json/decoding.rb#24
+    def load(json, options = T.unsafe(nil)); end
 
-    # source://activesupport//lib/active_support/json/decoding.rb#43
+    # source://activesupport//lib/active_support/json/decoding.rb#45
     def parse_error; end
 
     private
 
-    # source://activesupport//lib/active_support/json/decoding.rb#48
+    # source://activesupport//lib/active_support/json/decoding.rb#50
     def convert_dates_from(data); end
   end
 end
@@ -3811,54 +4109,84 @@ ActiveSupport::JSON::DATETIME_REGEX = T.let(T.unsafe(nil), Regexp)
 # source://activesupport//lib/active_support/json/decoding.rb#13
 ActiveSupport::JSON::DATE_REGEX = T.let(T.unsafe(nil), Regexp)
 
-# source://activesupport//lib/active_support/json/encoding.rb#46
+# source://activesupport//lib/active_support/json/encoding.rb#59
 module ActiveSupport::JSON::Encoding
   class << self
-    # source://activesupport//lib/active_support/json/encoding.rb#121
+    # source://activesupport//lib/active_support/json/encoding.rb#239
+    def encode_without_escape(value); end
+
+    # source://activesupport//lib/active_support/json/encoding.rb#235
+    def encode_without_options(value); end
+
+    # source://activesupport//lib/active_support/json/encoding.rb#212
     def escape_html_entities_in_json; end
 
-    # source://activesupport//lib/active_support/json/encoding.rb#121
+    # source://activesupport//lib/active_support/json/encoding.rb#212
     def escape_html_entities_in_json=(_arg0); end
 
-    # source://activesupport//lib/active_support/json/encoding.rb#129
+    # source://activesupport//lib/active_support/json/encoding.rb#219
+    def escape_js_separators_in_json; end
+
+    # source://activesupport//lib/active_support/json/encoding.rb#219
+    def escape_js_separators_in_json=(_arg0); end
+
+    # source://activesupport//lib/active_support/json/encoding.rb#227
     def json_encoder; end
 
-    # source://activesupport//lib/active_support/json/encoding.rb#129
-    def json_encoder=(_arg0); end
+    # source://activesupport//lib/active_support/json/encoding.rb#229
+    def json_encoder=(encoder); end
 
-    # source://activesupport//lib/active_support/json/encoding.rb#125
+    # source://activesupport//lib/active_support/json/encoding.rb#223
     def time_precision; end
 
-    # source://activesupport//lib/active_support/json/encoding.rb#125
+    # source://activesupport//lib/active_support/json/encoding.rb#223
     def time_precision=(_arg0); end
 
-    # source://activesupport//lib/active_support/json/encoding.rb#117
+    # source://activesupport//lib/active_support/json/encoding.rb#208
     def use_standard_json_time_format; end
 
-    # source://activesupport//lib/active_support/json/encoding.rb#117
+    # source://activesupport//lib/active_support/json/encoding.rb#208
     def use_standard_json_time_format=(_arg0); end
   end
 end
 
-# source://activesupport//lib/active_support/json/encoding.rb#47
+# source://activesupport//lib/active_support/json/encoding.rb#63
+ActiveSupport::JSON::Encoding::ESCAPED_CHARS = T.let(T.unsafe(nil), Hash)
+
+# source://activesupport//lib/active_support/json/encoding.rb#72
+ActiveSupport::JSON::Encoding::FULL_ESCAPE_REGEX = T.let(T.unsafe(nil), Regexp)
+
+# source://activesupport//lib/active_support/json/encoding.rb#71
+ActiveSupport::JSON::Encoding::HTML_ENTITIES_REGEX = T.let(T.unsafe(nil), Regexp)
+
+# source://activesupport//lib/active_support/json/encoding.rb#75
 class ActiveSupport::JSON::Encoding::JSONGemEncoder
-  # source://activesupport//lib/active_support/json/encoding.rb#50
+  # source://activesupport//lib/active_support/json/encoding.rb#78
   def initialize(options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/json/encoding.rb#55
+  # source://activesupport//lib/active_support/json/encoding.rb#83
   def encode(value); end
 
-  # source://activesupport//lib/active_support/json/encoding.rb#48
+  # source://activesupport//lib/active_support/json/encoding.rb#76
   def options; end
 
   private
 
-  # source://activesupport//lib/active_support/json/encoding.rb#88
+  # source://activesupport//lib/active_support/json/encoding.rb#118
   def jsonify(value); end
 
-  # source://activesupport//lib/active_support/json/encoding.rb#109
+  # source://activesupport//lib/active_support/json/encoding.rb#143
   def stringify(jsonified); end
 end
+
+# source://activesupport//lib/active_support/json/encoding.rb#73
+ActiveSupport::JSON::Encoding::JS_SEPARATORS_REGEX = T.let(T.unsafe(nil), Regexp)
+
+# source://activesupport//lib/active_support/json/encoding.rb#60
+ActiveSupport::JSON::Encoding::U2028 = T.let(T.unsafe(nil), String)
+
+# source://activesupport//lib/active_support/json/encoding.rb#61
+ActiveSupport::JSON::Encoding::U2029 = T.let(T.unsafe(nil), String)
 
 # source://activesupport//lib/active_support/key_generator.rb#13
 class ActiveSupport::KeyGenerator
@@ -3916,45 +4244,42 @@ class ActiveSupport::LogSubscriber < ::ActiveSupport::Subscriber
   # source://activesupport//lib/active_support/log_subscriber.rb#83
   def colorize_logging=(val); end
 
-  # source://activesupport//lib/active_support/log_subscriber.rb#163
+  # source://activesupport//lib/active_support/log_subscriber.rb#157
   def debug(progname = T.unsafe(nil), &block); end
 
-  # source://activesupport//lib/active_support/log_subscriber.rb#163
+  # source://activesupport//lib/active_support/log_subscriber.rb#157
   def error(progname = T.unsafe(nil), &block); end
 
-  # source://activesupport//lib/active_support/log_subscriber.rb#158
+  # source://activesupport//lib/active_support/log_subscriber.rb#152
   def event_levels=(_arg0); end
 
-  # source://activesupport//lib/active_support/log_subscriber.rb#163
+  # source://activesupport//lib/active_support/log_subscriber.rb#157
   def fatal(progname = T.unsafe(nil), &block); end
 
-  # source://activesupport//lib/active_support/log_subscriber.rb#163
+  # source://activesupport//lib/active_support/log_subscriber.rb#157
   def info(progname = T.unsafe(nil), &block); end
 
   # source://activesupport//lib/active_support/log_subscriber.rb#138
   def logger; end
 
-  # source://activesupport//lib/active_support/log_subscriber.rb#152
-  def publish_event(event); end
-
   # source://activesupport//lib/active_support/log_subscriber.rb#142
   def silenced?(event); end
 
-  # source://activesupport//lib/active_support/log_subscriber.rb#163
+  # source://activesupport//lib/active_support/log_subscriber.rb#157
   def unknown(progname = T.unsafe(nil), &block); end
 
-  # source://activesupport//lib/active_support/log_subscriber.rb#163
+  # source://activesupport//lib/active_support/log_subscriber.rb#157
   def warn(progname = T.unsafe(nil), &block); end
 
   private
 
-  # source://activesupport//lib/active_support/log_subscriber.rb#172
+  # source://activesupport//lib/active_support/log_subscriber.rb#166
   def color(text, color, mode_options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/log_subscriber.rb#186
+  # source://activesupport//lib/active_support/log_subscriber.rb#180
   def log_exception(name, e); end
 
-  # source://activesupport//lib/active_support/log_subscriber.rb#180
+  # source://activesupport//lib/active_support/log_subscriber.rb#174
   def mode_from(options); end
 
   class << self
@@ -4085,21 +4410,24 @@ end
 module ActiveSupport::LoggerThreadSafeLevel
   extend ::ActiveSupport::Concern
 
-  # source://activesupport//lib/active_support/logger_thread_safe_level.rb#30
-  def level; end
-
   # source://activesupport//lib/active_support/logger_thread_safe_level.rb#10
-  def local_level; end
-
-  # source://activesupport//lib/active_support/logger_thread_safe_level.rb#14
-  def local_level=(level); end
+  def initialize(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/logger_thread_safe_level.rb#35
+  def level; end
+
+  # source://activesupport//lib/active_support/logger_thread_safe_level.rb#15
+  def local_level; end
+
+  # source://activesupport//lib/active_support/logger_thread_safe_level.rb#19
+  def local_level=(level); end
+
+  # source://activesupport//lib/active_support/logger_thread_safe_level.rb#40
   def log_at(level); end
 
   private
 
-  # source://activesupport//lib/active_support/logger_thread_safe_level.rb#43
+  # source://activesupport//lib/active_support/logger_thread_safe_level.rb#48
   def local_level_key; end
 end
 
@@ -4208,7 +4536,7 @@ ActiveSupport::MessageEncryptor::SEPARATOR = T.let(T.unsafe(nil), String)
 class ActiveSupport::MessageEncryptors < ::ActiveSupport::Messages::RotationCoordinator
   private
 
-  # source://activesupport//lib/active_support/message_encryptors.rb#135
+  # source://activesupport//lib/active_support/message_encryptors.rb#187
   def build(salt, secret_generator:, secret_generator_options:, **options); end
 end
 
@@ -4280,7 +4608,7 @@ ActiveSupport::MessageVerifier::SEPARATOR_LENGTH = T.let(T.unsafe(nil), Integer)
 class ActiveSupport::MessageVerifiers < ::ActiveSupport::Messages::RotationCoordinator
   private
 
-  # source://activesupport//lib/active_support/message_verifiers.rb#133
+  # source://activesupport//lib/active_support/message_verifiers.rb#185
   def build(salt, secret_generator:, secret_generator_options:, **options); end
 end
 
@@ -4424,16 +4752,19 @@ class ActiveSupport::Messages::RotationCoordinator
   # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#22
   def []=(salt, codec); end
 
-  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#39
+  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#48
   def clear_rotations; end
 
-  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#45
+  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#54
   def on_rotation(&callback); end
+
+  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#35
+  def prepend(**options, &block); end
 
   # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#26
   def rotate(**options, &block); end
 
-  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#35
+  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#44
   def rotate_defaults; end
 
   # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#8
@@ -4444,16 +4775,16 @@ class ActiveSupport::Messages::RotationCoordinator
 
   private
 
-  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#88
+  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#97
   def build(salt, secret_generator:, secret_generator_options:, **options); end
 
-  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#76
+  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#85
   def build_with_rotations(salt); end
 
-  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#51
+  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#60
   def changing_configuration!; end
 
-  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#62
+  # source://activesupport//lib/active_support/messages/rotation_coordinator.rb#71
   def normalize_options(options); end
 end
 
@@ -4476,11 +4807,14 @@ module ActiveSupport::Messages::Rotator
 
   private
 
-  # source://activesupport//lib/active_support/messages/rotator.rb#49
+  # source://activesupport//lib/active_support/messages/rotator.rb#54
   def build_rotation(*args, **options); end
 
-  # source://activesupport//lib/active_support/messages/rotator.rb#53
+  # source://activesupport//lib/active_support/messages/rotator.rb#58
   def catch_rotation_error(&block); end
+
+  # source://activesupport//lib/active_support/messages/rotator.rb#48
+  def initialize_dup(*_arg0); end
 end
 
 # source://activesupport//lib/active_support/messages/serializer_with_fallback.rb#8
@@ -4611,7 +4945,7 @@ ActiveSupport::Messages::SerializerWithFallback::SERIALIZERS = T.let(T.unsafe(ni
 # source://activesupport//lib/active_support/multibyte.rb#4
 module ActiveSupport::Multibyte
   class << self
-    # source://activesupport//lib/active_support/multibyte.rb#19
+    # source://activesupport//lib/active_support/multibyte.rb#23
     def proxy_class; end
 
     # source://activesupport//lib/active_support/multibyte.rb#14
@@ -4624,7 +4958,7 @@ class ActiveSupport::Multibyte::Chars
   include ::Comparable
 
   # source://activesupport//lib/active_support/multibyte/chars.rb#56
-  def initialize(string); end
+  def initialize(string, deprecation: T.unsafe(nil)); end
 
   # source://activesupport//lib/active_support/multibyte/chars.rb#53
   def <=>(*_arg0, **_arg1, &_arg2); end
@@ -4635,49 +4969,49 @@ class ActiveSupport::Multibyte::Chars
   # source://activesupport//lib/active_support/multibyte/chars.rb#53
   def acts_like_string?(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#164
+  # source://activesupport//lib/active_support/multibyte/chars.rb#171
   def as_json(options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#143
+  # source://activesupport//lib/active_support/multibyte/chars.rb#150
   def compose; end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#135
+  # source://activesupport//lib/active_support/multibyte/chars.rb#142
   def decompose; end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#151
+  # source://activesupport//lib/active_support/multibyte/chars.rb#158
   def grapheme_length; end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#118
+  # source://activesupport//lib/active_support/multibyte/chars.rb#125
   def limit(limit); end
 
   # source://activesupport//lib/active_support/multibyte/chars.rb#53
   def match?(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#65
+  # source://activesupport//lib/active_support/multibyte/chars.rb#72
   def method_missing(method, *_arg1, **_arg2, &_arg3); end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#109
+  # source://activesupport//lib/active_support/multibyte/chars.rb#116
   def reverse; end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#169
+  # source://activesupport//lib/active_support/multibyte/chars.rb#176
   def reverse!(*args); end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#99
+  # source://activesupport//lib/active_support/multibyte/chars.rb#106
   def slice!(*args); end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#86
+  # source://activesupport//lib/active_support/multibyte/chars.rb#93
   def split(*args); end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#160
+  # source://activesupport//lib/active_support/multibyte/chars.rb#167
   def tidy_bytes(force = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#169
+  # source://activesupport//lib/active_support/multibyte/chars.rb#176
   def tidy_bytes!(*args); end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#126
+  # source://activesupport//lib/active_support/multibyte/chars.rb#133
   def titlecase; end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#126
+  # source://activesupport//lib/active_support/multibyte/chars.rb#133
   def titleize; end
 
   # source://activesupport//lib/active_support/multibyte/chars.rb#49
@@ -4691,10 +5025,10 @@ class ActiveSupport::Multibyte::Chars
 
   private
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#176
+  # source://activesupport//lib/active_support/multibyte/chars.rb#183
   def chars(string); end
 
-  # source://activesupport//lib/active_support/multibyte/chars.rb#77
+  # source://activesupport//lib/active_support/multibyte/chars.rb#84
   def respond_to_missing?(method, include_private); end
 end
 
@@ -4822,231 +5156,248 @@ class ActiveSupport::Notifications::Event
   def now_gc; end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#49
+# source://activesupport//lib/active_support/notifications/fanout.rb#55
 class ActiveSupport::Notifications::Fanout
   include ::ActiveSupport::Notifications::FanoutIteration
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#50
+  # source://activesupport//lib/active_support/notifications/fanout.rb#56
   def initialize; end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#297
+  # source://activesupport//lib/active_support/notifications/fanout.rb#319
   def all_listeners_for(name); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#272
+  # source://activesupport//lib/active_support/notifications/fanout.rb#286
   def build_handle(name, id, payload); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#101
+  # source://activesupport//lib/active_support/notifications/fanout.rb#106
   def clear_cache(key = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#283
+  # source://activesupport//lib/active_support/notifications/fanout.rb#305
   def finish(name, id, payload, listeners = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#187
+  # source://activesupport//lib/active_support/notifications/fanout.rb#190
+  def group_listeners(listeners); end
+
+  # source://activesupport//lib/active_support/notifications/fanout.rb#196
   def groups_for(name); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#59
+  # source://activesupport//lib/active_support/notifications/fanout.rb#64
   def inspect; end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#306
+  # source://activesupport//lib/active_support/notifications/fanout.rb#328
   def listeners_for(name); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#310
+  # source://activesupport//lib/active_support/notifications/fanout.rb#332
   def listening?(name); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#289
-  def publish(name, *args); end
-
-  # source://activesupport//lib/active_support/notifications/fanout.rb#293
-  def publish_event(event); end
-
-  # source://activesupport//lib/active_support/notifications/fanout.rb#276
-  def start(name, id, payload); end
-
-  # source://activesupport//lib/active_support/notifications/fanout.rb#64
-  def subscribe(pattern = T.unsafe(nil), callable = T.unsafe(nil), monotonic: T.unsafe(nil), &block); end
-
-  # source://activesupport//lib/active_support/notifications/fanout.rb#81
-  def unsubscribe(subscriber_or_name); end
+  # source://activesupport//lib/active_support/notifications/fanout.rb#311
+  def publish(name, *_arg1, **_arg2, &_arg3); end
 
   # source://activesupport//lib/active_support/notifications/fanout.rb#315
+  def publish_event(event); end
+
+  # source://activesupport//lib/active_support/notifications/fanout.rb#298
+  def start(name, id, payload); end
+
+  # source://activesupport//lib/active_support/notifications/fanout.rb#69
+  def subscribe(pattern = T.unsafe(nil), callable = T.unsafe(nil), monotonic: T.unsafe(nil), &block); end
+
+  # source://activesupport//lib/active_support/notifications/fanout.rb#86
+  def unsubscribe(subscriber_or_name); end
+
+  # source://activesupport//lib/active_support/notifications/fanout.rb#337
   def wait; end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#113
+# source://activesupport//lib/active_support/notifications/fanout.rb#116
 class ActiveSupport::Notifications::Fanout::BaseGroup
   include ::ActiveSupport::Notifications::FanoutIteration
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#116
+  # source://activesupport//lib/active_support/notifications/fanout.rb#119
   def initialize(listeners, name, id, payload); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#120
+  # source://activesupport//lib/active_support/notifications/fanout.rb#123
   def each(&block); end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#125
+# source://activesupport//lib/active_support/notifications/fanout.rb#128
 class ActiveSupport::Notifications::Fanout::BaseTimeGroup < ::ActiveSupport::Notifications::Fanout::BaseGroup
-  # source://activesupport//lib/active_support/notifications/fanout.rb#130
+  # source://activesupport//lib/active_support/notifications/fanout.rb#133
   def finish(name, id, payload); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#126
+  # source://activesupport//lib/active_support/notifications/fanout.rb#129
   def start(name, id, payload); end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#166
+# source://activesupport//lib/active_support/notifications/fanout.rb#169
 class ActiveSupport::Notifications::Fanout::EventObjectGroup < ::ActiveSupport::Notifications::Fanout::BaseGroup
-  # source://activesupport//lib/active_support/notifications/fanout.rb#172
+  # source://activesupport//lib/active_support/notifications/fanout.rb#175
   def finish(name, id, payload); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#167
+  # source://activesupport//lib/active_support/notifications/fanout.rb#170
   def start(name, id, payload); end
 
   private
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#182
+  # source://activesupport//lib/active_support/notifications/fanout.rb#185
   def build_event(name, id, payload); end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#152
+# source://activesupport//lib/active_support/notifications/fanout.rb#155
 class ActiveSupport::Notifications::Fanout::EventedGroup < ::ActiveSupport::Notifications::Fanout::BaseGroup
-  # source://activesupport//lib/active_support/notifications/fanout.rb#159
+  # source://activesupport//lib/active_support/notifications/fanout.rb#162
   def finish(name, id, payload); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#153
+  # source://activesupport//lib/active_support/notifications/fanout.rb#156
   def start(name, id, payload); end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#227
+# source://activesupport//lib/active_support/notifications/fanout.rb#230
 class ActiveSupport::Notifications::Fanout::Handle
   include ::ActiveSupport::Notifications::FanoutIteration
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#230
-  def initialize(notifier, name, id, payload); end
+  # source://activesupport//lib/active_support/notifications/fanout.rb#233
+  def initialize(notifier, name, id, groups, payload); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#249
+  # source://activesupport//lib/active_support/notifications/fanout.rb#250
   def finish; end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#253
+  # source://activesupport//lib/active_support/notifications/fanout.rb#254
   def finish_with_values(name, id, payload); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#240
+  # source://activesupport//lib/active_support/notifications/fanout.rb#241
   def start; end
 
   private
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#263
+  # source://activesupport//lib/active_support/notifications/fanout.rb#264
   def ensure_state!(expected); end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#138
+# source://activesupport//lib/active_support/notifications/fanout.rb#141
 class ActiveSupport::Notifications::Fanout::MonotonicTimedGroup < ::ActiveSupport::Notifications::Fanout::BaseTimeGroup
   private
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#140
+  # source://activesupport//lib/active_support/notifications/fanout.rb#143
   def now; end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#318
+# source://activesupport//lib/active_support/notifications/fanout.rb#271
+module ActiveSupport::Notifications::Fanout::NullHandle
+  extend ::ActiveSupport::Notifications::Fanout::NullHandle
+
+  # source://activesupport//lib/active_support/notifications/fanout.rb#277
+  def finish; end
+
+  # source://activesupport//lib/active_support/notifications/fanout.rb#280
+  def finish_with_values(_name, _id, _payload); end
+
+  # source://activesupport//lib/active_support/notifications/fanout.rb#274
+  def start; end
+end
+
+# source://activesupport//lib/active_support/notifications/fanout.rb#340
 module ActiveSupport::Notifications::Fanout::Subscribers
   class << self
-    # source://activesupport//lib/active_support/notifications/fanout.rb#319
+    # source://activesupport//lib/active_support/notifications/fanout.rb#341
     def new(pattern, listener, monotonic); end
   end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#433
+# source://activesupport//lib/active_support/notifications/fanout.rb#455
 class ActiveSupport::Notifications::Fanout::Subscribers::EventObject < ::ActiveSupport::Notifications::Fanout::Subscribers::Evented
-  # source://activesupport//lib/active_support/notifications/fanout.rb#434
+  # source://activesupport//lib/active_support/notifications/fanout.rb#456
   def group_class; end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#438
+  # source://activesupport//lib/active_support/notifications/fanout.rb#460
   def publish_event(event); end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#375
+# source://activesupport//lib/active_support/notifications/fanout.rb#397
 class ActiveSupport::Notifications::Fanout::Subscribers::Evented
-  # source://activesupport//lib/active_support/notifications/fanout.rb#378
+  # source://activesupport//lib/active_support/notifications/fanout.rb#400
   def initialize(pattern, delegate); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#376
+  # source://activesupport//lib/active_support/notifications/fanout.rb#398
   def delegate; end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#386
+  # source://activesupport//lib/active_support/notifications/fanout.rb#408
   def group_class; end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#376
+  # source://activesupport//lib/active_support/notifications/fanout.rb#398
   def pattern; end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#390
-  def publish(name, *args); end
+  # source://activesupport//lib/active_support/notifications/fanout.rb#412
+  def publish(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#396
+  # source://activesupport//lib/active_support/notifications/fanout.rb#418
   def publish_event(event); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#376
+  # source://activesupport//lib/active_support/notifications/fanout.rb#398
   def silenceable; end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#404
+  # source://activesupport//lib/active_support/notifications/fanout.rb#426
   def silenced?(name); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#408
+  # source://activesupport//lib/active_support/notifications/fanout.rb#430
   def subscribed_to?(name); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#412
+  # source://activesupport//lib/active_support/notifications/fanout.rb#434
   def unsubscribe!(name); end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#338
+# source://activesupport//lib/active_support/notifications/fanout.rb#360
 class ActiveSupport::Notifications::Fanout::Subscribers::Matcher
-  # source://activesupport//lib/active_support/notifications/fanout.rb#351
+  # source://activesupport//lib/active_support/notifications/fanout.rb#373
   def initialize(pattern); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#360
+  # source://activesupport//lib/active_support/notifications/fanout.rb#382
   def ===(name); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#339
+  # source://activesupport//lib/active_support/notifications/fanout.rb#361
   def exclusions; end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#339
+  # source://activesupport//lib/active_support/notifications/fanout.rb#361
   def pattern; end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#356
+  # source://activesupport//lib/active_support/notifications/fanout.rb#378
   def unsubscribe!(name); end
 
   class << self
-    # source://activesupport//lib/active_support/notifications/fanout.rb#341
+    # source://activesupport//lib/active_support/notifications/fanout.rb#363
     def wrap(pattern); end
   end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#364
+# source://activesupport//lib/active_support/notifications/fanout.rb#386
 class ActiveSupport::Notifications::Fanout::Subscribers::Matcher::AllMessages
-  # source://activesupport//lib/active_support/notifications/fanout.rb#365
+  # source://activesupport//lib/active_support/notifications/fanout.rb#387
   def ===(name); end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#369
+  # source://activesupport//lib/active_support/notifications/fanout.rb#391
   def unsubscribe!(*_arg0); end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#427
+# source://activesupport//lib/active_support/notifications/fanout.rb#449
 class ActiveSupport::Notifications::Fanout::Subscribers::MonotonicTimed < ::ActiveSupport::Notifications::Fanout::Subscribers::Timed
-  # source://activesupport//lib/active_support/notifications/fanout.rb#428
+  # source://activesupport//lib/active_support/notifications/fanout.rb#450
   def group_class; end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#417
+# source://activesupport//lib/active_support/notifications/fanout.rb#439
 class ActiveSupport::Notifications::Fanout::Subscribers::Timed < ::ActiveSupport::Notifications::Fanout::Subscribers::Evented
-  # source://activesupport//lib/active_support/notifications/fanout.rb#418
+  # source://activesupport//lib/active_support/notifications/fanout.rb#440
   def group_class; end
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#422
-  def publish(name, *args); end
+  # source://activesupport//lib/active_support/notifications/fanout.rb#444
+  def publish(*_arg0, **_arg1, &_arg2); end
 end
 
-# source://activesupport//lib/active_support/notifications/fanout.rb#145
+# source://activesupport//lib/active_support/notifications/fanout.rb#148
 class ActiveSupport::Notifications::Fanout::TimedGroup < ::ActiveSupport::Notifications::Fanout::BaseTimeGroup
   private
 
-  # source://activesupport//lib/active_support/notifications/fanout.rb#147
+  # source://activesupport//lib/active_support/notifications/fanout.rb#150
   def now; end
 end
 
@@ -5055,7 +5406,7 @@ module ActiveSupport::Notifications::FanoutIteration
   private
 
   # source://activesupport//lib/active_support/notifications/fanout.rb#20
-  def iterate_guarding_exceptions(collection); end
+  def iterate_guarding_exceptions(collection, &block); end
 end
 
 # source://activesupport//lib/active_support/notifications/fanout.rb#8
@@ -5616,17 +5967,26 @@ class ActiveSupport::Reloader < ::ActiveSupport::ExecutionWrapper
   # source://activesupport//lib/active_support/reloader.rb#99
   def initialize; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#924
+  # source://activesupport//lib/active_support/callbacks.rb#927
   def _class_unload_callbacks; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#924
+  # source://activesupport//lib/active_support/callbacks.rb#927
   def _prepare_callbacks; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#912
-  def _run_class_unload_callbacks(&block); end
+  # source://activesupport//lib/active_support/callbacks.rb#910
+  def _run_class_unload_callbacks; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#912
-  def _run_prepare_callbacks(&block); end
+  # source://activesupport//lib/active_support/callbacks.rb#915
+  def _run_class_unload_callbacks!(&block); end
+
+  # source://activesupport//lib/active_support/callbacks.rb#910
+  def _run_prepare_callbacks; end
+
+  # source://activesupport//lib/active_support/callbacks.rb#915
+  def _run_prepare_callbacks!(&block); end
+
+  # source://activesupport//lib/active_support/callbacks.rb#915
+  def _run_run_callbacks(&block); end
 
   # source://activesupport//lib/active_support/reloader.rb#85
   def check; end
@@ -5662,16 +6022,16 @@ class ActiveSupport::Reloader < ::ActiveSupport::ExecutionWrapper
   def run!; end
 
   class << self
-    # source://activesupport//lib/active_support/callbacks.rb#916
+    # source://activesupport//lib/active_support/callbacks.rb#919
     def _class_unload_callbacks; end
 
-    # source://activesupport//lib/active_support/callbacks.rb#920
+    # source://activesupport//lib/active_support/callbacks.rb#923
     def _class_unload_callbacks=(value); end
 
-    # source://activesupport//lib/active_support/callbacks.rb#916
+    # source://activesupport//lib/active_support/callbacks.rb#919
     def _prepare_callbacks; end
 
-    # source://activesupport//lib/active_support/callbacks.rb#920
+    # source://activesupport//lib/active_support/callbacks.rb#923
     def _prepare_callbacks=(value); end
 
     # source://activesupport//lib/active_support/reloader.rb#44
@@ -5791,129 +6151,132 @@ end
 # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#19
 class ActiveSupport::SafeBuffer < ::String
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#70
-  def initialize(str = T.unsafe(nil)); end
+  def initialize(_str = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#123
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#124
   def %(args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#116
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#115
   def *(_); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#112
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#111
   def +(other); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#80
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#79
   def <<(value); end
 
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#38
   def [](*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#104
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#103
   def []=(arg1, arg2, arg3 = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#88
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#143
+  def as_json(*_arg0); end
+
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#87
   def bytesplice(*args, value); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def capitalize(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def capitalize!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def chomp(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def chomp!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def chop(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def chop!(*args); end
 
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#59
   def chr; end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#80
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#79
   def concat(value); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def delete(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def delete!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def delete_prefix(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def delete_prefix!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def delete_suffix(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def delete_suffix!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def downcase(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def downcase!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#146
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#151
   def encode_with(coder); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#167
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#172
   def gsub(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#178
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#183
   def gsub!(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#134
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#135
   def html_safe?; end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#92
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#91
   def insert(index, value); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def lstrip(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def lstrip!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def next(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def next!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#96
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#95
   def prepend(value); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#100
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#99
   def replace(value); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def reverse(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def reverse!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def rstrip(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def rstrip!(*args); end
 
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#65
   def safe_concat(value); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def scrub(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def scrub!(*args); end
 
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#38
@@ -5922,83 +6285,83 @@ class ActiveSupport::SafeBuffer < ::String
   # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#51
   def slice!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def squeeze(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def squeeze!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def strip(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def strip!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#167
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#172
   def sub(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#178
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#183
   def sub!(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def succ(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def succ!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def swapcase(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def swapcase!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#142
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#147
   def to_param; end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#138
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#139
   def to_s; end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def tr(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def tr!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def tr_s(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def tr_s!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def unicode_normalize(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def unicode_normalize!(*args); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#153
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#158
   def upcase(*args, &block); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#157
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
   def upcase!(*args); end
 
   private
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#193
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#198
   def explicit_html_escape_interpolated_argument(arg); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#197
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#202
   def implicit_html_escape_interpolated_argument(arg); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#75
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#74
   def initialize_copy(other); end
 
   def original_concat(*_arg0); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#205
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#210
   def set_block_back_references(block, match_data); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#211
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#216
   def string_into_safe_buffer(new_string, is_html_safe); end
 end
 
@@ -6061,6 +6424,63 @@ class ActiveSupport::StringInquirer < ::String
   def respond_to_missing?(method_name, include_private = T.unsafe(nil)); end
 end
 
+# source://activesupport//lib/active_support/structured_event_subscriber.rb#31
+class ActiveSupport::StructuredEventSubscriber < ::ActiveSupport::Subscriber
+  # source://activesupport//lib/active_support/structured_event_subscriber.rb#56
+  def initialize; end
+
+  # source://activesupport//lib/active_support/structured_event_subscriber.rb#88
+  def call(event); end
+
+  # source://activesupport//lib/active_support/structured_event_subscriber.rb#82
+  def emit_debug_event(name, payload = T.unsafe(nil), caller_depth: T.unsafe(nil), **kwargs); end
+
+  # source://activesupport//lib/active_support/structured_event_subscriber.rb#75
+  def emit_event(name, payload = T.unsafe(nil), caller_depth: T.unsafe(nil), **kwargs); end
+
+  # source://activesupport//lib/active_support/structured_event_subscriber.rb#61
+  def silenced?(event); end
+
+  # source://activesupport//lib/active_support/structured_event_subscriber.rb#65
+  def silenced_events=(_arg0); end
+
+  private
+
+  # source://activesupport//lib/active_support/structured_event_subscriber.rb#95
+  def handle_event_error(name, error); end
+
+  class << self
+    # source://activesupport//lib/active_support/structured_event_subscriber.rb#37
+    def attach_to(*_arg0, **_arg1, &_arg2); end
+
+    # source://activesupport//lib/active_support/structured_event_subscriber.rb#32
+    def debug_methods; end
+
+    # source://activesupport//lib/active_support/structured_event_subscriber.rb#32
+    def debug_methods=(value); end
+
+    # source://activesupport//lib/active_support/structured_event_subscriber.rb#32
+    def debug_methods?; end
+
+    private
+
+    # source://activesupport//lib/active_support/class_attribute.rb#15
+    def __class_attr_debug_methods; end
+
+    # source://activesupport//lib/active_support/class_attribute.rb#17
+    def __class_attr_debug_methods=(new_value); end
+
+    # source://activesupport//lib/active_support/structured_event_subscriber.rb#50
+    def debug_only(method); end
+
+    # source://activesupport//lib/active_support/structured_event_subscriber.rb#44
+    def set_silenced_events; end
+  end
+end
+
+# source://activesupport//lib/active_support/structured_event_subscriber.rb#34
+ActiveSupport::StructuredEventSubscriber::DEBUG_CHECK = T.let(T.unsafe(nil), Proc)
+
 # source://activesupport//lib/active_support/subscriber.rb#32
 class ActiveSupport::Subscriber
   # source://activesupport//lib/active_support/subscriber.rb#131
@@ -6071,9 +6491,6 @@ class ActiveSupport::Subscriber
 
   # source://activesupport//lib/active_support/subscriber.rb#129
   def patterns; end
-
-  # source://activesupport//lib/active_support/subscriber.rb#141
-  def publish_event(event); end
 
   class << self
     # source://activesupport//lib/active_support/subscriber.rb#35
@@ -6127,17 +6544,20 @@ class ActiveSupport::SyntaxErrorProxy
   # source://activesupport//lib/active_support/syntax_error_proxy.rb#11
   def backtrace; end
 
-  # source://activesupport//lib/active_support/syntax_error_proxy.rb#34
+  # source://activesupport//lib/active_support/syntax_error_proxy.rb#37
   def backtrace_locations; end
 
   private
 
-  # source://activesupport//lib/active_support/syntax_error_proxy.rb#47
+  # source://activesupport//lib/active_support/syntax_error_proxy.rb#50
   def parse_message_for_trace; end
 end
 
 # source://activesupport//lib/active_support/syntax_error_proxy.rb#15
 class ActiveSupport::SyntaxErrorProxy::BacktraceLocation < ::Struct
+  # source://activesupport//lib/active_support/syntax_error_proxy.rb#22
+  def base_label; end
+
   # source://activesupport//lib/active_support/syntax_error_proxy.rb#19
   def label; end
 
@@ -6145,14 +6565,36 @@ class ActiveSupport::SyntaxErrorProxy::BacktraceLocation < ::Struct
   def spot(_); end
 end
 
-# source://activesupport//lib/active_support/syntax_error_proxy.rb#23
+# source://activesupport//lib/active_support/syntax_error_proxy.rb#26
 class ActiveSupport::SyntaxErrorProxy::BacktraceLocationProxy
-  # source://activesupport//lib/active_support/syntax_error_proxy.rb#24
+  # source://activesupport//lib/active_support/syntax_error_proxy.rb#27
   def initialize(loc, ex); end
 
-  # source://activesupport//lib/active_support/syntax_error_proxy.rb#29
+  # source://activesupport//lib/active_support/syntax_error_proxy.rb#32
   def spot(_); end
 end
+
+# source://activesupport//lib/active_support/event_reporter.rb#6
+class ActiveSupport::TagStack
+  class << self
+    # source://activesupport//lib/active_support/event_reporter.rb#11
+    def tags; end
+
+    # source://activesupport//lib/active_support/event_reporter.rb#15
+    def with_tags(*args, **kwargs); end
+
+    private
+
+    # source://activesupport//lib/active_support/event_reporter.rb#30
+    def resolve_tags(args, kwargs); end
+  end
+end
+
+# source://activesupport//lib/active_support/event_reporter.rb#7
+ActiveSupport::TagStack::EMPTY_TAGS = T.let(T.unsafe(nil), Hash)
+
+# source://activesupport//lib/active_support/event_reporter.rb#8
+ActiveSupport::TagStack::FIBER_KEY = T.let(T.unsafe(nil), Symbol)
 
 # source://activesupport//lib/active_support/tagged_logging.rb#29
 module ActiveSupport::TaggedLogging
@@ -6242,7 +6684,7 @@ class ActiveSupport::TaggedLogging::TagStack
   def tags; end
 end
 
-# source://activesupport//lib/active_support/test_case.rb#21
+# source://activesupport//lib/active_support/test_case.rb#23
 class ActiveSupport::TestCase < ::Minitest::Test
   include ::ActiveSupport::Testing::SetupAndTeardown
   include ::ActiveSupport::Testing::TestsWithoutAssertions
@@ -6250,6 +6692,8 @@ class ActiveSupport::TestCase < ::Minitest::Test
   include ::ActiveSupport::Callbacks
   include ::ActiveSupport::Testing::Assertions
   include ::ActiveSupport::Testing::ErrorReporterAssertions
+  include ::ActiveSupport::Testing::EventReporterAssertions
+  include ::ActiveSupport::Testing::NotificationAssertions
   include ::ActiveSupport::Testing::Deprecation
   include ::ActiveSupport::Testing::ConstantStubbing
   include ::ActiveSupport::Testing::TimeHelpers
@@ -6259,19 +6703,25 @@ class ActiveSupport::TestCase < ::Minitest::Test
   extend ::ActiveSupport::Testing::SetupAndTeardown::ClassMethods
   extend ::ActiveSupport::Testing::Declarative
 
-  # source://activesupport//lib/active_support/callbacks.rb#69
+  # source://activesupport//lib/active_support/callbacks.rb#70
   def __callbacks; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#912
-  def _run_setup_callbacks(&block); end
+  # source://activesupport//lib/active_support/callbacks.rb#910
+  def _run_setup_callbacks; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#912
-  def _run_teardown_callbacks(&block); end
+  # source://activesupport//lib/active_support/callbacks.rb#915
+  def _run_setup_callbacks!(&block); end
 
-  # source://activesupport//lib/active_support/callbacks.rb#924
+  # source://activesupport//lib/active_support/callbacks.rb#910
+  def _run_teardown_callbacks; end
+
+  # source://activesupport//lib/active_support/callbacks.rb#915
+  def _run_teardown_callbacks!(&block); end
+
+  # source://activesupport//lib/active_support/callbacks.rb#927
   def _setup_callbacks; end
 
-  # source://activesupport//lib/active_support/callbacks.rb#924
+  # source://activesupport//lib/active_support/callbacks.rb#927
   def _teardown_callbacks; end
 
   # source://minitest/5.25.5/lib/minitest/assertions.rb#731
@@ -6319,29 +6769,32 @@ class ActiveSupport::TestCase < ::Minitest::Test
   # source://activesupport//lib/active_support/testing/file_fixtures.rb#20
   def file_fixture_path?; end
 
-  # source://activesupport//lib/active_support/test_case.rb#300
+  # source://activesupport//lib/active_support/test_case.rb#355
   def inspect; end
 
   # source://minitest/5.25.5/lib/minitest.rb#376
   def method_name; end
 
+  # source://activesupport//lib/active_support/test_case.rb#193
+  def parallel_worker_id; end
+
   class << self
-    # source://activesupport//lib/active_support/callbacks.rb#69
+    # source://activesupport//lib/active_support/callbacks.rb#70
     def __callbacks; end
 
-    # source://activesupport//lib/active_support/callbacks.rb#69
+    # source://activesupport//lib/active_support/callbacks.rb#70
     def __callbacks=(value); end
 
-    # source://activesupport//lib/active_support/callbacks.rb#916
+    # source://activesupport//lib/active_support/callbacks.rb#919
     def _setup_callbacks; end
 
-    # source://activesupport//lib/active_support/callbacks.rb#920
+    # source://activesupport//lib/active_support/callbacks.rb#923
     def _setup_callbacks=(value); end
 
-    # source://activesupport//lib/active_support/callbacks.rb#916
+    # source://activesupport//lib/active_support/callbacks.rb#919
     def _teardown_callbacks; end
 
-    # source://activesupport//lib/active_support/callbacks.rb#920
+    # source://activesupport//lib/active_support/callbacks.rb#923
     def _teardown_callbacks=(value); end
 
     # source://activesupport//lib/active_support/testing/file_fixtures.rb#20
@@ -6353,19 +6806,28 @@ class ActiveSupport::TestCase < ::Minitest::Test
     # source://activesupport//lib/active_support/testing/file_fixtures.rb#20
     def file_fixture_path?; end
 
-    # source://activesupport//lib/active_support/test_case.rb#81
-    def parallelize(workers: T.unsafe(nil), with: T.unsafe(nil), threshold: T.unsafe(nil)); end
+    # source://activesupport//lib/active_support/test_case.rb#34
+    def parallel_worker_id; end
 
-    # source://activesupport//lib/active_support/test_case.rb#101
+    # source://activesupport//lib/active_support/test_case.rb#38
+    def parallel_worker_id=(value); end
+
+    # source://activesupport//lib/active_support/test_case.rb#107
+    def parallelize(workers: T.unsafe(nil), with: T.unsafe(nil), threshold: T.unsafe(nil), parallelize_databases: T.unsafe(nil)); end
+
+    # source://activesupport//lib/active_support/test_case.rb#132
+    def parallelize_before_fork(&block); end
+
+    # source://activesupport//lib/active_support/test_case.rb#149
     def parallelize_setup(&block); end
 
-    # source://activesupport//lib/active_support/test_case.rb#118
+    # source://activesupport//lib/active_support/test_case.rb#166
     def parallelize_teardown(&block); end
 
-    # source://activesupport//lib/active_support/test_case.rb#44
+    # source://activesupport//lib/active_support/test_case.rb#61
     def test_order; end
 
-    # source://activesupport//lib/active_support/test_case.rb#34
+    # source://activesupport//lib/active_support/test_case.rb#51
     def test_order=(new_order); end
 
     private
@@ -6384,7 +6846,7 @@ class ActiveSupport::TestCase < ::Minitest::Test
   end
 end
 
-# source://activesupport//lib/active_support/test_case.rb#22
+# source://activesupport//lib/active_support/test_case.rb#24
 ActiveSupport::TestCase::Assertion = Minitest::Assertion
 
 # source://activesupport//lib/active_support/testing/tagged_logging.rb#4
@@ -6392,16 +6854,16 @@ module ActiveSupport::Testing; end
 
 # source://activesupport//lib/active_support/testing/assertions.rb#7
 module ActiveSupport::Testing::Assertions
-  # source://activesupport//lib/active_support/testing/assertions.rb#195
+  # source://activesupport//lib/active_support/testing/assertions.rb#211
   def assert_changes(expression, message = T.unsafe(nil), from: T.unsafe(nil), to: T.unsafe(nil), &block); end
 
-  # source://activesupport//lib/active_support/testing/assertions.rb#101
+  # source://activesupport//lib/active_support/testing/assertions.rb#105
   def assert_difference(expression, *args, &block); end
 
-  # source://activesupport//lib/active_support/testing/assertions.rb#252
+  # source://activesupport//lib/active_support/testing/assertions.rb#280
   def assert_no_changes(expression, message = T.unsafe(nil), from: T.unsafe(nil), &block); end
 
-  # source://activesupport//lib/active_support/testing/assertions.rb#157
+  # source://activesupport//lib/active_support/testing/assertions.rb#161
   def assert_no_difference(expression, message = T.unsafe(nil), &block); end
 
   # source://activesupport//lib/active_support/testing/assertions.rb#21
@@ -6418,10 +6880,10 @@ module ActiveSupport::Testing::Assertions
 
   private
 
-  # source://activesupport//lib/active_support/testing/assertions.rb#286
+  # source://activesupport//lib/active_support/testing/assertions.rb#314
   def _assert_nothing_raised_or_warn(assertion, &block); end
 
-  # source://activesupport//lib/active_support/testing/assertions.rb#301
+  # source://activesupport//lib/active_support/testing/assertions.rb#329
   def _callable_to_source_string(callable); end
 end
 
@@ -6472,6 +6934,9 @@ module ActiveSupport::Testing::ErrorReporterAssertions
 
   # source://activesupport//lib/active_support/testing/error_reporter_assertions.rb#62
   def assert_no_error_reported(&block); end
+
+  # source://activesupport//lib/active_support/testing/error_reporter_assertions.rb#118
+  def capture_error_reports(error_class = T.unsafe(nil), &block); end
 end
 
 # source://activesupport//lib/active_support/testing/error_reporter_assertions.rb#6
@@ -6511,6 +6976,60 @@ class ActiveSupport::Testing::ErrorReporterAssertions::ErrorCollector::Report < 
     def members; end
     def new(*_arg0); end
   end
+end
+
+# source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#6
+module ActiveSupport::Testing::EventReporterAssertions
+  # source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#142
+  def assert_event_reported(name, payload: T.unsafe(nil), tags: T.unsafe(nil), &block); end
+
+  # source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#184
+  def assert_events_reported(expected_events, &block); end
+
+  # source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#101
+  def assert_no_event_reported(name = T.unsafe(nil), payload: T.unsafe(nil), tags: T.unsafe(nil), &block); end
+
+  # source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#222
+  def with_debug_event_reporting(&block); end
+end
+
+# source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#7
+module ActiveSupport::Testing::EventReporterAssertions::EventCollector
+  class << self
+    # source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#46
+    def emit(event); end
+
+    # source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#53
+    def record; end
+
+    private
+
+    # source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#81
+    def event_recorders; end
+
+    # source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#66
+    def subscribe; end
+  end
+end
+
+# source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#11
+class ActiveSupport::Testing::EventReporterAssertions::EventCollector::Event
+  # source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#14
+  def initialize(event_data); end
+
+  # source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#12
+  def event_data; end
+
+  # source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#18
+  def inspect; end
+
+  # source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#22
+  def matches?(name, payload, tags); end
+
+  private
+
+  # source://activesupport//lib/active_support/testing/event_reporter_assertions.rb#34
+  def matches_hash?(expected_hash, event_key); end
 end
 
 # source://activesupport//lib/active_support/testing/file_fixtures.rb#16
@@ -6569,40 +7088,67 @@ ActiveSupport::Testing::Isolation::Subprocess::ORIG_ARGV = T.let(T.unsafe(nil), 
 # source://activesupport//lib/active_support/testing/isolation.rb#8
 class ActiveSupport::Testing::Isolation::SubprocessCrashed < ::StandardError; end
 
+# source://activesupport//lib/active_support/testing/notification_assertions.rb#5
+module ActiveSupport::Testing::NotificationAssertions
+  # source://activesupport//lib/active_support/testing/notification_assertions.rb#66
+  def assert_no_notifications(pattern = T.unsafe(nil), &block); end
+
+  # source://activesupport//lib/active_support/testing/notification_assertions.rb#28
+  def assert_notification(pattern, payload = T.unsafe(nil), &block); end
+
+  # source://activesupport//lib/active_support/testing/notification_assertions.rb#51
+  def assert_notifications_count(pattern, count, &block); end
+
+  # source://activesupport//lib/active_support/testing/notification_assertions.rb#85
+  def capture_notifications(pattern = T.unsafe(nil), &block); end
+end
+
 # source://activesupport//lib/active_support/testing/parallelization/server.rb#8
 class ActiveSupport::Testing::Parallelization
-  # source://activesupport//lib/active_support/testing/parallelization.rb#28
+  # source://activesupport//lib/active_support/testing/parallelization.rb#36
   def initialize(worker_count); end
 
-  # source://activesupport//lib/active_support/testing/parallelization.rb#41
+  # source://activesupport//lib/active_support/testing/parallelization.rb#54
   def <<(work); end
 
-  # source://activesupport//lib/active_support/testing/parallelization.rb#18
+  # source://activesupport//lib/active_support/testing/parallelization.rb#26
   def after_fork_hooks; end
 
-  # source://activesupport//lib/active_support/testing/parallelization.rb#26
+  # source://activesupport//lib/active_support/testing/parallelization.rb#43
+  def before_fork; end
+
+  # source://activesupport//lib/active_support/testing/parallelization.rb#18
+  def before_fork_hooks; end
+
+  # source://activesupport//lib/active_support/testing/parallelization.rb#34
   def run_cleanup_hooks; end
 
-  # source://activesupport//lib/active_support/testing/parallelization.rb#49
+  # source://activesupport//lib/active_support/testing/parallelization.rb#62
   def shutdown; end
 
-  # source://activesupport//lib/active_support/testing/parallelization.rb#45
+  # source://activesupport//lib/active_support/testing/parallelization.rb#58
   def size; end
 
-  # source://activesupport//lib/active_support/testing/parallelization.rb#35
+  # source://activesupport//lib/active_support/testing/parallelization.rb#47
   def start; end
 
   class << self
-    # source://activesupport//lib/active_support/testing/parallelization.rb#14
+    # source://activesupport//lib/active_support/testing/parallelization.rb#22
     def after_fork_hook(&blk); end
 
-    # source://activesupport//lib/active_support/testing/parallelization.rb#18
+    # source://activesupport//lib/active_support/testing/parallelization.rb#26
     def after_fork_hooks; end
 
-    # source://activesupport//lib/active_support/testing/parallelization.rb#22
+    # source://activesupport//lib/active_support/testing/parallelization.rb#14
+    def before_fork_hook(&blk); end
+
+    # source://activesupport//lib/active_support/testing/parallelization.rb#18
+    def before_fork_hooks; end
+
+    # source://activesupport//lib/active_support/testing/parallelization.rb#30
     def run_cleanup_hook(&blk); end
 
-    # source://activesupport//lib/active_support/testing/parallelization.rb#26
+    # source://activesupport//lib/active_support/testing/parallelization.rb#34
     def run_cleanup_hooks; end
   end
 end
@@ -6628,29 +7174,32 @@ class ActiveSupport::Testing::Parallelization::Server
   # source://activesupport//lib/active_support/testing/parallelization/server.rb#14
   def initialize; end
 
-  # source://activesupport//lib/active_support/testing/parallelization/server.rb#31
+  # source://activesupport//lib/active_support/testing/parallelization/server.rb#32
   def <<(o); end
 
-  # source://activesupport//lib/active_support/testing/parallelization/server.rb#51
+  # source://activesupport//lib/active_support/testing/parallelization/server.rb#64
   def active_workers?; end
 
-  # source://activesupport//lib/active_support/testing/parallelization/server.rb#55
+  # source://activesupport//lib/active_support/testing/parallelization/server.rb#68
   def interrupt; end
 
-  # source://activesupport//lib/active_support/testing/parallelization/server.rb#36
+  # source://activesupport//lib/active_support/testing/parallelization/server.rb#37
   def pop; end
 
-  # source://activesupport//lib/active_support/testing/parallelization/server.rb#20
+  # source://activesupport//lib/active_support/testing/parallelization/server.rb#21
   def record(reporter, result); end
 
-  # source://activesupport//lib/active_support/testing/parallelization/server.rb#59
+  # source://activesupport//lib/active_support/testing/parallelization/server.rb#54
+  def remove_dead_workers(dead_pids); end
+
+  # source://activesupport//lib/active_support/testing/parallelization/server.rb#72
   def shutdown; end
 
-  # source://activesupport//lib/active_support/testing/parallelization/server.rb#43
-  def start_worker(worker_id); end
+  # source://activesupport//lib/active_support/testing/parallelization/server.rb#44
+  def start_worker(worker_id, worker_pid); end
 
-  # source://activesupport//lib/active_support/testing/parallelization/server.rb#47
-  def stop_worker(worker_id); end
+  # source://activesupport//lib/active_support/testing/parallelization/server.rb#49
+  def stop_worker(worker_id, worker_pid); end
 end
 
 # source://activesupport//lib/active_support/testing/parallelization/worker.rb#6
@@ -6664,7 +7213,7 @@ class ActiveSupport::Testing::Parallelization::Worker
   # source://activesupport//lib/active_support/testing/parallelization/worker.rb#42
   def perform_job(job); end
 
-  # source://activesupport//lib/active_support/testing/parallelization/worker.rb#86
+  # source://activesupport//lib/active_support/testing/parallelization/worker.rb#88
   def run_cleanup; end
 
   # source://activesupport//lib/active_support/testing/parallelization/worker.rb#56
@@ -6678,10 +7227,10 @@ class ActiveSupport::Testing::Parallelization::Worker
 
   private
 
-  # source://activesupport//lib/active_support/testing/parallelization/worker.rb#93
+  # source://activesupport//lib/active_support/testing/parallelization/worker.rb#95
   def add_setup_exception(result); end
 
-  # source://activesupport//lib/active_support/testing/parallelization/worker.rb#97
+  # source://activesupport//lib/active_support/testing/parallelization/worker.rb#99
   def set_process_title(status); end
 end
 
@@ -6827,8 +7376,8 @@ module ActiveSupport::Testing::TimeHelpers
   # source://activesupport//lib/active_support/testing/time_helpers.rb#69
   def after_teardown; end
 
-  # source://activesupport//lib/active_support/testing/time_helpers.rb#257
-  def freeze_time(with_usec: T.unsafe(nil), &block); end
+  # source://activesupport//lib/active_support/testing/time_helpers.rb#261
+  def freeze_time(date_or_time = T.unsafe(nil), with_usec: T.unsafe(nil), &block); end
 
   # source://activesupport//lib/active_support/testing/time_helpers.rb#97
   def travel(duration, with_usec: T.unsafe(nil), &block); end
@@ -6844,13 +7393,13 @@ module ActiveSupport::Testing::TimeHelpers
 
   private
 
-  # source://activesupport//lib/active_support/testing/time_helpers.rb#266
+  # source://activesupport//lib/active_support/testing/time_helpers.rb#270
   def in_block; end
 
-  # source://activesupport//lib/active_support/testing/time_helpers.rb#266
+  # source://activesupport//lib/active_support/testing/time_helpers.rb#270
   def in_block=(_arg0); end
 
-  # source://activesupport//lib/active_support/testing/time_helpers.rb#262
+  # source://activesupport//lib/active_support/testing/time_helpers.rb#266
   def simple_stubs; end
 end
 
@@ -6862,254 +7411,254 @@ class ActiveSupport::TimeWithZone
   # source://activesupport//lib/active_support/time_with_zone.rb#51
   def initialize(utc_time, time_zone, local_time = T.unsafe(nil), period = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#298
+  # source://activesupport//lib/active_support/time_with_zone.rb#310
   def +(other); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#341
+  # source://activesupport//lib/active_support/time_with_zone.rb#345
   def -(other); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#231
+  # source://activesupport//lib/active_support/time_with_zone.rb#243
   def <=>(other); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#504
+  # source://activesupport//lib/active_support/time_with_zone.rb#502
   def acts_like_time?; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#430
+  # source://activesupport//lib/active_support/time_with_zone.rb#434
   def advance(options); end
 
   def after?(_arg0); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#369
+  # source://activesupport//lib/active_support/time_with_zone.rb#373
   def ago(other); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#166
+  # source://activesupport//lib/active_support/time_with_zone.rb#178
   def as_json(options = T.unsafe(nil)); end
 
   def before?(_arg0); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#239
+  # source://activesupport//lib/active_support/time_with_zone.rb#251
   def between?(min, max); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#515
+  # source://activesupport//lib/active_support/time_with_zone.rb#513
   def blank?; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#390
+  # source://activesupport//lib/active_support/time_with_zone.rb#394
   def change(options); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#63
+  # source://activesupport//lib/active_support/time_with_zone.rb#69
   def comparable_time; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#442
+  # source://activesupport//lib/active_support/time_with_zone.rb#446
   def day; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#94
+  # source://activesupport//lib/active_support/time_with_zone.rb#100
   def dst?; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#178
+  # source://activesupport//lib/active_support/time_with_zone.rb#190
   def encode_with(coder); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#274
+  # source://activesupport//lib/active_support/time_with_zone.rb#286
   def eql?(other); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#125
+  # source://activesupport//lib/active_support/time_with_zone.rb#131
   def formatted_offset(colon = T.unsafe(nil), alternate_utc_string = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#523
+  # source://activesupport//lib/active_support/time_with_zone.rb#521
   def freeze; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#269
+  # source://activesupport//lib/active_support/time_with_zone.rb#281
   def future?; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#63
+  # source://activesupport//lib/active_support/time_with_zone.rb#69
   def getgm; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#83
+  # source://activesupport//lib/active_support/time_with_zone.rb#89
   def getlocal(utc_offset = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#63
+  # source://activesupport//lib/active_support/time_with_zone.rb#69
   def getutc; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#105
+  # source://activesupport//lib/active_support/time_with_zone.rb#111
   def gmt?; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#111
+  # source://activesupport//lib/active_support/time_with_zone.rb#117
   def gmt_offset; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#63
+  # source://activesupport//lib/active_support/time_with_zone.rb#69
   def gmtime; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#111
+  # source://activesupport//lib/active_support/time_with_zone.rb#117
   def gmtoff; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#278
+  # source://activesupport//lib/active_support/time_with_zone.rb#290
   def hash; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#442
+  # source://activesupport//lib/active_support/time_with_zone.rb#446
   def hour; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#186
+  # source://activesupport//lib/active_support/time_with_zone.rb#198
   def httpdate; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#298
+  # source://activesupport//lib/active_support/time_with_zone.rb#310
   def in(other); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#77
+  # source://activesupport//lib/active_support/time_with_zone.rb#83
   def in_time_zone(new_zone = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#174
+  # source://activesupport//lib/active_support/time_with_zone.rb#186
   def init_with(coder); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#140
+  # source://activesupport//lib/active_support/time_with_zone.rb#146
   def inspect; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#509
+  # source://activesupport//lib/active_support/time_with_zone.rb#507
   def is_a?(klass); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#94
+  # source://activesupport//lib/active_support/time_with_zone.rb#100
   def isdst; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#148
+  # source://activesupport//lib/active_support/time_with_zone.rb#154
   def iso8601(fraction_digits = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#509
+  # source://activesupport//lib/active_support/time_with_zone.rb#507
   def kind_of?(klass); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#83
+  # source://activesupport//lib/active_support/time_with_zone.rb#89
   def localtime(utc_offset = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#529
+  # source://activesupport//lib/active_support/time_with_zone.rb#527
   def marshal_dump; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#533
+  # source://activesupport//lib/active_support/time_with_zone.rb#531
   def marshal_load(variables); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#442
+  # source://activesupport//lib/active_support/time_with_zone.rb#446
   def mday; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#553
+  # source://activesupport//lib/active_support/time_with_zone.rb#551
   def method_missing(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#442
+  # source://activesupport//lib/active_support/time_with_zone.rb#446
   def min; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#442
+  # source://activesupport//lib/active_support/time_with_zone.rb#446
   def mon; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#442
+  # source://activesupport//lib/active_support/time_with_zone.rb#446
   def month; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#256
+  # source://activesupport//lib/active_support/time_with_zone.rb#268
   def next_day?; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#442
+  # source://activesupport//lib/active_support/time_with_zone.rb#446
   def nsec; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#244
+  # source://activesupport//lib/active_support/time_with_zone.rb#256
   def past?; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#72
+  # source://activesupport//lib/active_support/time_with_zone.rb#78
   def period; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#519
+  # source://activesupport//lib/active_support/time_with_zone.rb#517
   def present?; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#263
+  # source://activesupport//lib/active_support/time_with_zone.rb#275
   def prev_day?; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#539
+  # source://activesupport//lib/active_support/time_with_zone.rb#537
   def respond_to?(sym, include_priv = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#194
+  # source://activesupport//lib/active_support/time_with_zone.rb#206
   def rfc2822; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#148
+  # source://activesupport//lib/active_support/time_with_zone.rb#154
   def rfc3339(fraction_digits = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#194
+  # source://activesupport//lib/active_support/time_with_zone.rb#206
   def rfc822; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#442
+  # source://activesupport//lib/active_support/time_with_zone.rb#446
   def sec; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#298
+  # source://activesupport//lib/active_support/time_with_zone.rb#310
   def since(other); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#225
+  # source://activesupport//lib/active_support/time_with_zone.rb#237
   def strftime(format); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#58
+  # source://activesupport//lib/active_support/time_with_zone.rb#64
   def time; end
 
   # source://activesupport//lib/active_support/time_with_zone.rb#49
   def time_zone; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#453
+  # source://activesupport//lib/active_support/time_with_zone.rb#457
   def to_a; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#442
+  # source://activesupport//lib/active_support/time_with_zone.rb#446
   def to_date; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#486
+  # source://activesupport//lib/active_support/time_with_zone.rb#490
   def to_datetime; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#461
+  # source://activesupport//lib/active_support/time_with_zone.rb#465
   def to_f; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#212
+  # source://activesupport//lib/active_support/time_with_zone.rb#224
   def to_formatted_s(format = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#212
+  # source://activesupport//lib/active_support/time_with_zone.rb#224
   def to_fs(format = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#469
+  # source://activesupport//lib/active_support/time_with_zone.rb#473
   def to_i; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#478
+  # source://activesupport//lib/active_support/time_with_zone.rb#482
   def to_r; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#200
+  # source://activesupport//lib/active_support/time_with_zone.rb#212
   def to_s; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#493
+  # source://activesupport//lib/active_support/time_with_zone.rb#497
   def to_time; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#250
+  # source://activesupport//lib/active_support/time_with_zone.rb#262
   def today?; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#256
+  # source://activesupport//lib/active_support/time_with_zone.rb#268
   def tomorrow?; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#469
+  # source://activesupport//lib/active_support/time_with_zone.rb#473
   def tv_sec; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#442
+  # source://activesupport//lib/active_support/time_with_zone.rb#446
   def usec; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#63
+  # source://activesupport//lib/active_support/time_with_zone.rb#69
   def utc; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#105
+  # source://activesupport//lib/active_support/time_with_zone.rb#111
   def utc?; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#111
+  # source://activesupport//lib/active_support/time_with_zone.rb#117
   def utc_offset; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#442
+  # source://activesupport//lib/active_support/time_with_zone.rb#446
   def wday; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#148
+  # source://activesupport//lib/active_support/time_with_zone.rb#154
   def xmlschema(fraction_digits = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#442
+  # source://activesupport//lib/active_support/time_with_zone.rb#446
   def yday; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#442
+  # source://activesupport//lib/active_support/time_with_zone.rb#446
   def year; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#263
+  # source://activesupport//lib/active_support/time_with_zone.rb#275
   def yesterday?; end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#133
+  # source://activesupport//lib/active_support/time_with_zone.rb#139
   def zone; end
 
   private
@@ -7120,10 +7669,10 @@ class ActiveSupport::TimeWithZone
   # source://activesupport//lib/active_support/time_with_zone.rb#570
   def get_period_and_ensure_valid_local_time(period); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#562
+  # source://activesupport//lib/active_support/time_with_zone.rb#560
   def incorporate_utc_offset(time, offset); end
 
-  # source://activesupport//lib/active_support/time_with_zone.rb#547
+  # source://activesupport//lib/active_support/time_with_zone.rb#545
   def respond_to_missing?(sym, include_priv); end
 
   # source://activesupport//lib/active_support/time_with_zone.rb#583
@@ -7136,138 +7685,141 @@ end
 # source://activesupport//lib/active_support/time_with_zone.rb#45
 ActiveSupport::TimeWithZone::PRECISIONS = T.let(T.unsafe(nil), Hash)
 
-# source://activesupport//lib/active_support/time_with_zone.rb#560
+# source://activesupport//lib/active_support/time_with_zone.rb#558
 ActiveSupport::TimeWithZone::SECONDS_PER_DAY = T.let(T.unsafe(nil), Integer)
 
 # source://activesupport//lib/active_support/values/time_zone.rb#31
 class ActiveSupport::TimeZone
   include ::Comparable
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#309
+  # source://activesupport//lib/active_support/values/time_zone.rb#310
   def initialize(name, utc_offset = T.unsafe(nil), tzinfo = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#333
+  # source://activesupport//lib/active_support/values/time_zone.rb#340
   def <=>(zone); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#342
+  # source://activesupport//lib/active_support/values/time_zone.rb#349
   def =~(re); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#567
+  # source://activesupport//lib/active_support/values/time_zone.rb#574
   def abbr(time); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#379
+  # source://activesupport//lib/active_support/values/time_zone.rb#386
   def at(*args); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#571
+  # source://activesupport//lib/active_support/values/time_zone.rb#578
   def dst?(time); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#579
+  # source://activesupport//lib/active_support/values/time_zone.rb#586
   def encode_with(coder); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#327
+  # source://activesupport//lib/active_support/values/time_zone.rb#334
   def formatted_offset(colon = T.unsafe(nil), alternate_utc_string = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#575
+  # source://activesupport//lib/active_support/values/time_zone.rb#582
   def init_with(coder); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#396
+  # source://activesupport//lib/active_support/values/time_zone.rb#403
   def iso8601(str); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#363
+  # source://activesupport//lib/active_support/values/time_zone.rb#370
   def local(*args); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#551
+  # source://activesupport//lib/active_support/values/time_zone.rb#558
   def local_to_utc(time, dst = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#348
+  # source://activesupport//lib/active_support/values/time_zone.rb#355
   def match?(re); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#296
+  # source://activesupport//lib/active_support/values/time_zone.rb#297
   def name; end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#516
+  # source://activesupport//lib/active_support/values/time_zone.rb#523
   def now; end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#453
+  # source://activesupport//lib/active_support/values/time_zone.rb#460
   def parse(str, now = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#559
+  # source://activesupport//lib/active_support/values/time_zone.rb#566
   def period_for_local(time, dst = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#555
+  # source://activesupport//lib/active_support/values/time_zone.rb#562
   def period_for_utc(time); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#563
+  # source://activesupport//lib/active_support/values/time_zone.rb#570
   def periods_for_local(time); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#469
+  # source://activesupport//lib/active_support/values/time_zone.rb#476
   def rfc3339(str); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#507
+  # source://activesupport//lib/active_support/values/time_zone.rb#319
+  def standard_name; end
+
+  # source://activesupport//lib/active_support/values/time_zone.rb#514
   def strptime(str, format, now = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#354
+  # source://activesupport//lib/active_support/values/time_zone.rb#361
   def to_s; end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#521
+  # source://activesupport//lib/active_support/values/time_zone.rb#528
   def today; end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#526
+  # source://activesupport//lib/active_support/values/time_zone.rb#533
   def tomorrow; end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#297
+  # source://activesupport//lib/active_support/values/time_zone.rb#298
   def tzinfo; end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#317
+  # source://activesupport//lib/active_support/values/time_zone.rb#324
   def utc_offset; end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#542
+  # source://activesupport//lib/active_support/values/time_zone.rb#549
   def utc_to_local(time); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#531
+  # source://activesupport//lib/active_support/values/time_zone.rb#538
   def yesterday; end
 
   private
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#585
+  # source://activesupport//lib/active_support/values/time_zone.rb#592
   def parts_to_time(parts, now); end
 
-  # source://activesupport//lib/active_support/values/time_zone.rb#610
+  # source://activesupport//lib/active_support/values/time_zone.rb#617
   def time_now; end
 
   class << self
-    # source://activesupport//lib/active_support/values/time_zone.rb#232
+    # source://activesupport//lib/active_support/values/time_zone.rb#233
     def [](arg); end
 
-    # source://activesupport//lib/active_support/values/time_zone.rb#223
+    # source://activesupport//lib/active_support/values/time_zone.rb#224
     def all; end
 
-    # source://activesupport//lib/active_support/values/time_zone.rb#265
+    # source://activesupport//lib/active_support/values/time_zone.rb#266
     def clear; end
 
-    # source://activesupport//lib/active_support/values/time_zone.rb#260
+    # source://activesupport//lib/active_support/values/time_zone.rb#261
     def country_zones(country_code); end
 
     def create(*_arg0); end
 
-    # source://activesupport//lib/active_support/values/time_zone.rb#207
+    # source://activesupport//lib/active_support/values/time_zone.rb#208
     def find_tzinfo(name); end
 
-    # source://activesupport//lib/active_support/values/time_zone.rb#216
+    # source://activesupport//lib/active_support/values/time_zone.rb#217
     def new(name); end
 
-    # source://activesupport//lib/active_support/values/time_zone.rb#199
+    # source://activesupport//lib/active_support/values/time_zone.rb#200
     def seconds_to_utc_offset(seconds, colon = T.unsafe(nil)); end
 
-    # source://activesupport//lib/active_support/values/time_zone.rb#254
+    # source://activesupport//lib/active_support/values/time_zone.rb#255
     def us_zones; end
 
     private
 
-    # source://activesupport//lib/active_support/values/time_zone.rb#273
+    # source://activesupport//lib/active_support/values/time_zone.rb#274
     def load_country_zones(code); end
 
-    # source://activesupport//lib/active_support/values/time_zone.rb#287
+    # source://activesupport//lib/active_support/values/time_zone.rb#288
     def zones_map; end
   end
 end
@@ -7275,10 +7827,10 @@ end
 # source://activesupport//lib/active_support/values/time_zone.rb#33
 ActiveSupport::TimeZone::MAPPING = T.let(T.unsafe(nil), Hash)
 
-# source://activesupport//lib/active_support/values/time_zone.rb#188
+# source://activesupport//lib/active_support/values/time_zone.rb#189
 ActiveSupport::TimeZone::UTC_OFFSET_WITHOUT_COLON = T.let(T.unsafe(nil), String)
 
-# source://activesupport//lib/active_support/values/time_zone.rb#187
+# source://activesupport//lib/active_support/values/time_zone.rb#188
 ActiveSupport::TimeZone::UTC_OFFSET_WITH_COLON = T.let(T.unsafe(nil), String)
 
 # source://activesupport//lib/active_support/core_ext/object/json.rb#35
@@ -7371,51 +7923,51 @@ end
 module ActiveSupport::XmlMini
   extend ::ActiveSupport::XmlMini
 
-  # source://activesupport//lib/active_support/xml_mini.rb#101
+  # source://activesupport//lib/active_support/xml_mini.rb#102
   def backend; end
 
-  # source://activesupport//lib/active_support/xml_mini.rb#105
+  # source://activesupport//lib/active_support/xml_mini.rb#106
   def backend=(name); end
 
-  # source://activesupport//lib/active_support/xml_mini.rb#96
+  # source://activesupport//lib/active_support/xml_mini.rb#97
   def depth; end
 
-  # source://activesupport//lib/active_support/xml_mini.rb#96
+  # source://activesupport//lib/active_support/xml_mini.rb#97
   def depth=(_arg0); end
 
-  # source://activesupport//lib/active_support/xml_mini.rb#99
+  # source://activesupport//lib/active_support/xml_mini.rb#100
   def parse(*_arg0, **_arg1, &_arg2); end
 
-  # source://activesupport//lib/active_support/xml_mini.rb#152
+  # source://activesupport//lib/active_support/xml_mini.rb#153
   def rename_key(key, options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/xml_mini.rb#119
+  # source://activesupport//lib/active_support/xml_mini.rb#120
   def to_tag(key, value, options); end
 
-  # source://activesupport//lib/active_support/xml_mini.rb#111
+  # source://activesupport//lib/active_support/xml_mini.rb#112
   def with_backend(name); end
 
   private
 
-  # source://activesupport//lib/active_support/xml_mini.rb#163
+  # source://activesupport//lib/active_support/xml_mini.rb#164
   def _dasherize(key); end
 
-  # source://activesupport//lib/active_support/xml_mini.rb#169
+  # source://activesupport//lib/active_support/xml_mini.rb#170
   def _parse_binary(bin, entity); end
 
-  # source://activesupport//lib/active_support/xml_mini.rb#180
+  # source://activesupport//lib/active_support/xml_mini.rb#181
   def _parse_file(file, entity); end
 
-  # source://activesupport//lib/active_support/xml_mini.rb#188
+  # source://activesupport//lib/active_support/xml_mini.rb#189
   def _parse_hex_binary(bin); end
 
-  # source://activesupport//lib/active_support/xml_mini.rb#200
+  # source://activesupport//lib/active_support/xml_mini.rb#201
   def cast_backend_name_to_module(name); end
 
-  # source://activesupport//lib/active_support/xml_mini.rb#192
+  # source://activesupport//lib/active_support/xml_mini.rb#193
   def current_thread_backend; end
 
-  # source://activesupport//lib/active_support/xml_mini.rb#196
+  # source://activesupport//lib/active_support/xml_mini.rb#197
   def current_thread_backend=(name); end
 end
 
@@ -7440,7 +7992,7 @@ module ActiveSupport::XmlMini::FileLike
   def original_filename=(_arg0); end
 end
 
-# source://activesupport//lib/active_support/xml_mini.rb#67
+# source://activesupport//lib/active_support/xml_mini.rb#66
 ActiveSupport::XmlMini::PARSING = T.let(T.unsafe(nil), Hash)
 
 # source://activesupport//lib/active_support/xml_mini.rb#39
@@ -7480,14 +8032,14 @@ end
 # source://activesupport//lib/active_support/xml_mini/rexml.rb#11
 ActiveSupport::XmlMini_REXML::CONTENT_KEY = T.let(T.unsafe(nil), String)
 
-# source://activesupport//lib/active_support/core_ext/array/extract_options.rb#14
+# source://activesupport//lib/active_support/core_ext/array/extract.rb#3
 class Array
   include ::Enumerable
 
   # source://activesupport//lib/active_support/core_ext/object/json.rb#164
   def as_json(options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/enumerable.rb#263
+  # source://activesupport//lib/active_support/core_ext/enumerable.rb#275
   def compact_blank!; end
 
   # source://activesupport//lib/active_support/core_ext/object/deep_dup.rb#29
@@ -7553,10 +8105,10 @@ class Array
   # source://activesupport//lib/active_support/core_ext/array/conversions.rb#94
   def to_fs(format = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#42
+  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#48
   def to_param; end
 
-  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#50
+  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#56
   def to_query(key); end
 
   # source://activesupport//lib/active_support/core_ext/array/conversions.rb#60
@@ -7946,23 +8498,14 @@ DateAndTime::Calculations::WEEKEND_DAYS = T.let(T.unsafe(nil), Array)
 
 # source://activesupport//lib/active_support/core_ext/date_and_time/compatibility.rb#7
 module DateAndTime::Compatibility
-  # source://activesupport//lib/active_support/core_ext/date_and_time/compatibility.rb#39
-  def preserve_timezone; end
-
-  # source://activesupport//lib/active_support/core_ext/date_and_time/compatibility.rb#56
+  # source://activesupport//lib/active_support/core_ext/date_and_time/compatibility.rb#21
   def utc_to_local_returns_utc_offset_times; end
 
   class << self
-    # source://activesupport//lib/active_support/core_ext/date_and_time/compatibility.rb#24
-    def preserve_timezone; end
-
-    # source://activesupport//lib/active_support/core_ext/date_and_time/compatibility.rb#15
-    def preserve_timezone=(val); end
-
-    # source://activesupport//lib/active_support/core_ext/date_and_time/compatibility.rb#56
+    # source://activesupport//lib/active_support/core_ext/date_and_time/compatibility.rb#21
     def utc_to_local_returns_utc_offset_times; end
 
-    # source://activesupport//lib/active_support/core_ext/date_and_time/compatibility.rb#56
+    # source://activesupport//lib/active_support/core_ext/date_and_time/compatibility.rb#21
     def utc_to_local_returns_utc_offset_times=(val); end
   end
 end
@@ -8054,7 +8597,7 @@ class DateTime < ::Date
   # source://activesupport//lib/active_support/core_ext/date_time/calculations.rb#164
   def end_of_minute; end
 
-  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#51
+  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#53
   def formatted_offset(colon = T.unsafe(nil), alternate_utc_string = T.unsafe(nil)); end
 
   # source://activesupport//lib/active_support/core_ext/date_time/calculations.rb#184
@@ -8072,7 +8615,7 @@ class DateTime < ::Date
   # source://activesupport//lib/active_support/core_ext/date_time/calculations.rb#116
   def in(seconds); end
 
-  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#56
+  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#58
   def inspect; end
 
   # source://activesupport//lib/active_support/core_ext/date_time/calculations.rb#170
@@ -8090,13 +8633,13 @@ class DateTime < ::Date
   # source://activesupport//lib/active_support/core_ext/date_time/calculations.rb#130
   def noon; end
 
-  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#94
+  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#96
   def nsec; end
 
   # source://activesupport//lib/active_support/core_ext/date_time/blank.rb#15
   def present?; end
 
-  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#56
+  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#58
   def readable_inspect; end
 
   # source://activesupport//lib/active_support/core_ext/date_time/calculations.rb#20
@@ -8111,22 +8654,22 @@ class DateTime < ::Date
   # source://activesupport//lib/active_support/core_ext/date_time/calculations.rb#36
   def subsec; end
 
-  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#79
+  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#81
   def to_f; end
 
-  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#35
+  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#37
   def to_formatted_s(format = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#35
+  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#37
   def to_fs(format = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#84
+  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#86
   def to_i; end
 
-  # source://activesupport//lib/active_support/core_ext/date_time/compatibility.rb#15
+  # source://activesupport//lib/active_support/core_ext/date_time/compatibility.rb#13
   def to_time; end
 
-  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#89
+  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#91
   def usec; end
 
   # source://activesupport//lib/active_support/core_ext/date_time/calculations.rb#184
@@ -8140,14 +8683,14 @@ class DateTime < ::Date
 
   private
 
-  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#99
+  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#101
   def offset_in_seconds; end
 
-  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#103
+  # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#105
   def seconds_since_unix_epoch; end
 
   class << self
-    # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#69
+    # source://activesupport//lib/active_support/core_ext/date_time/conversions.rb#71
     def civil_from_format(utc_or_local, year, month = T.unsafe(nil), day = T.unsafe(nil), hour = T.unsafe(nil), min = T.unsafe(nil), sec = T.unsafe(nil)); end
 
     # source://activesupport//lib/active_support/core_ext/date_time/calculations.rb#10
@@ -8326,9 +8869,9 @@ end
 # source://activesupport//lib/active_support/core_ext/enumerable.rb#21
 class Enumerable::SoleItemExpectedError < ::StandardError; end
 
-# source://activesupport//lib/active_support/core_ext/object/json.rb#256
+# source://activesupport//lib/active_support/core_ext/object/json.rb#263
 class Exception
-  # source://activesupport//lib/active_support/core_ext/object/json.rb#257
+  # source://activesupport//lib/active_support/core_ext/object/json.rb#264
   def as_json(options = T.unsafe(nil)); end
 end
 
@@ -8343,7 +8886,7 @@ class FalseClass
   # source://activesupport//lib/active_support/core_ext/object/blank.rb#75
   def present?; end
 
-  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#34
+  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#40
   def to_param; end
 end
 
@@ -8377,10 +8920,10 @@ class Hash
   # source://activesupport//lib/active_support/core_ext/hash/keys.rb#48
   def assert_valid_keys(*valid_keys); end
 
-  # source://activesupport//lib/active_support/core_ext/enumerable.rb#222
+  # source://activesupport//lib/active_support/core_ext/enumerable.rb#234
   def compact_blank; end
 
-  # source://activesupport//lib/active_support/core_ext/enumerable.rb#232
+  # source://activesupport//lib/active_support/core_ext/enumerable.rb#244
   def compact_blank!; end
 
   # source://activesupport//lib/active_support/core_ext/object/deep_dup.rb#43
@@ -8452,10 +8995,10 @@ class Hash
   # source://activesupport//lib/active_support/core_ext/hash/keys.rb#34
   def to_options!; end
 
-  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#75
+  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#81
   def to_param(namespace = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#75
+  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#81
   def to_query(namespace = T.unsafe(nil)); end
 
   # source://activesupport//lib/active_support/core_ext/hash/conversions.rb#74
@@ -8487,10 +9030,10 @@ class Hash
   end
 end
 
-# source://activesupport//lib/active_support/hash_with_indifferent_access.rb#441
+# source://activesupport//lib/active_support/hash_with_indifferent_access.rb#464
 HashWithIndifferentAccess = ActiveSupport::HashWithIndifferentAccess
 
-# source://activesupport//lib/active_support/i18n_railtie.rb#8
+# source://activesupport//lib/active_support/i18n_railtie.rb#9
 module I18n
   class << self
     # source://i18n/1.14.7/lib/i18n/backend/cache.rb#64
@@ -8537,7 +9080,7 @@ module I18n
   end
 end
 
-# source://activesupport//lib/active_support/i18n_railtie.rb#9
+# source://activesupport//lib/active_support/i18n_railtie.rb#10
 class I18n::Railtie < ::Rails::Railtie
   class << self
     # source://activesupport//lib/active_support/i18n_railtie.rb#103
@@ -8546,7 +9089,7 @@ class I18n::Railtie < ::Rails::Railtie
     # source://activesupport//lib/active_support/i18n_railtie.rb#107
     def init_fallbacks(fallbacks); end
 
-    # source://activesupport//lib/active_support/i18n_railtie.rb#35
+    # source://activesupport//lib/active_support/i18n_railtie.rb#36
     def initialize_i18n(app); end
 
     # source://activesupport//lib/active_support/i18n_railtie.rb#84
@@ -8682,9 +9225,9 @@ IO::READABLE = T.let(T.unsafe(nil), Integer)
 class IO::TimeoutError < ::IOError; end
 IO::WRITABLE = T.let(T.unsafe(nil), Integer)
 
-# source://activesupport//lib/active_support/core_ext/object/json.rb#243
+# source://activesupport//lib/active_support/core_ext/object/json.rb#244
 class IPAddr
-  # source://activesupport//lib/active_support/core_ext/object/json.rb#244
+  # source://activesupport//lib/active_support/core_ext/object/json.rb#245
   def as_json(options = T.unsafe(nil)); end
 end
 
@@ -8738,7 +9281,7 @@ module Kernel
   end
 end
 
-# source://activesupport//lib/active_support/core_ext/module/attribute_accessors.rb#8
+# source://activesupport//lib/active_support/core_ext/module/delegation.rb#3
 class Module
   include ::Module::Concerning
 
@@ -8895,14 +9438,17 @@ class NilClass
   # source://activesupport//lib/active_support/core_ext/object/blank.rb#60
   def present?; end
 
-  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#20
+  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#26
   def to_param; end
 
+  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#21
+  def to_query(key); end
+
   # source://activesupport//lib/active_support/core_ext/object/try.rb#148
-  def try(*_arg0); end
+  def try(*_arg0, &_arg1); end
 
   # source://activesupport//lib/active_support/core_ext/object/try.rb#155
-  def try!(*_arg0); end
+  def try!(*_arg0, &_arg1); end
 end
 
 # source://activesupport//lib/active_support/core_ext/object/blank.rb#170
@@ -9030,7 +9576,7 @@ Numeric::TERABYTE = T.let(T.unsafe(nil), Integer)
 # source://activesupport//lib/active_support/core_ext/numeric/bytes.rb#10
 Numeric::ZETTABYTE = T.let(T.unsafe(nil), Integer)
 
-# source://activesupport//lib/active_support/core_ext/object/blank.rb#5
+# source://activesupport//lib/active_support/core_ext/object/duplicable.rb#21
 class Object < ::BasicObject
   include ::ActiveSupport::Dependencies::RequireDependency
   include ::Kernel
@@ -9074,10 +9620,10 @@ class Object < ::BasicObject
   # source://activesupport//lib/active_support/core_ext/object/blank.rb#25
   def present?; end
 
-  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#7
+  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#8
   def to_param; end
 
-  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#13
+  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#14
   def to_query(key); end
 
   # source://activesupport//lib/active_support/core_ext/object/with.rb#26
@@ -9104,9 +9650,9 @@ module Process
   end
 end
 
-# source://activesupport//lib/active_support/core_ext/object/json.rb#250
+# source://activesupport//lib/active_support/core_ext/object/json.rb#257
 class Process::Status
-  # source://activesupport//lib/active_support/core_ext/object/json.rb#251
+  # source://activesupport//lib/active_support/core_ext/object/json.rb#258
   def as_json(options = T.unsafe(nil)); end
 end
 
@@ -9114,7 +9660,6 @@ end
 class Range
   include ::ActiveSupport::RangeWithFormat
   include ::ActiveSupport::CompareWithRange
-  include ::ActiveSupport::EachTimeWithZone
   include ::Enumerable
 
   # source://activesupport//lib/active_support/core_ext/range/compare_range.rb#16
@@ -9123,16 +9668,13 @@ class Range
   # source://activesupport//lib/active_support/core_ext/object/json.rb#158
   def as_json(options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/range/each.rb#7
-  def each(&block); end
-
   # source://activesupport//lib/active_support/core_ext/range/compare_range.rb#41
   def include?(value); end
 
-  # source://activesupport//lib/active_support/core_ext/range/each.rb#12
-  def step(n = T.unsafe(nil), &block); end
+  # source://activesupport//lib/active_support/core_ext/range/sole.rb#10
+  def sole; end
 
-  # source://activesupport//lib/active_support/core_ext/enumerable.rb#241
+  # source://activesupport//lib/active_support/core_ext/enumerable.rb#253
   def sum(initial_value = T.unsafe(nil)); end
 end
 
@@ -9202,7 +9744,7 @@ class String
   # source://activesupport//lib/active_support/core_ext/string/access.rb#46
   def from(position); end
 
-  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#225
+  # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#232
   def html_safe; end
 
   # source://activesupport//lib/active_support/core_ext/string/inflections.rb#262
@@ -9214,7 +9756,7 @@ class String
   # source://activesupport//lib/active_support/core_ext/string/inquiry.rb#13
   def inquiry; end
 
-  # source://activesupport//lib/active_support/core_ext/string/multibyte.rb#48
+  # source://activesupport//lib/active_support/core_ext/string/multibyte.rb#57
   def is_utf8?; end
 
   # source://activesupport//lib/active_support/core_ext/string/access.rb#92
@@ -9333,13 +9875,13 @@ class Time
   include ::DateAndTime::Calculations
   include ::DateAndTime::Compatibility
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#297
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#290
   def +(other); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#320
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#313
   def -(other); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#329
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#322
   def <=>(other); end
 
   # source://activesupport//lib/active_support/core_ext/time/acts_like.rb#7
@@ -9354,43 +9896,43 @@ class Time
   # source://activesupport//lib/active_support/core_ext/object/json.rb#201
   def as_json(options = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#238
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#231
   def at_beginning_of_day; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#267
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#260
   def at_beginning_of_hour; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#283
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#276
   def at_beginning_of_minute; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#256
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#249
   def at_end_of_day; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#273
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#266
   def at_end_of_hour; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#289
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#282
   def at_end_of_minute; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#246
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#239
   def at_midday; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#246
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#239
   def at_middle_of_day; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#238
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#231
   def at_midnight; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#246
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#239
   def at_noon; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#238
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#231
   def beginning_of_day; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#267
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#260
   def beginning_of_hour; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#283
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#276
   def beginning_of_minute; end
 
   # source://activesupport//lib/active_support/core_ext/object/blank.rb#192
@@ -9399,22 +9941,22 @@ class Time
   # source://activesupport//lib/active_support/core_ext/time/calculations.rb#123
   def change(options); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#329
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#322
   def compare_with_coercion(other); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#256
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#249
   def end_of_day; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#273
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#266
   def end_of_hour; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#289
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#282
   def end_of_minute; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#349
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#342
   def eql?(other); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#349
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#342
   def eql_with_coercion(other); end
 
   # source://activesupport//lib/active_support/core_ext/time/conversions.rb#69
@@ -9423,52 +9965,49 @@ class Time
   # source://activesupport//lib/active_support/core_ext/time/calculations.rb#225
   def in(seconds); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#246
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#239
   def midday; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#246
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#239
   def middle_of_day; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#238
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#231
   def midnight; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#320
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#313
   def minus_with_coercion(other); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#307
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#300
   def minus_with_duration(other); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#307
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#300
   def minus_without_coercion(other); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#363
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#356
   def next_day(days = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#373
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#366
   def next_month(months = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#383
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#376
   def next_year(years = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#246
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#239
   def noon; end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#297
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#290
   def plus_with_duration(other); end
 
   # source://activesupport//lib/active_support/core_ext/object/blank.rb#196
   def present?; end
 
-  # source://activesupport//lib/active_support/core_ext/time/compatibility.rb#17
-  def preserve_timezone; end
-
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#358
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#351
   def prev_day(days = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#368
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#361
   def prev_month(months = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#378
+  # source://activesupport//lib/active_support/core_ext/time/calculations.rb#371
   def prev_year(years = T.unsafe(nil)); end
 
   # source://activesupport//lib/active_support/core_ext/time/calculations.rb#107
@@ -9489,16 +10028,8 @@ class Time
   # source://activesupport//lib/active_support/core_ext/time/conversions.rb#55
   def to_fs(format = T.unsafe(nil)); end
 
-  # source://activesupport//lib/active_support/core_ext/time/compatibility.rb#13
+  # source://activesupport//lib/active_support/core_ext/time/compatibility.rb#12
   def to_time; end
-
-  private
-
-  # source://activesupport//lib/active_support/core_ext/time/compatibility.rb#32
-  def active_support_local_zone; end
-
-  # source://activesupport//lib/active_support/core_ext/time/compatibility.rb#22
-  def system_local_time?; end
 
   class << self
     # source://activesupport//lib/active_support/core_ext/time/calculations.rb#18
@@ -9562,7 +10093,7 @@ class TrueClass
   # source://activesupport//lib/active_support/core_ext/object/blank.rb#90
   def present?; end
 
-  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#27
+  # source://activesupport//lib/active_support/core_ext/object/to_query.rb#33
   def to_param; end
 end
 
