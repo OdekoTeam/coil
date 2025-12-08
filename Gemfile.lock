@@ -329,7 +329,7 @@ DEPENDENCIES
   database_cleaner-active_record
   debug (~> 1.0)
   parlour (~> 8.1)
-  pg (>= 0, < 2.0)
+  pg (~> 1.5)
   puma (~> 6.0)
   rails (~> 8.0)
   rspec-rails (~> 6.1)
