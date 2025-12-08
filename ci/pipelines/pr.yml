@@ -92,8 +92,6 @@ jobs:
         repo: pull-request
       image: trivy-image
       file: concourse/tasks/common/trivy-scan.yml
-      params:
-        TRIVY_EXIT_CODE: "0"
       attempts: 1
   on_failure:
     do:

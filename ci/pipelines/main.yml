@@ -85,8 +85,6 @@ jobs:
     - task: dependency-scan
       image: trivy-image
       file: concourse/tasks/common/trivy-scan.yml
-      params:
-        TRIVY_EXIT_CODE: "0"
   on_failure: &simple_failure
     do:
     - task: slack-message
