@@ -1,5 +1,6 @@
 ## main
 
+## [1.5.8](https://github.com/OdekoTeam/coil/compare/1.5.7...1.5.8) (2025-12-08)
 #### Changed
 - CI enforce vulnerability scans ([94974b5](https://github.com/OdekoTeam/coil/commit/94974b52f8c835d7f6811983eb511f3460a7abf1))
 

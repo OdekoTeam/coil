@@ -2,5 +2,5 @@
 # frozen_string_literal: true
 
 module Coil
-  VERSION = "1.5.7"
+  VERSION = "1.5.8"
 end
