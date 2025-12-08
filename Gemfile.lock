@@ -335,7 +335,7 @@ DEPENDENCIES
   rspec-rails (~> 6.1)
   rspec-sidekiq
   rubocop-sorbet
-  sidekiq (>= 5.2, < 8.0)
+  sidekiq (~> 7.2)
   sorbet (~> 0.5)
   standard (~> 1.36)
   tapioca
