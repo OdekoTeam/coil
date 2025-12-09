@@ -33,6 +33,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("rubocop-sorbet", "~> 0.9")
   spec.add_development_dependency("debug", "~> 1.0")
   spec.add_development_dependency("sorbet", "~> 0.5")
-  spec.add_development_dependency("tapioca", "~> 0.16")
+  spec.add_development_dependency("tapioca", "~> 0.17")
   spec.add_development_dependency("parlour", "~> 8.1")
 end
