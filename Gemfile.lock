@@ -329,16 +329,16 @@ DEPENDENCIES
   database_cleaner-active_record
   debug (~> 1.0)
   parlour (~> 8.1)
-  pg (>= 0, < 2.0)
+  pg (~> 1.5)
   puma (~> 6.0)
-  rails (~> 8.0, < 9.0)
+  rails (~> 8.0)
   rspec-rails (~> 6.1)
   rspec-sidekiq
-  rubocop-sorbet
-  sidekiq (>= 5.2, < 8.0)
+  rubocop-sorbet (~> 0.9)
+  sidekiq (~> 7.2)
   sorbet (~> 0.5)
   standard (~> 1.36)
-  tapioca
+  tapioca (~> 0.16)
 
 BUNDLED WITH
    2.5.22

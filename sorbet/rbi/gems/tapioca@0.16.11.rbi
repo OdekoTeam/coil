@@ -843,7 +843,7 @@ class Tapioca::Commands::Command
   sig { void }
   def initialize; end
 
-  # source://thor/1.3.2/lib/thor/base.rb#155
+  # source://thor/1.4.0/lib/thor/base.rb#155
   sig { returns(::Thor::Actions) }
   def file_writer; end
 

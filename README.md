@@ -288,7 +288,7 @@ $ bin/tapioca dsl --app-root=spec/dummy
 
 Regenerate type info for gems (e.g. after adding a gem):
 ```console
-$ bin/tapioca gem
+$ bin/tapioca gem --all
 ```
 
 Coil's type annotations are declared in `rbi/coil.rbi` to facilitate typechecking

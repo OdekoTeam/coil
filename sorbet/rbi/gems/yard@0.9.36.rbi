@@ -272,19 +272,22 @@ RUBY19 = T.let(T.unsafe(nil), TrueClass)
 
 # source://yard//lib/yard/server/rack_adapter.rb#93
 class Rack::Request
-  # source://rack/3.1.12/lib/rack/request.rb#62
+  # source://rack/3.2.4/lib/rack/request.rb#62
   def initialize(env); end
 
-  # source://rack/3.1.12/lib/rack/request.rb#76
+  # source://rack/3.2.4/lib/rack/request.rb#81
   def delete_param(k); end
 
-  # source://rack/3.1.12/lib/rack/request.rb#67
+  # source://rack/3.2.4/lib/rack/request.rb#68
+  def ip; end
+
+  # source://rack/3.2.4/lib/rack/request.rb#72
   def params; end
 
-  # source://rack/3.1.12/lib/rack/request.rb#67
+  # source://rack/3.2.4/lib/rack/request.rb#72
   def query; end
 
-  # source://rack/3.1.12/lib/rack/request.rb#71
+  # source://rack/3.2.4/lib/rack/request.rb#76
   def update_param(k, v); end
 
   # source://yard//lib/yard/server/rack_adapter.rb#94
@@ -297,22 +300,22 @@ class Rack::Request
   def xhr?; end
 
   class << self
-    # source://rack/3.1.12/lib/rack/request.rb#31
+    # source://rack/3.2.4/lib/rack/request.rb#31
     def forwarded_priority; end
 
-    # source://rack/3.1.12/lib/rack/request.rb#31
+    # source://rack/3.2.4/lib/rack/request.rb#31
     def forwarded_priority=(_arg0); end
 
-    # source://rack/3.1.12/lib/rack/request.rb#18
+    # source://rack/3.2.4/lib/rack/request.rb#18
     def ip_filter; end
 
-    # source://rack/3.1.12/lib/rack/request.rb#18
+    # source://rack/3.2.4/lib/rack/request.rb#18
     def ip_filter=(_arg0); end
 
-    # source://rack/3.1.12/lib/rack/request.rb#40
+    # source://rack/3.2.4/lib/rack/request.rb#40
     def x_forwarded_proto_priority; end
 
-    # source://rack/3.1.12/lib/rack/request.rb#40
+    # source://rack/3.2.4/lib/rack/request.rb#40
     def x_forwarded_proto_priority=(_arg0); end
   end
 end

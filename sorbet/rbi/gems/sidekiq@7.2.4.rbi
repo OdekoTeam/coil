@@ -632,13 +632,16 @@ end
 
 # source://sidekiq//lib/sidekiq/rails.rb#7
 class Sidekiq::Rails < ::Rails::Engine
+  # source://activesupport/8.1.1/lib/active_support/callbacks.rb#915
+  def _run_load_seed_callbacks(&block); end
+
   class << self
     private
 
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
+    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
     def __class_attr___callbacks; end
 
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
+    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
     def __class_attr___callbacks=(new_value); end
   end
 end
