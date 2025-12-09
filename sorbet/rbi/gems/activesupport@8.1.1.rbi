@@ -9096,6 +9096,12 @@ class Hash
   # source://activesupport//lib/active_support/core_ext/hash/keys.rb#72
   def deep_transform_keys!(&block); end
 
+  # source://activesupport//lib/active_support/core_ext/hash/deep_transform_values.rb#12
+  def deep_transform_values(&block); end
+
+  # source://activesupport//lib/active_support/core_ext/hash/deep_transform_values.rb#19
+  def deep_transform_values!(&block); end
+
   # source://activesupport//lib/active_support/core_ext/hash/except.rb#8
   def except!(*keys); end
 
@@ -9166,6 +9172,12 @@ class Hash
 
   # source://activesupport//lib/active_support/core_ext/hash/keys.rb#129
   def _deep_transform_keys_in_object!(object, &block); end
+
+  # source://activesupport//lib/active_support/core_ext/hash/deep_transform_values.rb#25
+  def _deep_transform_values_in_object(object, &block); end
+
+  # source://activesupport//lib/active_support/core_ext/hash/deep_transform_values.rb#36
+  def _deep_transform_values_in_object!(object, &block); end
 
   class << self
     # source://activesupport//lib/active_support/core_ext/hash/conversions.rb#133

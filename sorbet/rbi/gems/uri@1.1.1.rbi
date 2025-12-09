@@ -162,6 +162,8 @@ URI::File::COMPONENT = T.let(T.unsafe(nil), Array)
 # source://uri//lib/uri/file.rb#12
 URI::File::DEFAULT_PORT = T.let(T.unsafe(nil), T.untyped)
 
+class URI::GID < ::URI::Generic; end
+
 # source://uri//lib/uri/generic.rb#21
 class URI::Generic
   include ::URI
@@ -715,6 +717,9 @@ URI::Schemes::FILE = URI::File
 
 # source://uri//lib/uri/common.rb#123
 URI::Schemes::FTP = URI::FTP
+
+# source://uri//lib/uri/common.rb#123
+URI::Schemes::GID = URI::GID
 
 # source://uri//lib/uri/common.rb#123
 URI::Schemes::HTTP = URI::HTTP

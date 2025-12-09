@@ -3403,6 +3403,9 @@ module RSpec::Core::HashImitatable
   def minmax_by(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/metadata.rb#367
+  def nested_under_indifferent_access(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/metadata.rb#367
   def none?(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/metadata.rb#367
@@ -3566,6 +3569,9 @@ module RSpec::Core::HashImitatable
 
   # source://rspec-core//lib/rspec/core/metadata.rb#367
   def with_defaults!(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/metadata.rb#367
+  def with_indifferent_access(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/metadata.rb#367
   def without(*args, &block); end

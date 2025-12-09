@@ -433,6 +433,9 @@ module RuboCop::AST::CollectionNode
   def fetch(*args, **_arg1, &block); end
 
   # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
+  def fifth(*args, **_arg1, &block); end
+
+  # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
   def fill(*args, **_arg1, &block); end
 
   # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
@@ -464,6 +467,15 @@ module RuboCop::AST::CollectionNode
 
   # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
   def flatten!(*args, **_arg1, &block); end
+
+  # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
+  def forty_two(*args, **_arg1, &block); end
+
+  # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
+  def fourth(*args, **_arg1, &block); end
+
+  # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
+  def from(*args, **_arg1, &block); end
 
   # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
   def grep(*args, **_arg1, &block); end
@@ -634,6 +646,12 @@ module RuboCop::AST::CollectionNode
   def sample(*args, **_arg1, &block); end
 
   # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
+  def second(*args, **_arg1, &block); end
+
+  # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
+  def second_to_last(*args, **_arg1, &block); end
+
+  # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
   def select(*args, **_arg1, &block); end
 
   # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
@@ -695,6 +713,15 @@ module RuboCop::AST::CollectionNode
 
   # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
   def tally(*args, **_arg1, &block); end
+
+  # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
+  def third(*args, **_arg1, &block); end
+
+  # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
+  def third_to_last(*args, **_arg1, &block); end
+
+  # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
+  def to(*args, **_arg1, &block); end
 
   # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#13
   def to_ary(*args, **_arg1, &block); end

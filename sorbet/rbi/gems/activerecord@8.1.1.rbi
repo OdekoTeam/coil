@@ -10382,6 +10382,33 @@ class ActiveRecord::DeprecatedAssociationError < ::ActiveRecord::ActiveRecordErr
 # source://activerecord//lib/active_record/destroy_association_async_job.rb#4
 class ActiveRecord::DestroyAssociationAsyncError < ::StandardError; end
 
+# source://activerecord//lib/active_record/destroy_association_async_job.rb#10
+class ActiveRecord::DestroyAssociationAsyncJob < ::ActiveJob::Base
+  # source://activerecord//lib/active_record/destroy_association_async_job.rb#15
+  def perform(owner_model_name: T.unsafe(nil), owner_id: T.unsafe(nil), association_class: T.unsafe(nil), association_ids: T.unsafe(nil), association_primary_key_column: T.unsafe(nil), ensuring_owner_was_method: T.unsafe(nil)); end
+
+  private
+
+  # source://activerecord//lib/active_record/destroy_association_async_job.rb#34
+  def owner_destroyed?(owner, ensuring_owner_was_method); end
+
+  class << self
+    private
+
+    # source://activerecord//lib/active_record/destroy_association_async_job.rb#11
+    def __class_attr_queue_name; end
+
+    # source://activerecord//lib/active_record/destroy_association_async_job.rb#11
+    def __class_attr_queue_name=(new_value); end
+
+    # source://activerecord//lib/active_record/destroy_association_async_job.rb#13
+    def __class_attr_rescue_handlers; end
+
+    # source://activerecord//lib/active_record/destroy_association_async_job.rb#13
+    def __class_attr_rescue_handlers=(new_value); end
+  end
+end
+
 # source://activerecord//lib/active_record/disable_joins_association_relation.rb#4
 class ActiveRecord::DisableJoinsAssociationRelation < ::ActiveRecord::Relation
   # source://activerecord//lib/active_record/disable_joins_association_relation.rb#7
