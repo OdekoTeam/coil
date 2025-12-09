@@ -10,10 +10,22 @@ class Dummy::Inbox::WhoMessagesJob
     sig { params(key: T.untyped, processor_name: T.untyped).returns(String) }
     def perform_async(key, processor_name = T.unsafe(nil)); end
 
-    sig { params(interval: T.any(DateTime, Time), key: T.untyped, processor_name: T.untyped).returns(String) }
+    sig do
+      params(
+        interval: T.any(DateTime, Time, ActiveSupport::TimeWithZone),
+        key: T.untyped,
+        processor_name: T.untyped
+      ).returns(String)
+    end
     def perform_at(interval, key, processor_name = T.unsafe(nil)); end
 
-    sig { params(interval: Numeric, key: T.untyped, processor_name: T.untyped).returns(String) }
+    sig do
+      params(
+        interval: T.any(Numeric, ActiveSupport::Duration),
+        key: T.untyped,
+        processor_name: T.untyped
+      ).returns(String)
+    end
     def perform_in(interval, key, processor_name = T.unsafe(nil)); end
   end
 end
