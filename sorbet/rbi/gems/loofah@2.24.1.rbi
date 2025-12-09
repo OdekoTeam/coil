@@ -8,10 +8,10 @@
 # source://loofah//lib/loofah.rb#5
 module Loofah
   class << self
-    # source://loofah//lib/loofah.rb#76
+    # source://loofah//lib/loofah.rb#139
     def document(*args, &block); end
 
-    # source://loofah//lib/loofah.rb#83
+    # source://loofah//lib/loofah.rb#140
     def fragment(*args, &block); end
 
     # source://loofah//lib/loofah.rb#76
@@ -32,10 +32,10 @@ module Loofah
     # source://loofah//lib/loofah.rb#169
     def remove_extraneous_whitespace(string); end
 
-    # source://loofah//lib/loofah.rb#88
+    # source://loofah//lib/loofah.rb#141
     def scrub_document(string_or_io, method); end
 
-    # source://loofah//lib/loofah.rb#93
+    # source://loofah//lib/loofah.rb#142
     def scrub_fragment(string_or_io, method); end
 
     # source://loofah//lib/loofah.rb#88
@@ -231,60 +231,60 @@ Loofah::HTML5::SafeList::TAGS_SAFE_WITH_LIBXML2 = T.let(T.unsafe(nil), Set)
 # source://loofah//lib/loofah/html5/safelist.rb#1034
 Loofah::HTML5::SafeList::VOID_ELEMENTS = T.let(T.unsafe(nil), Set)
 
-# source://loofah//lib/loofah/html5/scrub.rb#8
+# source://loofah//lib/loofah/html5/scrub.rb#9
 module Loofah::HTML5::Scrub
   class << self
-    # source://loofah//lib/loofah/html5/scrub.rb#18
+    # source://loofah//lib/loofah/html5/scrub.rb#19
     def allowed_element?(element_name); end
 
-    # source://loofah//lib/loofah/html5/scrub.rb#192
+    # source://loofah//lib/loofah/html5/scrub.rb#193
     def cdata_escape(node); end
 
-    # source://loofah//lib/loofah/html5/scrub.rb#187
+    # source://loofah//lib/loofah/html5/scrub.rb#188
     def cdata_needs_escaping?(node); end
 
-    # source://loofah//lib/loofah/html5/scrub.rb#207
+    # source://loofah//lib/loofah/html5/scrub.rb#208
     def escape_tags(string); end
 
-    # source://loofah//lib/loofah/html5/scrub.rb#166
+    # source://loofah//lib/loofah/html5/scrub.rb#167
     def force_correct_attribute_escaping!(node); end
 
-    # source://loofah//lib/loofah/html5/scrub.rb#123
+    # source://loofah//lib/loofah/html5/scrub.rb#124
     def scrub_attribute_that_allows_local_ref(attr_node); end
 
-    # source://loofah//lib/loofah/html5/scrub.rb#23
+    # source://loofah//lib/loofah/html5/scrub.rb#24
     def scrub_attributes(node); end
 
-    # source://loofah//lib/loofah/html5/scrub.rb#72
+    # source://loofah//lib/loofah/html5/scrub.rb#73
     def scrub_css(style); end
 
-    # source://loofah//lib/loofah/html5/scrub.rb#67
+    # source://loofah//lib/loofah/html5/scrub.rb#68
     def scrub_css_attribute(node); end
 
-    # source://loofah//lib/loofah/html5/scrub.rb#142
+    # source://loofah//lib/loofah/html5/scrub.rb#143
     def scrub_uri_attribute(attr_node); end
   end
 end
 
-# source://loofah//lib/loofah/html5/scrub.rb#9
+# source://loofah//lib/loofah/html5/scrub.rb#10
 Loofah::HTML5::Scrub::CONTROL_CHARACTERS = T.let(T.unsafe(nil), Regexp)
 
-# source://loofah//lib/loofah/html5/scrub.rb#11
+# source://loofah//lib/loofah/html5/scrub.rb#12
 Loofah::HTML5::Scrub::CRASS_SEMICOLON = T.let(T.unsafe(nil), Hash)
 
-# source://loofah//lib/loofah/html5/scrub.rb#12
+# source://loofah//lib/loofah/html5/scrub.rb#13
 Loofah::HTML5::Scrub::CSS_IMPORTANT = T.let(T.unsafe(nil), String)
 
-# source://loofah//lib/loofah/html5/scrub.rb#10
+# source://loofah//lib/loofah/html5/scrub.rb#11
 Loofah::HTML5::Scrub::CSS_KEYWORDISH = T.let(T.unsafe(nil), Regexp)
 
-# source://loofah//lib/loofah/html5/scrub.rb#14
+# source://loofah//lib/loofah/html5/scrub.rb#15
 Loofah::HTML5::Scrub::CSS_PROPERTY_STRING_WITHOUT_EMBEDDED_QUOTES = T.let(T.unsafe(nil), Regexp)
 
-# source://loofah//lib/loofah/html5/scrub.rb#13
+# source://loofah//lib/loofah/html5/scrub.rb#14
 Loofah::HTML5::Scrub::CSS_WHITESPACE = T.let(T.unsafe(nil), String)
 
-# source://loofah//lib/loofah/html5/scrub.rb#15
+# source://loofah//lib/loofah/html5/scrub.rb#16
 Loofah::HTML5::Scrub::DATA_ATTRIBUTE_NAME = T.let(T.unsafe(nil), Regexp)
 
 # source://loofah//lib/loofah/html5/safelist.rb#1051
@@ -318,7 +318,7 @@ end
 module Loofah::HtmlFragmentBehavior
   mixes_in_class_methods ::Loofah::HtmlFragmentBehavior::ClassMethods
 
-  # source://loofah//lib/loofah/concerns.rb#197
+  # source://loofah//lib/loofah/concerns.rb#201
   def serialize; end
 
   # source://loofah//lib/loofah/concerns.rb#203
@@ -537,13 +537,13 @@ end
 
 # source://loofah//lib/loofah/concerns.rb#73
 module Loofah::TextBehavior
-  # source://loofah//lib/loofah/concerns.rb#94
+  # source://loofah//lib/loofah/concerns.rb#107
   def inner_text(options = T.unsafe(nil)); end
 
   # source://loofah//lib/loofah/concerns.rb#94
   def text(options = T.unsafe(nil)); end
 
-  # source://loofah//lib/loofah/concerns.rb#94
+  # source://loofah//lib/loofah/concerns.rb#108
   def to_str(options = T.unsafe(nil)); end
 
   # source://loofah//lib/loofah/concerns.rb#120

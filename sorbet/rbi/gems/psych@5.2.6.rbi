@@ -22,82 +22,85 @@ end
 # source://psych//lib/psych/versions.rb#3
 module Psych
   class << self
-    # source://psych//lib/psych.rb#700
+    # source://psych//lib/psych.rb#728
     def add_builtin_type(type_tag, &block); end
 
-    # source://psych//lib/psych.rb#694
+    # source://psych//lib/psych.rb#722
     def add_domain_type(domain, type_tag, &block); end
 
-    # source://psych//lib/psych.rb#710
+    # source://psych//lib/psych.rb#738
     def add_tag(tag, klass); end
 
-    # source://psych//lib/psych.rb#726
+    # source://psych//lib/psych.rb#754
     def config; end
 
-    # source://psych//lib/psych.rb#738
+    # source://psych//lib/psych.rb#766
     def domain_types; end
 
-    # source://psych//lib/psych.rb#750
+    # source://psych//lib/psych.rb#778
     def domain_types=(value); end
 
-    # source://psych//lib/psych.rb#515
+    # source://psych//lib/psych.rb#514
     def dump(o, io = T.unsafe(nil), options = T.unsafe(nil)); end
 
-    # source://psych//lib/psych.rb#613
+    # source://psych//lib/psych.rb#612
     def dump_stream(*objects); end
 
-    # source://psych//lib/psych.rb#734
+    # source://psych//lib/psych.rb#762
     def dump_tags; end
 
-    # source://psych//lib/psych.rb#746
+    # source://psych//lib/psych.rb#774
     def dump_tags=(value); end
 
-    # source://psych//lib/psych.rb#370
+    # source://psych//lib/psych.rb#369
     def load(yaml, permitted_classes: T.unsafe(nil), permitted_symbols: T.unsafe(nil), aliases: T.unsafe(nil), filename: T.unsafe(nil), fallback: T.unsafe(nil), symbolize_names: T.unsafe(nil), freeze: T.unsafe(nil), strict_integer: T.unsafe(nil)); end
 
-    # source://psych//lib/psych.rb#687
+    # source://psych//lib/psych.rb#715
     def load_file(filename, **kwargs); end
 
-    # source://psych//lib/psych.rb#644
+    # source://psych//lib/psych.rb#643
     def load_stream(yaml, filename: T.unsafe(nil), fallback: T.unsafe(nil), **kwargs); end
 
-    # source://psych//lib/psych.rb#730
+    # source://psych//lib/psych.rb#758
     def load_tags; end
 
-    # source://psych//lib/psych.rb#742
+    # source://psych//lib/psych.rb#770
     def load_tags=(value); end
 
-    # source://psych//lib/psych.rb#400
+    # source://psych//lib/psych.rb#399
     def parse(yaml, filename: T.unsafe(nil)); end
 
-    # source://psych//lib/psych.rb#412
+    # source://psych//lib/psych.rb#411
     def parse_file(filename, fallback: T.unsafe(nil)); end
 
-    # source://psych//lib/psych.rb#454
+    # source://psych//lib/psych.rb#453
     def parse_stream(yaml, filename: T.unsafe(nil), &block); end
 
-    # source://psych//lib/psych.rb#421
+    # source://psych//lib/psych.rb#420
     def parser; end
 
-    # source://psych//lib/psych.rb#706
+    # source://psych//lib/psych.rb#734
     def remove_type(type_tag); end
 
-    # source://psych//lib/psych.rb#596
+    # source://psych//lib/psych.rb#595
     def safe_dump(o, io = T.unsafe(nil), options = T.unsafe(nil)); end
 
-    # source://psych//lib/psych.rb#324
+    # source://psych//lib/psych.rb#323
     def safe_load(yaml, permitted_classes: T.unsafe(nil), permitted_symbols: T.unsafe(nil), aliases: T.unsafe(nil), filename: T.unsafe(nil), fallback: T.unsafe(nil), symbolize_names: T.unsafe(nil), freeze: T.unsafe(nil), strict_integer: T.unsafe(nil)); end
 
-    # source://psych//lib/psych.rb#676
+    # source://psych//lib/psych.rb#704
     def safe_load_file(filename, **kwargs); end
 
-    # source://psych//lib/psych.rb#623
+    # source://psych//lib/psych.rb#670
+    def safe_load_stream(yaml, filename: T.unsafe(nil), permitted_classes: T.unsafe(nil), aliases: T.unsafe(nil)); end
+
+    # source://psych//lib/psych.rb#622
     def to_json(object); end
 
-    # source://psych//lib/psych.rb#273
+    # source://psych//lib/psych.rb#272
     def unsafe_load(yaml, filename: T.unsafe(nil), fallback: T.unsafe(nil), symbolize_names: T.unsafe(nil), freeze: T.unsafe(nil), strict_integer: T.unsafe(nil)); end
 
-    # source://psych//lib/psych.rb#665
+    # source://psych//lib/psych.rb#693
     def unsafe_load_file(filename, **kwargs); end
   end
 end
@@ -116,7 +119,7 @@ end
 
 # source://psych//lib/psych/class_loader.rb#6
 class Psych::ClassLoader
-  # source://psych//lib/psych/class_loader.rb#21
+  # source://psych//lib/psych/class_loader.rb#22
   def initialize; end
 
   # source://psych//lib/psych/class_loader.rb#39
@@ -124,6 +127,9 @@ class Psych::ClassLoader
 
   # source://psych//lib/psych/class_loader.rb#39
   def complex; end
+
+  # source://psych//lib/psych/class_loader.rb#39
+  def data; end
 
   # source://psych//lib/psych/class_loader.rb#39
   def date; end
@@ -134,7 +140,7 @@ class Psych::ClassLoader
   # source://psych//lib/psych/class_loader.rb#39
   def exception; end
 
-  # source://psych//lib/psych/class_loader.rb#25
+  # source://psych//lib/psych/class_loader.rb#26
   def load(klassname); end
 
   # source://psych//lib/psych/class_loader.rb#39
@@ -161,29 +167,32 @@ class Psych::ClassLoader
   # source://psych//lib/psych/class_loader.rb#39
   def symbol; end
 
-  # source://psych//lib/psych/class_loader.rb#31
+  # source://psych//lib/psych/class_loader.rb#32
   def symbolize(sym); end
 
   private
 
-  # source://psych//lib/psych/class_loader.rb#47
+  # source://psych//lib/psych/class_loader.rb#48
   def find(klassname); end
 
-  # source://psych//lib/psych/class_loader.rb#51
+  # source://psych//lib/psych/class_loader.rb#52
   def resolve(klassname); end
 end
 
-# source://psych//lib/psych/class_loader.rb#76
+# source://psych//lib/psych/class_loader.rb#9
+Psych::ClassLoader::DATA = T.let(T.unsafe(nil), String)
+
+# source://psych//lib/psych/class_loader.rb#77
 class Psych::ClassLoader::Restricted < ::Psych::ClassLoader
-  # source://psych//lib/psych/class_loader.rb#77
+  # source://psych//lib/psych/class_loader.rb#78
   def initialize(classes, symbols); end
 
-  # source://psych//lib/psych/class_loader.rb#83
+  # source://psych//lib/psych/class_loader.rb#84
   def symbolize(sym); end
 
   private
 
-  # source://psych//lib/psych/class_loader.rb#95
+  # source://psych//lib/psych/class_loader.rb#96
   def find(klassname); end
 end
 
@@ -198,7 +207,7 @@ class Psych::Coder
   # source://psych//lib/psych/coder.rb#78
   def []=(k, v); end
 
-  # source://psych//lib/psych/coder.rb#78
+  # source://psych//lib/psych/coder.rb#82
   def add(k, v); end
 
   # source://psych//lib/psych/coder.rb#10
@@ -351,7 +360,7 @@ module Psych::JSON::RubyEvents
   # source://psych//lib/psych/json/ruby_events.rb#14
   def visit_String(o); end
 
-  # source://psych//lib/psych/json/ruby_events.rb#14
+  # source://psych//lib/psych/json/ruby_events.rb#17
   def visit_Symbol(o); end
 
   # source://psych//lib/psych/json/ruby_events.rb#5
@@ -483,13 +492,13 @@ class Psych::Nodes::Node
   # source://psych//lib/psych/nodes/node.rb#32
   def initialize; end
 
-  # source://psych//lib/psych/nodes/node.rb#67
+  # source://psych//lib/psych/nodes/node.rb#68
   def alias?; end
 
   # source://psych//lib/psych/nodes/node.rb#14
   def children; end
 
-  # source://psych//lib/psych/nodes/node.rb#68
+  # source://psych//lib/psych/nodes/node.rb#69
   def document?; end
 
   # source://psych//lib/psych/nodes/node.rb#39
@@ -507,13 +516,13 @@ class Psych::Nodes::Node
   # source://psych//lib/psych/nodes/node.rb#26
   def end_line=(_arg0); end
 
-  # source://psych//lib/psych/nodes/node.rb#69
+  # source://psych//lib/psych/nodes/node.rb#70
   def mapping?; end
 
-  # source://psych//lib/psych/nodes/node.rb#70
+  # source://psych//lib/psych/nodes/node.rb#71
   def scalar?; end
 
-  # source://psych//lib/psych/nodes/node.rb#71
+  # source://psych//lib/psych/nodes/node.rb#72
   def sequence?; end
 
   # source://psych//lib/psych/nodes/node.rb#23
@@ -528,7 +537,7 @@ class Psych::Nodes::Node
   # source://psych//lib/psych/nodes/node.rb#20
   def start_line=(_arg0); end
 
-  # source://psych//lib/psych/nodes/node.rb#72
+  # source://psych//lib/psych/nodes/node.rb#73
   def stream?; end
 
   # source://psych//lib/psych/nodes/node.rb#17
@@ -537,10 +546,10 @@ class Psych::Nodes::Node
   # source://psych//lib/psych/nodes/node.rb#48
   def to_ruby(symbolize_names: T.unsafe(nil), freeze: T.unsafe(nil), strict_integer: T.unsafe(nil)); end
 
-  # source://psych//lib/psych/nodes/node.rb#57
+  # source://psych//lib/psych/nodes/node.rb#66
   def to_yaml(io = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://psych//lib/psych/nodes/node.rb#48
+  # source://psych//lib/psych/nodes/node.rb#51
   def transform(symbolize_names: T.unsafe(nil), freeze: T.unsafe(nil), strict_integer: T.unsafe(nil)); end
 
   # source://psych//lib/psych/nodes/node.rb#57
@@ -749,10 +758,10 @@ class Psych::TreeBuilder < ::Psych::Handler
   # source://psych//lib/psych/tree_builder.rb#77
   def end_document(implicit_end = T.unsafe(nil)); end
 
-  # source://psych//lib/psych/tree_builder.rb#52
+  # source://psych//lib/psych/tree_builder.rb#44
   def end_mapping; end
 
-  # source://psych//lib/psych/tree_builder.rb#52
+  # source://psych//lib/psych/tree_builder.rb#44
   def end_sequence; end
 
   # source://psych//lib/psych/tree_builder.rb#90
@@ -770,10 +779,10 @@ class Psych::TreeBuilder < ::Psych::Handler
   # source://psych//lib/psych/tree_builder.rb#65
   def start_document(version, tag_directives, implicit); end
 
-  # source://psych//lib/psych/tree_builder.rb#45
+  # source://psych//lib/psych/tree_builder.rb#44
   def start_mapping(anchor, tag, implicit, style); end
 
-  # source://psych//lib/psych/tree_builder.rb#45
+  # source://psych//lib/psych/tree_builder.rb#44
   def start_sequence(anchor, tag, implicit, style); end
 
   # source://psych//lib/psych/tree_builder.rb#84
@@ -813,22 +822,22 @@ class Psych::Visitors::DepthFirst < ::Psych::Visitors::Visitor
   # source://psych//lib/psych/visitors/depth_first.rb#20
   def terminal(o); end
 
-  # source://psych//lib/psych/visitors/depth_first.rb#20
+  # source://psych//lib/psych/visitors/depth_first.rb#24
   def visit_Psych_Nodes_Alias(o); end
 
-  # source://psych//lib/psych/visitors/depth_first.rb#11
+  # source://psych//lib/psych/visitors/depth_first.rb#16
   def visit_Psych_Nodes_Document(o); end
 
-  # source://psych//lib/psych/visitors/depth_first.rb#11
+  # source://psych//lib/psych/visitors/depth_first.rb#18
   def visit_Psych_Nodes_Mapping(o); end
 
-  # source://psych//lib/psych/visitors/depth_first.rb#20
+  # source://psych//lib/psych/visitors/depth_first.rb#23
   def visit_Psych_Nodes_Scalar(o); end
 
-  # source://psych//lib/psych/visitors/depth_first.rb#11
+  # source://psych//lib/psych/visitors/depth_first.rb#17
   def visit_Psych_Nodes_Sequence(o); end
 
-  # source://psych//lib/psych/visitors/depth_first.rb#11
+  # source://psych//lib/psych/visitors/depth_first.rb#15
   def visit_Psych_Nodes_Stream(o); end
 end
 
@@ -869,25 +878,25 @@ class Psych::Visitors::JSONTree < ::Psych::Visitors::YAMLTree
   end
 end
 
-# source://psych//lib/psych/visitors/to_ruby.rb#429
+# source://psych//lib/psych/visitors/to_ruby.rb#469
 class Psych::Visitors::NoAliasRuby < ::Psych::Visitors::ToRuby
-  # source://psych//lib/psych/visitors/to_ruby.rb#430
+  # source://psych//lib/psych/visitors/to_ruby.rb#470
   def visit_Psych_Nodes_Alias(o); end
 end
 
-# source://psych//lib/psych/visitors/yaml_tree.rb#537
+# source://psych//lib/psych/visitors/yaml_tree.rb#580
 class Psych::Visitors::RestrictedYAMLTree < ::Psych::Visitors::YAMLTree
-  # source://psych//lib/psych/visitors/yaml_tree.rb#549
+  # source://psych//lib/psych/visitors/yaml_tree.rb#592
   def initialize(emitter, ss, options); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#562
+  # source://psych//lib/psych/visitors/yaml_tree.rb#605
   def accept(target); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#574
+  # source://psych//lib/psych/visitors/yaml_tree.rb#617
   def visit_Symbol(sym); end
 end
 
-# source://psych//lib/psych/visitors/yaml_tree.rb#538
+# source://psych//lib/psych/visitors/yaml_tree.rb#581
 Psych::Visitors::RestrictedYAMLTree::DEFAULT_PERMITTED_CLASSES = T.let(T.unsafe(nil), Hash)
 
 # source://psych//lib/psych/visitors/to_ruby.rb#14
@@ -901,10 +910,10 @@ class Psych::Visitors::ToRuby < ::Psych::Visitors::Visitor
   # source://psych//lib/psych/visitors/to_ruby.rb#21
   def class_loader; end
 
-  # source://psych//lib/psych/visitors/to_ruby.rb#326
+  # source://psych//lib/psych/visitors/to_ruby.rb#352
   def visit_Psych_Nodes_Alias(o); end
 
-  # source://psych//lib/psych/visitors/to_ruby.rb#318
+  # source://psych//lib/psych/visitors/to_ruby.rb#344
   def visit_Psych_Nodes_Document(o); end
 
   # source://psych//lib/psych/visitors/to_ruby.rb#164
@@ -916,36 +925,42 @@ class Psych::Visitors::ToRuby < ::Psych::Visitors::Visitor
   # source://psych//lib/psych/visitors/to_ruby.rb#132
   def visit_Psych_Nodes_Sequence(o); end
 
-  # source://psych//lib/psych/visitors/to_ruby.rb#322
+  # source://psych//lib/psych/visitors/to_ruby.rb#348
   def visit_Psych_Nodes_Stream(o); end
 
   private
 
-  # source://psych//lib/psych/visitors/to_ruby.rb#394
+  # source://psych//lib/psych/visitors/to_ruby.rb#369
+  def allocate_anon_data(node, members); end
+
+  # source://psych//lib/psych/visitors/to_ruby.rb#434
   def deduplicate(key); end
 
   # source://psych//lib/psych/visitors/to_ruby.rb#51
   def deserialize(o); end
 
-  # source://psych//lib/psych/visitors/to_ruby.rb#411
+  # source://psych//lib/psych/visitors/to_ruby.rb#451
   def init_with(o, h, node); end
 
-  # source://psych//lib/psych/visitors/to_ruby.rb#403
+  # source://psych//lib/psych/visitors/to_ruby.rb#443
   def merge_key(hash, key, val); end
 
-  # source://psych//lib/psych/visitors/to_ruby.rb#332
+  # source://psych//lib/psych/visitors/to_ruby.rb#358
   def register(node, object); end
 
-  # source://psych//lib/psych/visitors/to_ruby.rb#337
+  # source://psych//lib/psych/visitors/to_ruby.rb#363
   def register_empty(object); end
 
-  # source://psych//lib/psych/visitors/to_ruby.rb#424
+  # source://psych//lib/psych/visitors/to_ruby.rb#464
   def resolve_class(klassname); end
 
-  # source://psych//lib/psych/visitors/to_ruby.rb#406
+  # source://psych//lib/psych/visitors/to_ruby.rb#446
   def revive(klass, node); end
 
-  # source://psych//lib/psych/visitors/to_ruby.rb#343
+  # source://psych//lib/psych/visitors/to_ruby.rb#374
+  def revive_data_members(hash, o); end
+
+  # source://psych//lib/psych/visitors/to_ruby.rb#383
   def revive_hash(hash, o, tagged = T.unsafe(nil)); end
 
   class << self
@@ -978,7 +993,7 @@ class Psych::Visitors::YAMLTree < ::Psych::Visitors::Visitor
   # source://psych//lib/psych/visitors/yaml_tree.rb#51
   def initialize(emitter, ss, options); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#99
+  # source://psych//lib/psych/visitors/yaml_tree.rb#117
   def <<(object); end
 
   # source://psych//lib/psych/visitors/yaml_tree.rb#119
@@ -990,7 +1005,7 @@ class Psych::Visitors::YAMLTree < ::Psych::Visitors::Visitor
   # source://psych//lib/psych/visitors/yaml_tree.rb#40
   def finished; end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#40
+  # source://psych//lib/psych/visitors/yaml_tree.rb#41
   def finished?; end
 
   # source://psych//lib/psych/visitors/yaml_tree.rb#99
@@ -1002,64 +1017,67 @@ class Psych::Visitors::YAMLTree < ::Psych::Visitors::Visitor
   # source://psych//lib/psych/visitors/yaml_tree.rb#40
   def started; end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#40
+  # source://psych//lib/psych/visitors/yaml_tree.rb#42
   def started?; end
 
   # source://psych//lib/psych/visitors/yaml_tree.rb#94
   def tree; end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#347
+  # source://psych//lib/psych/visitors/yaml_tree.rb#386
   def visit_Array(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#373
+  # source://psych//lib/psych/visitors/yaml_tree.rb#412
   def visit_BasicObject(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#247
+  # source://psych//lib/psych/visitors/yaml_tree.rb#286
   def visit_BigDecimal(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#310
+  # source://psych//lib/psych/visitors/yaml_tree.rb#349
   def visit_Class(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#220
+  # source://psych//lib/psych/visitors/yaml_tree.rb#259
   def visit_Complex(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#191
+  # source://psych//lib/psych/visitors/yaml_tree.rb#165
+  def visit_Data(o); end
+
+  # source://psych//lib/psych/visitors/yaml_tree.rb#229
   def visit_Date(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#195
+  # source://psych//lib/psych/visitors/yaml_tree.rb#234
   def visit_DateTime(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#149
+  # source://psych//lib/psych/visitors/yaml_tree.rb#163
   def visit_Delegator(o); end
 
   # source://psych//lib/psych/visitors/yaml_tree.rb#144
   def visit_Encoding(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#355
+  # source://psych//lib/psych/visitors/yaml_tree.rb#394
   def visit_Enumerator(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#179
+  # source://psych//lib/psych/visitors/yaml_tree.rb#217
   def visit_Exception(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#230
+  # source://psych//lib/psych/visitors/yaml_tree.rb#273
   def visit_FalseClass(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#236
+  # source://psych//lib/psych/visitors/yaml_tree.rb#275
   def visit_Float(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#323
+  # source://psych//lib/psych/visitors/yaml_tree.rb#362
   def visit_Hash(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#230
+  # source://psych//lib/psych/visitors/yaml_tree.rb#269
   def visit_Integer(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#305
+  # source://psych//lib/psych/visitors/yaml_tree.rb#344
   def visit_Module(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#183
+  # source://psych//lib/psych/visitors/yaml_tree.rb#221
   def visit_NameError(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#361
+  # source://psych//lib/psych/visitors/yaml_tree.rb#400
   def visit_NilClass(o); end
 
   # source://psych//lib/psych/visitors/yaml_tree.rb#149
@@ -1068,63 +1086,66 @@ class Psych::Visitors::YAMLTree < ::Psych::Visitors::Visitor
   # source://psych//lib/psych/visitors/yaml_tree.rb#136
   def visit_Psych_Omap(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#336
+  # source://psych//lib/psych/visitors/yaml_tree.rb#375
   def visit_Psych_Set(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#315
+  # source://psych//lib/psych/visitors/yaml_tree.rb#354
   def visit_Range(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#207
+  # source://psych//lib/psych/visitors/yaml_tree.rb#246
   def visit_Rational(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#187
+  # source://psych//lib/psych/visitors/yaml_tree.rb#225
   def visit_Regexp(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#251
+  # source://psych//lib/psych/visitors/yaml_tree.rb#290
   def visit_String(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#165
+  # source://psych//lib/psych/visitors/yaml_tree.rb#203
   def visit_Struct(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#365
+  # source://psych//lib/psych/visitors/yaml_tree.rb#404
   def visit_Symbol(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#202
+  # source://psych//lib/psych/visitors/yaml_tree.rb#241
   def visit_Time(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#230
+  # source://psych//lib/psych/visitors/yaml_tree.rb#272
   def visit_TrueClass(o); end
 
   private
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#387
+  # source://psych//lib/psych/visitors/yaml_tree.rb#426
   def binary?(string); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#494
+  # source://psych//lib/psych/visitors/yaml_tree.rb#537
   def dump_coder(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#463
+  # source://psych//lib/psych/visitors/yaml_tree.rb#502
   def dump_exception(o, msg); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#529
+  # source://psych//lib/psych/visitors/yaml_tree.rb#572
   def dump_ivars(target); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#460
+  # source://psych//lib/psych/visitors/yaml_tree.rb#499
   def dump_list(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#507
+  # source://psych//lib/psych/visitors/yaml_tree.rb#550
   def emit_coder(c, o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#481
+  # source://psych//lib/psych/visitors/yaml_tree.rb#528
+  def format_date(date); end
+
+  # source://psych//lib/psych/visitors/yaml_tree.rb#520
   def format_time(time, utc = T.unsafe(nil)); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#489
+  # source://psych//lib/psych/visitors/yaml_tree.rb#532
   def register(target, yaml_obj); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#391
+  # source://psych//lib/psych/visitors/yaml_tree.rb#430
   def visit_array_subclass(o); end
 
-  # source://psych//lib/psych/visitors/yaml_tree.rb#422
+  # source://psych//lib/psych/visitors/yaml_tree.rb#461
   def visit_hash_subclass(o); end
 
   class << self

@@ -8,74 +8,6 @@
 # source://rspec-support//lib/rspec/support.rb#3
 module RSpec
   extend ::RSpec::Support::Warnings
-
-  class << self
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#70
-    def clear_examples; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#85
-    def configuration; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#49
-    def configuration=(_arg0); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#97
-    def configure; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#194
-    def const_missing(name); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def context(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#122
-    def current_example; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#128
-    def current_example=(example); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#154
-    def current_scope; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#134
-    def current_scope=(scope); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def describe(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def example_group(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def fcontext(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def fdescribe(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#58
-    def reset; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/shared_example_group.rb#110
-    def shared_context(name, *args, &block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/shared_example_group.rb#110
-    def shared_examples(name, *args, &block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/shared_example_group.rb#110
-    def shared_examples_for(name, *args, &block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#160
-    def world; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#49
-    def world=(_arg0); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def xcontext(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def xdescribe(*args, &example_group_block); end
-  end
 end
 
 # source://rspec-support//lib/rspec/support/caller_filter.rb#10
@@ -130,12 +62,6 @@ module RSpec::Support
 
     # source://rspec-support//lib/rspec/support/matcher_definition.rb#16
     def register_matcher_definition(&block); end
-
-    # source://rspec-support//lib/rspec/support.rb#25
-    def require_rspec_core(f); end
-
-    # source://rspec-support//lib/rspec/support.rb#25
-    def require_rspec_matchers(f); end
 
     # source://rspec-support//lib/rspec/support.rb#25
     def require_rspec_support(f); end
@@ -334,7 +260,7 @@ class RSpec::Support::EncodedString
   # source://rspec-support//lib/rspec/support/encoded_string.rb#46
   def to_s; end
 
-  # source://rspec-support//lib/rspec/support/encoded_string.rb#46
+  # source://rspec-support//lib/rspec/support/encoded_string.rb#49
   def to_str; end
 
   private
@@ -661,27 +587,41 @@ end
 
 # source://rspec-support//lib/rspec/support/object_formatter.rb#127
 class RSpec::Support::ObjectFormatter::BaseInspector < ::Struct
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#127
   def formatter; end
+
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#127
   def formatter=(_); end
 
   # source://rspec-support//lib/rspec/support/object_formatter.rb#132
   def inspect; end
 
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#127
   def object; end
+
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#127
   def object=(_); end
 
   # source://rspec-support//lib/rspec/support/object_formatter.rb#136
   def pretty_print(pp); end
 
   class << self
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#127
     def [](*_arg0); end
 
     # source://rspec-support//lib/rspec/support/object_formatter.rb#128
     def can_inspect?(_object); end
 
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#127
     def inspect; end
+
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#127
     def keyword_init?; end
+
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#127
     def members; end
+
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#127
     def new(*_arg0); end
   end
 end
@@ -747,14 +687,26 @@ class RSpec::Support::ObjectFormatter::InspectableItem < ::Struct
   # source://rspec-support//lib/rspec/support/object_formatter.rb#122
   def pretty_print(pp); end
 
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#117
   def text; end
+
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#117
   def text=(_); end
 
   class << self
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#117
     def [](*_arg0); end
+
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#117
     def inspect; end
+
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#117
     def keyword_init?; end
+
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#117
     def members; end
+
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#117
     def new(*_arg0); end
   end
 end

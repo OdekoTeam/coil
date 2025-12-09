@@ -9,41 +9,41 @@
 module Base64
   private
 
-  # source://base64//lib/base64.rb#241
+  # source://base64//lib/base64.rb#247
   def decode64(str); end
 
-  # source://base64//lib/base64.rb#219
+  # source://base64//lib/base64.rb#222
   def encode64(bin); end
 
-  # source://base64//lib/base64.rb#297
+  # source://base64//lib/base64.rb#309
   def strict_decode64(str); end
 
-  # source://base64//lib/base64.rb#273
+  # source://base64//lib/base64.rb#282
   def strict_encode64(bin); end
 
-  # source://base64//lib/base64.rb#351
+  # source://base64//lib/base64.rb#369
   def urlsafe_decode64(str); end
 
-  # source://base64//lib/base64.rb#328
+  # source://base64//lib/base64.rb#343
   def urlsafe_encode64(bin, padding: T.unsafe(nil)); end
 
   class << self
-    # source://base64//lib/base64.rb#241
+    # source://base64//lib/base64.rb#247
     def decode64(str); end
 
-    # source://base64//lib/base64.rb#219
+    # source://base64//lib/base64.rb#222
     def encode64(bin); end
 
-    # source://base64//lib/base64.rb#297
+    # source://base64//lib/base64.rb#309
     def strict_decode64(str); end
 
-    # source://base64//lib/base64.rb#273
+    # source://base64//lib/base64.rb#282
     def strict_encode64(bin); end
 
-    # source://base64//lib/base64.rb#351
+    # source://base64//lib/base64.rb#369
     def urlsafe_decode64(str); end
 
-    # source://base64//lib/base64.rb#328
+    # source://base64//lib/base64.rb#343
     def urlsafe_encode64(bin, padding: T.unsafe(nil)); end
   end
 end

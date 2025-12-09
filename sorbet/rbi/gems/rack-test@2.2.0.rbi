@@ -6,12 +6,7 @@
 
 
 # source://rack-test//lib/rack/test/cookie_jar.rb#6
-module Rack
-  class << self
-    # source://rack/3.2.4/lib/rack/version.rb#14
-    def release; end
-  end
-end
+module Rack; end
 
 # source://rack-test//lib/rack/test.rb#381
 Rack::MockSession = Rack::Test::Session
@@ -70,7 +65,7 @@ class Rack::Test::Cookie
   # source://rack-test//lib/rack/test/cookie_jar.rb#111
   def to_h; end
 
-  # source://rack-test//lib/rack/test/cookie_jar.rb#111
+  # source://rack-test//lib/rack/test/cookie_jar.rb#120
   def to_hash; end
 
   # source://rack-test//lib/rack/test/cookie_jar.rb#91
@@ -145,70 +140,70 @@ module Rack::Test::Methods
   # source://rack-test//lib/rack/test/methods.rb#90
   def _rack_test_current_session=(_arg0); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def authorize(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def basic_authorize(*args, **_arg1, &block); end
 
   # source://rack-test//lib/rack/test/methods.rb#40
   def build_rack_test_session(_name); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def clear_cookies(*args, **_arg1, &block); end
 
   # source://rack-test//lib/rack/test/methods.rb#55
   def current_session; end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def custom_request(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def delete(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def env(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def follow_redirect!(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def get(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def head(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def header(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def last_request(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def last_response(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def options(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def patch(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def post(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def put(*args, **_arg1, &block); end
 
-  # source://rack-test//lib/rack/test/methods.rb#29
+  # source://rack-test//lib/rack/test/methods.rb#37
   def rack_mock_session(name = T.unsafe(nil)); end
 
   # source://rack-test//lib/rack/test/methods.rb#29
   def rack_test_session(name = T.unsafe(nil)); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def request(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack-test//lib/rack/test/methods.rb#68
   def set_cookie(*args, **_arg1, &block); end
 
   # source://rack-test//lib/rack/test/methods.rb#61
@@ -235,7 +230,7 @@ class Rack::Test::Session
   # source://rack-test//lib/rack/test.rb#118
   def after_request(&block); end
 
-  # source://rack-test//lib/rack/test.rb#198
+  # source://rack-test//lib/rack/test.rb#203
   def authorize(username, password); end
 
   # source://rack-test//lib/rack/test.rb#198
@@ -256,7 +251,7 @@ class Rack::Test::Session
   # source://rack-test//lib/rack/test.rb#70
   def default_host; end
 
-  # source://rack-test//lib/rack/test.rb#111
+  # source://rack-test//lib/rack/test.rb#110
   def delete(uri, params = T.unsafe(nil), env = T.unsafe(nil), &block); end
 
   # source://rack-test//lib/rack/test.rb#185
@@ -265,10 +260,10 @@ class Rack::Test::Session
   # source://rack-test//lib/rack/test.rb#209
   def follow_redirect!; end
 
-  # source://rack-test//lib/rack/test.rb#111
+  # source://rack-test//lib/rack/test.rb#110
   def get(uri, params = T.unsafe(nil), env = T.unsafe(nil), &block); end
 
-  # source://rack-test//lib/rack/test.rb#111
+  # source://rack-test//lib/rack/test.rb#110
   def head(uri, params = T.unsafe(nil), env = T.unsafe(nil), &block); end
 
   # source://rack-test//lib/rack/test.rb#173
@@ -280,16 +275,16 @@ class Rack::Test::Session
   # source://rack-test//lib/rack/test.rb#141
   def last_response; end
 
-  # source://rack-test//lib/rack/test.rb#111
+  # source://rack-test//lib/rack/test.rb#110
   def options(uri, params = T.unsafe(nil), env = T.unsafe(nil), &block); end
 
-  # source://rack-test//lib/rack/test.rb#111
+  # source://rack-test//lib/rack/test.rb#110
   def patch(uri, params = T.unsafe(nil), env = T.unsafe(nil), &block); end
 
-  # source://rack-test//lib/rack/test.rb#111
+  # source://rack-test//lib/rack/test.rb#110
   def post(uri, params = T.unsafe(nil), env = T.unsafe(nil), &block); end
 
-  # source://rack-test//lib/rack/test.rb#111
+  # source://rack-test//lib/rack/test.rb#110
   def put(uri, params = T.unsafe(nil), env = T.unsafe(nil), &block); end
 
   # source://rack-test//lib/rack/test.rb#150
@@ -344,7 +339,7 @@ class Rack::Test::UploadedFile
   # source://rack-test//lib/rack/test/uploaded_file.rb#22
   def content_type=(_arg0); end
 
-  # source://rack-test//lib/rack/test/uploaded_file.rb#46
+  # source://rack-test//lib/rack/test/uploaded_file.rb#49
   def local_path; end
 
   # source://rack-test//lib/rack/test/uploaded_file.rb#52

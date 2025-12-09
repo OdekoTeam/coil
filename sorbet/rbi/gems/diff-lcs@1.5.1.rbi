@@ -34,7 +34,7 @@ module Diff::LCS
   # source://diff-lcs//lib/diff/lcs.rb#87
   def traverse_sequences(other, callbacks = T.unsafe(nil), &block); end
 
-  # source://diff-lcs//lib/diff/lcs.rb#101
+  # source://diff-lcs//lib/diff/lcs.rb#104
   def unpatch(patchset); end
 
   # source://diff-lcs//lib/diff/lcs.rb#116
@@ -44,7 +44,7 @@ module Diff::LCS
   def unpatch_me(patchset); end
 
   class << self
-    # source://diff-lcs//lib/diff/lcs.rb#144
+    # source://diff-lcs//lib/diff/lcs.rb#157
     def LCS(seq1, seq2, &block); end
 
     # source://diff-lcs//lib/diff/lcs/callbacks.rb#52
@@ -148,7 +148,7 @@ class Diff::LCS::Change
   # source://diff-lcs//lib/diff/lcs/change.rb#38
   def to_a; end
 
-  # source://diff-lcs//lib/diff/lcs/change.rb#38
+  # source://diff-lcs//lib/diff/lcs/change.rb#42
   def to_ary; end
 
   # source://diff-lcs//lib/diff/lcs/change.rb#80
@@ -195,7 +195,7 @@ class Diff::LCS::ContextChange < ::Diff::LCS::Change
   # source://diff-lcs//lib/diff/lcs/change.rb#122
   def to_a; end
 
-  # source://diff-lcs//lib/diff/lcs/change.rb#122
+  # source://diff-lcs//lib/diff/lcs/change.rb#130
   def to_ary; end
 
   class << self
@@ -236,6 +236,7 @@ class Diff::LCS::DefaultCallbacks
 
     private
 
+    # source://diff-lcs//lib/diff/lcs/callbacks.rb#36
     def new(*_arg0); end
   end
 end
@@ -289,7 +290,7 @@ class Diff::LCS::Hunk
   # source://diff-lcs//lib/diff/lcs/hunk.rb#69
   def flag_context; end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#71
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#69
   def flag_context=(context); end
 
   # source://diff-lcs//lib/diff/lcs/hunk.rb#97
@@ -307,7 +308,7 @@ class Diff::LCS::Hunk
   # source://diff-lcs//lib/diff/lcs/hunk.rb#63
   def start_old; end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#97
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#104
   def unshift(hunk); end
 
   private

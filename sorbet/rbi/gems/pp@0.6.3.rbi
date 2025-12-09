@@ -8,55 +8,55 @@
 class Array
   include ::Enumerable
 
-  # source://pp//lib/pp.rb#402
-  def pretty_print(q); end
-
-  # source://pp//lib/pp.rb#410
-  def pretty_print_cycle(q); end
-end
-
-class Data
-  # source://pp//lib/pp.rb#456
-  def pretty_print(q); end
-
-  # source://pp//lib/pp.rb#484
-  def pretty_print_cycle(q); end
-end
-
-class File::Stat
-  include ::Comparable
-
-  # source://pp//lib/pp.rb#518
-  def pretty_print(q); end
-end
-
-class Hash
-  include ::Enumerable
-
-  # source://pp//lib/pp.rb#416
+  # source://pp//lib/pp.rb#412
   def pretty_print(q); end
 
   # source://pp//lib/pp.rb#420
   def pretty_print_cycle(q); end
 end
 
+class Data
+  # source://pp//lib/pp.rb#495
+  def pretty_print(q); end
+
+  # source://pp//lib/pp.rb#523
+  def pretty_print_cycle(q); end
+end
+
+class File::Stat
+  include ::Comparable
+
+  # source://pp//lib/pp.rb#557
+  def pretty_print(q); end
+end
+
+class Hash
+  include ::Enumerable
+
+  # source://pp//lib/pp.rb#426
+  def pretty_print(q); end
+
+  # source://pp//lib/pp.rb#430
+  def pretty_print_cycle(q); end
+end
+
 module Kernel
-  # source://pp//lib/pp.rb#685
+  # source://pp//lib/pp.rb#724
   def pretty_inspect; end
 
   private
 
-  # source://pp//lib/pp.rb#692
+  # source://pp//lib/pp.rb#731
   def pp(*objs); end
 
   class << self
-    # source://pp//lib/pp.rb#692
+    # source://pp//lib/pp.rb#731
     def pp(*objs); end
   end
 end
 
 class MatchData
-  # source://pp//lib/pp.rb#601
+  # source://pp//lib/pp.rb#640
   def pretty_print(q); end
 end
 
@@ -85,56 +85,64 @@ class PP < ::PrettyPrint
 end
 
 module PP::ObjectMixin
-  # source://pp//lib/pp.rb#353
+  # source://pp//lib/pp.rb#362
   def pretty_print(q); end
 
-  # source://pp//lib/pp.rb#370
+  # source://pp//lib/pp.rb#379
   def pretty_print_cycle(q); end
 
-  # source://pp//lib/pp.rb#392
+  # source://pp//lib/pp.rb#402
   def pretty_print_inspect; end
 
-  # source://pp//lib/pp.rb#381
+  # source://pp//lib/pp.rb#390
   def pretty_print_instance_variables; end
 end
 
 module PP::PPMethods
-  # source://pp//lib/pp.rb#169
+  # source://pp//lib/pp.rb#161
   def check_inspect_key(id); end
 
-  # source://pp//lib/pp.rb#232
+  # source://pp//lib/pp.rb#238
   def comma_breakable; end
 
   # source://pp//lib/pp.rb#147
   def guard_inspect_key; end
 
-  # source://pp//lib/pp.rb#222
+  # source://pp//lib/pp.rb#228
   def object_address_group(obj, &block); end
 
-  # source://pp//lib/pp.rb#216
+  # source://pp//lib/pp.rb#222
   def object_group(obj, &block); end
 
-  # source://pp//lib/pp.rb#182
+  # source://pp//lib/pp.rb#173
   def pop_inspect_key(id); end
 
-  # source://pp//lib/pp.rb#191
+  # source://pp//lib/pp.rb#200
   def pp(obj); end
 
-  # source://pp//lib/pp.rb#291
+  # source://pp//lib/pp.rb#302
   def pp_hash(obj); end
 
-  # source://pp//lib/pp.rb#322
+  # source://pp//lib/pp.rb#331
   def pp_hash_pair(k, v); end
 
-  # source://pp//lib/pp.rb#275
+  # source://pp//lib/pp.rb#286
   def pp_object(obj); end
 
-  # source://pp//lib/pp.rb#177
+  # source://pp//lib/pp.rb#168
   def push_inspect_key(id); end
 
-  # source://pp//lib/pp.rb#261
+  # source://pp//lib/pp.rb#267
   def seplist(list, sep = T.unsafe(nil), iter_method = T.unsafe(nil)); end
+
+  private
+
+  # source://pp//lib/pp.rb#177
+  def guard_inspect(object); end
 end
+
+# source://pp//lib/pp.rb#280
+PP::PPMethods::EMPTY_KWHASH = T.let(T.unsafe(nil), Hash)
 
 class PP::SingleLine < ::PrettyPrint::SingleLine
   include ::PP::PPMethods
@@ -146,31 +154,31 @@ PP::VERSION = T.let(T.unsafe(nil), String)
 class Range
   include ::Enumerable
 
-  # source://pp//lib/pp.rb#490
+  # source://pp//lib/pp.rb#529
   def pretty_print(q); end
 end
 
 class RubyVM::AbstractSyntaxTree::Node
-  # source://pp//lib/pp.rb#640
+  # source://pp//lib/pp.rb#679
   def pretty_print(q); end
 
-  # source://pp//lib/pp.rb#627
+  # source://pp//lib/pp.rb#666
   def pretty_print_children(q, names = T.unsafe(nil)); end
 end
 
 class String
   include ::Comparable
 
-  # source://pp//lib/pp.rb#502
+  # source://pp//lib/pp.rb#541
   def pretty_print(q); end
 end
 
 class Struct
   include ::Enumerable
 
-  # source://pp//lib/pp.rb#436
+  # source://pp//lib/pp.rb#468
   def pretty_print(q); end
 
-  # source://pp//lib/pp.rb#450
+  # source://pp//lib/pp.rb#482
   def pretty_print_cycle(q); end
 end

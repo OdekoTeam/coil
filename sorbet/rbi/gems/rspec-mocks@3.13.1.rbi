@@ -6,75 +6,7 @@
 
 
 # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#6
-module RSpec
-  class << self
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#70
-    def clear_examples; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#85
-    def configuration; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#49
-    def configuration=(_arg0); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#97
-    def configure; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#194
-    def const_missing(name); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def context(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#122
-    def current_example; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#128
-    def current_example=(example); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#154
-    def current_scope; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#134
-    def current_scope=(scope); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def describe(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def example_group(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def fcontext(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def fdescribe(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#58
-    def reset; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/shared_example_group.rb#110
-    def shared_context(name, *args, &block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/shared_example_group.rb#110
-    def shared_examples(name, *args, &block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/shared_example_group.rb#110
-    def shared_examples_for(name, *args, &block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#160
-    def world; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#49
-    def world=(_arg0); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def xcontext(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def xdescribe(*args, &example_group_block); end
-  end
-end
+module RSpec; end
 
 # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#7
 module RSpec::Mocks; end
@@ -107,10 +39,10 @@ RSpec::Mocks::ArgumentListMatcher::MATCH_ALL = T.let(T.unsafe(nil), RSpec::Mocks
 
 # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#16
 module RSpec::Mocks::ArgumentMatchers
-  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#121
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#125
   def a_kind_of(klass); end
 
-  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#111
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#115
   def an_instance_of(klass); end
 
   # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#26
@@ -137,7 +69,7 @@ module RSpec::Mocks::ArgumentMatchers
   # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#70
   def hash_including(*args); end
 
-  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#80
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#105
   def hash_not_including(*args); end
 
   # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#111
@@ -310,6 +242,7 @@ class RSpec::Mocks::ArgumentMatchers::SingletonMatcher
 
     private
 
+    # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#144
     def new(*_arg0); end
   end
 end

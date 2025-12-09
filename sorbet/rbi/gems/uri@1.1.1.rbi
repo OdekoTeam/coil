@@ -13,7 +13,7 @@ module Kernel
   def URI(uri); end
 
   class << self
-    # source://uri//lib/uri/common.rb#911
+    # source://uri//lib/uri/common.rb#921
     def URI(uri); end
   end
 end
@@ -169,16 +169,16 @@ class URI::Generic
   # source://uri//lib/uri/generic.rb#169
   def initialize(scheme, userinfo, host, port, registry, path, opaque, query, fragment, parser = T.unsafe(nil), arg_check = T.unsafe(nil)); end
 
-  # source://uri//lib/uri/generic.rb#1124
+  # source://uri//lib/uri/generic.rb#1164
   def +(oth); end
 
-  # source://uri//lib/uri/generic.rb#1274
+  # source://uri//lib/uri/generic.rb#1294
   def -(oth); end
 
   # source://uri//lib/uri/generic.rb#1399
   def ==(oth); end
 
-  # source://uri//lib/uri/generic.rb#987
+  # source://uri//lib/uri/generic.rb#994
   def absolute; end
 
   # source://uri//lib/uri/generic.rb#987
@@ -307,7 +307,7 @@ class URI::Generic
   # source://uri//lib/uri/generic.rb#1355
   def to_s; end
 
-  # source://uri//lib/uri/generic.rb#1355
+  # source://uri//lib/uri/generic.rb#1394
   def to_str; end
 
   # source://uri//lib/uri/generic.rb#568
@@ -545,7 +545,7 @@ class URI::MailTo < ::URI::Generic
   # source://uri//lib/uri/mailto.rb#268
   def to_mailtext; end
 
-  # source://uri//lib/uri/mailto.rb#268
+  # source://uri//lib/uri/mailto.rb#289
   def to_rfc822text; end
 
   # source://uri//lib/uri/mailto.rb#239
@@ -751,7 +751,7 @@ module URI::Util
   def make_components_hash(klass, array_hash); end
 
   class << self
-    # source://uri//lib/uri/common.rb#66
+    # source://uri//lib/uri/common.rb#94
     def make_components_hash(klass, array_hash); end
   end
 end

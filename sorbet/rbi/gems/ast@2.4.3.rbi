@@ -13,10 +13,10 @@ class AST::Node
   # source://ast//lib/ast/node.rb#72
   def initialize(type, children = T.unsafe(nil), properties = T.unsafe(nil)); end
 
-  # source://ast//lib/ast/node.rb#168
+  # source://ast//lib/ast/node.rb#172
   def +(array); end
 
-  # source://ast//lib/ast/node.rb#177
+  # source://ast//lib/ast/node.rb#181
   def <<(element); end
 
   # source://ast//lib/ast/node.rb#153
@@ -28,7 +28,7 @@ class AST::Node
   # source://ast//lib/ast/node.rb#56
   def children; end
 
-  # source://ast//lib/ast/node.rb#115
+  # source://ast//lib/ast/node.rb#118
   def clone; end
 
   # source://ast//lib/ast/node.rb#168
@@ -49,13 +49,13 @@ class AST::Node
   # source://ast//lib/ast/node.rb#211
   def inspect(indent = T.unsafe(nil)); end
 
-  # source://ast//lib/ast/node.rb#56
+  # source://ast//lib/ast/node.rb#57
   def to_a; end
 
   # source://ast//lib/ast/node.rb#229
   def to_ast; end
 
-  # source://ast//lib/ast/node.rb#187
+  # source://ast//lib/ast/node.rb#204
   def to_s(indent = T.unsafe(nil)); end
 
   # source://ast//lib/ast/node.rb#187
@@ -80,6 +80,7 @@ class AST::Node
 
   private
 
+  # source://ast//lib/ast/node.rb#107
   def original_dup; end
 end
 

@@ -10,44 +10,100 @@ module LintRoller; end
 
 # source://lint_roller//lib/lint_roller/about.rb#2
 class LintRoller::About < ::Struct
+  # source://lint_roller//lib/lint_roller/about.rb#2
   def description; end
+
+  # source://lint_roller//lib/lint_roller/about.rb#2
   def description=(_); end
+
+  # source://lint_roller//lib/lint_roller/about.rb#2
   def homepage; end
+
+  # source://lint_roller//lib/lint_roller/about.rb#2
   def homepage=(_); end
+
+  # source://lint_roller//lib/lint_roller/about.rb#2
   def name; end
+
+  # source://lint_roller//lib/lint_roller/about.rb#2
   def name=(_); end
+
+  # source://lint_roller//lib/lint_roller/about.rb#2
   def version; end
+
+  # source://lint_roller//lib/lint_roller/about.rb#2
   def version=(_); end
 
   class << self
+    # source://lint_roller//lib/lint_roller/about.rb#2
     def [](*_arg0); end
+
+    # source://lint_roller//lib/lint_roller/about.rb#2
     def inspect; end
+
+    # source://lint_roller//lib/lint_roller/about.rb#2
     def keyword_init?; end
+
+    # source://lint_roller//lib/lint_roller/about.rb#2
     def members; end
+
+    # source://lint_roller//lib/lint_roller/about.rb#2
     def new(*_arg0); end
   end
 end
 
 # source://lint_roller//lib/lint_roller/context.rb#2
 class LintRoller::Context < ::Struct
+  # source://lint_roller//lib/lint_roller/context.rb#2
   def engine; end
+
+  # source://lint_roller//lib/lint_roller/context.rb#2
   def engine=(_); end
+
+  # source://lint_roller//lib/lint_roller/context.rb#2
   def engine_version; end
+
+  # source://lint_roller//lib/lint_roller/context.rb#2
   def engine_version=(_); end
+
+  # source://lint_roller//lib/lint_roller/context.rb#2
   def rule_format; end
+
+  # source://lint_roller//lib/lint_roller/context.rb#2
   def rule_format=(_); end
+
+  # source://lint_roller//lib/lint_roller/context.rb#2
   def runner; end
+
+  # source://lint_roller//lib/lint_roller/context.rb#2
   def runner=(_); end
+
+  # source://lint_roller//lib/lint_roller/context.rb#2
   def runner_version; end
+
+  # source://lint_roller//lib/lint_roller/context.rb#2
   def runner_version=(_); end
+
+  # source://lint_roller//lib/lint_roller/context.rb#2
   def target_ruby_version; end
+
+  # source://lint_roller//lib/lint_roller/context.rb#2
   def target_ruby_version=(_); end
 
   class << self
+    # source://lint_roller//lib/lint_roller/context.rb#2
     def [](*_arg0); end
+
+    # source://lint_roller//lib/lint_roller/context.rb#2
     def inspect; end
+
+    # source://lint_roller//lib/lint_roller/context.rb#2
     def keyword_init?; end
+
+    # source://lint_roller//lib/lint_roller/context.rb#2
     def members; end
+
+    # source://lint_roller//lib/lint_roller/context.rb#2
     def new(*_arg0); end
   end
 end
@@ -72,20 +128,44 @@ end
 
 # source://lint_roller//lib/lint_roller/rules.rb#2
 class LintRoller::Rules < ::Struct
+  # source://lint_roller//lib/lint_roller/rules.rb#2
   def config_format; end
+
+  # source://lint_roller//lib/lint_roller/rules.rb#2
   def config_format=(_); end
+
+  # source://lint_roller//lib/lint_roller/rules.rb#2
   def error; end
+
+  # source://lint_roller//lib/lint_roller/rules.rb#2
   def error=(_); end
+
+  # source://lint_roller//lib/lint_roller/rules.rb#2
   def type; end
+
+  # source://lint_roller//lib/lint_roller/rules.rb#2
   def type=(_); end
+
+  # source://lint_roller//lib/lint_roller/rules.rb#2
   def value; end
+
+  # source://lint_roller//lib/lint_roller/rules.rb#2
   def value=(_); end
 
   class << self
+    # source://lint_roller//lib/lint_roller/rules.rb#2
     def [](*_arg0); end
+
+    # source://lint_roller//lib/lint_roller/rules.rb#2
     def inspect; end
+
+    # source://lint_roller//lib/lint_roller/rules.rb#2
     def keyword_init?; end
+
+    # source://lint_roller//lib/lint_roller/rules.rb#2
     def members; end
+
+    # source://lint_roller//lib/lint_roller/rules.rb#2
     def new(*_arg0); end
   end
 end

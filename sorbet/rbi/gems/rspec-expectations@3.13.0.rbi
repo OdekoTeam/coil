@@ -6,75 +6,7 @@
 
 
 # source://rspec-expectations//lib/rspec/matchers/english_phrasing.rb#1
-module RSpec
-  class << self
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#70
-    def clear_examples; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#85
-    def configuration; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#49
-    def configuration=(_arg0); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#97
-    def configure; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#194
-    def const_missing(name); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def context(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#122
-    def current_example; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#128
-    def current_example=(example); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#154
-    def current_scope; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#134
-    def current_scope=(scope); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def describe(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def example_group(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def fcontext(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def fdescribe(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#58
-    def reset; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/shared_example_group.rb#110
-    def shared_context(name, *args, &block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/shared_example_group.rb#110
-    def shared_examples(name, *args, &block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/shared_example_group.rb#110
-    def shared_examples_for(name, *args, &block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#160
-    def world; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#49
-    def world=(_arg0); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def xcontext(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def xdescribe(*args, &example_group_block); end
-  end
-end
+module RSpec; end
 
 # source://rspec-expectations//lib/rspec/expectations/expectation_target.rb#2
 module RSpec::Expectations
@@ -98,7 +30,7 @@ class RSpec::Expectations::BlockExpectationTarget < ::RSpec::Expectations::Expec
   # source://rspec-expectations//lib/rspec/expectations/expectation_target.rb#137
   def to(matcher, message = T.unsafe(nil), &block); end
 
-  # source://rspec-expectations//lib/rspec/expectations/expectation_target.rb#142
+  # source://rspec-expectations//lib/rspec/expectations/expectation_target.rb#146
   def to_not(matcher, message = T.unsafe(nil), &block); end
 
   private
@@ -158,7 +90,10 @@ class RSpec::Expectations::BlockSnippetExtractor::AmbiguousTargetError < ::RSpec
 
 # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#198
 class RSpec::Expectations::BlockSnippetExtractor::BlockLocator < ::Struct
+  # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#198
   def beginning_line_number; end
+
+  # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#198
   def beginning_line_number=(_); end
 
   # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#203
@@ -167,9 +102,16 @@ class RSpec::Expectations::BlockSnippetExtractor::BlockLocator < ::Struct
   # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#199
   def method_call_location; end
 
+  # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#198
   def method_name; end
+
+  # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#198
   def method_name=(_); end
+
+  # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#198
   def source; end
+
+  # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#198
   def source=(_); end
 
   private
@@ -193,10 +135,19 @@ class RSpec::Expectations::BlockSnippetExtractor::BlockLocator < ::Struct
   def method_ident_node?(node); end
 
   class << self
+    # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#198
     def [](*_arg0); end
+
+    # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#198
     def inspect; end
+
+    # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#198
     def keyword_init?; end
+
+    # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#198
     def members; end
+
+    # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#198
     def new(*_arg0); end
   end
 end
@@ -206,15 +157,25 @@ class RSpec::Expectations::BlockSnippetExtractor::BlockTokenExtractor < ::Struct
   # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#78
   def initialize(*_arg0); end
 
+  # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#75
   def beginning_line_number; end
+
+  # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#75
   def beginning_line_number=(_); end
 
   # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#76
   def body_tokens; end
 
+  # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#75
   def method_name; end
+
+  # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#75
   def method_name=(_); end
+
+  # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#75
   def source; end
+
+  # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#75
   def source=(_); end
 
   # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#76
@@ -277,10 +238,19 @@ class RSpec::Expectations::BlockSnippetExtractor::BlockTokenExtractor < ::Struct
   def pipe_token?(token); end
 
   class << self
+    # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#75
     def [](*_arg0); end
+
+    # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#75
     def inspect; end
+
+    # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#75
     def keyword_init?; end
+
+    # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#75
     def members; end
+
+    # source://rspec-expectations//lib/rspec/expectations/block_snippet_extractor.rb#75
     def new(*_arg0); end
   end
 end
@@ -406,7 +376,7 @@ module RSpec::Expectations::ExpectationTarget::InstanceMethods
   # source://rspec-expectations//lib/rspec/expectations/expectation_target.rb#63
   def to(matcher = T.unsafe(nil), message = T.unsafe(nil), &block); end
 
-  # source://rspec-expectations//lib/rspec/expectations/expectation_target.rb#76
+  # source://rspec-expectations//lib/rspec/expectations/expectation_target.rb#80
   def to_not(matcher = T.unsafe(nil), message = T.unsafe(nil), &block); end
 
   private
@@ -700,82 +670,82 @@ RSpec::Expectations::Version::STRING = T.let(T.unsafe(nil), String)
 module RSpec::Matchers
   extend ::RSpec::Matchers::DSL
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_block_changing(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_block_outputting(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_block_raising(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_block_throwing(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_block_yielding_control(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_block_yielding_successive_args(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_block_yielding_with_args(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_block_yielding_with_no_args(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_collection_containing_exactly(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_collection_ending_with(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_collection_including(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_collection_starting_with(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_falsey_value(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_falsy_value(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_hash_including(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_kind_of(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_nil_value(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_range_covering(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_string_ending_with(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_string_including(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_string_matching(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_string_starting_with(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_truthy_value(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_value(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_value_between(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_value_within(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#305
@@ -784,34 +754,34 @@ module RSpec::Matchers
   # source://rspec-expectations//lib/rspec/matchers.rb#662
   def all(expected); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def an_array_matching(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def an_instance_of(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def an_object_eq_to(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def an_object_eql_to(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def an_object_equal_to(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def an_object_existing(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def an_object_having_attributes(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def an_object_matching(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def an_object_responding_to(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def an_object_satisfying(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#349
@@ -823,7 +793,7 @@ module RSpec::Matchers
   # source://rspec-expectations//lib/rspec/matchers.rb#378
   def be_a_kind_of(expected); end
 
-  # source://rspec-expectations//lib/rspec/matchers.rb#355
+  # source://rspec-expectations//lib/rspec/matchers.rb#358
   def be_an(klass); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#366
@@ -835,13 +805,13 @@ module RSpec::Matchers
   # source://rspec-expectations//lib/rspec/matchers.rb#316
   def be_falsey; end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def be_falsy(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers.rb#366
+  # source://rspec-expectations//lib/rspec/matchers.rb#369
   def be_instance_of(expected); end
 
-  # source://rspec-expectations//lib/rspec/matchers.rb#378
+  # source://rspec-expectations//lib/rspec/matchers.rb#381
   def be_kind_of(expected); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#324
@@ -856,64 +826,64 @@ module RSpec::Matchers
   # source://rspec-expectations//lib/rspec/matchers.rb#492
   def change(receiver = T.unsafe(nil), message = T.unsafe(nil), &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def changing(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#510
   def contain_exactly(*items); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def containing_exactly(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#528
   def cover(*values); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def covering(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#543
   def end_with(*expected); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def ending_with(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#558
   def eq(expected); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def eq_to(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#572
   def eql(expected); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def eql_to(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#586
   def equal(expected); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def equal_to(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#596
   def exist(*args); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def existing(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/expectations/syntax.rb#72
+  # source://rspec-expectations//lib/rspec/expectations/configuration.rb#48
   def expect(value = T.unsafe(nil), &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#616
   def have_attributes(expected); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def having_attributes(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#639
   def include(*expected); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def including(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#697
@@ -922,10 +892,10 @@ module RSpec::Matchers
   # source://rspec-expectations//lib/rspec/matchers.rb#715
   def match_array(items); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def match_regex(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def matching(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#752
@@ -934,37 +904,37 @@ module RSpec::Matchers
   # source://rspec-expectations//lib/rspec/matchers.rb#773
   def raise_error(error = T.unsafe(nil), message = T.unsafe(nil), &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers.rb#773
+  # source://rspec-expectations//lib/rspec/matchers.rb#776
   def raise_exception(error = T.unsafe(nil), message = T.unsafe(nil), &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def raising(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#792
   def respond_to(*names); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def responding_to(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#813
   def satisfy(description = T.unsafe(nil), &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def satisfying(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#828
   def start_with(*expected); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def starting_with(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#850
   def throw_symbol(expected_symbol = T.unsafe(nil), expected_arg = T.unsafe(nil)); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def throwing(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def within(*args, **_arg1, &block); end
 
   # source://rspec-expectations//lib/rspec/matchers.rb#871
@@ -979,16 +949,16 @@ module RSpec::Matchers
   # source://rspec-expectations//lib/rspec/matchers.rb#889
   def yield_with_no_args; end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def yielding_control(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def yielding_successive_args(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def yielding_with_args(*args, **_arg1, &block); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#38
+  # source://rspec-expectations//lib/rspec/matchers.rb#251
   def yielding_with_no_args(*args, **_arg1, &block); end
 
   private
@@ -1175,6 +1145,7 @@ class RSpec::Matchers::BuiltIn::BaseMatcher
   # source://rspec-expectations//lib/rspec/matchers/built_in/base_matcher.rb#36
   def matches?(actual); end
 
+  # source://rspec-expectations//lib/rspec/matchers/built_in/base_matcher.rb#142
   def present_ivars; end
 
   # source://rspec-expectations//lib/rspec/matchers/built_in/base_matcher.rb#23
@@ -1224,7 +1195,7 @@ module RSpec::Matchers::BuiltIn::BaseMatcher::HashFormatting
   def improve_hash_formatting(inspect_string); end
 
   class << self
-    # source://rspec-expectations//lib/rspec/matchers/built_in/base_matcher.rb#156
+    # source://rspec-expectations//lib/rspec/matchers/built_in/base_matcher.rb#159
     def improve_hash_formatting(inspect_string); end
   end
 end
@@ -1240,10 +1211,10 @@ module RSpec::Matchers::BuiltIn::BaseMatcher::StringEncodingFormatting
   def string_encoding_differs?; end
 
   class << self
-    # source://rspec-expectations//lib/rspec/matchers/built_in/base_matcher.rb#188
+    # source://rspec-expectations//lib/rspec/matchers/built_in/base_matcher.rb#200
     def format_encoding(value); end
 
-    # source://rspec-expectations//lib/rspec/matchers/built_in/base_matcher.rb#171
+    # source://rspec-expectations//lib/rspec/matchers/built_in/base_matcher.rb#181
     def string_encoding_differs?; end
   end
 end
@@ -1926,13 +1897,28 @@ class RSpec::Matchers::BuiltIn::ContainExactly::PairingsMaximizer::Solution < ::
   # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#199
   def ideal?; end
 
+  # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#188
   def indeterminate_actual_indexes; end
+
+  # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#188
   def indeterminate_actual_indexes=(_); end
+
+  # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#188
   def indeterminate_expected_indexes; end
+
+  # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#188
   def indeterminate_expected_indexes=(_); end
+
+  # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#188
   def unmatched_actual_indexes; end
+
+  # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#188
   def unmatched_actual_indexes=(_); end
+
+  # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#188
   def unmatched_expected_indexes; end
+
+  # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#188
   def unmatched_expected_indexes=(_); end
 
   # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#206
@@ -1942,10 +1928,19 @@ class RSpec::Matchers::BuiltIn::ContainExactly::PairingsMaximizer::Solution < ::
   def worse_than?(other); end
 
   class << self
+    # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#188
     def [](*_arg0); end
+
+    # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#188
     def inspect; end
+
+    # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#188
     def keyword_init?; end
+
+    # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#188
     def members; end
+
+    # source://rspec-expectations//lib/rspec/matchers/built_in/contain_exactly.rb#188
     def new(*_arg0); end
   end
 end
@@ -2651,19 +2646,19 @@ class RSpec::Matchers::BuiltIn::RespondTo < ::RSpec::Matchers::BuiltIn::BaseMatc
   # source://rspec-expectations//lib/rspec/matchers/built_in/respond_to.rb#10
   def initialize(*names); end
 
-  # source://rspec-expectations//lib/rspec/matchers/built_in/respond_to.rb#48
+  # source://rspec-expectations//lib/rspec/matchers/built_in/respond_to.rb#52
   def and_any_keywords; end
 
-  # source://rspec-expectations//lib/rspec/matchers/built_in/respond_to.rb#36
+  # source://rspec-expectations//lib/rspec/matchers/built_in/respond_to.rb#40
   def and_keywords(*keywords); end
 
-  # source://rspec-expectations//lib/rspec/matchers/built_in/respond_to.rb#60
+  # source://rspec-expectations//lib/rspec/matchers/built_in/respond_to.rb#64
   def and_unlimited_arguments; end
 
   # source://rspec-expectations//lib/rspec/matchers/built_in/respond_to.rb#71
   def argument; end
 
-  # source://rspec-expectations//lib/rspec/matchers/built_in/respond_to.rb#71
+  # source://rspec-expectations//lib/rspec/matchers/built_in/respond_to.rb#74
   def arguments; end
 
   # source://rspec-expectations//lib/rspec/matchers/built_in/respond_to.rb#100
@@ -3070,7 +3065,7 @@ end
 
 # source://rspec-expectations//lib/rspec/matchers/composable.rb#10
 module RSpec::Matchers::Composable
-  # source://rspec-expectations//lib/rspec/matchers/composable.rb#22
+  # source://rspec-expectations//lib/rspec/matchers/composable.rb#25
   def &(matcher); end
 
   # source://rspec-expectations//lib/rspec/matchers/composable.rb#45
@@ -3082,7 +3077,7 @@ module RSpec::Matchers::Composable
   # source://rspec-expectations//lib/rspec/matchers/composable.rb#38
   def or(matcher); end
 
-  # source://rspec-expectations//lib/rspec/matchers/composable.rb#38
+  # source://rspec-expectations//lib/rspec/matchers/composable.rb#41
   def |(matcher); end
 
   private
@@ -3106,13 +3101,13 @@ module RSpec::Matchers::Composable
   def with_matchers_cloned(object); end
 
   class << self
-    # source://rspec-expectations//lib/rspec/matchers/composable.rb#142
+    # source://rspec-expectations//lib/rspec/matchers/composable.rb#154
     def should_enumerate?(item); end
 
-    # source://rspec-expectations//lib/rspec/matchers/composable.rb#98
+    # source://rspec-expectations//lib/rspec/matchers/composable.rb#154
     def surface_descriptions_in(item); end
 
-    # source://rspec-expectations//lib/rspec/matchers/composable.rb#147
+    # source://rspec-expectations//lib/rspec/matchers/composable.rb#154
     def unreadable_io?(object); end
   end
 end
@@ -3122,17 +3117,29 @@ class RSpec::Matchers::Composable::DescribableItem < ::Struct
   # source://rspec-expectations//lib/rspec/matchers/composable.rb#160
   def inspect; end
 
+  # source://rspec-expectations//lib/rspec/matchers/composable.rb#158
   def item; end
+
+  # source://rspec-expectations//lib/rspec/matchers/composable.rb#158
   def item=(_); end
 
   # source://rspec-expectations//lib/rspec/matchers/composable.rb#165
   def pretty_print(pp); end
 
   class << self
+    # source://rspec-expectations//lib/rspec/matchers/composable.rb#158
     def [](*_arg0); end
+
+    # source://rspec-expectations//lib/rspec/matchers/composable.rb#158
     def inspect; end
+
+    # source://rspec-expectations//lib/rspec/matchers/composable.rb#158
     def keyword_init?; end
+
+    # source://rspec-expectations//lib/rspec/matchers/composable.rb#158
     def members; end
+
+    # source://rspec-expectations//lib/rspec/matchers/composable.rb#158
     def new(*_arg0); end
   end
 end
@@ -3148,7 +3155,7 @@ module RSpec::Matchers::DSL
   # source://rspec-expectations//lib/rspec/matchers/dsl.rb#61
   def define_negated_matcher(negated_name, base_name, &description_override); end
 
-  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#73
+  # source://rspec-expectations//lib/rspec/matchers/dsl.rb#79
   def matcher(name, &declarations); end
 
   private

@@ -72,7 +72,7 @@ class Sidekiq::Client
   # source://sidekiq//lib/sidekiq/client.rb#45
   def initialize(*args, **kwargs); end
 
-  # source://sidekiq//lib/sidekiq/testing.rb#86
+  # source://sidekiq//lib/sidekiq/client.rb#248
   def atomic_push(conn, payloads); end
 
   # source://sidekiq//lib/sidekiq/client.rb#23
@@ -129,10 +129,10 @@ class Sidekiq::Config
   # source://sidekiq//lib/sidekiq/config.rb#47
   def initialize(options = T.unsafe(nil)); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://sidekiq//lib/sidekiq/config.rb#55
   def [](*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://sidekiq//lib/sidekiq/config.rb#55
   def []=(*args, **_arg1, &block); end
 
   # source://sidekiq//lib/sidekiq/config.rb#212
@@ -162,16 +162,16 @@ class Sidekiq::Config
   # source://sidekiq//lib/sidekiq/config.rb#223
   def error_handlers; end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://sidekiq//lib/sidekiq/config.rb#55
   def fetch(*args, **_arg1, &block); end
 
   # source://sidekiq//lib/sidekiq/config.rb#267
   def handle_exception(ex, ctx = T.unsafe(nil)); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://sidekiq//lib/sidekiq/config.rb#55
   def has_key?(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://sidekiq//lib/sidekiq/config.rb#55
   def key?(*args, **_arg1, &block); end
 
   # source://sidekiq//lib/sidekiq/config.rb#241
@@ -183,7 +183,7 @@ class Sidekiq::Config
   # source://sidekiq//lib/sidekiq/config.rb#186
   def lookup(name, default_class = T.unsafe(nil)); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://sidekiq//lib/sidekiq/config.rb#55
   def merge!(*args, **_arg1, &block); end
 
   # source://sidekiq//lib/sidekiq/config.rb#136
@@ -296,12 +296,6 @@ module Sidekiq::Job::ClassMethods
   # source://sidekiq//lib/sidekiq/job.rb#352
   def client_push(item); end
 
-  # source://rspec-sidekiq/5.0.0/lib/rspec/sidekiq/helpers/within_sidekiq_retries_exhausted_block.rb#18
-  def default_retries_exhausted_exception; end
-
-  # source://rspec-sidekiq/5.0.0/lib/rspec/sidekiq/helpers/within_sidekiq_retries_exhausted_block.rb#9
-  def default_retries_exhausted_message; end
-
   # source://sidekiq//lib/sidekiq/job.rb#265
   def delay(*args); end
 
@@ -323,7 +317,7 @@ module Sidekiq::Job::ClassMethods
   # source://sidekiq//lib/sidekiq/job.rb#285
   def perform_async(*args); end
 
-  # source://sidekiq//lib/sidekiq/job.rb#321
+  # source://sidekiq//lib/sidekiq/job.rb#333
   def perform_at(interval, *args); end
 
   # source://sidekiq//lib/sidekiq/job.rb#315
@@ -338,7 +332,7 @@ module Sidekiq::Job::ClassMethods
   # source://sidekiq//lib/sidekiq/testing.rb#278
   def perform_one; end
 
-  # source://sidekiq//lib/sidekiq/job.rb#290
+  # source://sidekiq//lib/sidekiq/job.rb#293
   def perform_sync(*args); end
 
   # source://sidekiq//lib/sidekiq/testing.rb#285
@@ -355,9 +349,6 @@ module Sidekiq::Job::ClassMethods
 
   # source://sidekiq//lib/sidekiq/job.rb#348
   def sidekiq_options(opts = T.unsafe(nil)); end
-
-  # source://rspec-sidekiq/5.0.0/lib/rspec/sidekiq/helpers/within_sidekiq_retries_exhausted_block.rb#4
-  def within_sidekiq_retries_exhausted_block(user_msg = T.unsafe(nil), exception = T.unsafe(nil), &block); end
 end
 
 # source://sidekiq//lib/sidekiq/job.rb#48
@@ -401,7 +392,7 @@ class Sidekiq::Job::Setter
   # source://sidekiq//lib/sidekiq/job.rb#194
   def perform_async(*args); end
 
-  # source://sidekiq//lib/sidekiq/job.rb#247
+  # source://sidekiq//lib/sidekiq/job.rb#250
   def perform_at(interval, *args); end
 
   # source://sidekiq//lib/sidekiq/job.rb#240
@@ -413,7 +404,7 @@ class Sidekiq::Job::Setter
   # source://sidekiq//lib/sidekiq/job.rb#204
   def perform_inline(*args); end
 
-  # source://sidekiq//lib/sidekiq/job.rb#204
+  # source://sidekiq//lib/sidekiq/job.rb#238
   def perform_sync(*args); end
 
   # source://sidekiq//lib/sidekiq/job.rb#186
@@ -559,7 +550,7 @@ class Sidekiq::Middleware::Chain
   # source://sidekiq//lib/sidekiq/middleware/chain.rb#149
   def exists?(klass); end
 
-  # source://sidekiq//lib/sidekiq/middleware/chain.rb#149
+  # source://sidekiq//lib/sidekiq/middleware/chain.rb#152
   def include?(klass); end
 
   # source://sidekiq//lib/sidekiq/middleware/chain.rb#141
@@ -622,7 +613,7 @@ module Sidekiq::Queues
     # source://sidekiq//lib/sidekiq/testing.rb#186
     def jobs_by_queue; end
 
-    # source://sidekiq//lib/sidekiq/testing.rb#190
+    # source://sidekiq//lib/sidekiq/testing.rb#193
     def jobs_by_worker; end
 
     # source://sidekiq//lib/sidekiq/testing.rb#181
@@ -631,20 +622,7 @@ module Sidekiq::Queues
 end
 
 # source://sidekiq//lib/sidekiq/rails.rb#7
-class Sidekiq::Rails < ::Rails::Engine
-  # source://activesupport/8.1.1/lib/active_support/callbacks.rb#915
-  def _run_load_seed_callbacks(&block); end
-
-  class << self
-    private
-
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
-    def __class_attr___callbacks; end
-
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
-    def __class_attr___callbacks=(new_value); end
-  end
-end
+class Sidekiq::Rails < ::Rails::Engine; end
 
 # source://sidekiq//lib/sidekiq/rails.rb#8
 class Sidekiq::Rails::Reloader
@@ -681,7 +659,7 @@ Sidekiq::RedisClientAdapter::BaseError = RedisClient::Error
 # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#10
 Sidekiq::RedisClientAdapter::CommandError = RedisClient::CommandError
 
-# source://sidekiq//lib/sidekiq/redis_client_adapter.rb#0
+# source://sidekiq//lib/sidekiq/redis_client_adapter.rb#55
 class Sidekiq::RedisClientAdapter::CompatClient < ::RedisClient::Decorator::Client
   include ::Sidekiq::RedisClientAdapter::CompatMethods
 
@@ -689,7 +667,7 @@ class Sidekiq::RedisClientAdapter::CompatClient < ::RedisClient::Decorator::Clie
   def config; end
 end
 
-# source://sidekiq//lib/sidekiq/redis_client_adapter.rb#0
+# source://sidekiq//lib/sidekiq/redis_client_adapter.rb#55
 class Sidekiq::RedisClientAdapter::CompatClient::Pipeline < ::RedisClient::Decorator::Pipeline
   include ::Sidekiq::RedisClientAdapter::CompatMethods
 end

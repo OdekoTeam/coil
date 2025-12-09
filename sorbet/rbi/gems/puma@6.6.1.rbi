@@ -901,7 +901,7 @@ class Puma::DSL
   # source://puma//lib/puma/dsl.rb#875
   def after_refork(key = T.unsafe(nil), &block); end
 
-  # source://puma//lib/puma/dsl.rb#804
+  # source://puma//lib/puma/dsl.rb#810
   def after_worker_boot(&block); end
 
   # source://puma//lib/puma/dsl.rb#804
@@ -1252,9 +1252,10 @@ class Puma::IOBuffer < ::StringIO
   # source://puma//lib/puma/io_buffer.rb#7
   def initialize; end
 
+  # source://puma//lib/puma/io_buffer.rb#39
   def append(*_arg0); end
 
-  # source://puma//lib/puma/io_buffer.rb#15
+  # source://puma//lib/puma/io_buffer.rb#35
   def clear; end
 
   # source://puma//lib/puma/io_buffer.rb#11
@@ -1756,7 +1757,7 @@ class Puma::MiniSSL::Socket
   # source://puma//lib/puma/minissl.rb#23
   def initialize(socket, engine); end
 
-  # source://puma//lib/puma/minissl.rb#120
+  # source://puma//lib/puma/minissl.rb#144
   def <<(data); end
 
   # source://puma//lib/puma/minissl.rb#167
@@ -1786,7 +1787,7 @@ class Puma::MiniSSL::Socket
   # source://puma//lib/puma/minissl.rb#48
   def ssl_version_state; end
 
-  # source://puma//lib/puma/minissl.rb#120
+  # source://puma//lib/puma/minissl.rb#143
   def syswrite(data); end
 
   # source://puma//lib/puma/minissl.rb#31
@@ -2468,16 +2469,16 @@ class Puma::Util::HeaderHash < ::Hash
   # source://puma//lib/puma/util.rb#85
   def each; end
 
-  # source://puma//lib/puma/util.rb#116
+  # source://puma//lib/puma/util.rb#120
   def has_key?(k); end
 
   # source://puma//lib/puma/util.rb#116
   def include?(k); end
 
-  # source://puma//lib/puma/util.rb#116
+  # source://puma//lib/puma/util.rb#122
   def key?(k); end
 
-  # source://puma//lib/puma/util.rb#116
+  # source://puma//lib/puma/util.rb#121
   def member?(k); end
 
   # source://puma//lib/puma/util.rb#129

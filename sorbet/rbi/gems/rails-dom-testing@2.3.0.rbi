@@ -6,78 +6,7 @@
 
 
 # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#3
-module Rails
-  class << self
-    # source://railties/8.1.1/lib/rails.rb#43
-    def app_class; end
-
-    # source://railties/8.1.1/lib/rails.rb#43
-    def app_class=(_arg0); end
-
-    # source://railties/8.1.1/lib/rails.rb#44
-    def application; end
-
-    # source://railties/8.1.1/lib/rails.rb#42
-    def application=(_arg0); end
-
-    # source://railties/8.1.1/lib/rails.rb#133
-    def autoloaders; end
-
-    # source://railties/8.1.1/lib/rails.rb#55
-    def backtrace_cleaner; end
-
-    # source://railties/8.1.1/lib/rails.rb#43
-    def cache; end
-
-    # source://railties/8.1.1/lib/rails.rb#43
-    def cache=(_arg0); end
-
-    # source://railties/8.1.1/lib/rails.rb#51
-    def configuration; end
-
-    # source://railties/8.1.1/lib/rails/deprecator.rb#4
-    def deprecator; end
-
-    # source://railties/8.1.1/lib/rails.rb#74
-    def env; end
-
-    # source://railties/8.1.1/lib/rails.rb#81
-    def env=(environment); end
-
-    # source://railties/8.1.1/lib/rails.rb#92
-    def error; end
-
-    # source://railties/8.1.1/lib/rails.rb#100
-    def event; end
-
-    # source://railties/8.1.1/lib/rails/gem_version.rb#5
-    def gem_version; end
-
-    # source://railties/8.1.1/lib/rails.rb#113
-    def groups(*groups); end
-
-    # source://railties/8.1.1/lib/rails.rb#48
-    def initialize!(*_arg0, **_arg1, &_arg2); end
-
-    # source://railties/8.1.1/lib/rails.rb#48
-    def initialized?(*_arg0, **_arg1, &_arg2); end
-
-    # source://railties/8.1.1/lib/rails.rb#43
-    def logger; end
-
-    # source://railties/8.1.1/lib/rails.rb#43
-    def logger=(_arg0); end
-
-    # source://railties/8.1.1/lib/rails.rb#129
-    def public_path; end
-
-    # source://railties/8.1.1/lib/rails.rb#64
-    def root; end
-
-    # source://railties/8.1.1/lib/rails/version.rb#7
-    def version; end
-  end
-end
+module Rails; end
 
 # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#4
 module Rails::Dom; end
@@ -127,29 +56,32 @@ module Rails::Dom::Testing::Assertions::DomAssertions
   # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#68
   def assert_dom_not_equal(expected, actual, message = T.unsafe(nil), strict: T.unsafe(nil), html_version: T.unsafe(nil)); end
 
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#73
+  def refute_dom_equal(expected, actual, message = T.unsafe(nil), strict: T.unsafe(nil), html_version: T.unsafe(nil)); end
+
   protected
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#75
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#76
   def compare_doms(expected, actual, strict); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#128
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#129
   def equal_attribute?(attr, other_attr); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#115
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#116
   def equal_attribute_nodes?(nodes, other_nodes); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#107
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#108
   def equal_child?(child, other_child, strict); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#95
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#96
   def equal_children?(child, other_child, strict); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#87
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#88
   def extract_children(node, strict); end
 
   private
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#133
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/dom_assertions.rb#134
   def fragment(text, html_version: T.unsafe(nil)); end
 end
 
@@ -158,42 +90,57 @@ module Rails::Dom::Testing::Assertions::SelectorAssertions
   # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#163
   def assert_dom(*args, &block); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#285
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#318
   def assert_dom_email(html_version: T.unsafe(nil), &block); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#232
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#265
   def assert_dom_encoded(element = T.unsafe(nil), html_version: T.unsafe(nil), &block); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#163
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#183
+  def assert_not_dom(*args, &block); end
+
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#190
+  def assert_not_select(*args, &block); end
+
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#169
   def assert_select(*args, &block); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#285
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#331
   def assert_select_email(html_version: T.unsafe(nil), &block); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#232
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#285
   def assert_select_encoded(element = T.unsafe(nil), html_version: T.unsafe(nil), &block); end
 
   # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#58
   def css_select(*args); end
 
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#189
+  def refute_dom(*args, &block); end
+
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#191
+  def refute_select(*args, &block); end
+
   private
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#307
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#340
   def assert_size_match!(size, equals, css_selector, message = T.unsafe(nil)); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#319
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#352
   def count_description(min, max, count); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#301
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#334
   def document_root_element; end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#335
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#193
+  def dom_assertions(selector, &block); end
+
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#368
   def nest_selection(selection); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#344
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#377
   def nodeset(node); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#331
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions.rb#364
   def pluralize_element(quantity); end
 end
 
@@ -202,7 +149,7 @@ class Rails::Dom::Testing::Assertions::SelectorAssertions::HTMLSelector
   include ::Minitest::Assertions
 
   # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions/html_selector.rb#17
-  def initialize(values, previous_selection = T.unsafe(nil), &root_fallback); end
+  def initialize(values, previous_selection = T.unsafe(nil), refute: T.unsafe(nil), &root_fallback); end
 
   # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions/html_selector.rb#46
   def context; end
@@ -224,13 +171,16 @@ class Rails::Dom::Testing::Assertions::SelectorAssertions::HTMLSelector
 
   private
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions/html_selector.rb#100
-  def extract_equality_tests; end
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions/html_selector.rb#146
+  def collapse_html_whitespace!(text); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions/html_selector.rb#72
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions/html_selector.rb#102
+  def extract_equality_tests(refute); end
+
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions/html_selector.rb#74
   def extract_root(previous_selection, root_fallback); end
 
-  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions/html_selector.rb#89
+  # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions/html_selector.rb#91
   def extract_selectors; end
 
   # source://rails-dom-testing//lib/rails/dom/testing/assertions/selector_assertions/html_selector.rb#48

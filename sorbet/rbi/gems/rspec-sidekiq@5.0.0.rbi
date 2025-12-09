@@ -6,75 +6,7 @@
 
 
 # source://rspec-sidekiq//lib/rspec/sidekiq/configuration.rb#4
-module RSpec
-  class << self
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#70
-    def clear_examples; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#85
-    def configuration; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#49
-    def configuration=(_arg0); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#97
-    def configure; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#194
-    def const_missing(name); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def context(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#122
-    def current_example; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#128
-    def current_example=(example); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#154
-    def current_scope; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#134
-    def current_scope=(scope); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def describe(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def example_group(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def fcontext(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def fdescribe(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#58
-    def reset; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/shared_example_group.rb#110
-    def shared_context(name, *args, &block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/shared_example_group.rb#110
-    def shared_examples(name, *args, &block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/shared_example_group.rb#110
-    def shared_examples_for(name, *args, &block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#160
-    def world; end
-
-    # source://rspec-core/3.13.0/lib/rspec/core.rb#49
-    def world=(_arg0); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def xcontext(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.0/lib/rspec/core/dsl.rb#42
-    def xdescribe(*args, &example_group_block); end
-  end
-end
+module RSpec; end
 
 # source://rspec-sidekiq//lib/rspec/sidekiq/configuration.rb#5
 module RSpec::Sidekiq
@@ -226,7 +158,7 @@ class RSpec::Sidekiq::Matchers::Base
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#221
   def thrice; end
 
-  # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#241
+  # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#244
   def time; end
 
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#241
@@ -406,7 +338,7 @@ class RSpec::Sidekiq::Matchers::EnqueuedJob
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#105
   def ==(other); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#87
   def [](*args, **_arg1, &block); end
 
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#97
@@ -415,7 +347,7 @@ class RSpec::Sidekiq::Matchers::EnqueuedJob
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#101
   def context; end
 
-  # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#105
+  # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#110
   def eql?(other); end
 
   # source://rspec-sidekiq//lib/rspec/sidekiq/matchers/base.rb#93
@@ -541,63 +473,7 @@ class RSpec::Sidekiq::Matchers::SaveBacktrace
 end
 
 # source://rspec-sidekiq//lib/rspec/sidekiq/helpers/within_sidekiq_retries_exhausted_block.rb#1
-module Sidekiq
-  class << self
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#134
-    def configure_client; end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#122
-    def configure_embed(&block); end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#96
-    def configure_server(&block); end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#88
-    def default_configuration; end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#84
-    def default_job_options; end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#80
-    def default_job_options=(hash); end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#56
-    def dump_json(object); end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#64
-    def ent?; end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#101
-    def freeze!; end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#52
-    def load_json(string); end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#92
-    def logger; end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#60
-    def pro?; end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#72
-    def redis(&block); end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#68
-    def redis_pool; end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#48
-    def server?; end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#76
-    def strict_args!(mode = T.unsafe(nil)); end
-
-    # source://sidekiq/7.2.4/lib/sidekiq/transaction_aware_client.rb#40
-    def transactional_push!; end
-
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#44
-    def ❨╯°□°❩╯︵┻━┻; end
-  end
-end
+module Sidekiq; end
 
 # source://rspec-sidekiq//lib/rspec/sidekiq/helpers/within_sidekiq_retries_exhausted_block.rb#2
 module Sidekiq::Job
@@ -605,101 +481,15 @@ module Sidekiq::Job
 
   mixes_in_class_methods ::Sidekiq::Job::Options::ClassMethods
   mixes_in_class_methods ::Sidekiq::Job::ClassMethods
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#156
-  def jid; end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#156
-  def jid=(_arg0); end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#165
-  def logger; end
-
-  class << self
-    # source://sidekiq/7.2.4/lib/sidekiq/testing.rb#305
-    def clear_all; end
-
-    # source://sidekiq/7.2.4/lib/sidekiq/testing.rb#310
-    def drain_all; end
-
-    # source://sidekiq/7.2.4/lib/sidekiq/job.rb#158
-    def included(base); end
-
-    # source://sidekiq/7.2.4/lib/sidekiq/testing.rb#300
-    def jobs; end
-  end
 end
 
 # source://rspec-sidekiq//lib/rspec/sidekiq/helpers/within_sidekiq_retries_exhausted_block.rb#3
 module Sidekiq::Job::ClassMethods
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#367
-  def build_client; end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/testing.rb#264
-  def clear; end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#352
-  def client_push(item); end
-
   # source://rspec-sidekiq//lib/rspec/sidekiq/helpers/within_sidekiq_retries_exhausted_block.rb#18
   def default_retries_exhausted_exception; end
 
   # source://rspec-sidekiq//lib/rspec/sidekiq/helpers/within_sidekiq_retries_exhausted_block.rb#9
   def default_retries_exhausted_message; end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#265
-  def delay(*args); end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#269
-  def delay_for(*args); end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#273
-  def delay_until(*args); end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/testing.rb#269
-  def drain; end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/testing.rb#294
-  def execute_job(worker, args); end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/testing.rb#259
-  def jobs; end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#285
-  def perform_async(*args); end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#321
-  def perform_at(interval, *args); end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#315
-  def perform_bulk(*args, **kwargs); end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#321
-  def perform_in(interval, *args); end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#290
-  def perform_inline(*args); end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/testing.rb#278
-  def perform_one; end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#290
-  def perform_sync(*args); end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/testing.rb#285
-  def process_job(job); end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/testing.rb#254
-  def queue; end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#277
-  def queue_as(q); end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#281
-  def set(options); end
-
-  # source://sidekiq/7.2.4/lib/sidekiq/job.rb#348
-  def sidekiq_options(opts = T.unsafe(nil)); end
 
   # source://rspec-sidekiq//lib/rspec/sidekiq/helpers/within_sidekiq_retries_exhausted_block.rb#4
   def within_sidekiq_retries_exhausted_block(user_msg = T.unsafe(nil), exception = T.unsafe(nil), &block); end

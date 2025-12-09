@@ -126,7 +126,7 @@ class PG::BasicTypeRegistry
   # source://pg//lib/pg/basic_type_registry.rb#181
   def coders_for(format, direction); end
 
-  # source://pg//lib/pg/basic_type_registry.rb#222
+  # source://pg//lib/pg/basic_type_registry.rb#299
   def define_default_types; end
 
   # source://pg//lib/pg/basic_type_registry.rb#190
@@ -239,6 +239,7 @@ PG::BinaryDecoder::CopyRow::CFUNC = T.let(T.unsafe(nil), Object)
 class PG::BinaryDecoder::Date < ::PG::SimpleDecoder
   include ::PG::Coder::BinaryFormatting
 
+  # source://pg//lib/pg/binary_decoder/date.rb#7
   def decode(*_arg0); end
 end
 
@@ -502,13 +503,13 @@ class PG::ConfigurationLimitExceeded < ::PG::InsufficientResources; end
 class PG::Connection
   include ::PG::Constants
 
-  # source://pg//lib/pg/connection.rb#587
+  # source://pg//lib/pg/connection.rb#640
   def async_cancel; end
 
   def async_describe_portal(_arg0); end
   def async_describe_prepared(_arg0); end
 
-  # source://pg//lib/pg/connection.rb#555
+  # source://pg//lib/pg/connection.rb#559
   def async_encrypt_password(password, username, algorithm = T.unsafe(nil)); end
 
   def async_exec(*_arg0); end
@@ -516,33 +517,33 @@ class PG::Connection
   def async_exec_prepared(*_arg0); end
   def async_flush; end
 
-  # source://pg//lib/pg/connection.rb#423
+  # source://pg//lib/pg/connection.rb#434
   def async_get_copy_data(async = T.unsafe(nil), decoder = T.unsafe(nil)); end
 
   def async_get_last_result; end
 
-  # source://pg//lib/pg/connection.rb#400
+  # source://pg//lib/pg/connection.rb#404
   def async_get_result; end
 
-  # source://pg//lib/pg/connection.rb#471
+  # source://pg//lib/pg/connection.rb#474
   def async_isnonblocking; end
 
   def async_prepare(*_arg0); end
 
-  # source://pg//lib/pg/connection.rb#495
+  # source://pg//lib/pg/connection.rb#511
   def async_put_copy_data(buffer, encoder = T.unsafe(nil)); end
 
-  # source://pg//lib/pg/connection.rb#525
+  # source://pg//lib/pg/connection.rb#532
   def async_put_copy_end(*args); end
 
   def async_query(*_arg0); end
 
-  # source://pg//lib/pg/connection.rb#567
+  # source://pg//lib/pg/connection.rb#577
   def async_reset; end
 
   def async_set_client_encoding(_arg0); end
 
-  # source://pg//lib/pg/connection.rb#457
+  # source://pg//lib/pg/connection.rb#462
   def async_setnonblocking(enabled); end
 
   def backend_key; end
@@ -555,7 +556,9 @@ class PG::Connection
   # source://pg//lib/pg/connection.rb#379
   def check_socket; end
 
+  # source://pg//lib/pg/connection.rb#950
   def client_encoding=(_arg0); end
+
   def close; end
 
   # source://pg//lib/pg/connection.rb#321
@@ -580,8 +583,13 @@ class PG::Connection
   def db; end
   def decoder_for_get_copy_data; end
   def decoder_for_get_copy_data=(_arg0); end
+
+  # source://pg//lib/pg/connection.rb#950
   def describe_portal(_arg0); end
+
+  # source://pg//lib/pg/connection.rb#950
   def describe_prepared(_arg0); end
+
   def discard_results; end
   def encoder_for_put_copy_data; end
   def encoder_for_put_copy_data=(_arg0); end
@@ -596,21 +604,32 @@ class PG::Connection
   def escape_identifier(_arg0); end
   def escape_literal(_arg0); end
   def escape_string(_arg0); end
+
+  # source://pg//lib/pg/connection.rb#950
   def exec(*_arg0); end
+
+  # source://pg//lib/pg/connection.rb#950
   def exec_params(*_arg0); end
+
+  # source://pg//lib/pg/connection.rb#950
   def exec_prepared(*_arg0); end
+
   def exit_pipeline_mode; end
   def external_encoding; end
   def field_name_type; end
   def field_name_type=(_arg0); end
   def finish; end
   def finished?; end
+
+  # source://pg//lib/pg/connection.rb#926
   def flush; end
+
   def get_client_encoding; end
 
   # source://pg//lib/pg/connection.rb#423
   def get_copy_data(async = T.unsafe(nil), decoder = T.unsafe(nil)); end
 
+  # source://pg//lib/pg/connection.rb#950
   def get_last_result; end
 
   # source://pg//lib/pg/connection.rb#400
@@ -657,7 +676,7 @@ class PG::Connection
   def lowrite(_arg0, _arg1); end
   def make_empty_pgresult(_arg0); end
 
-  # source://pg//lib/pg/connection.rb#471
+  # source://pg//lib/pg/connection.rb#475
   def nonblocking?; end
 
   def notifies; end
@@ -668,7 +687,10 @@ class PG::Connection
   def pipeline_status; end
   def pipeline_sync; end
   def port; end
+
+  # source://pg//lib/pg/connection.rb#950
   def prepare(*_arg0); end
+
   def protocol_version; end
 
   # source://pg//lib/pg/connection.rb#495
@@ -677,7 +699,9 @@ class PG::Connection
   # source://pg//lib/pg/connection.rb#525
   def put_copy_end(*args); end
 
+  # source://pg//lib/pg/connection.rb#950
   def query(*_arg0); end
+
   def quote_ident(_arg0); end
 
   # source://pg//lib/pg/connection.rb#567
@@ -693,7 +717,10 @@ class PG::Connection
   def send_query_params(*_arg0); end
   def send_query_prepared(*_arg0); end
   def server_version; end
+
+  # source://pg//lib/pg/connection.rb#950
   def set_client_encoding(_arg0); end
+
   def set_default_encoding; end
   def set_error_context_visibility(_arg0); end
   def set_error_verbosity(_arg0); end
@@ -760,10 +787,10 @@ class PG::Connection
     # source://pg//lib/pg/connection.rb#946
     def async_api=(enable); end
 
-    # source://pg//lib/pg/connection.rb#763
+    # source://pg//lib/pg/connection.rb#775
     def async_connect(*args); end
 
-    # source://pg//lib/pg/connection.rb#867
+    # source://pg//lib/pg/connection.rb#876
     def async_ping(*args); end
 
     # source://pg//lib/pg/connection.rb#923
@@ -774,7 +801,7 @@ class PG::Connection
     # source://pg//lib/pg/connection.rb#329
     def conndefaults_hash; end
 
-    # source://pg//lib/pg/connection.rb#763
+    # source://pg//lib/pg/connection.rb#776
     def connect(*args); end
 
     # source://pg//lib/pg/connection.rb#44
@@ -786,12 +813,14 @@ class PG::Connection
     def escape(_arg0); end
     def escape_bytea(_arg0); end
     def escape_string(_arg0); end
+
+    # source://pg//lib/pg/connection.rb#295
     def isthreadsafe; end
 
     # source://pg//lib/pg/connection.rb#763
     def new(*args); end
 
-    # source://pg//lib/pg/connection.rb#763
+    # source://pg//lib/pg/connection.rb#777
     def open(*args); end
 
     # source://pg//lib/pg/connection.rb#64
@@ -805,10 +834,10 @@ class PG::Connection
 
     def quote_ident(_arg0); end
 
-    # source://pg//lib/pg/connection.rb#763
+    # source://pg//lib/pg/connection.rb#778
     def setdb(*args); end
 
-    # source://pg//lib/pg/connection.rb#763
+    # source://pg//lib/pg/connection.rb#779
     def setdblogin(*args); end
 
     def sync_connect(*_arg0); end
@@ -1319,6 +1348,7 @@ end
 PG::TextDecoder::Identifier::CFUNC = T.let(T.unsafe(nil), Object)
 
 class PG::TextDecoder::Inet < ::PG::SimpleDecoder
+  # source://pg//lib/pg/text_decoder/inet.rb#7
   def decode(*_arg0); end
 end
 
@@ -1338,6 +1368,7 @@ class PG::TextDecoder::JSON < ::PG::SimpleDecoder
 end
 
 class PG::TextDecoder::Numeric < ::PG::SimpleDecoder
+  # source://pg//lib/pg/text_decoder/numeric.rb#7
   def decode(*_arg0); end
 end
 
@@ -1458,6 +1489,7 @@ class PG::TextEncoder::JSON < ::PG::SimpleEncoder
 end
 
 class PG::TextEncoder::Numeric < ::PG::SimpleEncoder
+  # source://pg//lib/pg/text_encoder/numeric.rb#7
   def encode(*_arg0); end
 end
 
@@ -1538,7 +1570,7 @@ class PG::Tuple
   # source://pg//lib/pg/tuple.rb#10
   def inspect; end
 
-  # source://pg//lib/pg/tuple.rb#14
+  # source://pg//lib/pg/tuple.rb#17
   def key?(key); end
 
   # source://pg//lib/pg/tuple.rb#19

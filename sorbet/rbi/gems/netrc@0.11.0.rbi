@@ -78,17 +78,35 @@ Netrc::CYGWIN = T.let(T.unsafe(nil), T.untyped)
 
 # source://netrc//lib/netrc.rb#244
 class Netrc::Entry < ::Struct
+  # source://netrc//lib/netrc.rb#244
   def login; end
+
+  # source://netrc//lib/netrc.rb#244
   def login=(_); end
+
+  # source://netrc//lib/netrc.rb#244
   def password; end
+
+  # source://netrc//lib/netrc.rb#244
   def password=(_); end
+
+  # source://netrc//lib/netrc.rb#245
   def to_ary; end
 
   class << self
+    # source://netrc//lib/netrc.rb#244
     def [](*_arg0); end
+
+    # source://netrc//lib/netrc.rb#244
     def inspect; end
+
+    # source://netrc//lib/netrc.rb#244
     def keyword_init?; end
+
+    # source://netrc//lib/netrc.rb#244
     def members; end
+
+    # source://netrc//lib/netrc.rb#244
     def new(*_arg0); end
   end
 end

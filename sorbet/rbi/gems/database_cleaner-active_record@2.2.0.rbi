@@ -6,57 +6,7 @@
 
 
 # source://database_cleaner-active_record//lib/database_cleaner/active_record/version.rb#1
-module DatabaseCleaner
-  class << self
-    # source://forwardable/1.3.3/forwardable.rb#231
-    def [](*args, **_arg1, &block); end
-
-    # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#17
-    def allow_production; end
-
-    # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#17
-    def allow_production=(_arg0); end
-
-    # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#17
-    def allow_remote_database_url; end
-
-    # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#17
-    def allow_remote_database_url=(_arg0); end
-
-    # source://forwardable/1.3.3/forwardable.rb#231
-    def clean(*args, **_arg1, &block); end
-
-    # source://forwardable/1.3.3/forwardable.rb#231
-    def clean_with(*args, **_arg1, &block); end
-
-    # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#22
-    def cleaners; end
-
-    # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#25
-    def cleaners=(_arg0); end
-
-    # source://forwardable/1.3.3/forwardable.rb#231
-    def cleaning(*args, **_arg1, &block); end
-
-    # source://forwardable/1.3.3/forwardable.rb#231
-    def start(*args, **_arg1, &block); end
-
-    # source://forwardable/1.3.3/forwardable.rb#231
-    def strategy=(*args, **_arg1, &block); end
-
-    # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#17
-    def url_allowlist; end
-
-    # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#17
-    def url_allowlist=(_arg0); end
-
-    # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#17
-    def url_whitelist; end
-
-    # source://database_cleaner-core/2.0.1/lib/database_cleaner/core.rb#17
-    def url_whitelist=(_arg0); end
-  end
-end
+module DatabaseCleaner; end
 
 # source://database_cleaner-active_record//lib/database_cleaner/active_record/version.rb#2
 module DatabaseCleaner::ActiveRecord
