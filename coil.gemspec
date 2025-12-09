@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("rspec-rails", "~> 8.0")
   spec.add_development_dependency("standard", "~> 1.52")
   spec.add_development_dependency("rubocop-sorbet", "~> 0.9")
-  spec.add_development_dependency("debug", "~> 1.0")
+  spec.add_development_dependency("debug", "~> 1.11")
   spec.add_development_dependency("sorbet", "~> 0.5")
   spec.add_development_dependency("tapioca", "~> 0.17")
   spec.add_development_dependency("parlour", "~> 9.1")

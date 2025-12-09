@@ -98,7 +98,7 @@ GEM
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
     date (3.5.0)
-    debug (1.9.2)
+    debug (1.11.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.6.2)
@@ -342,7 +342,7 @@ PLATFORMS
 DEPENDENCIES
   coil!
   database_cleaner-active_record
-  debug (~> 1.0)
+  debug (~> 1.11)
   parlour (~> 9.1)
   pg (~> 1.6)
   puma (~> 7.1)
