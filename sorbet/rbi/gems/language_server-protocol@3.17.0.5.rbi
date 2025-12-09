@@ -8017,12 +8017,15 @@ class LanguageServer::Protocol::Transport::Io::Reader
   # source://language_server-protocol//lib/language_server/protocol/transport/io/reader.rb#10
   def initialize(io); end
 
+  # source://language_server-protocol//lib/language_server/protocol/transport/io/reader.rb#24
+  def close; end
+
   # source://language_server-protocol//lib/language_server/protocol/transport/io/reader.rb#15
   def read(&block); end
 
   private
 
-  # source://language_server-protocol//lib/language_server/protocol/transport/io/reader.rb#26
+  # source://language_server-protocol//lib/language_server/protocol/transport/io/reader.rb#30
   def io; end
 end
 
@@ -8030,6 +8033,9 @@ end
 class LanguageServer::Protocol::Transport::Io::Writer
   # source://language_server-protocol//lib/language_server/protocol/transport/io/writer.rb#8
   def initialize(io); end
+
+  # source://language_server-protocol//lib/language_server/protocol/transport/io/writer.rb#32
+  def close; end
 
   # source://language_server-protocol//lib/language_server/protocol/transport/io/writer.rb#6
   def io; end

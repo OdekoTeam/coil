@@ -5,7 +5,7 @@
 # Please instead update this file by running `bin/tapioca gem lint_roller`.
 
 
-# source://lint_roller//lib/lint_roller/version.rb#1
+# source://lint_roller//lib/lint_roller/context.rb#1
 module LintRoller; end
 
 # source://lint_roller//lib/lint_roller/about.rb#2

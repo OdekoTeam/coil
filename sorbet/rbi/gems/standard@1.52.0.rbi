@@ -254,8 +254,61 @@ class Standard::LoadsYamlConfig
   def normalized_ruby_version(version); end
 end
 
-# source://standard//lib/standard/lsp/standardizer.rb#4
+# source://standard//lib/standard/lsp/stdin_rubocop_runner.rb#2
 module Standard::Lsp; end
+
+# source://standard//lib/standard/lsp/diagnostic.rb#3
+class Standard::Lsp::Diagnostic
+  # source://standard//lib/standard/lsp/diagnostic.rb#16
+  def initialize(document_encoding, offense, uri, cop_class); end
+
+  # source://standard//lib/standard/lsp/diagnostic.rb#23
+  def to_lsp_code_actions; end
+
+  # source://standard//lib/standard/lsp/diagnostic.rb#32
+  def to_lsp_diagnostic(config); end
+
+  private
+
+  # source://standard//lib/standard/lsp/diagnostic.rb#77
+  def autocorrect_action; end
+
+  # source://standard//lib/standard/lsp/diagnostic.rb#69
+  def code_description(config); end
+
+  # source://standard//lib/standard/lsp/diagnostic.rb#163
+  def correctable?; end
+
+  # source://standard//lib/standard/lsp/diagnostic.rb#108
+  def disable_line_action; end
+
+  # source://standard//lib/standard/lsp/diagnostic.rb#167
+  def ensure_uri_scheme(uri); end
+
+  # source://standard//lib/standard/lsp/diagnostic.rb#148
+  def length_of_line(line); end
+
+  # source://standard//lib/standard/lsp/diagnostic.rb#126
+  def line_disable_comment; end
+
+  # source://standard//lib/standard/lsp/diagnostic.rb#59
+  def message; end
+
+  # source://standard//lib/standard/lsp/diagnostic.rb#96
+  def offense_replacements; end
+
+  # source://standard//lib/standard/lsp/diagnostic.rb#65
+  def severity; end
+end
+
+# source://standard//lib/standard/lsp/diagnostic.rb#4
+Standard::Lsp::Diagnostic::Constant = LanguageServer::Protocol::Constant
+
+# source://standard//lib/standard/lsp/diagnostic.rb#5
+Standard::Lsp::Diagnostic::Interface = LanguageServer::Protocol::Interface
+
+# source://standard//lib/standard/lsp/diagnostic.rb#7
+Standard::Lsp::Diagnostic::RUBOCOP_TO_LSP_SEVERITY = T.let(T.unsafe(nil), Hash)
 
 # source://standard//lib/standard/lsp/kills_server.rb#3
 class Standard::Lsp::KillsServer
@@ -266,12 +319,12 @@ end
 # source://standard//lib/standard/lsp/logger.rb#3
 class Standard::Lsp::Logger
   # source://standard//lib/standard/lsp/logger.rb#4
-  def initialize; end
+  def initialize(prefix: T.unsafe(nil)); end
 
-  # source://standard//lib/standard/lsp/logger.rb#8
+  # source://standard//lib/standard/lsp/logger.rb#9
   def puts(message); end
 
-  # source://standard//lib/standard/lsp/logger.rb#12
+  # source://standard//lib/standard/lsp/logger.rb#13
   def puts_once(message); end
 end
 
@@ -292,24 +345,24 @@ class Standard::Lsp::Routes
   # source://standard//lib/standard/lsp/routes.rb#16
   def handle_initialized(request); end
 
-  # source://standard//lib/standard/lsp/routes.rb#130
+  # source://standard//lib/standard/lsp/routes.rb#129
   def handle_method_missing(request); end
 
   # source://standard//lib/standard/lsp/routes.rb#16
   def handle_shutdown(request); end
 
-  # source://standard//lib/standard/lsp/routes.rb#122
+  # source://standard//lib/standard/lsp/routes.rb#121
   def handle_unsupported_method(request, method = T.unsafe(nil)); end
 
   private
 
-  # source://standard//lib/standard/lsp/routes.rb#163
+  # source://standard//lib/standard/lsp/routes.rb#162
   def diagnostic(file_uri, text); end
 
-  # source://standard//lib/standard/lsp/routes.rb#142
+  # source://standard//lib/standard/lsp/routes.rb#141
   def format_file(file_uri); end
 
-  # source://standard//lib/standard/lsp/routes.rb#138
+  # source://standard//lib/standard/lsp/routes.rb#137
   def uri_to_path(uri); end
 
   class << self
@@ -317,6 +370,9 @@ class Standard::Lsp::Routes
     def handle(name, &block); end
   end
 end
+
+# source://standard//lib/standard/lsp/routes.rb#75
+Standard::Lsp::Routes::CONFIGURATION_FILE_PATTERNS = T.let(T.unsafe(nil), Array)
 
 # source://standard//lib/standard/lsp/server.rb#9
 Standard::Lsp::SEV = LanguageServer::Protocol::Constant::DiagnosticSeverity
@@ -330,28 +386,46 @@ class Standard::Lsp::Server
   def start; end
 end
 
-# source://standard//lib/standard/lsp/standardizer.rb#5
+# source://standard//lib/standard/lsp/standardizer.rb#6
 class Standard::Lsp::Standardizer
-  # source://standard//lib/standard/lsp/standardizer.rb#6
-  def initialize(config, logger); end
+  # source://standard//lib/standard/lsp/standardizer.rb#7
+  def initialize(config); end
 
-  # source://standard//lib/standard/lsp/standardizer.rb#23
+  # source://standard//lib/standard/lsp/standardizer.rb#15
   def format(path, text); end
 
-  # source://standard//lib/standard/lsp/standardizer.rb#29
-  def offenses(path, text); end
+  # source://standard//lib/standard/lsp/standardizer.rb#20
+  def offenses(path, text, document_encoding = T.unsafe(nil)); end
+end
+
+# source://standard//lib/standard/lsp/stdin_rubocop_runner.rb#5
+class Standard::Lsp::StdinRubocopRunner < ::RuboCop::Runner
+  # source://standard//lib/standard/lsp/stdin_rubocop_runner.rb#21
+  def initialize(config); end
+
+  # source://standard//lib/standard/lsp/stdin_rubocop_runner.rb#10
+  def config_for_working_directory; end
+
+  # source://standard//lib/standard/lsp/stdin_rubocop_runner.rb#60
+  def formatted_source; end
+
+  # source://standard//lib/standard/lsp/stdin_rubocop_runner.rb#8
+  def offenses; end
+
+  # source://standard//lib/standard/lsp/stdin_rubocop_runner.rb#35
+  def run(path, contents); end
 
   private
 
-  # source://standard//lib/standard/lsp/standardizer.rb#59
-  def capture_rubocop_stdout(config); end
-
-  # source://standard//lib/standard/lsp/standardizer.rb#50
-  def fork_config(path, text, format:); end
+  # source://standard//lib/standard/lsp/stdin_rubocop_runner.rb#66
+  def file_finished(_file, offenses); end
 end
 
-# source://standard//lib/standard/lsp/standardizer.rb#44
-Standard::Lsp::Standardizer::BASE_OPTIONS = T.let(T.unsafe(nil), Hash)
+# source://standard//lib/standard/lsp/stdin_rubocop_runner.rb#6
+class Standard::Lsp::StdinRubocopRunner::ConfigurationError < ::StandardError; end
+
+# source://standard//lib/standard/lsp/stdin_rubocop_runner.rb#12
+Standard::Lsp::StdinRubocopRunner::DEFAULT_RUBOCOP_OPTIONS = T.let(T.unsafe(nil), Hash)
 
 # source://standard//lib/standard/merges_settings.rb#4
 class Standard::MergesSettings

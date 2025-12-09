@@ -1009,8 +1009,25 @@ end
 # source://rubocop-sorbet//lib/rubocop/sorbet/version.rb#4
 module RuboCop::Sorbet; end
 
+# source://rubocop-sorbet//lib/rubocop/sorbet.rb#16
+RuboCop::Sorbet::CONFIG = T.let(T.unsafe(nil), Hash)
+
+# source://rubocop-sorbet//lib/rubocop/sorbet.rb#15
+RuboCop::Sorbet::CONFIG_DEFAULT = T.let(T.unsafe(nil), Pathname)
+
 # source://rubocop-sorbet//lib/rubocop/sorbet.rb#11
 class RuboCop::Sorbet::Error < ::StandardError; end
+
+# source://rubocop-sorbet//lib/rubocop/sorbet/inject.rb#9
+module RuboCop::Sorbet::Inject
+  class << self
+    # source://rubocop-sorbet//lib/rubocop/sorbet/inject.rb#11
+    def defaults!; end
+  end
+end
+
+# source://rubocop-sorbet//lib/rubocop/sorbet.rb#14
+RuboCop::Sorbet::PROJECT_ROOT = T.let(T.unsafe(nil), Pathname)
 
 # source://rubocop-sorbet//lib/rubocop/sorbet/plugin.rb#10
 class RuboCop::Sorbet::Plugin < ::LintRoller::Plugin
@@ -1028,7 +1045,7 @@ end
 RuboCop::Sorbet::Plugin::RUBOCOP_MIN_VERSION = T.let(T.unsafe(nil), String)
 
 # source://rubocop-sorbet//lib/rubocop/sorbet/plugin.rb#12
-RuboCop::Sorbet::Plugin::SUPPORTED = T.let(T.unsafe(nil), TrueClass)
+RuboCop::Sorbet::Plugin::SUPPORTED = T.let(T.unsafe(nil), FalseClass)
 
 # source://rubocop-sorbet//lib/rubocop/sorbet/version.rb#5
 RuboCop::Sorbet::VERSION = T.let(T.unsafe(nil), String)
