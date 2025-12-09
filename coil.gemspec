@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("sidekiq", "~> 8.0")
   spec.add_development_dependency("pg", "~> 1.6")
   spec.add_development_dependency("puma", "~> 7.1")
-  spec.add_development_dependency("rspec-rails", "~> 6.1")
+  spec.add_development_dependency("rspec-rails", "~> 8.0")
   spec.add_development_dependency("standard", "~> 1.36")
   spec.add_development_dependency("rubocop-sorbet", "~> 0.9")
   spec.add_development_dependency("debug", "~> 1.0")
