@@ -339,14 +339,14 @@ RSpec.shared_examples :transactional_message do
 
       writer_a = Thread.new do
         ApplicationRecord.transaction do
-          @a_begun = true
           message.save!
+          @a_saved = true
           sleep 0.4
         end
         @commits += 1
       end
       writer_b = Thread.new do
-        sleep 0.01 until @a_begun
+        sleep 0.01 until @a_saved
         ApplicationRecord.transaction do
           message2.save!
         end
@@ -375,14 +375,14 @@ RSpec.shared_examples :transactional_message do
 
       writer_a = Thread.new do
         ApplicationRecord.transaction do
-          @a_begun = true
           message.save!
+          @a_saved = true
           sleep 0.4
         end
         @commits += 1
       end
       writer_b = Thread.new do
-        sleep 0.01 until @a_begun
+        sleep 0.01 until @a_saved
         ApplicationRecord.transaction do
           different_type_message.save!
         end
@@ -408,14 +408,14 @@ RSpec.shared_examples :transactional_message do
 
       writer_a = Thread.new do
         ApplicationRecord.transaction do
-          @a_begun = true
           message.save!
+          @a_saved = true
           sleep 0.4
         end
         @commits += 1
       end
       writer_b = Thread.new do
-        sleep 0.01 until @a_begun
+        sleep 0.01 until @a_saved
         ApplicationRecord.transaction do
           message2.save!
         end
