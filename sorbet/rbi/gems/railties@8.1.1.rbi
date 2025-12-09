@@ -941,6 +941,173 @@ Rails::BacktraceCleaner::APP_DIRS_PATTERN = T.let(T.unsafe(nil), Regexp)
 # source://railties//lib/rails/backtrace_cleaner.rb#9
 Rails::BacktraceCleaner::RENDER_TEMPLATE_PATTERN = T.let(T.unsafe(nil), Regexp)
 
+# source://railties//lib/rails/code_statistics.rb#7
+class Rails::CodeStatistics
+  # source://railties//lib/rails/code_statistics.rb#63
+  def initialize(*pairs); end
+
+  # source://railties//lib/rails/code_statistics.rb#47
+  def directories; end
+
+  # source://railties//lib/rails/code_statistics.rb#47
+  def directories=(_arg0); end
+
+  # source://railties//lib/rails/code_statistics.rb#47
+  def directories?; end
+
+  # source://railties//lib/rails/code_statistics.rb#49
+  def pattern; end
+
+  # source://railties//lib/rails/code_statistics.rb#49
+  def pattern=(_arg0); end
+
+  # source://railties//lib/rails/code_statistics.rb#49
+  def pattern?; end
+
+  # source://railties//lib/rails/code_statistics.rb#48
+  def test_types; end
+
+  # source://railties//lib/rails/code_statistics.rb#48
+  def test_types=(_arg0); end
+
+  # source://railties//lib/rails/code_statistics.rb#48
+  def test_types?; end
+
+  # source://railties//lib/rails/code_statistics.rb#69
+  def to_s; end
+
+  private
+
+  # source://railties//lib/rails/code_statistics.rb#109
+  def calculate_code; end
+
+  # source://railties//lib/rails/code_statistics.rb#87
+  def calculate_directory_statistics(directory, pattern = T.unsafe(nil)); end
+
+  # source://railties//lib/rails/code_statistics.rb#83
+  def calculate_statistics; end
+
+  # source://railties//lib/rails/code_statistics.rb#115
+  def calculate_tests; end
+
+  # source://railties//lib/rails/code_statistics.rb#103
+  def calculate_total; end
+
+  # source://railties//lib/rails/code_statistics.rb#154
+  def print_code_test_stats; end
+
+  # source://railties//lib/rails/code_statistics.rb#125
+  def print_header; end
+
+  # source://railties//lib/rails/code_statistics.rb#143
+  def print_line(name, statistics); end
+
+  # source://railties//lib/rails/code_statistics.rb#135
+  def print_splitter; end
+
+  # source://railties//lib/rails/code_statistics.rb#121
+  def width_for(label); end
+
+  class << self
+    # source://railties//lib/rails/code_statistics.rb#47
+    def directories; end
+
+    # source://railties//lib/rails/code_statistics.rb#47
+    def directories=(value); end
+
+    # source://railties//lib/rails/code_statistics.rb#47
+    def directories?; end
+
+    # source://railties//lib/rails/code_statistics.rb#49
+    def pattern; end
+
+    # source://railties//lib/rails/code_statistics.rb#49
+    def pattern=(value); end
+
+    # source://railties//lib/rails/code_statistics.rb#49
+    def pattern?; end
+
+    # source://railties//lib/rails/code_statistics.rb#58
+    def register_directory(label, path, test_directory: T.unsafe(nil)); end
+
+    # source://railties//lib/rails/code_statistics.rb#48
+    def test_types; end
+
+    # source://railties//lib/rails/code_statistics.rb#48
+    def test_types=(value); end
+
+    # source://railties//lib/rails/code_statistics.rb#48
+    def test_types?; end
+
+    private
+
+    # source://railties//lib/rails/code_statistics.rb#47
+    def __class_attr_directories; end
+
+    # source://railties//lib/rails/code_statistics.rb#47
+    def __class_attr_directories=(new_value); end
+
+    # source://railties//lib/rails/code_statistics.rb#49
+    def __class_attr_pattern; end
+
+    # source://railties//lib/rails/code_statistics.rb#49
+    def __class_attr_pattern=(new_value); end
+
+    # source://railties//lib/rails/code_statistics.rb#48
+    def __class_attr_test_types; end
+
+    # source://railties//lib/rails/code_statistics.rb#48
+    def __class_attr_test_types=(new_value); end
+  end
+end
+
+# source://railties//lib/rails/code_statistics.rb#8
+Rails::CodeStatistics::DIRECTORIES = T.let(T.unsafe(nil), Array)
+
+# source://railties//lib/rails/code_statistics.rb#43
+Rails::CodeStatistics::HEADERS = T.let(T.unsafe(nil), Hash)
+
+# source://railties//lib/rails/code_statistics.rb#45
+Rails::CodeStatistics::PATTERN = T.let(T.unsafe(nil), Regexp)
+
+# source://railties//lib/rails/code_statistics.rb#33
+Rails::CodeStatistics::TEST_TYPES = T.let(T.unsafe(nil), Array)
+
+# source://railties//lib/rails/code_statistics_calculator.rb#4
+class Rails::CodeStatisticsCalculator
+  # source://railties//lib/rails/code_statistics_calculator.rb#42
+  def initialize(lines = T.unsafe(nil), code_lines = T.unsafe(nil), classes = T.unsafe(nil), methods = T.unsafe(nil)); end
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#49
+  def add(code_statistics_calculator); end
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#56
+  def add_by_file_path(file_path); end
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#62
+  def add_by_io(io, file_type); end
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#5
+  def classes; end
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#5
+  def code_lines; end
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#5
+  def lines; end
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#5
+  def methods; end
+
+  private
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#91
+  def file_type(file_path); end
+end
+
+# source://railties//lib/rails/code_statistics_calculator.rb#7
+Rails::CodeStatisticsCalculator::PATTERNS = T.let(T.unsafe(nil), Hash)
+
 # source://railties//lib/rails/configuration.rb#9
 module Rails::Configuration; end
 

@@ -35,7 +35,7 @@ module RSpec
     # source://rspec-core//lib/rspec/core.rb#194
     def const_missing(name); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#277
+    # source://rspec-core//lib/rspec/core/example_group.rb#279
     def context(*args, &example_group_block); end
 
     # source://rspec-core//lib/rspec/core.rb#122
@@ -50,16 +50,16 @@ module RSpec
     # source://rspec-core//lib/rspec/core.rb#134
     def current_scope=(scope); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#277
+    # source://rspec-core//lib/rspec/core/example_group.rb#279
     def describe(*args, &example_group_block); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#277
+    # source://rspec-core//lib/rspec/core/example_group.rb#279
     def example_group(*args, &example_group_block); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#277
+    # source://rspec-core//lib/rspec/core/example_group.rb#279
     def fcontext(*args, &example_group_block); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#277
+    # source://rspec-core//lib/rspec/core/example_group.rb#279
     def fdescribe(*args, &example_group_block); end
 
     # source://rspec-core//lib/rspec/core.rb#58
@@ -80,10 +80,10 @@ module RSpec
     # source://rspec-core//lib/rspec/core.rb#49
     def world=(_arg0); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#277
+    # source://rspec-core//lib/rspec/core/example_group.rb#279
     def xcontext(*args, &example_group_block); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#277
+    # source://rspec-core//lib/rspec/core/example_group.rb#279
     def xdescribe(*args, &example_group_block); end
   end
 end
@@ -96,10 +96,10 @@ module RSpec::Core
   end
 end
 
-# source://rspec-core//lib/rspec/core/example_group.rb#775
+# source://rspec-core//lib/rspec/core/example_group.rb#782
 class RSpec::Core::AnonymousExampleGroup < ::RSpec::Core::ExampleGroup
   class << self
-    # source://rspec-core//lib/rspec/core/example_group.rb#776
+    # source://rspec-core//lib/rspec/core/example_group.rb#783
     def metadata; end
   end
 end
@@ -229,7 +229,7 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#659
   def add_setting(name, opts = T.unsafe(nil)); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2025
+  # source://rspec-core//lib/rspec/core/configuration.rb#2031
   def after(scope = T.unsafe(nil), *meta, &block); end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#1209
@@ -244,16 +244,16 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#1243
   def alias_it_should_behave_like_to(new_name, report_label = T.unsafe(nil)); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2055
+  # source://rspec-core//lib/rspec/core/configuration.rb#2061
   def append_after(scope = T.unsafe(nil), *meta, &block); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1984
+  # source://rspec-core//lib/rspec/core/configuration.rb#1990
   def append_before(scope = T.unsafe(nil), *meta, &block); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1935
+  # source://rspec-core//lib/rspec/core/configuration.rb#1941
   def apply_derived_metadata_to(metadata); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2073
+  # source://rspec-core//lib/rspec/core/configuration.rb#2079
   def around(scope = T.unsafe(nil), *meta, &block); end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#697
@@ -271,7 +271,7 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#722
   def backtrace_inclusion_patterns=(patterns); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1970
+  # source://rspec-core//lib/rspec/core/configuration.rb#1976
   def before(scope = T.unsafe(nil), *meta, &block); end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#499
@@ -280,7 +280,7 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#500
   def bisect_runner=(value); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2119
+  # source://rspec-core//lib/rspec/core/configuration.rb#2125
   def bisect_runner_class; end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#922
@@ -298,16 +298,16 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#953
   def color_mode=(_arg0); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1577
+  # source://rspec-core//lib/rspec/core/configuration.rb#1580
   def configure_example(example, example_hooks); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1617
+  # source://rspec-core//lib/rspec/core/configuration.rb#1622
   def configure_expectation_framework; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1565
+  # source://rspec-core//lib/rspec/core/configuration.rb#1568
   def configure_group(group); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1611
+  # source://rspec-core//lib/rspec/core/configuration.rb#1616
   def configure_mock_framework; end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#66
@@ -334,7 +334,7 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#78
   def default_path?; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1894
+  # source://rspec-core//lib/rspec/core/configuration.rb#1900
   def define_derived_metadata(*filters, &block); end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#66
@@ -352,13 +352,13 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#78
   def detail_color?; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1875
+  # source://rspec-core//lib/rspec/core/configuration.rb#1881
   def disable_monkey_patching; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1867
+  # source://rspec-core//lib/rspec/core/configuration.rb#1873
   def disable_monkey_patching!; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1875
+  # source://rspec-core//lib/rspec/core/configuration.rb#1881
   def disable_monkey_patching=(_arg0); end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#66
@@ -433,7 +433,7 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#819
   def expectation_frameworks; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1805
+  # source://rspec-core//lib/rspec/core/configuration.rb#1811
   def expose_current_running_example_as(method_name); end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#151
@@ -442,7 +442,7 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#143
   def expose_dsl_globally?; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1515
+  # source://rspec-core//lib/rspec/core/configuration.rb#1518
   def extend(mod, *filters); end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#66
@@ -526,10 +526,10 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#592
   def force(hash); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1656
+  # source://rspec-core//lib/rspec/core/configuration.rb#1661
   def format_docstrings(&block); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1661
+  # source://rspec-core//lib/rspec/core/configuration.rb#1666
   def format_docstrings_block; end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#999
@@ -562,16 +562,16 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#972
   def full_description=(description); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2103
+  # source://rspec-core//lib/rspec/core/configuration.rb#2109
   def hooks; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1602
+  # source://rspec-core//lib/rspec/core/configuration.rb#1607
   def in_project_source_dir_regex; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1425
+  # source://rspec-core//lib/rspec/core/configuration.rb#1428
   def include(mod, *filters); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1472
+  # source://rspec-core//lib/rspec/core/configuration.rb#1475
   def include_context(shared_group_name, *filters); end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#1313
@@ -589,7 +589,7 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#963
   def libs=(libs); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1625
+  # source://rspec-core//lib/rspec/core/configuration.rb#1630
   def load_spec_files; end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#522
@@ -613,10 +613,10 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#786
   def mock_with(framework); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2108
+  # source://rspec-core//lib/rspec/core/configuration.rb#2114
   def on_example_group_definition(&block); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2114
+  # source://rspec-core//lib/rspec/core/configuration.rb#2120
   def on_example_group_definition_callbacks; end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#66
@@ -628,13 +628,13 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#203
   def only_failures_but_not_configured?; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1668
+  # source://rspec-core//lib/rspec/core/configuration.rb#1673
   def order=(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#522
   def ordering_manager; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1668
+  # source://rspec-core//lib/rspec/core/configuration.rb#1673
   def ordering_registry(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#66
@@ -667,13 +667,13 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#78
   def pending_failure_output?; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1554
+  # source://rspec-core//lib/rspec/core/configuration.rb#1557
   def prepend(mod, *filters); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2039
+  # source://rspec-core//lib/rspec/core/configuration.rb#2045
   def prepend_after(scope = T.unsafe(nil), *meta, &block); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2000
+  # source://rspec-core//lib/rspec/core/configuration.rb#2006
   def prepend_before(scope = T.unsafe(nil), *meta, &block); end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#1073
@@ -694,13 +694,13 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#78
   def project_source_dirs?; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1827
+  # source://rspec-core//lib/rspec/core/configuration.rb#1833
   def raise_errors_for_deprecations!; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1775
+  # source://rspec-core//lib/rspec/core/configuration.rb#1781
   def raise_on_warning=(value); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1668
+  # source://rspec-core//lib/rspec/core/configuration.rb#1673
   def register_ordering(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#1056
@@ -709,7 +709,7 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#66
   def requires; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1594
+  # source://rspec-core//lib/rspec/core/configuration.rb#1597
   def requires=(paths); end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#601
@@ -730,13 +730,13 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#78
   def run_all_when_everything_filtered?; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1668
+  # source://rspec-core//lib/rspec/core/configuration.rb#1673
   def seed(*args, &block); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1668
+  # source://rspec-core//lib/rspec/core/configuration.rb#1673
   def seed=(*args, &block); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1668
+  # source://rspec-core//lib/rspec/core/configuration.rb#1673
   def seed_used?(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#66
@@ -802,16 +802,16 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#78
   def tty?; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1755
+  # source://rspec-core//lib/rspec/core/configuration.rb#1760
   def warnings=(value); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1760
+  # source://rspec-core//lib/rspec/core/configuration.rb#1765
   def warnings?; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#1917
+  # source://rspec-core//lib/rspec/core/configuration.rb#1923
   def when_first_matching_example_defined(*filters); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2085
+  # source://rspec-core//lib/rspec/core/configuration.rb#2091
   def with_suite_hooks; end
 
   # source://rspec-core//lib/rspec/core/configuration.rb#518
@@ -822,97 +822,97 @@ class RSpec::Core::Configuration
 
   private
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2248
+  # source://rspec-core//lib/rspec/core/configuration.rb#2254
   def absolute_pattern?(pattern); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2349
+  # source://rspec-core//lib/rspec/core/configuration.rb#2355
   def add_hook_to_existing_matching_groups(meta, scope, &block); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2288
+  # source://rspec-core//lib/rspec/core/configuration.rb#2294
   def assert_no_example_groups_defined(config_option); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2338
+  # source://rspec-core//lib/rspec/core/configuration.rb#2344
   def clear_values_derived_from_example_status_persistence_file_path; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2270
+  # source://rspec-core//lib/rspec/core/configuration.rb#2276
   def command; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2314
+  # source://rspec-core//lib/rspec/core/configuration.rb#2320
   def conditionally_disable_expectations_monkey_patching; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2305
+  # source://rspec-core//lib/rspec/core/configuration.rb#2311
   def conditionally_disable_mocks_monkey_patching; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2343
+  # source://rspec-core//lib/rspec/core/configuration.rb#2349
   def configure_group_with(group, module_list, application_method); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2278
+  # source://rspec-core//lib/rspec/core/configuration.rb#2284
   def define_built_in_hooks; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2401
+  # source://rspec-core//lib/rspec/core/configuration.rb#2407
   def define_mixed_in_module(mod, filters, mod_list, config_method, &block); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2253
+  # source://rspec-core//lib/rspec/core/configuration.rb#2259
   def extract_location(path); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2230
+  # source://rspec-core//lib/rspec/core/configuration.rb#2236
   def file_glob_from(path, pattern); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2219
+  # source://rspec-core//lib/rspec/core/configuration.rb#2225
   def gather_directories(path); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2198
+  # source://rspec-core//lib/rspec/core/configuration.rb#2204
   def get_files_to_run(paths); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2225
+  # source://rspec-core//lib/rspec/core/configuration.rb#2231
   def get_matching_files(path, pattern); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2165
+  # source://rspec-core//lib/rspec/core/configuration.rb#2171
   def handle_suite_hook(scope, meta); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2137
+  # source://rspec-core//lib/rspec/core/configuration.rb#2143
   def load_file_handling_errors(method, file); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2371
+  # source://rspec-core//lib/rspec/core/configuration.rb#2377
   def metadata_applies_to_group?(meta, group); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2363
+  # source://rspec-core//lib/rspec/core/configuration.rb#2369
   def on_existing_matching_groups(meta); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2301
+  # source://rspec-core//lib/rspec/core/configuration.rb#2307
   def output_to_tty?(output = T.unsafe(nil)); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2297
+  # source://rspec-core//lib/rspec/core/configuration.rb#2303
   def output_wrapper; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2210
+  # source://rspec-core//lib/rspec/core/configuration.rb#2216
   def paths_to_check(paths); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2215
+  # source://rspec-core//lib/rspec/core/configuration.rb#2221
   def pattern_might_load_specs_from_vendored_dirs?; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2324
+  # source://rspec-core//lib/rspec/core/configuration.rb#2330
   def rspec_expectations_loaded?; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2320
+  # source://rspec-core//lib/rspec/core/configuration.rb#2326
   def rspec_mocks_loaded?; end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2180
+  # source://rspec-core//lib/rspec/core/configuration.rb#2186
   def run_suite_hooks(hook_description, hooks); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2386
+  # source://rspec-core//lib/rspec/core/configuration.rb#2392
   def safe_extend(mod, host); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2382
+  # source://rspec-core//lib/rspec/core/configuration.rb#2388
   def safe_include(mod, host); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2376
+  # source://rspec-core//lib/rspec/core/configuration.rb#2382
   def safe_prepend(mod, host); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2328
+  # source://rspec-core//lib/rspec/core/configuration.rb#2334
   def update_pattern_attr(name, value); end
 
-  # source://rspec-core//lib/rspec/core/configuration.rb#2274
+  # source://rspec-core//lib/rspec/core/configuration.rb#2280
   def value_for(key); end
 
   class << self
@@ -931,12 +931,12 @@ class RSpec::Core::Configuration
     # source://rspec-core//lib/rspec/core/configuration.rb#60
     def define_reader(name); end
 
-    # source://rspec-core//lib/rspec/core/configuration.rb#1666
+    # source://rspec-core//lib/rspec/core/configuration.rb#1671
     def delegate_to_ordering_manager(*methods); end
   end
 end
 
-# source://rspec-core//lib/rspec/core/configuration.rb#1646
+# source://rspec-core//lib/rspec/core/configuration.rb#1651
 RSpec::Core::Configuration::DEFAULT_FORMATTER = T.let(T.unsafe(nil), Proc)
 
 # source://rspec-core//lib/rspec/core/configuration.rb#1039
@@ -951,7 +951,7 @@ class RSpec::Core::Configuration::DeprecationReporterBuffer
   def play_onto(reporter); end
 end
 
-# source://rspec-core//lib/rspec/core/configuration.rb#1815
+# source://rspec-core//lib/rspec/core/configuration.rb#1821
 module RSpec::Core::Configuration::ExposeCurrentExample; end
 
 # source://rspec-core//lib/rspec/core/configuration.rb#1126
@@ -969,7 +969,7 @@ RSpec::Core::Configuration::PASSED_STATUS = T.let(T.unsafe(nil), String)
 # source://rspec-core//lib/rspec/core/configuration.rb#1132
 RSpec::Core::Configuration::PENDING_STATUS = T.let(T.unsafe(nil), String)
 
-# source://rspec-core//lib/rspec/core/configuration.rb#1765
+# source://rspec-core//lib/rspec/core/configuration.rb#1770
 RSpec::Core::Configuration::RAISE_ERROR_WARNING_NOTIFIER = T.let(T.unsafe(nil), Proc)
 
 # source://rspec-core//lib/rspec/core/configuration.rb#53
@@ -1108,7 +1108,7 @@ class RSpec::Core::ConfigurationOptions
   # source://rspec-core//lib/rspec/core/configuration_options.rb#146
   def custom_options; end
 
-  # source://rspec-core//lib/rspec/core/configuration_options.rb#188
+  # source://rspec-core//lib/rspec/core/configuration_options.rb#190
   def custom_options_file; end
 
   # source://rspec-core//lib/rspec/core/configuration_options.rb#133
@@ -1123,10 +1123,10 @@ class RSpec::Core::ConfigurationOptions
   # source://rspec-core//lib/rspec/core/configuration_options.rb#158
   def global_options; end
 
-  # source://rspec-core//lib/rspec/core/configuration_options.rb#200
+  # source://rspec-core//lib/rspec/core/configuration_options.rb#202
   def global_options_file; end
 
-  # source://rspec-core//lib/rspec/core/configuration_options.rb#211
+  # source://rspec-core//lib/rspec/core/configuration_options.rb#213
   def home_options_file_path; end
 
   # source://rspec-core//lib/rspec/core/configuration_options.rb#121
@@ -1135,10 +1135,10 @@ class RSpec::Core::ConfigurationOptions
   # source://rspec-core//lib/rspec/core/configuration_options.rb#150
   def local_options; end
 
-  # source://rspec-core//lib/rspec/core/configuration_options.rb#196
+  # source://rspec-core//lib/rspec/core/configuration_options.rb#198
   def local_options_file; end
 
-  # source://rspec-core//lib/rspec/core/configuration_options.rb#180
+  # source://rspec-core//lib/rspec/core/configuration_options.rb#181
   def options_file_as_erb_string(path); end
 
   # source://rspec-core//lib/rspec/core/configuration_options.rb#162
@@ -1159,16 +1159,16 @@ class RSpec::Core::ConfigurationOptions
   # source://rspec-core//lib/rspec/core/configuration_options.rb#154
   def project_options; end
 
-  # source://rspec-core//lib/rspec/core/configuration_options.rb#192
+  # source://rspec-core//lib/rspec/core/configuration_options.rb#194
   def project_options_file; end
 
-  # source://rspec-core//lib/rspec/core/configuration_options.rb#227
+  # source://rspec-core//lib/rspec/core/configuration_options.rb#229
   def resolve_xdg_config_home; end
 
-  # source://rspec-core//lib/rspec/core/configuration_options.rb#204
+  # source://rspec-core//lib/rspec/core/configuration_options.rb#206
   def xdg_options_file_if_exists; end
 
-  # source://rspec-core//lib/rspec/core/configuration_options.rb#220
+  # source://rspec-core//lib/rspec/core/configuration_options.rb#222
   def xdg_options_file_path; end
 end
 
@@ -1221,7 +1221,7 @@ class RSpec::Core::DidYouMean
   # source://rspec-core//lib/rspec/core/did_you_mean.rb#8
   def initialize(relative_file_name); end
 
-  # source://rspec-core//lib/rspec/core/did_you_mean.rb#14
+  # source://rspec-core//lib/rspec/core/did_you_mean.rb#15
   def call; end
 
   # source://rspec-core//lib/rspec/core/did_you_mean.rb#6
@@ -1229,13 +1229,13 @@ class RSpec::Core::DidYouMean
 
   private
 
-  # source://rspec-core//lib/rspec/core/did_you_mean.rb#30
+  # source://rspec-core//lib/rspec/core/did_you_mean.rb#35
   def formats(probables); end
 
-  # source://rspec-core//lib/rspec/core/did_you_mean.rb#40
+  # source://rspec-core//lib/rspec/core/did_you_mean.rb#45
   def red_font(mytext); end
 
-  # source://rspec-core//lib/rspec/core/did_you_mean.rb#35
+  # source://rspec-core//lib/rspec/core/did_you_mean.rb#40
   def top_and_tail(rspec_format); end
 end
 
@@ -1628,55 +1628,55 @@ class RSpec::Core::ExampleGroup
   extend ::RSpec::Core::MemoizedHelpers::ClassMethods
   extend ::RSpec::Core::SharedExampleGroup
 
-  # source://rspec-core//lib/rspec/core/example_group.rb#707
+  # source://rspec-core//lib/rspec/core/example_group.rb#714
   def initialize(inspect_output = T.unsafe(nil)); end
 
   # source://rspec-core//lib/rspec/core/example_group.rb#99
   def described_class; end
 
-  # source://rspec-core//lib/rspec/core/example_group.rb#713
+  # source://rspec-core//lib/rspec/core/example_group.rb#720
   def inspect; end
 
   private
 
-  # source://rspec-core//lib/rspec/core/example_group.rb#758
+  # source://rspec-core//lib/rspec/core/example_group.rb#765
   def method_missing(name, *args, **_arg2); end
 
   class << self
-    # source://rspec-core//lib/rspec/core/example_group.rb#367
+    # source://rspec-core//lib/rspec/core/example_group.rb#374
     def add_example(example); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#529
+    # source://rspec-core//lib/rspec/core/example_group.rb#536
     def before_context_ivars; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#466
+    # source://rspec-core//lib/rspec/core/example_group.rb#473
     def children; end
 
     # source://rspec-core//lib/rspec/core/example_group.rb#43
     def context(*args, &example_group_block); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#542
+    # source://rspec-core//lib/rspec/core/example_group.rb#549
     def currently_executing_a_context_hook?; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#667
+    # source://rspec-core//lib/rspec/core/example_group.rb#674
     def declaration_locations; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#246
+    # source://rspec-core//lib/rspec/core/example_group.rb#248
     def define_example_group_method(name, metadata = T.unsafe(nil)); end
 
     # source://rspec-core//lib/rspec/core/example_group.rb#145
     def define_example_method(name, extra_options = T.unsafe(nil)); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#317
+    # source://rspec-core//lib/rspec/core/example_group.rb#324
     def define_nested_shared_group_method(new_name, report_label = T.unsafe(nil)); end
 
     # source://rspec-core//lib/rspec/core/example_group.rb#76
     def delegate_to_metadata(*names); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#460
+    # source://rspec-core//lib/rspec/core/example_group.rb#467
     def descendant_filtered_examples; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#503
+    # source://rspec-core//lib/rspec/core/example_group.rb#510
     def descendants; end
 
     # source://rspec-core//lib/rspec/core/example_group.rb#43
@@ -1688,10 +1688,10 @@ class RSpec::Core::ExampleGroup
     # source://rspec-core//lib/rspec/core/example_group.rb#85
     def description; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#700
+    # source://rspec-core//lib/rspec/core/example_group.rb#707
     def each_instance_variable_for_example(group); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#518
+    # source://rspec-core//lib/rspec/core/example_group.rb#525
     def ensure_example_groups_are_configured; end
 
     # source://rspec-core//lib/rspec/core/example_group.rb#43
@@ -1700,7 +1700,7 @@ class RSpec::Core::ExampleGroup
     # source://rspec-core//lib/rspec/core/example_group.rb#43
     def example_group(*args, &example_group_block); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#450
+    # source://rspec-core//lib/rspec/core/example_group.rb#457
     def examples; end
 
     # source://rspec-core//lib/rspec/core/example_group.rb#43
@@ -1715,10 +1715,10 @@ class RSpec::Core::ExampleGroup
     # source://rspec-core//lib/rspec/core/example_group.rb#43
     def file_path; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#455
+    # source://rspec-core//lib/rspec/core/example_group.rb#462
     def filtered_examples; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#379
+    # source://rspec-core//lib/rspec/core/example_group.rb#386
     def find_and_eval_shared(label, name, inclusion_location, *args, &customization_block); end
 
     # source://rspec-core//lib/rspec/core/example_group.rb#43
@@ -1727,22 +1727,22 @@ class RSpec::Core::ExampleGroup
     # source://rspec-core//lib/rspec/core/example_group.rb#43
     def focus(*all_args, &block); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#655
+    # source://rspec-core//lib/rspec/core/example_group.rb#662
     def for_filtered_examples(reporter, &block); end
 
     # source://rspec-core//lib/rspec/core/example_group.rb#43
     def fspecify(*all_args, &block); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#675
+    # source://rspec-core//lib/rspec/core/example_group.rb#682
     def id; end
 
     # source://rspec-core//lib/rspec/core/example_group.rb#40
     def idempotently_define_singleton_method(name, &definition); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#343
+    # source://rspec-core//lib/rspec/core/example_group.rb#350
     def include_context(name, *args, &block); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#353
+    # source://rspec-core//lib/rspec/core/example_group.rb#360
     def include_examples(name, *args, &block); end
 
     # source://rspec-core//lib/rspec/core/example_group.rb#43
@@ -1760,40 +1760,40 @@ class RSpec::Core::ExampleGroup
     # source://rspec-core//lib/rspec/core/example_group.rb#51
     def metadata; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#485
+    # source://rspec-core//lib/rspec/core/example_group.rb#492
     def next_runnable_index_for(file); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#625
+    # source://rspec-core//lib/rspec/core/example_group.rb#632
     def ordering_strategy; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#508
+    # source://rspec-core//lib/rspec/core/example_group.rb#515
     def parent_groups; end
 
     # source://rspec-core//lib/rspec/core/example_group.rb#43
     def pending(*all_args, &block); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#373
+    # source://rspec-core//lib/rspec/core/example_group.rb#380
     def remove_example(example); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#359
+    # source://rspec-core//lib/rspec/core/example_group.rb#366
     def reset_memoized; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#599
+    # source://rspec-core//lib/rspec/core/example_group.rb#606
     def run(reporter = T.unsafe(nil)); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#585
+    # source://rspec-core//lib/rspec/core/example_group.rb#592
     def run_after_context_hooks(example_group_instance); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#547
+    # source://rspec-core//lib/rspec/core/example_group.rb#554
     def run_before_context_hooks(example_group_instance); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#641
+    # source://rspec-core//lib/rspec/core/example_group.rb#648
     def run_examples(reporter); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#410
+    # source://rspec-core//lib/rspec/core/example_group.rb#417
     def set_it_up(description, args, registration_collection, &example_group_block); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#685
+    # source://rspec-core//lib/rspec/core/example_group.rb#692
     def set_ivars(instance, ivars); end
 
     # source://rspec-core//lib/rspec/core/example_group.rb#43
@@ -1802,28 +1802,28 @@ class RSpec::Core::ExampleGroup
     # source://rspec-core//lib/rspec/core/example_group.rb#43
     def specify(*all_args, &block); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#534
+    # source://rspec-core//lib/rspec/core/example_group.rb#541
     def store_before_context_ivars(example_group_instance); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#395
+    # source://rspec-core//lib/rspec/core/example_group.rb#402
     def subclass(parent, description, args, registration_collection, &example_group_block); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#562
+    # source://rspec-core//lib/rspec/core/example_group.rb#569
     def superclass_before_context_ivars; end
 
     # source://rspec-core//lib/rspec/core/example_group.rb#71
     def superclass_metadata; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#513
+    # source://rspec-core//lib/rspec/core/example_group.rb#520
     def top_level?; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#680
+    # source://rspec-core//lib/rspec/core/example_group.rb#687
     def top_level_description; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#476
+    # source://rspec-core//lib/rspec/core/example_group.rb#483
     def traverse_tree_until(&block); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#727
+    # source://rspec-core//lib/rspec/core/example_group.rb#734
     def update_inherited_metadata(updates); end
 
     # source://rspec-core//lib/rspec/core/example_group.rb#61
@@ -1846,15 +1846,15 @@ class RSpec::Core::ExampleGroup
 
     private
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#742
+    # source://rspec-core//lib/rspec/core/example_group.rb#749
     def method_missing(name, *args); end
   end
 end
 
-# source://rspec-core//lib/rspec/core/example_group.rb#696
+# source://rspec-core//lib/rspec/core/example_group.rb#703
 RSpec::Core::ExampleGroup::INSTANCE_VARIABLE_TO_IGNORE = T.let(T.unsafe(nil), Symbol)
 
-# source://rspec-core//lib/rspec/core/example_group.rb#740
+# source://rspec-core//lib/rspec/core/example_group.rb#747
 class RSpec::Core::ExampleGroup::WrongScopeError < ::NoMethodError; end
 
 # source://rspec-core//lib/rspec/core/example_status_persister.rb#143
@@ -2559,7 +2559,7 @@ class RSpec::Core::Formatters::ExceptionPresenter
 
   private
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#224
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#226
   def add_shared_group_lines(lines, colorizer); end
 
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#12
@@ -2568,7 +2568,7 @@ class RSpec::Core::Formatters::ExceptionPresenter
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#12
   def detail_formatter; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#282
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#287
   def encoded_description(description); end
 
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#120
@@ -2577,22 +2577,22 @@ class RSpec::Core::Formatters::ExceptionPresenter
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#116
   def encoding_of(string); end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#292
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#299
   def exception_backtrace; end
 
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#150
   def exception_class_name(exception = T.unsafe(nil)); end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#202
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#204
   def exception_lines; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#184
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#185
   def exception_message_string(exception); end
 
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#12
   def extra_detail_formatter; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#213
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#215
   def extra_failure_lines; end
 
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#156
@@ -2604,10 +2604,10 @@ class RSpec::Core::Formatters::ExceptionPresenter
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#104
   def final_exception(exception, previous = T.unsafe(nil)); end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#258
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#262
   def find_failed_line; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#273
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#278
   def formatted_message_and_backtrace(colorizer); end
 
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#134
@@ -2616,57 +2616,57 @@ class RSpec::Core::Formatters::ExceptionPresenter
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#12
   def message_color; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#234
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#236
   def read_failed_lines; end
 end
 
-# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#301
+# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#308
 class RSpec::Core::Formatters::ExceptionPresenter::Factory
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#308
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#315
   def initialize(example); end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#302
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#309
   def build; end
 
   private
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#363
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#370
   def multiple_exception_summarizer(exception, prior_detail_formatter, color); end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#359
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#366
   def multiple_exceptions_error?(exception); end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#318
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#325
   def options; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#322
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#329
   def pending_options; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#384
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#391
   def sub_failure_list_formatter(exception, message_color); end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#343
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#350
   def with_multiple_error_options_as_needed(exception, options); end
 end
 
-# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#417
+# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#424
 class RSpec::Core::Formatters::ExceptionPresenter::Factory::CommonBacktraceTruncater
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#418
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#425
   def initialize(parent); end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#422
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#429
   def with_truncated_backtrace(child); end
 end
 
-# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#410
+# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#417
 module RSpec::Core::Formatters::ExceptionPresenter::Factory::EmptyBacktraceFormatter
   class << self
-    # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#411
+    # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#418
     def format_backtrace(*_arg0); end
   end
 end
 
-# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#442
+# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#449
 RSpec::Core::Formatters::ExceptionPresenter::PENDING_DETAIL_FORMATTER = T.let(T.unsafe(nil), Proc)
 
 # source://rspec-core//lib/rspec/core/formatters/failure_list_formatter.rb#7
@@ -4152,45 +4152,45 @@ module RSpec::Core::MetadataFilter
   end
 end
 
-# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#452
+# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#459
 class RSpec::Core::MultipleExceptionError < ::StandardError
   include ::RSpec::Core::MultipleExceptionError::InterfaceTag
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#513
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#520
   def initialize(*exceptions); end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#510
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#517
   def aggregation_block_label; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#506
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#513
   def aggregation_metadata; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#503
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#510
   def all_exceptions; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#538
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#545
   def exception_count_description; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#497
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#504
   def failures; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#528
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#535
   def message; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#500
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#507
   def other_errors; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#533
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#540
   def summary; end
 end
 
-# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#458
+# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#465
 module RSpec::Core::MultipleExceptionError::InterfaceTag
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#462
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#469
   def add(exception); end
 
   class << self
-    # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#488
+    # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#495
     def for(ex); end
   end
 end
@@ -4638,12 +4638,12 @@ class RSpec::Core::Notifications::SummaryNotification < ::Struct
   end
 end
 
-# source://rspec-core//lib/rspec/core/reporter.rb#259
+# source://rspec-core//lib/rspec/core/reporter.rb#260
 class RSpec::Core::NullReporter
   class << self
     private
 
-    # source://rspec-core//lib/rspec/core/reporter.rb#260
+    # source://rspec-core//lib/rspec/core/reporter.rb#261
     def method_missing(*_arg0); end
   end
 end
@@ -5136,16 +5136,16 @@ class RSpec::Core::Parser
 
   private
 
-  # source://rspec-core//lib/rspec/core/option_parser.rb#310
+  # source://rspec-core//lib/rspec/core/option_parser.rb#312
   def add_tag_filter(options, filter_type, tag_name, value = T.unsafe(nil)); end
 
-  # source://rspec-core//lib/rspec/core/option_parser.rb#318
+  # source://rspec-core//lib/rspec/core/option_parser.rb#320
   def configure_only_failures(options); end
 
   # source://rspec-core//lib/rspec/core/option_parser.rb#39
   def parser(options); end
 
-  # source://rspec-core//lib/rspec/core/option_parser.rb#314
+  # source://rspec-core//lib/rspec/core/option_parser.rb#316
   def set_fail_fast(options, value); end
 
   class << self
@@ -5157,7 +5157,7 @@ end
 # source://rspec-core//lib/rspec/core/pending.rb#5
 module RSpec::Core::Pending
   # source://rspec-core//lib/rspec/core/pending.rb#62
-  def pending(message = T.unsafe(nil)); end
+  def pending(message = T.unsafe(nil), &_block); end
 
   # source://rspec-core//lib/rspec/core/pending.rb#110
   def skip(message = T.unsafe(nil)); end
@@ -5218,10 +5218,10 @@ class RSpec::Core::Reporter
   # source://rspec-core//lib/rspec/core/reporter.rb#14
   def initialize(configuration); end
 
-  # source://rspec-core//lib/rspec/core/reporter.rb#214
+  # source://rspec-core//lib/rspec/core/reporter.rb#215
   def abort_with(msg, exit_status); end
 
-  # source://rspec-core//lib/rspec/core/reporter.rb#193
+  # source://rspec-core//lib/rspec/core/reporter.rb#194
   def close_after; end
 
   # source://rspec-core//lib/rspec/core/reporter.rb#155
@@ -5254,7 +5254,7 @@ class RSpec::Core::Reporter
   # source://rspec-core//lib/rspec/core/reporter.rb#84
   def exit_early(exit_code); end
 
-  # source://rspec-core//lib/rspec/core/reporter.rb#221
+  # source://rspec-core//lib/rspec/core/reporter.rb#222
   def fail_fast_limit_met?; end
 
   # source://rspec-core//lib/rspec/core/reporter.rb#28
@@ -5266,7 +5266,7 @@ class RSpec::Core::Reporter
   # source://rspec-core//lib/rspec/core/reporter.rb#99
   def message(message); end
 
-  # source://rspec-core//lib/rspec/core/reporter.rb#206
+  # source://rspec-core//lib/rspec/core/reporter.rb#207
   def notify(event, notification); end
 
   # source://rspec-core//lib/rspec/core/reporter.rb#163
@@ -5293,21 +5293,21 @@ class RSpec::Core::Reporter
   # source://rspec-core//lib/rspec/core/reporter.rb#89
   def start(expected_example_count, time = T.unsafe(nil)); end
 
-  # source://rspec-core//lib/rspec/core/reporter.rb#200
-  def stop; end
+  # source://rspec-core//lib/rspec/core/reporter.rb#201
+  def stop(notification); end
 
   private
 
-  # source://rspec-core//lib/rspec/core/reporter.rb#242
+  # source://rspec-core//lib/rspec/core/reporter.rb#243
   def close; end
 
-  # source://rspec-core//lib/rspec/core/reporter.rb#233
+  # source://rspec-core//lib/rspec/core/reporter.rb#234
   def ensure_listeners_ready; end
 
-  # source://rspec-core//lib/rspec/core/reporter.rb#246
+  # source://rspec-core//lib/rspec/core/reporter.rb#247
   def mute_profile_output?; end
 
-  # source://rspec-core//lib/rspec/core/reporter.rb#252
+  # source://rspec-core//lib/rspec/core/reporter.rb#253
   def seed_used?; end
 end
 
@@ -5608,31 +5608,31 @@ module RSpec::Core::SharedExampleGroup::TopLevelDSL
   end
 end
 
-# source://rspec-core//lib/rspec/core/example_group.rb#782
+# source://rspec-core//lib/rspec/core/example_group.rb#789
 class RSpec::Core::SharedExampleGroupInclusionStackFrame
-  # source://rspec-core//lib/rspec/core/example_group.rb#789
+  # source://rspec-core//lib/rspec/core/example_group.rb#796
   def initialize(shared_group_name, inclusion_location); end
 
-  # source://rspec-core//lib/rspec/core/example_group.rb#805
+  # source://rspec-core//lib/rspec/core/example_group.rb#812
   def description; end
 
-  # source://rspec-core//lib/rspec/core/example_group.rb#795
+  # source://rspec-core//lib/rspec/core/example_group.rb#802
   def formatted_inclusion_location; end
 
-  # source://rspec-core//lib/rspec/core/example_group.rb#786
+  # source://rspec-core//lib/rspec/core/example_group.rb#793
   def inclusion_location; end
 
-  # source://rspec-core//lib/rspec/core/example_group.rb#784
+  # source://rspec-core//lib/rspec/core/example_group.rb#791
   def shared_group_name; end
 
   class << self
-    # source://rspec-core//lib/rspec/core/example_group.rb#811
+    # source://rspec-core//lib/rspec/core/example_group.rb#818
     def current_backtrace; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#829
+    # source://rspec-core//lib/rspec/core/example_group.rb#836
     def shared_example_group_inclusions; end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#816
+    # source://rspec-core//lib/rspec/core/example_group.rb#823
     def with_frame(name, location); end
   end
 end
@@ -5856,28 +5856,28 @@ module RSpec::Core::World::Null
     def registered_example_group_files; end
 
     # source://rspec-core//lib/rspec/core/world.rb#272
-    def traverse_example_group_trees_until; end
+    def traverse_example_group_trees_until(&_block); end
   end
 end
 
-# source://rspec-core//lib/rspec/core/example_group.rb#839
+# source://rspec-core//lib/rspec/core/example_group.rb#846
 module RSpec::ExampleGroups
   extend ::RSpec::Support::RecursiveConstMethods
 
   class << self
-    # source://rspec-core//lib/rspec/core/example_group.rb#842
+    # source://rspec-core//lib/rspec/core/example_group.rb#849
     def assign_const(group); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#862
+    # source://rspec-core//lib/rspec/core/example_group.rb#869
     def base_name_for(group); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#850
+    # source://rspec-core//lib/rspec/core/example_group.rb#857
     def constant_scope_for(group); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#895
+    # source://rspec-core//lib/rspec/core/example_group.rb#902
     def disambiguate(name, const_scope); end
 
-    # source://rspec-core//lib/rspec/core/example_group.rb#856
+    # source://rspec-core//lib/rspec/core/example_group.rb#863
     def remove_all_constants; end
   end
 end

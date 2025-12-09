@@ -10,68 +10,68 @@ module Diff; end
 
 # source://diff-lcs//lib/diff/lcs.rb#51
 module Diff::LCS
-  # source://diff-lcs//lib/diff/lcs.rb#75
+  # source://diff-lcs//lib/diff/lcs.rb#76
   def diff(other, callbacks = T.unsafe(nil), &block); end
 
-  # source://diff-lcs//lib/diff/lcs.rb#70
+  # source://diff-lcs//lib/diff/lcs.rb#71
   def lcs(other, &block); end
 
-  # source://diff-lcs//lib/diff/lcs.rb#101
+  # source://diff-lcs//lib/diff/lcs.rb#102
   def patch(patchset); end
 
-  # source://diff-lcs//lib/diff/lcs.rb#109
+  # source://diff-lcs//lib/diff/lcs.rb#110
   def patch!(patchset); end
 
-  # source://diff-lcs//lib/diff/lcs.rb#123
+  # source://diff-lcs//lib/diff/lcs.rb#124
   def patch_me(patchset); end
 
-  # source://diff-lcs//lib/diff/lcs.rb#81
+  # source://diff-lcs//lib/diff/lcs.rb#82
   def sdiff(other, callbacks = T.unsafe(nil), &block); end
 
-  # source://diff-lcs//lib/diff/lcs.rb#94
+  # source://diff-lcs//lib/diff/lcs.rb#95
   def traverse_balanced(other, callbacks = T.unsafe(nil), &block); end
 
-  # source://diff-lcs//lib/diff/lcs.rb#87
+  # source://diff-lcs//lib/diff/lcs.rb#88
   def traverse_sequences(other, callbacks = T.unsafe(nil), &block); end
 
-  # source://diff-lcs//lib/diff/lcs.rb#104
+  # source://diff-lcs//lib/diff/lcs.rb#105
   def unpatch(patchset); end
 
-  # source://diff-lcs//lib/diff/lcs.rb#116
+  # source://diff-lcs//lib/diff/lcs.rb#117
   def unpatch!(patchset); end
 
-  # source://diff-lcs//lib/diff/lcs.rb#134
+  # source://diff-lcs//lib/diff/lcs.rb#135
   def unpatch_me(patchset); end
 
   class << self
-    # source://diff-lcs//lib/diff/lcs.rb#157
+    # source://diff-lcs//lib/diff/lcs.rb#158
     def LCS(seq1, seq2, &block); end
 
     # source://diff-lcs//lib/diff/lcs/callbacks.rb#52
     def callbacks_for(callbacks); end
 
-    # source://diff-lcs//lib/diff/lcs.rb#168
+    # source://diff-lcs//lib/diff/lcs.rb#169
     def diff(seq1, seq2, callbacks = T.unsafe(nil), &block); end
 
-    # source://diff-lcs//lib/diff/lcs.rb#144
+    # source://diff-lcs//lib/diff/lcs.rb#145
     def lcs(seq1, seq2, &block); end
 
-    # source://diff-lcs//lib/diff/lcs.rb#626
+    # source://diff-lcs//lib/diff/lcs.rb#627
     def patch(src, patchset, direction = T.unsafe(nil)); end
 
-    # source://diff-lcs//lib/diff/lcs.rb#736
+    # source://diff-lcs//lib/diff/lcs.rb#737
     def patch!(src, patchset); end
 
-    # source://diff-lcs//lib/diff/lcs.rb#200
+    # source://diff-lcs//lib/diff/lcs.rb#201
     def sdiff(seq1, seq2, callbacks = T.unsafe(nil), &block); end
 
-    # source://diff-lcs//lib/diff/lcs.rb#475
+    # source://diff-lcs//lib/diff/lcs.rb#476
     def traverse_balanced(seq1, seq2, callbacks = T.unsafe(nil)); end
 
-    # source://diff-lcs//lib/diff/lcs.rb#285
+    # source://diff-lcs//lib/diff/lcs.rb#286
     def traverse_sequences(seq1, seq2, callbacks = T.unsafe(nil)); end
 
-    # source://diff-lcs//lib/diff/lcs.rb#730
+    # source://diff-lcs//lib/diff/lcs.rb#731
     def unpatch!(src, patchset); end
 
     private
@@ -272,40 +272,40 @@ class Diff::LCS::Hunk
   # source://diff-lcs//lib/diff/lcs/hunk.rb#16
   def initialize(data_old, data_new, piece, flag_context, file_length_difference); end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#62
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#64
   def blocks; end
 
   # source://diff-lcs//lib/diff/lcs/hunk.rb#115
   def diff(format, last = T.unsafe(nil)); end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#64
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#66
   def end_new; end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#64
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#66
   def end_old; end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#65
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#67
   def file_length_difference; end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#69
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#71
   def flag_context; end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#69
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#71
   def flag_context=(context); end
 
   # source://diff-lcs//lib/diff/lcs/hunk.rb#97
   def merge(hunk); end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#331
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#347
   def missing_last_newline?(data); end
 
   # source://diff-lcs//lib/diff/lcs/hunk.rb#109
   def overlaps?(hunk); end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#63
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#65
   def start_new; end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#63
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#65
   def start_old; end
 
   # source://diff-lcs//lib/diff/lcs/hunk.rb#104
@@ -313,29 +313,29 @@ class Diff::LCS::Hunk
 
   private
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#214
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#222
   def context_diff(last = T.unsafe(nil)); end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#298
-  def context_range(mode, op, last = T.unsafe(nil)); end
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#316
+  def context_range(mode, op); end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#276
-  def ed_diff(format, _last = T.unsafe(nil)); end
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#284
+  def ed_diff(format, last); end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#344
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#360
   def encode(literal, target_encoding = T.unsafe(nil)); end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#348
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#364
   def encode_as(string, *args); end
 
   # source://diff-lcs//lib/diff/lcs/hunk.rb#134
-  def old_diff(_last = T.unsafe(nil)); end
+  def old_diff(last = T.unsafe(nil)); end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#159
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#167
   def unified_diff(last = T.unsafe(nil)); end
 
-  # source://diff-lcs//lib/diff/lcs/hunk.rb#316
-  def unified_range(mode, last); end
+  # source://diff-lcs//lib/diff/lcs/hunk.rb#331
+  def unified_range(mode); end
 end
 
 # source://diff-lcs//lib/diff/lcs/hunk.rb#10
@@ -393,5 +393,5 @@ end
 # source://diff-lcs//lib/diff/lcs/callbacks.rb#44
 Diff::LCS::SequenceCallbacks = Diff::LCS::DefaultCallbacks
 
-# source://diff-lcs//lib/diff/lcs.rb#52
+# source://diff-lcs//lib/diff/lcs/version.rb#5
 Diff::LCS::VERSION = T.let(T.unsafe(nil), String)
