@@ -2,6 +2,7 @@
 
 class Dummy::Outbox::BarMessagesJob < Coil::TransactionalMessagesJob
   extend T::Sig
+
   A = TypeAliases
 
   private
