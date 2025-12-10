@@ -1,5 +1,11 @@
 ## main
 
+#### Fix
+- Fix concurrency test ([f185ecc](https://github.com/OdekoTeam/coil/commit/f185ecc722f181f437ca34be85373e3ce6688223))
+#### Changed
+- Update development dependencies ([b420bbd](https://github.com/OdekoTeam/coil/commit/b420bbd7a3a7aa934b51acdde1c2808b238ce331))
+- Clean up development dependencies ([81ca1a7](https://github.com/OdekoTeam/coil/commit/81ca1a7153b4b4548d409333a229b5fa133ad9fb))
+
 ## [1.5.8](https://github.com/OdekoTeam/coil/compare/1.5.7...1.5.8) (2025-12-08)
 #### Changed
 - CI enforce vulnerability scans ([94974b5](https://github.com/OdekoTeam/coil/commit/94974b52f8c835d7f6811983eb511f3460a7abf1))
