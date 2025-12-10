@@ -10,7 +10,6 @@
 ## [1.5.7](https://github.com/OdekoTeam/coil/compare/1.5.6...1.5.7) (2025-12-08)
 #### Fix
 - Update development dependencies to address security vulnerabilities ([2f9cc8c](https://github.com/OdekoTeam/coil/commit/2f9cc8c8a0eb82863710e5b44110403da38e6355))
-
 #### Added
 - CI scan dependencies for security vulnerabilities ([0292a25](https://github.com/OdekoTeam/coil/commit/c739bb90cfdd5704933742c0fd96efad20e6ebe3))
 
