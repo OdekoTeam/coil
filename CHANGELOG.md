@@ -1,5 +1,6 @@
 ## main
 
+## [1.5.9](https://github.com/OdekoTeam/coil/compare/1.5.8...1.5.9) (2025-12-10)
 #### Fix
 - Fix concurrency test ([f185ecc](https://github.com/OdekoTeam/coil/commit/f185ecc722f181f437ca34be85373e3ce6688223))
 #### Changed
