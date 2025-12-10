@@ -2,6 +2,7 @@
 
 class Dummy::Inbox::WhoMessagesJob < Coil::TransactionalMessagesJob
   extend T::Sig
+
   A = TypeAliases
 
   class_attribute :whodunnit

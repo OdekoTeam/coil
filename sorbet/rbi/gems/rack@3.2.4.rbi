@@ -189,7 +189,7 @@ class Rack::Cascade
   # source://rack//lib/rack/cascade.rb#21
   def initialize(apps, cascade_for = T.unsafe(nil)); end
 
-  # source://rack//lib/rack/cascade.rb#56
+  # source://rack//lib/rack/cascade.rb#65
   def <<(app); end
 
   # source://rack//lib/rack/cascade.rb#56
@@ -557,7 +557,7 @@ end
 
 # source://rack//lib/rack/files.rb#184
 class Rack::Files::Iterator < ::Rack::Files::BaseIterator
-  # source://rack//lib/rack/files.rb#122
+  # source://rack//lib/rack/files.rb#185
   def to_path; end
 end
 
@@ -635,22 +635,22 @@ class Rack::Headers < ::Hash
   # source://rack//lib/rack/headers.rb#144
   def has_key?(key); end
 
-  # source://rack//lib/rack/headers.rb#144
+  # source://rack//lib/rack/headers.rb#147
   def include?(key); end
 
   # source://rack//lib/rack/headers.rb#151
   def invert; end
 
-  # source://rack//lib/rack/headers.rb#144
+  # source://rack//lib/rack/headers.rb#148
   def key?(key); end
 
-  # source://rack//lib/rack/headers.rb#144
+  # source://rack//lib/rack/headers.rb#149
   def member?(key); end
 
   # source://rack//lib/rack/headers.rb#157
   def merge(hash, &block); end
 
-  # source://rack//lib/rack/headers.rb#186
+  # source://rack//lib/rack/headers.rb#196
   def merge!(hash, &block); end
 
   # source://rack//lib/rack/headers.rb#161
@@ -665,7 +665,7 @@ class Rack::Headers < ::Hash
   # source://rack//lib/rack/headers.rb#205
   def slice(*a); end
 
-  # source://rack//lib/rack/headers.rb#114
+  # source://rack//lib/rack/headers.rb#117
   def store(key, value); end
 
   # source://rack//lib/rack/headers.rb#178
@@ -859,28 +859,28 @@ class Rack::Lint::Wrapper::StreamWrapper
   # source://rack//lib/rack/lint.rb#947
   def initialize(stream); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack//lib/rack/lint.rb#945
   def <<(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack//lib/rack/lint.rb#945
   def close(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack//lib/rack/lint.rb#945
   def close_read(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack//lib/rack/lint.rb#945
   def close_write(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack//lib/rack/lint.rb#945
   def closed?(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack//lib/rack/lint.rb#945
   def flush(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack//lib/rack/lint.rb#945
   def read(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://rack//lib/rack/lint.rb#945
   def write(*args, **_arg1, &block); end
 end
 
@@ -963,10 +963,10 @@ module Rack::Mime
   def mime_type(ext, fallback = T.unsafe(nil)); end
 
   class << self
-    # source://rack//lib/rack/mime.rb#30
+    # source://rack//lib/rack/mime.rb#36
     def match?(value, matcher); end
 
-    # source://rack//lib/rack/mime.rb#18
+    # source://rack//lib/rack/mime.rb#21
     def mime_type(ext, fallback = T.unsafe(nil)); end
   end
 end
@@ -1071,6 +1071,7 @@ class Rack::MockResponse < ::Rack::Response
   def parse_cookies_from_header; end
 
   class << self
+    # source://rack//lib/rack/mock_response.rb#38
     def [](*_arg0); end
   end
 end
@@ -1361,16 +1362,32 @@ Rack::Multipart::Parser::MIME_HEADER_BYTESIZE_LIMIT = T.let(T.unsafe(nil), Integ
 
 # source://rack//lib/rack/multipart/parser.rb#112
 class Rack::Multipart::Parser::MultipartInfo < ::Struct
+  # source://rack//lib/rack/multipart/parser.rb#112
   def params; end
+
+  # source://rack//lib/rack/multipart/parser.rb#112
   def params=(_); end
+
+  # source://rack//lib/rack/multipart/parser.rb#112
   def tmp_files; end
+
+  # source://rack//lib/rack/multipart/parser.rb#112
   def tmp_files=(_); end
 
   class << self
+    # source://rack//lib/rack/multipart/parser.rb#112
     def [](*_arg0); end
+
+    # source://rack//lib/rack/multipart/parser.rb#112
     def inspect; end
+
+    # source://rack//lib/rack/multipart/parser.rb#112
     def keyword_init?; end
+
+    # source://rack//lib/rack/multipart/parser.rb#112
     def members; end
+
+    # source://rack//lib/rack/multipart/parser.rb#112
     def new(*_arg0); end
   end
 end
@@ -1395,7 +1412,7 @@ class Rack::Multipart::UploadedFile
   # source://rack//lib/rack/multipart/uploaded_file.rb#26
   def content_type=(_arg0); end
 
-  # source://rack//lib/rack/multipart/uploaded_file.rb#66
+  # source://rack//lib/rack/multipart/uploaded_file.rb#69
   def local_path; end
 
   # source://rack//lib/rack/multipart/uploaded_file.rb#77
@@ -1609,6 +1626,7 @@ end
 
 # source://rack//lib/rack/query_parser.rb#257
 class Rack::QueryParser::Params < ::Hash
+  # source://rack//lib/rack/query_parser.rb#258
   def to_params_hash; end
 end
 
@@ -1769,20 +1787,8 @@ class Rack::Request
   # source://rack//lib/rack/request.rb#72
   def params; end
 
-  # source://rack//lib/rack/request.rb#72
-  def query; end
-
   # source://rack//lib/rack/request.rb#76
   def update_param(k, v); end
-
-  # source://yard/0.9.36/lib/yard/server/rack_adapter.rb#94
-  def version_supplied; end
-
-  # source://yard/0.9.36/lib/yard/server/rack_adapter.rb#94
-  def version_supplied=(_arg0); end
-
-  # source://yard/0.9.36/lib/yard/server/rack_adapter.rb#96
-  def xhr?; end
 
   class << self
     # source://rack//lib/rack/request.rb#31
@@ -1974,7 +1980,7 @@ module Rack::Request::Helpers
   # source://rack//lib/rack/request.rb#209
   def referer; end
 
-  # source://rack//lib/rack/request.rb#209
+  # source://rack//lib/rack/request.rb#210
   def referrer; end
 
   # source://rack//lib/rack/request.rb#202
@@ -2116,10 +2122,10 @@ class Rack::Response
   # source://rack//lib/rack/response.rb#54
   def initialize(body = T.unsafe(nil), status = T.unsafe(nil), headers = T.unsafe(nil)); end
 
-  # source://rack//lib/rack/response.rb#164
+  # source://rack//lib/rack/response.rb#177
   def [](key); end
 
-  # source://rack//lib/rack/response.rb#168
+  # source://rack//lib/rack/response.rb#178
   def []=(key, value); end
 
   # source://rack//lib/rack/response.rb#31
@@ -2176,7 +2182,7 @@ class Rack::Response
   # source://rack//lib/rack/response.rb#31
   def status=(_arg0); end
 
-  # source://rack//lib/rack/response.rb#107
+  # source://rack//lib/rack/response.rb#128
   def to_a(&block); end
 
   # source://rack//lib/rack/response.rb#146
@@ -2479,28 +2485,68 @@ Rack::ShowExceptions::CONTEXT = T.let(T.unsafe(nil), Integer)
 
 # source://rack//lib/rack/show_exceptions.rb#21
 class Rack::ShowExceptions::Frame < ::Struct
+  # source://rack//lib/rack/show_exceptions.rb#21
   def context_line; end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def context_line=(_); end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def filename; end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def filename=(_); end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def function; end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def function=(_); end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def lineno; end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def lineno=(_); end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def post_context; end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def post_context=(_); end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def post_context_lineno; end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def post_context_lineno=(_); end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def pre_context; end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def pre_context=(_); end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def pre_context_lineno; end
+
+  # source://rack//lib/rack/show_exceptions.rb#21
   def pre_context_lineno=(_); end
 
   class << self
+    # source://rack//lib/rack/show_exceptions.rb#21
     def [](*_arg0); end
+
+    # source://rack//lib/rack/show_exceptions.rb#21
     def inspect; end
+
+    # source://rack//lib/rack/show_exceptions.rb#21
     def keyword_init?; end
+
+    # source://rack//lib/rack/show_exceptions.rb#21
     def members; end
+
+    # source://rack//lib/rack/show_exceptions.rb#21
     def new(*_arg0); end
   end
 end
@@ -2616,6 +2662,7 @@ module Rack::Utils
   # source://rack//lib/rack/utils.rb#40
   def escape(s); end
 
+  # source://rack//lib/rack/utils.rb#183
   def escape_html(_arg0); end
 
   # source://rack//lib/rack/utils.rb#46
@@ -2706,6 +2753,7 @@ module Rack::Utils
     # source://rack//lib/rack/utils.rb#40
     def escape(s); end
 
+    # source://rack//lib/rack/utils.rb#183
     def escape_html(_arg0); end
 
     # source://rack//lib/rack/utils.rb#46
@@ -2723,10 +2771,10 @@ module Rack::Utils
     # source://rack//lib/rack/utils.rb#65
     def multipart_file_limit=(_arg0); end
 
-    # source://rack//lib/rack/utils.rb#65
+    # source://rack//lib/rack/utils.rb#69
     def multipart_part_limit; end
 
-    # source://rack//lib/rack/utils.rb#65
+    # source://rack//lib/rack/utils.rb#70
     def multipart_part_limit=(_arg0); end
 
     # source://rack//lib/rack/utils.rb#63

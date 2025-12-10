@@ -127,7 +127,7 @@ class Rainbow::NullPresenter < ::String
   # source://rainbow//lib/rainbow/null_presenter.rb#9
   def background(*_values); end
 
-  # source://rainbow//lib/rainbow/null_presenter.rb#9
+  # source://rainbow//lib/rainbow/null_presenter.rb#95
   def bg(*_values); end
 
   # source://rainbow//lib/rainbow/null_presenter.rb#49
@@ -139,7 +139,7 @@ class Rainbow::NullPresenter < ::String
   # source://rainbow//lib/rainbow/null_presenter.rb#65
   def blue; end
 
-  # source://rainbow//lib/rainbow/null_presenter.rb#17
+  # source://rainbow//lib/rainbow/null_presenter.rb#96
   def bold; end
 
   # source://rainbow//lib/rainbow/null_presenter.rb#17
@@ -154,16 +154,16 @@ class Rainbow::NullPresenter < ::String
   # source://rainbow//lib/rainbow/null_presenter.rb#73
   def cyan; end
 
-  # source://rainbow//lib/rainbow/null_presenter.rb#21
+  # source://rainbow//lib/rainbow/null_presenter.rb#97
   def dark; end
 
   # source://rainbow//lib/rainbow/null_presenter.rb#21
   def faint; end
 
-  # source://rainbow//lib/rainbow/null_presenter.rb#5
+  # source://rainbow//lib/rainbow/null_presenter.rb#94
   def fg(*_values); end
 
-  # source://rainbow//lib/rainbow/null_presenter.rb#5
+  # source://rainbow//lib/rainbow/null_presenter.rb#93
   def foreground(*_values); end
 
   # source://rainbow//lib/rainbow/null_presenter.rb#57
@@ -190,7 +190,7 @@ class Rainbow::NullPresenter < ::String
   # source://rainbow//lib/rainbow/null_presenter.rb#13
   def reset; end
 
-  # source://rainbow//lib/rainbow/null_presenter.rb#45
+  # source://rainbow//lib/rainbow/null_presenter.rb#98
   def strike; end
 
   # source://rainbow//lib/rainbow/null_presenter.rb#29
@@ -213,7 +213,7 @@ class Rainbow::Presenter < ::String
   # source://rainbow//lib/rainbow/presenter.rb#30
   def background(*values); end
 
-  # source://rainbow//lib/rainbow/presenter.rb#30
+  # source://rainbow//lib/rainbow/presenter.rb#34
   def bg(*values); end
 
   # source://rainbow//lib/rainbow/presenter.rb#92
@@ -225,7 +225,7 @@ class Rainbow::Presenter < ::String
   # source://rainbow//lib/rainbow/presenter.rb#108
   def blue; end
 
-  # source://rainbow//lib/rainbow/presenter.rb#45
+  # source://rainbow//lib/rainbow/presenter.rb#49
   def bold; end
 
   # source://rainbow//lib/rainbow/presenter.rb#45
@@ -240,16 +240,16 @@ class Rainbow::Presenter < ::String
   # source://rainbow//lib/rainbow/presenter.rb#116
   def cyan; end
 
-  # source://rainbow//lib/rainbow/presenter.rb#53
+  # source://rainbow//lib/rainbow/presenter.rb#57
   def dark; end
 
   # source://rainbow//lib/rainbow/presenter.rb#53
   def faint; end
 
-  # source://rainbow//lib/rainbow/presenter.rb#22
+  # source://rainbow//lib/rainbow/presenter.rb#27
   def fg(*values); end
 
-  # source://rainbow//lib/rainbow/presenter.rb#22
+  # source://rainbow//lib/rainbow/presenter.rb#26
   def foreground(*values); end
 
   # source://rainbow//lib/rainbow/presenter.rb#100
@@ -276,7 +276,7 @@ class Rainbow::Presenter < ::String
   # source://rainbow//lib/rainbow/presenter.rb#40
   def reset; end
 
-  # source://rainbow//lib/rainbow/presenter.rb#86
+  # source://rainbow//lib/rainbow/presenter.rb#90
   def strike; end
 
   # source://rainbow//lib/rainbow/presenter.rb#66

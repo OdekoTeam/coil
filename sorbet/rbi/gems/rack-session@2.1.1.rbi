@@ -6,12 +6,7 @@
 
 
 # source://rack-session//lib/rack/session/constants.rb#7
-module Rack
-  class << self
-    # source://rack/3.2.4/lib/rack/version.rb#14
-    def release; end
-  end
-end
+module Rack; end
 
 # source://rack-session//lib/rack/session/constants.rb#8
 module Rack::Session; end
@@ -194,13 +189,13 @@ class Rack::Session::Abstract::SessionHash
   # source://rack-session//lib/rack/session/abstract/id.rb#52
   def id=(_arg0); end
 
-  # source://rack-session//lib/rack/session/abstract/id.rb#107
+  # source://rack-session//lib/rack/session/abstract/id.rb#112
   def include?(key); end
 
   # source://rack-session//lib/rack/session/abstract/id.rb#151
   def inspect; end
 
-  # source://rack-session//lib/rack/session/abstract/id.rb#107
+  # source://rack-session//lib/rack/session/abstract/id.rb#111
   def key?(key); end
 
   # source://rack-session//lib/rack/session/abstract/id.rb#174
@@ -209,7 +204,7 @@ class Rack::Session::Abstract::SessionHash
   # source://rack-session//lib/rack/session/abstract/id.rb#165
   def loaded?; end
 
-  # source://rack-session//lib/rack/session/abstract/id.rb#135
+  # source://rack-session//lib/rack/session/abstract/id.rb#139
   def merge!(hash); end
 
   # source://rack-session//lib/rack/session/abstract/id.rb#79
@@ -218,7 +213,7 @@ class Rack::Session::Abstract::SessionHash
   # source://rack-session//lib/rack/session/abstract/id.rb#141
   def replace(hash); end
 
-  # source://rack-session//lib/rack/session/abstract/id.rb#114
+  # source://rack-session//lib/rack/session/abstract/id.rb#118
   def store(key, value); end
 
   # source://rack-session//lib/rack/session/abstract/id.rb#130
@@ -430,7 +425,7 @@ class Rack::Session::SessionId
   # source://rack-session//lib/rack/session/abstract/id.rb#26
   def initialize(public_id); end
 
-  # source://rack-session//lib/rack/session/abstract/id.rb#24
+  # source://rack-session//lib/rack/session/abstract/id.rb#34
   def cookie_value; end
 
   # source://rack-session//lib/rack/session/abstract/id.rb#37
@@ -445,7 +440,7 @@ class Rack::Session::SessionId
   # source://rack-session//lib/rack/session/abstract/id.rb#24
   def public_id; end
 
-  # source://rack-session//lib/rack/session/abstract/id.rb#24
+  # source://rack-session//lib/rack/session/abstract/id.rb#35
   def to_s; end
 
   private

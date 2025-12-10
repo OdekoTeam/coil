@@ -100,7 +100,7 @@ class REXML::Attributes < ::Hash
   # source://rexml//lib/rexml/element.rb#2150
   def initialize(element); end
 
-  # source://rexml//lib/rexml/element.rb#2516
+  # source://rexml//lib/rexml/element.rb#2520
   def <<(attribute); end
 
   # source://rexml//lib/rexml/element.rb#2175
@@ -139,7 +139,7 @@ class REXML::Attributes < ::Hash
   # source://rexml//lib/rexml/element.rb#2400
   def prefixes; end
 
-  # source://rexml//lib/rexml/element.rb#2214
+  # source://rexml//lib/rexml/element.rb#2219
   def size; end
 
   # source://rexml//lib/rexml/element.rb#2196
@@ -177,7 +177,7 @@ class REXML::Child
   # source://rexml//lib/rexml/child.rb#85
   def document; end
 
-  # source://rexml//lib/rexml/node.rb#11
+  # source://rexml//lib/rexml/child.rb#58
   def next_sibling; end
 
   # source://rexml//lib/rexml/child.rb#68
@@ -189,7 +189,7 @@ class REXML::Child
   # source://rexml//lib/rexml/child.rb#52
   def parent=(other); end
 
-  # source://rexml//lib/rexml/node.rb#17
+  # source://rexml//lib/rexml/child.rb#59
   def previous_sibling; end
 
   # source://rexml//lib/rexml/child.rb#79
@@ -227,7 +227,7 @@ class REXML::Comment < ::REXML::Child
   # source://rexml//lib/rexml/comment.rb#14
   def string=(_arg0); end
 
-  # source://rexml//lib/rexml/comment.rb#14
+  # source://rexml//lib/rexml/comment.rb#58
   def to_s; end
 
   # source://rexml//lib/rexml/comment.rb#50
@@ -310,7 +310,7 @@ class REXML::Document < ::REXML::Element
   # source://rexml//lib/rexml/document.rb#92
   def initialize(source = T.unsafe(nil), context = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/document.rb#174
+  # source://rexml//lib/rexml/document.rb#205
   def <<(child); end
 
   # source://rexml//lib/rexml/document.rb#174
@@ -346,7 +346,7 @@ class REXML::Document < ::REXML::Element
   # source://rexml//lib/rexml/document.rb#133
   def expanded_name; end
 
-  # source://rexml//lib/rexml/document.rb#133
+  # source://rexml//lib/rexml/document.rb#138
   def name; end
 
   # source://rexml//lib/rexml/document.rb#114
@@ -567,7 +567,7 @@ class REXML::Elements
   # source://rexml//lib/rexml/element.rb#1602
   def initialize(parent); end
 
-  # source://rexml//lib/rexml/element.rb#1915
+  # source://rexml//lib/rexml/element.rb#1927
   def <<(element = T.unsafe(nil)); end
 
   # source://rexml//lib/rexml/element.rb#1674
@@ -965,6 +965,9 @@ module REXML::Namespace
   # source://rexml//lib/rexml/namespace.rb#43
   def has_name?(other, ns = T.unsafe(nil)); end
 
+  # source://rexml//lib/rexml/namespace.rb#53
+  def local_name; end
+
   # source://rexml//lib/rexml/namespace.rb#9
   def name; end
 
@@ -1059,7 +1062,7 @@ class REXML::Parent < ::REXML::Child
   # source://rexml//lib/rexml/parent.rb#13
   def initialize(parent = T.unsafe(nil)); end
 
-  # source://rexml//lib/rexml/parent.rb#18
+  # source://rexml//lib/rexml/parent.rb#25
   def <<(object); end
 
   # source://rexml//lib/rexml/parent.rb#57
@@ -1071,7 +1074,7 @@ class REXML::Parent < ::REXML::Child
   # source://rexml//lib/rexml/parent.rb#18
   def add(object); end
 
-  # source://rexml//lib/rexml/parent.rb#115
+  # source://rexml//lib/rexml/parent.rb#160
   def children; end
 
   # source://rexml//lib/rexml/parent.rb#148
@@ -1089,7 +1092,7 @@ class REXML::Parent < ::REXML::Child
   # source://rexml//lib/rexml/parent.rb#39
   def each(&block); end
 
-  # source://rexml//lib/rexml/parent.rb#39
+  # source://rexml//lib/rexml/parent.rb#61
   def each_child(&block); end
 
   # source://rexml//lib/rexml/parent.rb#51
@@ -1104,13 +1107,13 @@ class REXML::Parent < ::REXML::Child
   # source://rexml//lib/rexml/parent.rb#82
   def insert_before(child1, child2); end
 
-  # source://rexml//lib/rexml/parent.rb#130
+  # source://rexml//lib/rexml/parent.rb#134
   def length; end
 
   # source://rexml//lib/rexml/parent.rb#162
   def parent?; end
 
-  # source://rexml//lib/rexml/parent.rb#18
+  # source://rexml//lib/rexml/parent.rb#24
   def push(object); end
 
   # source://rexml//lib/rexml/parent.rb#140
@@ -1372,7 +1375,7 @@ class REXML::Parsers::XPathParser
   # source://rexml//lib/rexml/parsers/xpathparser.rb#21
   def parse(path); end
 
-  # source://rexml//lib/rexml/parsers/xpathparser.rb#174
+  # source://rexml//lib/rexml/parsers/xpathparser.rb#221
   def preciate_to_string(parsed, &block); end
 
   # source://rexml//lib/rexml/parsers/xpathparser.rb#36
@@ -1687,10 +1690,10 @@ class REXML::XMLDecl < ::REXML::Child
   # source://rexml//lib/rexml/xmldecl.rb#98
   def nowrite; end
 
-  # source://rexml//lib/rexml/encoding.rb#7
+  # source://rexml//lib/rexml/xmldecl.rb#74
   def old_enc=(encoding); end
 
-  # source://rexml//lib/rexml/xmldecl.rb#17
+  # source://rexml//lib/rexml/xmldecl.rb#73
   def stand_alone?; end
 
   # source://rexml//lib/rexml/xmldecl.rb#17

@@ -10,10 +10,10 @@ class Coil::TransactionalMessagesCleanupJob
     sig { params(batch_size: T.untyped).returns(String) }
     def perform_async(batch_size = T.unsafe(nil)); end
 
-    sig { params(interval: T.any(DateTime, Time), batch_size: T.untyped).returns(String) }
+    sig { params(interval: T.any(DateTime, Time, ActiveSupport::TimeWithZone), batch_size: T.untyped).returns(String) }
     def perform_at(interval, batch_size = T.unsafe(nil)); end
 
-    sig { params(interval: Numeric, batch_size: T.untyped).returns(String) }
+    sig { params(interval: T.any(Numeric, ActiveSupport::Duration), batch_size: T.untyped).returns(String) }
     def perform_in(interval, batch_size = T.unsafe(nil)); end
   end
 end

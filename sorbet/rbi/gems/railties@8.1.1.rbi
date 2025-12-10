@@ -96,7 +96,7 @@ class Rails::Application < ::Rails::Engine
   # source://railties//lib/rails/application.rb#100
   def autoloaders; end
 
-  # source://railties//lib/rails/engine.rb#515
+  # source://railties//lib/rails/application.rb#560
   def build_middleware_stack; end
 
   # source://railties//lib/rails/application.rb#453
@@ -210,7 +210,7 @@ class Rails::Application < ::Rails::Engine
   # source://railties//lib/rails/application.rb#98
   def sandbox=(_arg0); end
 
-  # source://railties//lib/rails/application.rb#98
+  # source://railties//lib/rails/application.rb#99
   def sandbox?; end
 
   # source://railties//lib/rails/application.rb#479
@@ -284,6 +284,7 @@ class Rails::Application < ::Rails::Engine
     # source://railties//lib/rails/application.rb#78
     def instance; end
 
+    # source://railties//lib/rails/application.rb#95
     def new(*_arg0); end
   end
 end
@@ -749,7 +750,7 @@ class Rails::Application::RoutesReloader
   # source://railties//lib/rails/application/routes_reloader.rb#14
   def initialize; end
 
-  # source://activesupport/8.1.1/lib/active_support/callbacks.rb#70
+  # source://railties//lib/rails/application/routes_reloader.rb#7
   def __callbacks; end
 
   # source://railties//lib/rails/application/routes_reloader.rb#10
@@ -812,30 +813,30 @@ class Rails::Application::RoutesReloader
   def updater; end
 
   class << self
-    # source://activesupport/8.1.1/lib/active_support/callbacks.rb#70
+    # source://railties//lib/rails/application/routes_reloader.rb#7
     def __callbacks; end
 
-    # source://activesupport/8.1.1/lib/active_support/callbacks.rb#70
+    # source://railties//lib/rails/application/routes_reloader.rb#7
     def __callbacks=(value); end
 
     private
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/application/routes_reloader.rb#7
     def __class_attr___callbacks; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/application/routes_reloader.rb#7
     def __class_attr___callbacks=(new_value); end
   end
 end
 
 # source://railties//lib/rails/application_controller.rb#5
 class Rails::ApplicationController < ::ActionController::Base
-  # source://activesupport/8.1.1/lib/active_support/callbacks.rb#915
+  # source://railties//lib/rails/application_controller.rb#9
   def _run_process_action_callbacks(&block); end
 
   private
 
-  # source://actionview/8.1.1/lib/action_view/layouts.rb#328
+  # source://railties//lib/rails/application_controller.rb#5
   def _layout(lookup_context, formats, keys); end
 
   # source://railties//lib/rails/application_controller.rb#27
@@ -850,34 +851,34 @@ class Rails::ApplicationController < ::ActionController::Base
   class << self
     private
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/application_controller.rb#9
     def __class_attr___callbacks; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/application_controller.rb#9
     def __class_attr___callbacks=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/application_controller.rb#7
     def __class_attr__layout; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/application_controller.rb#7
     def __class_attr__layout=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/application_controller.rb#7
     def __class_attr__layout_conditions; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/application_controller.rb#7
     def __class_attr__layout_conditions=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/application_controller.rb#5
     def __class_attr_config; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/application_controller.rb#5
     def __class_attr_config=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/application_controller.rb#5
     def __class_attr_middleware_stack; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/application_controller.rb#5
     def __class_attr_middleware_stack=(new_value); end
   end
 end
@@ -930,7 +931,7 @@ class Rails::BacktraceCleaner < ::ActiveSupport::BacktraceCleaner
   # source://railties//lib/rails/backtrace_cleaner.rb#36
   def clean_frame(frame, kind = T.unsafe(nil)); end
 
-  # source://railties//lib/rails/backtrace_cleaner.rb#29
+  # source://railties//lib/rails/backtrace_cleaner.rb#34
   def filter(backtrace, kind = T.unsafe(nil)); end
 end
 
@@ -939,6 +940,173 @@ Rails::BacktraceCleaner::APP_DIRS_PATTERN = T.let(T.unsafe(nil), Regexp)
 
 # source://railties//lib/rails/backtrace_cleaner.rb#9
 Rails::BacktraceCleaner::RENDER_TEMPLATE_PATTERN = T.let(T.unsafe(nil), Regexp)
+
+# source://railties//lib/rails/code_statistics.rb#7
+class Rails::CodeStatistics
+  # source://railties//lib/rails/code_statistics.rb#63
+  def initialize(*pairs); end
+
+  # source://railties//lib/rails/code_statistics.rb#47
+  def directories; end
+
+  # source://railties//lib/rails/code_statistics.rb#47
+  def directories=(_arg0); end
+
+  # source://railties//lib/rails/code_statistics.rb#47
+  def directories?; end
+
+  # source://railties//lib/rails/code_statistics.rb#49
+  def pattern; end
+
+  # source://railties//lib/rails/code_statistics.rb#49
+  def pattern=(_arg0); end
+
+  # source://railties//lib/rails/code_statistics.rb#49
+  def pattern?; end
+
+  # source://railties//lib/rails/code_statistics.rb#48
+  def test_types; end
+
+  # source://railties//lib/rails/code_statistics.rb#48
+  def test_types=(_arg0); end
+
+  # source://railties//lib/rails/code_statistics.rb#48
+  def test_types?; end
+
+  # source://railties//lib/rails/code_statistics.rb#69
+  def to_s; end
+
+  private
+
+  # source://railties//lib/rails/code_statistics.rb#109
+  def calculate_code; end
+
+  # source://railties//lib/rails/code_statistics.rb#87
+  def calculate_directory_statistics(directory, pattern = T.unsafe(nil)); end
+
+  # source://railties//lib/rails/code_statistics.rb#83
+  def calculate_statistics; end
+
+  # source://railties//lib/rails/code_statistics.rb#115
+  def calculate_tests; end
+
+  # source://railties//lib/rails/code_statistics.rb#103
+  def calculate_total; end
+
+  # source://railties//lib/rails/code_statistics.rb#154
+  def print_code_test_stats; end
+
+  # source://railties//lib/rails/code_statistics.rb#125
+  def print_header; end
+
+  # source://railties//lib/rails/code_statistics.rb#143
+  def print_line(name, statistics); end
+
+  # source://railties//lib/rails/code_statistics.rb#135
+  def print_splitter; end
+
+  # source://railties//lib/rails/code_statistics.rb#121
+  def width_for(label); end
+
+  class << self
+    # source://railties//lib/rails/code_statistics.rb#47
+    def directories; end
+
+    # source://railties//lib/rails/code_statistics.rb#47
+    def directories=(value); end
+
+    # source://railties//lib/rails/code_statistics.rb#47
+    def directories?; end
+
+    # source://railties//lib/rails/code_statistics.rb#49
+    def pattern; end
+
+    # source://railties//lib/rails/code_statistics.rb#49
+    def pattern=(value); end
+
+    # source://railties//lib/rails/code_statistics.rb#49
+    def pattern?; end
+
+    # source://railties//lib/rails/code_statistics.rb#58
+    def register_directory(label, path, test_directory: T.unsafe(nil)); end
+
+    # source://railties//lib/rails/code_statistics.rb#48
+    def test_types; end
+
+    # source://railties//lib/rails/code_statistics.rb#48
+    def test_types=(value); end
+
+    # source://railties//lib/rails/code_statistics.rb#48
+    def test_types?; end
+
+    private
+
+    # source://railties//lib/rails/code_statistics.rb#47
+    def __class_attr_directories; end
+
+    # source://railties//lib/rails/code_statistics.rb#47
+    def __class_attr_directories=(new_value); end
+
+    # source://railties//lib/rails/code_statistics.rb#49
+    def __class_attr_pattern; end
+
+    # source://railties//lib/rails/code_statistics.rb#49
+    def __class_attr_pattern=(new_value); end
+
+    # source://railties//lib/rails/code_statistics.rb#48
+    def __class_attr_test_types; end
+
+    # source://railties//lib/rails/code_statistics.rb#48
+    def __class_attr_test_types=(new_value); end
+  end
+end
+
+# source://railties//lib/rails/code_statistics.rb#8
+Rails::CodeStatistics::DIRECTORIES = T.let(T.unsafe(nil), Array)
+
+# source://railties//lib/rails/code_statistics.rb#43
+Rails::CodeStatistics::HEADERS = T.let(T.unsafe(nil), Hash)
+
+# source://railties//lib/rails/code_statistics.rb#45
+Rails::CodeStatistics::PATTERN = T.let(T.unsafe(nil), Regexp)
+
+# source://railties//lib/rails/code_statistics.rb#33
+Rails::CodeStatistics::TEST_TYPES = T.let(T.unsafe(nil), Array)
+
+# source://railties//lib/rails/code_statistics_calculator.rb#4
+class Rails::CodeStatisticsCalculator
+  # source://railties//lib/rails/code_statistics_calculator.rb#42
+  def initialize(lines = T.unsafe(nil), code_lines = T.unsafe(nil), classes = T.unsafe(nil), methods = T.unsafe(nil)); end
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#49
+  def add(code_statistics_calculator); end
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#56
+  def add_by_file_path(file_path); end
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#62
+  def add_by_io(io, file_type); end
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#5
+  def classes; end
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#5
+  def code_lines; end
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#5
+  def lines; end
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#5
+  def methods; end
+
+  private
+
+  # source://railties//lib/rails/code_statistics_calculator.rb#91
+  def file_type(file_path); end
+end
+
+# source://railties//lib/rails/code_statistics_calculator.rb#7
+Rails::CodeStatisticsCalculator::PATTERNS = T.let(T.unsafe(nil), Hash)
 
 # source://railties//lib/rails/configuration.rb#9
 module Rails::Configuration; end
@@ -1019,7 +1187,7 @@ class Rails::Configuration::MiddlewareStackProxy
   # source://railties//lib/rails/configuration.rb#70
   def delete(*_arg0, **_arg1, &_arg2); end
 
-  # source://railties//lib/rails/configuration.rb#52
+  # source://railties//lib/rails/configuration.rb#56
   def insert(*_arg0, **_arg1, &_arg2); end
 
   # source://railties//lib/rails/configuration.rb#58
@@ -1031,7 +1199,7 @@ class Rails::Configuration::MiddlewareStackProxy
   # source://railties//lib/rails/configuration.rb#88
   def merge_into(other); end
 
-  # source://railties//lib/rails/configuration.rb#74
+  # source://railties//lib/rails/configuration.rb#78
   def move(*_arg0, **_arg1, &_arg2); end
 
   # source://railties//lib/rails/configuration.rb#80
@@ -1066,16 +1234,16 @@ class Rails::Engine < ::Rails::Railtie
   # source://railties//lib/rails/engine.rb#439
   def initialize; end
 
-  # source://activesupport/8.1.1/lib/active_support/callbacks.rb#70
+  # source://railties//lib/rails/engine.rb#433
   def __callbacks; end
 
-  # source://activesupport/8.1.1/lib/active_support/callbacks.rb#927
+  # source://railties//lib/rails/engine.rb#434
   def _load_seed_callbacks; end
 
-  # source://activesupport/8.1.1/lib/active_support/callbacks.rb#910
+  # source://railties//lib/rails/engine.rb#434
   def _run_load_seed_callbacks; end
 
-  # source://activesupport/8.1.1/lib/active_support/callbacks.rb#915
+  # source://railties//lib/rails/engine.rb#434
   def _run_load_seed_callbacks!(&block); end
 
   # source://railties//lib/rails/engine.rb#515
@@ -1179,16 +1347,16 @@ class Rails::Engine < ::Rails::Railtie
   def load_config_initializer(initializer); end
 
   class << self
-    # source://activesupport/8.1.1/lib/active_support/callbacks.rb#70
+    # source://railties//lib/rails/engine.rb#433
     def __callbacks; end
 
-    # source://activesupport/8.1.1/lib/active_support/callbacks.rb#70
+    # source://railties//lib/rails/engine.rb#433
     def __callbacks=(value); end
 
-    # source://activesupport/8.1.1/lib/active_support/callbacks.rb#919
+    # source://railties//lib/rails/engine.rb#434
     def _load_seed_callbacks; end
 
-    # source://activesupport/8.1.1/lib/active_support/callbacks.rb#923
+    # source://railties//lib/rails/engine.rb#434
     def _load_seed_callbacks=(value); end
 
     # source://railties//lib/rails/engine.rb#353
@@ -1203,7 +1371,7 @@ class Rails::Engine < ::Rails::Railtie
     # source://railties//lib/rails/engine.rb#378
     def endpoint(endpoint = T.unsafe(nil)); end
 
-    # source://railties//lib/rails/railtie.rb#175
+    # source://railties//lib/rails/engine.rb#356
     def engine_name(name = T.unsafe(nil)); end
 
     # source://railties//lib/rails/engine.rb#423
@@ -1227,15 +1395,15 @@ class Rails::Engine < ::Rails::Railtie
     # source://railties//lib/rails/engine.rb#353
     def isolated=(_arg0); end
 
-    # source://railties//lib/rails/engine.rb#353
+    # source://railties//lib/rails/engine.rb#355
     def isolated?; end
 
     private
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/engine.rb#433
     def __class_attr___callbacks; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/engine.rb#433
     def __class_attr___callbacks=(new_value); end
   end
 end
@@ -1389,7 +1557,7 @@ class Rails::HealthController < ::ActionController::Base
 
   private
 
-  # source://actionview/8.1.1/lib/action_view/layouts.rb#328
+  # source://railties//lib/rails/health_controller.rb#37
   def _layout(lookup_context, formats, keys); end
 
   # source://railties//lib/rails/health_controller.rb#59
@@ -1404,22 +1572,22 @@ class Rails::HealthController < ::ActionController::Base
   class << self
     private
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/health_controller.rb#37
     def __class_attr_config; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/health_controller.rb#37
     def __class_attr_config=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/health_controller.rb#37
     def __class_attr_middleware_stack; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/health_controller.rb#37
     def __class_attr_middleware_stack=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/health_controller.rb#38
     def __class_attr_rescue_handlers; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/health_controller.rb#38
     def __class_attr_rescue_handlers=(new_value); end
   end
 end
@@ -1433,7 +1601,7 @@ module Rails::Info
   def properties=(val); end
 
   class << self
-    # source://railties//lib/rails/info.rb#31
+    # source://railties//lib/rails/info.rb#41
     def inspect; end
 
     # source://railties//lib/rails/info.rb#10
@@ -1469,7 +1637,7 @@ class Rails::InfoController < ::Rails::ApplicationController
 
   private
 
-  # source://actionview/8.1.1/lib/action_view/layouts.rb#328
+  # source://railties//lib/rails/info_controller.rb#6
   def _layout(lookup_context, formats, keys); end
 
   # source://railties//lib/rails/info_controller.rb#8
@@ -1481,34 +1649,34 @@ class Rails::InfoController < ::Rails::ApplicationController
   class << self
     private
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/info_controller.rb#10
     def __class_attr___callbacks; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/info_controller.rb#10
     def __class_attr___callbacks=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/info_controller.rb#8
     def __class_attr__layout; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/info_controller.rb#8
     def __class_attr__layout=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/info_controller.rb#8
     def __class_attr__layout_conditions; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/info_controller.rb#8
     def __class_attr__layout_conditions=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/info_controller.rb#6
     def __class_attr_config; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/info_controller.rb#6
     def __class_attr_config=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/info_controller.rb#6
     def __class_attr_middleware_stack; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/info_controller.rb#6
     def __class_attr_middleware_stack=(new_value); end
   end
 end
@@ -1558,7 +1726,7 @@ class Rails::Initializable::Collection
   # source://railties//lib/rails/initializable.rb#73
   def <<(initializer); end
 
-  # source://railties//lib/rails/initializable.rb#81
+  # source://railties//lib/rails/initializable.rb#86
   def append(*initializers); end
 
   # source://railties//lib/rails/initializable.rb#88
@@ -1573,7 +1741,7 @@ class Rails::Initializable::Collection
   # source://railties//lib/rails/initializable.rb#54
   def last; end
 
-  # source://activesupport/8.1.1/lib/active_support/delegation.rb#185
+  # source://railties//lib/rails/initializable.rb#41
   def method_missing(method, *_arg1, **_arg2, &_arg3); end
 
   # source://railties//lib/rails/initializable.rb#81
@@ -1585,12 +1753,12 @@ class Rails::Initializable::Collection
   # source://railties//lib/rails/initializable.rb#63
   def tsort_each_child(initializer, &block); end
 
-  # source://railties//lib/rails/initializable.rb#58
+  # source://railties//lib/rails/initializable.rb#62
   def tsort_each_node(&block); end
 
   private
 
-  # source://activesupport/8.1.1/lib/active_support/delegation.rb#177
+  # source://railties//lib/rails/initializable.rb#41
   def respond_to_missing?(name, include_private = T.unsafe(nil)); end
 end
 
@@ -1637,7 +1805,7 @@ class Rails::MailersController < ::Rails::ApplicationController
 
   private
 
-  # source://actionview/8.1.1/lib/action_view/layouts.rb#328
+  # source://railties//lib/rails/mailers_controller.rb#6
   def _layout(lookup_context, formats, keys); end
 
   # source://railties//lib/rails/mailers_controller.rb#107
@@ -1670,33 +1838,33 @@ class Rails::MailersController < ::Rails::ApplicationController
   class << self
     private
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/mailers_controller.rb#9
     def __class_attr___callbacks; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/mailers_controller.rb#9
     def __class_attr___callbacks=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/mailers_controller.rb#13
     def __class_attr__helper_methods; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/mailers_controller.rb#13
     def __class_attr__helper_methods=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/mailers_controller.rb#6
     def __class_attr_config; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/mailers_controller.rb#6
     def __class_attr_config=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/mailers_controller.rb#6
     def __class_attr_middleware_stack; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/mailers_controller.rb#6
     def __class_attr_middleware_stack=(new_value); end
   end
 end
 
-# source://railties//lib/rails/mailers_controller.rb#0
+# source://railties//lib/rails/mailers_controller.rb#13
 module Rails::MailersController::HelperMethods
   include ::ActionController::Base::HelperMethods
 
@@ -1726,16 +1894,16 @@ class Rails::Paths::Path
   # source://railties//lib/rails/paths.rb#132
   def absolute_current; end
 
-  # source://railties//lib/rails/paths.rb#153
+  # source://railties//lib/rails/paths.rb#152
   def autoload!; end
 
-  # source://railties//lib/rails/paths.rb#161
+  # source://railties//lib/rails/paths.rb#152
   def autoload?; end
 
-  # source://railties//lib/rails/paths.rb#153
+  # source://railties//lib/rails/paths.rb#152
   def autoload_once!; end
 
-  # source://railties//lib/rails/paths.rb#161
+  # source://railties//lib/rails/paths.rb#152
   def autoload_once?; end
 
   # source://railties//lib/rails/paths.rb#136
@@ -1747,10 +1915,10 @@ class Rails::Paths::Path
   # source://railties//lib/rails/paths.rb#167
   def each(&block); end
 
-  # source://railties//lib/rails/paths.rb#153
+  # source://railties//lib/rails/paths.rb#152
   def eager_load!; end
 
-  # source://railties//lib/rails/paths.rb#161
+  # source://railties//lib/rails/paths.rb#152
   def eager_load?; end
 
   # source://railties//lib/rails/paths.rb#220
@@ -1777,31 +1945,31 @@ class Rails::Paths::Path
   # source://railties//lib/rails/paths.rb#147
   def last; end
 
-  # source://railties//lib/rails/paths.rb#153
+  # source://railties//lib/rails/paths.rb#152
   def load_path!; end
 
-  # source://railties//lib/rails/paths.rb#161
+  # source://railties//lib/rails/paths.rb#152
   def load_path?; end
 
   # source://railties//lib/rails/paths.rb#188
   def paths; end
 
-  # source://railties//lib/rails/paths.rb#171
+  # source://railties//lib/rails/paths.rb#174
   def push(path); end
 
-  # source://railties//lib/rails/paths.rb#157
+  # source://railties//lib/rails/paths.rb#152
   def skip_autoload!; end
 
-  # source://railties//lib/rails/paths.rb#157
+  # source://railties//lib/rails/paths.rb#152
   def skip_autoload_once!; end
 
-  # source://railties//lib/rails/paths.rb#157
+  # source://railties//lib/rails/paths.rb#152
   def skip_eager_load!; end
 
-  # source://railties//lib/rails/paths.rb#157
+  # source://railties//lib/rails/paths.rb#152
   def skip_load_path!; end
 
-  # source://railties//lib/rails/paths.rb#201
+  # source://railties//lib/rails/paths.rb#235
   def to_a; end
 
   # source://railties//lib/rails/paths.rb#184
@@ -1876,28 +2044,28 @@ class Rails::PwaController < ::Rails::ApplicationController
 
   private
 
-  # source://actionview/8.1.1/lib/action_view/layouts.rb#328
+  # source://railties//lib/rails/pwa_controller.rb#5
   def _layout(lookup_context, formats, keys); end
 
   class << self
     private
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/pwa_controller.rb#6
     def __class_attr___callbacks; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/pwa_controller.rb#6
     def __class_attr___callbacks=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/pwa_controller.rb#5
     def __class_attr_config; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/pwa_controller.rb#5
     def __class_attr_config=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/pwa_controller.rb#5
     def __class_attr_middleware_stack; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/pwa_controller.rb#5
     def __class_attr_middleware_stack=(new_value); end
   end
 end
@@ -2042,6 +2210,7 @@ class Rails::Railtie
     # source://railties//lib/rails/railtie.rb#223
     def method_missing(name, *_arg1, **_arg2, &_arg3); end
 
+    # source://railties//lib/rails/railtie.rb#144
     def new(*_arg0); end
 
     # source://railties//lib/rails/railtie.rb#234
@@ -2199,40 +2368,40 @@ class Rails::WelcomeController < ::Rails::ApplicationController
 
   private
 
-  # source://actionview/8.1.1/lib/action_view/layouts.rb#328
+  # source://railties//lib/rails/welcome_controller.rb#5
   def _layout(lookup_context, formats, keys); end
 
   class << self
     private
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/welcome_controller.rb#6
     def __class_attr___callbacks; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/welcome_controller.rb#6
     def __class_attr___callbacks=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/welcome_controller.rb#7
     def __class_attr__layout; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/welcome_controller.rb#7
     def __class_attr__layout=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/welcome_controller.rb#7
     def __class_attr__layout_conditions; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/welcome_controller.rb#7
     def __class_attr__layout_conditions=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/welcome_controller.rb#5
     def __class_attr_config; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/welcome_controller.rb#5
     def __class_attr_config=(new_value); end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#15
+    # source://railties//lib/rails/welcome_controller.rb#5
     def __class_attr_middleware_stack; end
 
-    # source://activesupport/8.1.1/lib/active_support/class_attribute.rb#17
+    # source://railties//lib/rails/welcome_controller.rb#5
     def __class_attr_middleware_stack=(new_value); end
   end
 end
