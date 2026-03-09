@@ -490,13 +490,13 @@ Nokogiri::CSS::XPathVisitor::DoctypeConfig::XML = T.let(T.unsafe(nil), Symbol)
 # source://nokogiri//lib/nokogiri/css/xpath_visitor.rb#10
 Nokogiri::CSS::XPathVisitor::WILDCARD_NAMESPACES = T.let(T.unsafe(nil), TrueClass)
 
-# source://nokogiri//lib/nokogiri/class_resolver.rb#19
+# source://nokogiri//lib/nokogiri/class_resolver.rb#17
 module Nokogiri::ClassResolver
-  # source://nokogiri//lib/nokogiri/class_resolver.rb#46
+  # source://nokogiri//lib/nokogiri/class_resolver.rb#44
   def related_class(class_name); end
 end
 
-# source://nokogiri//lib/nokogiri/class_resolver.rb#21
+# source://nokogiri//lib/nokogiri/class_resolver.rb#19
 Nokogiri::ClassResolver::VALID_NAMESPACES = T.let(T.unsafe(nil), Set)
 
 # source://nokogiri//lib/nokogiri/decorators/slop.rb#4
