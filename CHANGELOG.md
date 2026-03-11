@@ -1,5 +1,6 @@
 ## main
 
+## [1.5.10](https://github.com/OdekoTeam/coil/compare/1.5.9...1.5.10) (2026-03-11)
 #### Changed
 - Regenerate test schema ([3e76bde](https://github.com/OdekoTeam/coil/commit/3e76bdec3cff15676673a480ae649855554e4588))
 - Update development dependencies ([8cde876](https://github.com/OdekoTeam/coil/commit/8cde8767c44ac1de1c56ef3e51935ac46ab187b7))
