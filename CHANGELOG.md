@@ -1,5 +1,9 @@
 ## main
 
+#### Changed
+- Regenerate test schema ([3e76bde](https://github.com/OdekoTeam/coil/commit/3e76bdec3cff15676673a480ae649855554e4588))
+- Update development dependencies ([8cde876](https://github.com/OdekoTeam/coil/commit/8cde8767c44ac1de1c56ef3e51935ac46ab187b7))
+
 ## [1.5.9](https://github.com/OdekoTeam/coil/compare/1.5.8...1.5.9) (2025-12-10)
 #### Fix
 - Fix concurrency test ([f185ecc](https://github.com/OdekoTeam/coil/commit/f185ecc722f181f437ca34be85373e3ce6688223))
