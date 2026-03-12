@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_01_02_041225) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_09_173914) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gist"
   enable_extension "pg_catalog.plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_01_02_041225) do
     t.jsonb "value", null: false
     t.index ["created_at"], name: "index_coil_inbox_messages_on_created_at"
     t.index ["type", "key"], name: "index_coil_inbox_messages_on_type_and_key"
+    t.index ["type"], name: "index_coil_inbox_messages_on_type"
   end
 
   create_table "coil_outbox_completions", force: :cascade do |t|
@@ -59,6 +60,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_01_02_041225) do
     t.jsonb "value", null: false
     t.index ["created_at"], name: "index_coil_outbox_messages_on_created_at"
     t.index ["type", "key"], name: "index_coil_outbox_messages_on_type_and_key"
+    t.index ["type"], name: "index_coil_outbox_messages_on_type"
   end
 
   add_foreign_key "coil_inbox_completions", "coil_inbox_messages", column: "last_completed_message_id", name: "fk_rails_9825cbb40c_on_delete_cascade", on_delete: :cascade
