@@ -1,5 +1,6 @@
 ## main
 
+## [1.6.0](https://github.com/OdekoTeam/coil/compare/1.5.10...1.6.0) (2026-03-12)
 #### Fix
 - Eliminate deprecation warning ([12892d6](https://github.com/OdekoTeam/coil/commit/12892d65d0e5ca45b427ebcf307791e3c6ef9079))
 #### Changed
