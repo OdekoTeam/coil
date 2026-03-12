@@ -1,5 +1,11 @@
 ## main
 
+#### Fix
+- Eliminate deprecation warning ([12892d6](https://github.com/OdekoTeam/coil/commit/12892d65d0e5ca45b427ebcf307791e3c6ef9079))
+#### Changed
+- Index to improve periodic job performance ([7123545](https://github.com/OdekoTeam/coil/commit/71235458f3bd11754a3db8d53c16a47a524eeec4))
+  - **NOTE**: this release includes additional migrations, so **be sure to run** `bundle exec rails coil:install:migrations db:migrate`
+
 ## [1.5.10](https://github.com/OdekoTeam/coil/compare/1.5.9...1.5.10) (2026-03-11)
 #### Changed
 - Regenerate test schema ([3e76bde](https://github.com/OdekoTeam/coil/commit/3e76bdec3cff15676673a480ae649855554e4588))
