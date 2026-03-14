@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_09_173914) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_14_162532) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gist"
   enable_extension "pg_catalog.plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_09_173914) do
     t.datetime "created_at", null: false
     t.jsonb "key", null: false
     t.jsonb "metadata", default: {}, null: false
+    t.integer "processor_attempts", default: 0, null: false, comment: "Number of processor attempts that have been initiated on this message."
     t.string "type", null: false
     t.datetime "updated_at", null: false
     t.jsonb "value", null: false
@@ -55,6 +56,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_09_173914) do
     t.datetime "created_at", null: false
     t.jsonb "key", null: false
     t.jsonb "metadata", default: {}, null: false
+    t.integer "processor_attempts", default: 0, null: false, comment: "Number of processor attempts that have been initiated on this message."
     t.string "type", null: false
     t.datetime "updated_at", null: false
     t.jsonb "value", null: false
