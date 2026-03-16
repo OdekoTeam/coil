@@ -873,6 +873,51 @@ class Coil::Inbox::Message
     sig { void }
     def metadata_will_change!; end
 
+    sig { returns(::Integer) }
+    def processor_attempts; end
+
+    sig { params(value: ::Integer).returns(::Integer) }
+    def processor_attempts=(value); end
+
+    sig { returns(T::Boolean) }
+    def processor_attempts?; end
+
+    sig { returns(T.nilable(::Integer)) }
+    def processor_attempts_before_last_save; end
+
+    sig { returns(T.untyped) }
+    def processor_attempts_before_type_cast; end
+
+    sig { returns(T::Boolean) }
+    def processor_attempts_came_from_user?; end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def processor_attempts_change; end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def processor_attempts_change_to_be_saved; end
+
+    sig { params(from: T.untyped, to: T.untyped).returns(T::Boolean) }
+    def processor_attempts_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable(::Integer)) }
+    def processor_attempts_in_database; end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def processor_attempts_previous_change; end
+
+    sig { params(from: T.untyped, to: T.untyped).returns(T::Boolean) }
+    def processor_attempts_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable(::Integer)) }
+    def processor_attempts_previously_was; end
+
+    sig { returns(T.nilable(::Integer)) }
+    def processor_attempts_was; end
+
+    sig { void }
+    def processor_attempts_will_change!; end
+
     sig { void }
     def restore_created_at!; end
 
@@ -887,6 +932,9 @@ class Coil::Inbox::Message
 
     sig { void }
     def restore_metadata!; end
+
+    sig { void }
+    def restore_processor_attempts!; end
 
     sig { void }
     def restore_type!; end
@@ -926,6 +974,12 @@ class Coil::Inbox::Message
 
     sig { params(from: T.untyped, to: T.untyped).returns(T::Boolean) }
     def saved_change_to_metadata?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def saved_change_to_processor_attempts; end
+
+    sig { params(from: T.untyped, to: T.untyped).returns(T::Boolean) }
+    def saved_change_to_processor_attempts?(from: T.unsafe(nil), to: T.unsafe(nil)); end
 
     sig { returns(T.nilable([::String, ::String])) }
     def saved_change_to_type; end
@@ -1094,6 +1148,9 @@ class Coil::Inbox::Message
 
     sig { params(from: T.untyped, to: T.untyped).returns(T::Boolean) }
     def will_save_change_to_metadata?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { params(from: T.untyped, to: T.untyped).returns(T::Boolean) }
+    def will_save_change_to_processor_attempts?(from: T.unsafe(nil), to: T.unsafe(nil)); end
 
     sig { params(from: T.untyped, to: T.untyped).returns(T::Boolean) }
     def will_save_change_to_type?(from: T.unsafe(nil), to: T.unsafe(nil)); end

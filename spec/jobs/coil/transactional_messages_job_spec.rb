@@ -29,6 +29,22 @@ RSpec.shared_examples :transactional_messages_job do
       .to eq("EventReplay:2023-05-24")
   end
 
+  it "increments processor_attempts" do
+    expect { job.perform(key) }
+      .to change { message1.reload.processor_attempts }.by(1)
+      .and change { message2.reload.processor_attempts }.by(1)
+  end
+
+  it "increments processor_attempts even if a database transaction fails" do
+    allow(job).to receive(:around_process) do
+      ApplicationRecord.connection.execute("some invalid statement")
+    end
+
+    expect { expect { job.perform(key) }.to raise_error(ActiveRecord::StatementInvalid) }
+      .to change { message1.reload.processor_attempts }.by(1)
+      .and change { message2.reload.processor_attempts }.by(0)
+  end
+
   it "does not enqueue a subsequent job" do
     expect { job.perform(key) }
       .not_to change(job.class.jobs, :size)

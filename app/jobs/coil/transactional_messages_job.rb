@@ -10,8 +10,6 @@ module Coil
     # job to pick up where we left off.
     MAX_DURATION = 5.minutes
 
-    sidekiq_options retry: 4, dead: false
-
     def perform(key, processor_name = self.class.to_s)
       deadline = Time.current + MAX_DURATION
       next_in_line = process_messages(key:, processor_name:, deadline:)
@@ -38,18 +36,40 @@ module Coil
         next_in_line = next_message(key:, processor_name:)
         return next_in_line if next_in_line.nil? || Time.current > deadline
 
-        locking(key) do
-          message = next_message(key:, processor_name:)
+        outcome = process_next(key:, processor_name:)
+        raise outcome.error if outcome.error
+      end
+    end
 
-          if message.present?
-            around_process(message, processor_name:) do
-              pre_process(message)
-              message.processed(processor_name:)
-              process(message)
+    class Outcome
+      attr_accessor :error
+    end
+
+    def process_next(key:, processor_name:)
+      outcome = Outcome.new
+
+      locking(key) do
+        message = next_message(key:, processor_name:)
+
+        if message.present?
+          message.increment!(:processor_attempts)
+          begin
+            # Use a nested transaction and deferred error-handling to ensure the
+            # processor_attempts increment persists, even if the attempt fails.
+            ApplicationRecord.transaction(requires_new: true) do
+              around_process(message, processor_name:) do
+                pre_process(message)
+                message.processed(processor_name:)
+                process(message)
+              end
             end
+          rescue => e
+            outcome.error = e
           end
         end
       end
+
+      outcome
     end
 
     def around_process(message, processor_name:, &blk)

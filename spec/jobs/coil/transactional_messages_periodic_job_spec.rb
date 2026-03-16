@@ -21,6 +21,15 @@ RSpec.shared_examples :transactional_messages_periodic_job do
     box::BarMessage.create!(key: "z", value: {}, metadata: {}, created_at:)
   end
 
+  let(:queue) { double(:queue, latency: 0) }
+
+  before(:each) do
+    allow(Sidekiq::Queue)
+      .to receive(:new)
+      .with(Coil.sidekiq_queue)
+      .and_return(queue)
+  end
+
   it "enqueues jobs to process unprocessed messages" do
     expect { periodic_job.perform }
       .to change(box::FooMessagesJob.jobs, :size).by(1)
@@ -44,12 +53,46 @@ RSpec.shared_examples :transactional_messages_periodic_job do
     expect(bar_jobs.map { _1["args"] }).to contain_exactly(["y"], ["z"])
   end
 
+  it "accounts for queue latency" do
+    allow(queue).to receive(:latency).and_return(600)
+
+    t = 600.seconds.ago - Coil::TransactionalMessagesJob::MAX_DURATION
+    [
+      [foo_message_w, t - 1.second],
+      [bar_message_x, t + 1.second],
+      [bar_message_y, t - 1.second],
+      [bar_message_z_1, t - 1.second],
+      [bar_message_z_2, t - 1.second]
+    ].each do |msg, created_at|
+      msg.update!(created_at:)
+    end
+
+    expect { periodic_job.perform }
+      .to change(box::FooMessagesJob.jobs, :size).by(1)
+      .and change(box::BarMessagesJob.jobs, :size).by(2)
+
+    bar_jobs = box::BarMessagesJob.jobs.last(2)
+    expect(bar_jobs.map { _1["args"] }).to contain_exactly(["y"], ["z"])
+  end
+
   it "ignores messages that were already processed" do
     foo_message_w.processed(processor_name: box::FooMessagesJob.name)
 
     expect { periodic_job.perform }
       .to change(box::FooMessagesJob.jobs, :size).by(0)
       .and change(box::BarMessagesJob.jobs, :size).by(3)
+  end
+
+  it "ignores messages that were already attempted several times" do
+    n = Coil::TransactionalMessagesPeriodicJob::ATTEMPTS_THRESHOLD
+    bar_message_z_1.update!(processor_attempts: n)
+
+    expect { periodic_job.perform }
+      .to change(box::FooMessagesJob.jobs, :size).by(1)
+      .and change(box::BarMessagesJob.jobs, :size).by(2)
+
+    bar_jobs = box::BarMessagesJob.jobs.last(2)
+    expect(bar_jobs.map { _1["args"] }).to contain_exactly(["x"], ["y"])
   end
 
   it "ignores messages whose class cannot be found" do
