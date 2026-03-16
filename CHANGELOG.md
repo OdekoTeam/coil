@@ -1,5 +1,6 @@
 ## main
 
+## [1.7.0](https://github.com/OdekoTeam/coil/compare/1.6.1...1.7.0) (2026-03-16)
 #### Changed
 - Improve retry policy ([d51ea55](https://github.com/OdekoTeam/coil/commit/d51ea553eaa41cb99a4da70a0316707780f1a79d))
   - **NOTE**: this release includes additional migrations, so **be sure to run** `bundle exec rails coil:install:migrations db:migrate`
