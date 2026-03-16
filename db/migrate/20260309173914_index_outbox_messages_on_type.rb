@@ -1,6 +1,6 @@
 # typed: false
 
-class IndexOutboxMessagesOnType < ActiveRecord::Migration[8.1]
+class IndexOutboxMessagesOnType < ActiveRecord::Migration[6.0]
   disable_ddl_transaction!
 
   # Indexing on `type` improves performance when a periodic job queries for all
