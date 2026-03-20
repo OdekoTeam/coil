@@ -48,7 +48,9 @@ resources:
   icon: docker
   source:
     repository: aquasec/trivy
-    tag: "latest"
+    tag: "latest-amd64"
+    registry_mirror:
+      host: docker-mirror.odeko.com
 - name: slack-alert
   type: slack-notification
   source:
