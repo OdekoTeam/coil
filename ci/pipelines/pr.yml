@@ -38,7 +38,7 @@ resources:
   type: registry-image
   source:
     repository: aquasec/trivy
-    tag: "latest-amd64"
+    tag: "0.69.3-amd64"
     registry_mirror:
       host: docker-mirror.odeko.com
 - name: slack-alert
