@@ -53,44 +53,41 @@ module ActiveJob::Arguments
 
   private
 
-  # source://activejob//lib/active_job/arguments.rb#193
+  # source://activejob//lib/active_job/arguments.rb#191
   def convert_to_global_id_hash(argument); end
 
-  # source://activejob//lib/active_job/arguments.rb#138
+  # source://activejob//lib/active_job/arguments.rb#136
   def custom_serialized?(hash); end
 
-  # source://activejob//lib/active_job/arguments.rb#111
+  # source://activejob//lib/active_job/arguments.rb#109
   def deserialize_argument(argument); end
 
-  # source://activejob//lib/active_job/arguments.rb#134
+  # source://activejob//lib/active_job/arguments.rb#132
   def deserialize_global_id(hash); end
 
-  # source://activejob//lib/active_job/arguments.rb#148
+  # source://activejob//lib/active_job/arguments.rb#146
   def deserialize_hash(serialized_hash); end
 
-  # source://activejob//lib/active_job/arguments.rb#142
+  # source://activejob//lib/active_job/arguments.rb#140
   def serialize_hash(argument); end
 
-  # source://activejob//lib/active_job/arguments.rb#161
+  # source://activejob//lib/active_job/arguments.rb#159
   def serialize_hash_key(key); end
 
-  # source://activejob//lib/active_job/arguments.rb#174
+  # source://activejob//lib/active_job/arguments.rb#172
   def serialize_indifferent_hash(indifferent_hash); end
 
-  # source://activejob//lib/active_job/arguments.rb#130
+  # source://activejob//lib/active_job/arguments.rb#128
   def serialized_global_id?(hash); end
 
-  # source://activejob//lib/active_job/arguments.rb#180
+  # source://activejob//lib/active_job/arguments.rb#178
   def transform_symbol_keys(hash, symbol_keys); end
 end
 
 # source://activejob//lib/active_job/arguments.rb#90
 ActiveJob::Arguments::GLOBALID_KEY = T.let(T.unsafe(nil), String)
 
-# source://activejob//lib/active_job/arguments.rb#98
-ActiveJob::Arguments::OBJECT_SERIALIZER_KEY = T.let(T.unsafe(nil), String)
-
-# source://activejob//lib/active_job/arguments.rb#101
+# source://activejob//lib/active_job/arguments.rb#99
 ActiveJob::Arguments::RESERVED_KEYS = T.let(T.unsafe(nil), Set)
 
 # source://activejob//lib/active_job/arguments.rb#94
@@ -859,8 +856,19 @@ end
 module ActiveJob::EnqueueAfterTransactionCommit
   private
 
-  # source://activejob//lib/active_job/enqueue_after_transaction_commit.rb#6
+  # source://activejob//lib/active_job/enqueue_after_transaction_commit.rb#25
   def raw_enqueue; end
+
+  class << self
+    # source://activejob//lib/active_job/enqueue_after_transaction_commit.rb#6
+    def included(base); end
+  end
+end
+
+# source://activejob//lib/active_job/enqueue_after_transaction_commit.rb#11
+module ActiveJob::EnqueueAfterTransactionCommit::ActiveJobMethods
+  # source://activejob//lib/active_job/enqueue_after_transaction_commit.rb#15
+  def perform_all_later(*jobs); end
 end
 
 # source://activejob//lib/active_job/enqueuing.rb#8
@@ -1208,12 +1216,12 @@ module ActiveJob::QueueAdapters
   extend ::ActiveSupport::Autoload
 
   class << self
-    # source://activejob//lib/active_job/queue_adapters.rb#135
+    # source://activejob//lib/active_job/queue_adapters.rb#134
     def lookup(name); end
   end
 end
 
-# source://activejob//lib/active_job/queue_adapters.rb#127
+# source://activejob//lib/active_job/queue_adapters.rb#126
 ActiveJob::QueueAdapters::ADAPTER = T.let(T.unsafe(nil), String)
 
 # source://activejob//lib/active_job/queue_adapters/abstract_adapter.rb#9
@@ -1584,6 +1592,9 @@ class ActiveJob::Serializers::ModuleSerializer < ::ActiveJob::Serializers::Objec
   def serialize(constant); end
 end
 
+# source://activejob//lib/active_job/serializers.rb#104
+ActiveJob::Serializers::OBJECT_SERIALIZER_KEY = T.let(T.unsafe(nil), String)
+
 # source://activejob//lib/active_job/serializers/object_serializer.rb#24
 class ActiveJob::Serializers::ObjectSerializer
   include ::Singleton
@@ -1863,7 +1874,7 @@ ActiveJob::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActiveJob::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://activejob//lib/active_job/gem_version.rb#13
-ActiveJob::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
+ActiveJob::VERSION::PRE = T.let(T.unsafe(nil), String)
 
 # source://activejob//lib/active_job/gem_version.rb#15
 ActiveJob::VERSION::STRING = T.let(T.unsafe(nil), String)

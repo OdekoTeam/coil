@@ -312,13 +312,13 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # source://railties//lib/rails/application/configuration.rb#14
   def allow_concurrency=(_arg0); end
 
-  # source://railties//lib/rails/application/configuration.rb#585
+  # source://railties//lib/rails/application/configuration.rb#582
   def annotations; end
 
   # source://railties//lib/rails/application/configuration.rb#29
   def api_only; end
 
-  # source://railties//lib/rails/application/configuration.rb#398
+  # source://railties//lib/rails/application/configuration.rb#395
   def api_only=(value); end
 
   # source://railties//lib/rails/application/configuration.rb#14
@@ -339,10 +339,10 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # source://railties//lib/rails/application/configuration.rb#14
   def autoflush_log=(_arg0); end
 
-  # source://railties//lib/rails/application/configuration.rb#493
+  # source://railties//lib/rails/application/configuration.rb#490
   def autoload_lib(ignore:); end
 
-  # source://railties//lib/rails/application/configuration.rb#505
+  # source://railties//lib/rails/application/configuration.rb#502
   def autoload_lib_once(ignore:); end
 
   # source://railties//lib/rails/application/configuration.rb#14
@@ -351,7 +351,7 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # source://railties//lib/rails/application/configuration.rb#14
   def beginning_of_week=(_arg0); end
 
-  # source://railties//lib/rails/application/configuration.rb#410
+  # source://railties//lib/rails/application/configuration.rb#407
   def broadcast_log_level; end
 
   # source://railties//lib/rails/application/configuration.rb#14
@@ -366,10 +366,10 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # source://railties//lib/rails/application/configuration.rb#14
   def cache_store=(_arg0); end
 
-  # source://railties//lib/rails/application/configuration.rb#517
+  # source://railties//lib/rails/application/configuration.rb#514
   def colorize_logging; end
 
-  # source://railties//lib/rails/application/configuration.rb#521
+  # source://railties//lib/rails/application/configuration.rb#518
   def colorize_logging=(val); end
 
   # source://railties//lib/rails/application/configuration.rb#14
@@ -384,7 +384,7 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # source://railties//lib/rails/application/configuration.rb#14
   def console=(_arg0); end
 
-  # source://railties//lib/rails/application/configuration.rb#590
+  # source://railties//lib/rails/application/configuration.rb#587
   def content_security_policy(&block); end
 
   # source://railties//lib/rails/application/configuration.rb#14
@@ -417,16 +417,16 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # source://railties//lib/rails/application/configuration.rb#14
   def credentials=(_arg0); end
 
-  # source://railties//lib/rails/application/configuration.rb#456
+  # source://railties//lib/rails/application/configuration.rb#453
   def database_configuration; end
 
-  # source://railties//lib/rails/application/configuration.rb#412
+  # source://railties//lib/rails/application/configuration.rb#409
   def debug_exception_response_format; end
 
-  # source://railties//lib/rails/application/configuration.rb#416
+  # source://railties//lib/rails/application/configuration.rb#413
   def debug_exception_response_format=(_arg0); end
 
-  # source://railties//lib/rails/application/configuration.rb#607
+  # source://railties//lib/rails/application/configuration.rb#604
   def default_log_file; end
 
   # source://railties//lib/rails/application/configuration.rb#14
@@ -447,16 +447,16 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # source://railties//lib/rails/application/configuration.rb#14
   def eager_load=(_arg0); end
 
-  # source://railties//lib/rails/application/configuration.rb#382
+  # source://railties//lib/rails/application/configuration.rb#379
   def enable_reloading; end
 
-  # source://railties//lib/rails/application/configuration.rb#386
+  # source://railties//lib/rails/application/configuration.rb#383
   def enable_reloading=(value); end
 
   # source://railties//lib/rails/application/configuration.rb#29
   def encoding; end
 
-  # source://railties//lib/rails/application/configuration.rb#390
+  # source://railties//lib/rails/application/configuration.rb#387
   def encoding=(value); end
 
   # source://railties//lib/rails/application/configuration.rb#14
@@ -507,10 +507,10 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # source://railties//lib/rails/application/configuration.rb#14
   def hosts=(_arg0); end
 
-  # source://railties//lib/rails/application/configuration.rb#619
+  # source://railties//lib/rails/application/configuration.rb#616
   def inspect; end
 
-  # source://railties//lib/rails/application/configuration.rb#438
+  # source://railties//lib/rails/application/configuration.rb#435
   def load_database_yaml; end
 
   # source://railties//lib/rails/application/configuration.rb#94
@@ -534,7 +534,7 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # source://railties//lib/rails/application/configuration.rb#29
   def log_level; end
 
-  # source://railties//lib/rails/application/configuration.rb#405
+  # source://railties//lib/rails/application/configuration.rb#402
   def log_level=(level); end
 
   # source://railties//lib/rails/application/configuration.rb#14
@@ -549,10 +549,10 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # source://railties//lib/rails/application/configuration.rb#14
   def logger=(_arg0); end
 
-  # source://railties//lib/rails/application/configuration.rb#418
+  # source://railties//lib/rails/application/configuration.rb#415
   def paths; end
 
-  # source://railties//lib/rails/application/configuration.rb#599
+  # source://railties//lib/rails/application/configuration.rb#596
   def permissions_policy(&block); end
 
   # source://railties//lib/rails/application/configuration.rb#14
@@ -591,7 +591,7 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # source://railties//lib/rails/application/configuration.rb#14
   def reload_classes_only_on_change=(_arg0); end
 
-  # source://railties//lib/rails/application/configuration.rb#378
+  # source://railties//lib/rails/application/configuration.rb#375
   def reloading_enabled?; end
 
   # source://railties//lib/rails/application/configuration.rb#14
@@ -606,10 +606,10 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # source://railties//lib/rails/application/configuration.rb#14
   def sandbox_by_default=(_arg0); end
 
-  # source://railties//lib/rails/application/configuration.rb#526
+  # source://railties//lib/rails/application/configuration.rb#523
   def secret_key_base; end
 
-  # source://railties//lib/rails/application/configuration.rb#538
+  # source://railties//lib/rails/application/configuration.rb#535
   def secret_key_base=(new_secret_key_base); end
 
   # source://railties//lib/rails/application/configuration.rb#14
@@ -624,10 +624,10 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # source://railties//lib/rails/application/configuration.rb#14
   def session_options=(_arg0); end
 
-  # source://railties//lib/rails/application/configuration.rb#565
+  # source://railties//lib/rails/application/configuration.rb#562
   def session_store(new_session_store = T.unsafe(nil), **options); end
 
-  # source://railties//lib/rails/application/configuration.rb#581
+  # source://railties//lib/rails/application/configuration.rb#578
   def session_store?; end
 
   # source://railties//lib/rails/application/configuration.rb#14
@@ -662,24 +662,24 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
 
   private
 
-  # source://railties//lib/rails/application/configuration.rb#646
+  # source://railties//lib/rails/application/configuration.rb#643
   def credentials_defaults; end
 
-  # source://railties//lib/rails/application/configuration.rb#656
+  # source://railties//lib/rails/application/configuration.rb#653
   def generate_local_secret; end
 end
 
-# source://railties//lib/rails/application/configuration.rb#623
+# source://railties//lib/rails/application/configuration.rb#620
 class Rails::Application::Configuration::Custom
-  # source://railties//lib/rails/application/configuration.rb#624
+  # source://railties//lib/rails/application/configuration.rb#621
   def initialize; end
 
-  # source://railties//lib/rails/application/configuration.rb#628
+  # source://railties//lib/rails/application/configuration.rb#625
   def method_missing(method, *args); end
 
   private
 
-  # source://railties//lib/rails/application/configuration.rb#640
+  # source://railties//lib/rails/application/configuration.rb#637
   def respond_to_missing?(symbol, _); end
 end
 
@@ -2284,30 +2284,30 @@ end
 
 # source://railties//lib/rails/source_annotation_extractor.rb#21
 class Rails::SourceAnnotationExtractor
-  # source://railties//lib/rails/source_annotation_extractor.rb#154
+  # source://railties//lib/rails/source_annotation_extractor.rb#158
   def initialize(tag); end
 
-  # source://railties//lib/rails/source_annotation_extractor.rb#203
+  # source://railties//lib/rails/source_annotation_extractor.rb#207
   def display(results, options = T.unsafe(nil)); end
 
-  # source://railties//lib/rails/source_annotation_extractor.rb#160
+  # source://railties//lib/rails/source_annotation_extractor.rb#164
   def find(dirs); end
 
-  # source://railties//lib/rails/source_annotation_extractor.rb#168
+  # source://railties//lib/rails/source_annotation_extractor.rb#172
   def find_in(dir); end
 
-  # source://railties//lib/rails/source_annotation_extractor.rb#152
+  # source://railties//lib/rails/source_annotation_extractor.rb#156
   def tag; end
 
   class << self
-    # source://railties//lib/rails/source_annotation_extractor.rb#145
+    # source://railties//lib/rails/source_annotation_extractor.rb#149
     def enumerate(tag = T.unsafe(nil), options = T.unsafe(nil)); end
   end
 end
 
 # source://railties//lib/rails/source_annotation_extractor.rb#71
 class Rails::SourceAnnotationExtractor::Annotation < ::Struct
-  # source://railties//lib/rails/source_annotation_extractor.rb#124
+  # source://railties//lib/rails/source_annotation_extractor.rb#128
   def to_s(options = T.unsafe(nil)); end
 
   class << self
@@ -2353,7 +2353,7 @@ Rails::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 Rails::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://railties//lib/rails/gem_version.rb#13
-Rails::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
+Rails::VERSION::PRE = T.let(T.unsafe(nil), String)
 
 # source://railties//lib/rails/gem_version.rb#15
 Rails::VERSION::STRING = T.let(T.unsafe(nil), String)

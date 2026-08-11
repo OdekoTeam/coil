@@ -7,160 +7,163 @@
 
 # source://erb//lib/erb/version.rb#2
 class ERB
-  # source://erb//lib/erb.rb#832
+  # source://erb//lib/erb.rb#869
   def initialize(str, trim_mode: T.unsafe(nil), eoutvar: T.unsafe(nil)); end
 
-  # source://erb//lib/erb.rb#1170
+  # source://erb//lib/erb.rb#1235
   def def_class(superklass = T.unsafe(nil), methodname = T.unsafe(nil)); end
 
-  # source://erb//lib/erb.rb#1088
+  # source://erb//lib/erb.rb#1147
   def def_method(mod, methodname, fname = T.unsafe(nil)); end
 
-  # source://erb//lib/erb.rb#1113
+  # source://erb//lib/erb.rb#1175
   def def_module(methodname = T.unsafe(nil)); end
 
-  # source://erb//lib/erb.rb#909
+  # source://erb//lib/erb.rb#953
   def encoding; end
 
-  # source://erb//lib/erb.rb#917
+  # source://erb//lib/erb.rb#961
   def filename; end
 
-  # source://erb//lib/erb.rb#917
+  # source://erb//lib/erb.rb#961
   def filename=(_arg0); end
 
-  # source://erb//lib/erb.rb#925
+  # source://erb//lib/erb.rb#969
   def lineno; end
 
-  # source://erb//lib/erb.rb#925
+  # source://erb//lib/erb.rb#969
   def lineno=(_arg0); end
 
-  # source://erb//lib/erb.rb#937
+  # source://erb//lib/erb.rb#981
   def location=(_arg0); end
 
-  # source://erb//lib/erb.rb#854
+  # source://erb//lib/erb.rb#892
   def make_compiler(trim_mode); end
 
-  # source://erb//lib/erb.rb#1008
+  # source://erb//lib/erb.rb#1061
   def result(b = T.unsafe(nil)); end
 
-  # source://erb//lib/erb.rb#1027
+  # source://erb//lib/erb.rb#1080
   def result_with_hash(hash); end
 
-  # source://erb//lib/erb.rb#986
+  # source://erb//lib/erb.rb#1039
   def run(b = T.unsafe(nil)); end
 
-  # source://erb//lib/erb.rb#972
+  # source://erb//lib/erb.rb#1025
   def set_eoutvar(compiler, eoutvar = T.unsafe(nil)); end
 
-  # source://erb//lib/erb.rb#900
+  # source://erb//lib/erb.rb#944
   def src; end
 
   private
 
-  # source://erb//lib/erb.rb#1051
+  # source://erb//lib/erb.rb#1116
+  def initialized_by_new?; end
+
+  # source://erb//lib/erb.rb#1104
   def new_toplevel(vars = T.unsafe(nil)); end
 
   class << self
-    # source://erb//lib/erb.rb#787
+    # source://erb//lib/erb.rb#824
     def version; end
   end
 end
 
 # source://erb//lib/erb/compiler.rb#73
 class ERB::Compiler
-  # source://erb//lib/erb/compiler.rb#433
+  # source://erb//lib/erb/compiler.rb#428
   def initialize(trim_mode); end
 
-  # source://erb//lib/erb/compiler.rb#315
+  # source://erb//lib/erb/compiler.rb#310
   def add_insert_cmd(out, content); end
 
-  # source://erb//lib/erb/compiler.rb#311
+  # source://erb//lib/erb/compiler.rb#306
   def add_put_cmd(out, content); end
 
-  # source://erb//lib/erb/compiler.rb#321
+  # source://erb//lib/erb/compiler.rb#316
   def compile(s); end
 
-  # source://erb//lib/erb/compiler.rb#381
+  # source://erb//lib/erb/compiler.rb#376
   def compile_content(stag, out); end
 
-  # source://erb//lib/erb/compiler.rb#368
+  # source://erb//lib/erb/compiler.rb#363
   def compile_etag(etag, out, scanner); end
 
-  # source://erb//lib/erb/compiler.rb#344
+  # source://erb//lib/erb/compiler.rb#339
   def compile_stag(stag, out, scanner); end
 
-  # source://erb//lib/erb/compiler.rb#446
+  # source://erb//lib/erb/compiler.rb#441
   def insert_cmd; end
 
-  # source://erb//lib/erb/compiler.rb#446
+  # source://erb//lib/erb/compiler.rb#441
   def insert_cmd=(_arg0); end
 
-  # source://erb//lib/erb/compiler.rb#427
+  # source://erb//lib/erb/compiler.rb#422
   def make_scanner(src); end
 
-  # source://erb//lib/erb/compiler.rb#440
+  # source://erb//lib/erb/compiler.rb#435
   def percent; end
 
-  # source://erb//lib/erb/compiler.rb#452
+  # source://erb//lib/erb/compiler.rb#447
   def post_cmd; end
 
-  # source://erb//lib/erb/compiler.rb#452
+  # source://erb//lib/erb/compiler.rb#447
   def post_cmd=(_arg0); end
 
-  # source://erb//lib/erb/compiler.rb#449
+  # source://erb//lib/erb/compiler.rb#444
   def pre_cmd; end
 
-  # source://erb//lib/erb/compiler.rb#449
+  # source://erb//lib/erb/compiler.rb#444
   def pre_cmd=(_arg0); end
 
-  # source://erb//lib/erb/compiler.rb#398
+  # source://erb//lib/erb/compiler.rb#393
   def prepare_trim_mode(mode); end
 
-  # source://erb//lib/erb/compiler.rb#443
+  # source://erb//lib/erb/compiler.rb#438
   def put_cmd; end
 
-  # source://erb//lib/erb/compiler.rb#443
+  # source://erb//lib/erb/compiler.rb#438
   def put_cmd=(_arg0); end
 
-  # source://erb//lib/erb/compiler.rb#440
+  # source://erb//lib/erb/compiler.rb#435
   def trim_mode; end
 
   private
 
-  # source://erb//lib/erb/compiler.rb#457
+  # source://erb//lib/erb/compiler.rb#452
   def content; end
 
-  # source://erb//lib/erb/compiler.rb#457
+  # source://erb//lib/erb/compiler.rb#452
   def content=(_arg0); end
 
-  # source://erb//lib/erb/compiler.rb#459
+  # source://erb//lib/erb/compiler.rb#454
   def detect_magic_comment(s, enc = T.unsafe(nil)); end
 
-  # source://erb//lib/erb/compiler.rb#484
+  # source://erb//lib/erb/compiler.rb#479
   def warn_invalid_trim_mode(mode, uplevel:); end
 end
 
-# source://erb//lib/erb/compiler.rb#278
+# source://erb//lib/erb/compiler.rb#273
 class ERB::Compiler::Buffer
-  # source://erb//lib/erb/compiler.rb#279
+  # source://erb//lib/erb/compiler.rb#274
   def initialize(compiler, enc = T.unsafe(nil), frozen = T.unsafe(nil)); end
 
-  # source://erb//lib/erb/compiler.rb#301
+  # source://erb//lib/erb/compiler.rb#296
   def close; end
 
-  # source://erb//lib/erb/compiler.rb#295
+  # source://erb//lib/erb/compiler.rb#290
   def cr; end
 
-  # source://erb//lib/erb/compiler.rb#291
+  # source://erb//lib/erb/compiler.rb#286
   def push(cmd); end
 
-  # source://erb//lib/erb/compiler.rb#289
+  # source://erb//lib/erb/compiler.rb#284
   def script; end
 end
 
-# source://erb//lib/erb/compiler.rb#254
+# source://erb//lib/erb/compiler.rb#249
 class ERB::Compiler::ExplicitScanner < ::ERB::Compiler::Scanner
-  # source://erb//lib/erb/compiler.rb#255
+  # source://erb//lib/erb/compiler.rb#250
   def scan; end
 end
 
@@ -178,32 +181,32 @@ end
 
 # source://erb//lib/erb/compiler.rb#82
 class ERB::Compiler::Scanner
-  # source://erb//lib/erb/compiler.rb#108
+  # source://erb//lib/erb/compiler.rb#103
   def initialize(src, trim_mode, percent); end
 
-  # source://erb//lib/erb/compiler.rb#115
+  # source://erb//lib/erb/compiler.rb#110
   def etags; end
 
-  # source://erb//lib/erb/compiler.rb#117
+  # source://erb//lib/erb/compiler.rb#112
   def scan; end
 
-  # source://erb//lib/erb/compiler.rb#114
+  # source://erb//lib/erb/compiler.rb#109
   def stag; end
 
-  # source://erb//lib/erb/compiler.rb#114
+  # source://erb//lib/erb/compiler.rb#109
   def stag=(_arg0); end
 
-  # source://erb//lib/erb/compiler.rb#115
+  # source://erb//lib/erb/compiler.rb#110
   def stags; end
 
   class << self
-    # source://erb//lib/erb/compiler.rb#97
+    # source://erb//lib/erb/compiler.rb#92
     def default_scanner=(klass); end
 
-    # source://erb//lib/erb/compiler.rb#101
+    # source://erb//lib/erb/compiler.rb#96
     def make_scanner(src, trim_mode, percent); end
 
-    # source://erb//lib/erb/compiler.rb#94
+    # source://erb//lib/erb/compiler.rb#89
     def regist_scanner(klass, trim_mode, percent); end
 
     # source://erb//lib/erb/compiler.rb#86
@@ -211,46 +214,46 @@ class ERB::Compiler::Scanner
   end
 end
 
-# source://erb//lib/erb/compiler.rb#107
+# source://erb//lib/erb/compiler.rb#102
 ERB::Compiler::Scanner::DEFAULT_ETAGS = T.let(T.unsafe(nil), Array)
 
-# source://erb//lib/erb/compiler.rb#106
+# source://erb//lib/erb/compiler.rb#101
 ERB::Compiler::Scanner::DEFAULT_STAGS = T.let(T.unsafe(nil), Array)
 
-# source://erb//lib/erb/compiler.rb#240
+# source://erb//lib/erb/compiler.rb#235
 class ERB::Compiler::SimpleScanner < ::ERB::Compiler::Scanner
-  # source://erb//lib/erb/compiler.rb#241
+  # source://erb//lib/erb/compiler.rb#236
   def scan; end
 end
 
-# source://erb//lib/erb/compiler.rb#120
+# source://erb//lib/erb/compiler.rb#115
 class ERB::Compiler::TrimScanner < ::ERB::Compiler::Scanner
-  # source://erb//lib/erb/compiler.rb#121
+  # source://erb//lib/erb/compiler.rb#116
   def initialize(src, trim_mode, percent); end
 
-  # source://erb//lib/erb/compiler.rb#210
+  # source://erb//lib/erb/compiler.rb#205
   def explicit_trim_line(line); end
 
-  # source://erb//lib/erb/compiler.rb#229
+  # source://erb//lib/erb/compiler.rb#224
   def is_erb_stag?(s); end
 
-  # source://erb//lib/erb/compiler.rb#152
+  # source://erb//lib/erb/compiler.rb#147
   def percent_line(line, &block); end
 
-  # source://erb//lib/erb/compiler.rb#140
+  # source://erb//lib/erb/compiler.rb#135
   def scan(&block); end
 
-  # source://erb//lib/erb/compiler.rb#165
+  # source://erb//lib/erb/compiler.rb#160
   def scan_line(line); end
 
-  # source://erb//lib/erb/compiler.rb#174
+  # source://erb//lib/erb/compiler.rb#169
   def trim_line1(line); end
 
-  # source://erb//lib/erb/compiler.rb#188
+  # source://erb//lib/erb/compiler.rb#183
   def trim_line2(line); end
 end
 
-# source://erb//lib/erb/compiler.rb#476
+# source://erb//lib/erb/compiler.rb#471
 ERB::Compiler::WARNING_UPLEVEL = T.let(T.unsafe(nil), Integer)
 
 # source://erb//lib/erb/def_method.rb#33
