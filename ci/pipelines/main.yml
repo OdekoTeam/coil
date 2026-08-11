@@ -41,7 +41,7 @@ resources:
   type: registry-image
   source:
     repository: docker.odeko.com/odeko/ruby-dev
-    tag: 3.3-slim
+    tag: 3.4-slim
 # trivy-image is used for dependency scanning
 - name: trivy-image
   type: registry-image

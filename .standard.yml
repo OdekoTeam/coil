@@ -5,3 +5,4 @@ extend_config:
 ignore:
   - '**/*':
     - Style/ArgumentsForwarding
+    - Style/ItBlockParameter
