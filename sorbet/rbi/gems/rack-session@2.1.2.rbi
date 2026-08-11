@@ -267,10 +267,10 @@ class Rack::Session::Cookie < ::Rack::Session::Abstract::PersistedSecure
 
   private
 
-  # source://rack-session//lib/rack/session/cookie.rb#277
+  # source://rack-session//lib/rack/session/cookie.rb#279
   def delete_session(req, session_id, options); end
 
-  # source://rack-session//lib/rack/session/cookie.rb#292
+  # source://rack-session//lib/rack/session/cookie.rb#294
   def encode_session_data(session); end
 
   # source://rack-session//lib/rack/session/cookie.rb#209
@@ -279,22 +279,22 @@ class Rack::Session::Cookie < ::Rack::Session::Abstract::PersistedSecure
   # source://rack-session//lib/rack/session/cookie.rb#203
   def find_session(req, sid); end
 
-  # source://rack-session//lib/rack/session/cookie.rb#282
+  # source://rack-session//lib/rack/session/cookie.rb#284
   def legacy_digest_match?(data, digest); end
 
-  # source://rack-session//lib/rack/session/cookie.rb#288
+  # source://rack-session//lib/rack/session/cookie.rb#290
   def legacy_generate_hmac(data); end
 
-  # source://rack-session//lib/rack/session/cookie.rb#250
+  # source://rack-session//lib/rack/session/cookie.rb#252
   def persistent_session_id!(data, sid = T.unsafe(nil)); end
 
-  # source://rack-session//lib/rack/session/cookie.rb#306
+  # source://rack-session//lib/rack/session/cookie.rb#308
   def secure?(options); end
 
   # source://rack-session//lib/rack/session/cookie.rb#213
   def unpacked_cookie_data(request); end
 
-  # source://rack-session//lib/rack/session/cookie.rb#265
+  # source://rack-session//lib/rack/session/cookie.rb#267
   def write_session(req, session_id, session, options); end
 end
 
@@ -352,54 +352,36 @@ class Rack::Session::Cookie::Marshal
   def encode(str); end
 end
 
-# source://rack-session//lib/rack/session/cookie.rb#256
+# source://rack-session//lib/rack/session/cookie.rb#258
 class Rack::Session::Cookie::SessionId
-  # source://rack-session//lib/rack/session/cookie.rb#259
+  # source://rack-session//lib/rack/session/cookie.rb#261
   def initialize(session_id, cookie_value); end
 
-  # source://rack-session//lib/rack/session/cookie.rb#257
+  # source://rack-session//lib/rack/session/cookie.rb#259
   def cookie_value; end
 end
 
 # source://rack-session//lib/rack/session/encryptor.rb#16
 class Rack::Session::Encryptor
-  # source://rack-session//lib/rack/session/encryptor.rb#53
+  # source://rack-session//lib/rack/session/encryptor.rb#347
   def initialize(secret, opts = T.unsafe(nil)); end
 
-  # source://rack-session//lib/rack/session/encryptor.rb#77
+  # source://rack-session//lib/rack/session/encryptor.rb#362
   def decrypt(base64_data); end
 
-  # source://rack-session//lib/rack/session/encryptor.rb#102
+  # source://rack-session//lib/rack/session/encryptor.rb#376
   def encrypt(message); end
 
   private
 
-  # source://rack-session//lib/rack/session/encryptor.rb#139
-  def cipher_secret_from_message_secret(message_secret); end
+  # source://rack-session//lib/rack/session/encryptor.rb#392
+  def guess_decryptor(base64_data); end
 
-  # source://rack-session//lib/rack/session/encryptor.rb#151
-  def compute_signature(data); end
+  # source://rack-session//lib/rack/session/encryptor.rb#390
+  def v1; end
 
-  # source://rack-session//lib/rack/session/encryptor.rb#182
-  def deserialized_message(data); end
-
-  # source://rack-session//lib/rack/session/encryptor.rb#129
-  def new_cipher; end
-
-  # source://rack-session//lib/rack/session/encryptor.rb#133
-  def new_message_and_cipher_secret; end
-
-  # source://rack-session//lib/rack/session/encryptor.rb#169
-  def serialize_payload(message); end
-
-  # source://rack-session//lib/rack/session/encryptor.rb#147
-  def serializer; end
-
-  # source://rack-session//lib/rack/session/encryptor.rb#143
-  def set_cipher_key(cipher, key); end
-
-  # source://rack-session//lib/rack/session/encryptor.rb#158
-  def verify_authenticity!(data, signature); end
+  # source://rack-session//lib/rack/session/encryptor.rb#390
+  def v2; end
 end
 
 # source://rack-session//lib/rack/session/encryptor.rb#17
@@ -410,6 +392,85 @@ class Rack::Session::Encryptor::InvalidMessage < ::Rack::Session::Encryptor::Err
 
 # source://rack-session//lib/rack/session/encryptor.rb#20
 class Rack::Session::Encryptor::InvalidSignature < ::Rack::Session::Encryptor::Error; end
+
+# source://rack-session//lib/rack/session/encryptor.rb#26
+module Rack::Session::Encryptor::Serializable
+  private
+
+  # source://rack-session//lib/rack/session/encryptor.rb#45
+  def deserialized_message(data); end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#32
+  def serialize_payload(message); end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#54
+  def serializer; end
+end
+
+# source://rack-session//lib/rack/session/encryptor.rb#59
+class Rack::Session::Encryptor::V1
+  include ::Rack::Session::Encryptor::Serializable
+
+  # source://rack-session//lib/rack/session/encryptor.rb#89
+  def initialize(secret, opts = T.unsafe(nil)); end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#113
+  def decrypt(base64_data); end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#138
+  def encrypt(message); end
+
+  private
+
+  # source://rack-session//lib/rack/session/encryptor.rb#175
+  def cipher_secret_from_message_secret(message_secret); end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#183
+  def compute_signature(data); end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#165
+  def new_cipher; end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#169
+  def new_message_and_cipher_secret; end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#179
+  def set_cipher_key(cipher, key); end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#190
+  def verify_authenticity!(data, signature); end
+end
+
+# source://rack-session//lib/rack/session/encryptor.rb#199
+class Rack::Session::Encryptor::V2
+  include ::Rack::Session::Encryptor::Serializable
+
+  # source://rack-session//lib/rack/session/encryptor.rb#233
+  def initialize(secret, opts = T.unsafe(nil)); end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#257
+  def decrypt(base64_data); end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#285
+  def encrypt(message); end
+
+  private
+
+  # source://rack-session//lib/rack/session/encryptor.rb#341
+  def auth_tag_from(cipher); end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#323
+  def message_secret_from_salt(salt); end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#313
+  def new_cipher; end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#317
+  def new_salt_and_message_secret; end
+
+  # source://rack-session//lib/rack/session/encryptor.rb#327
+  def set_cipher_key(cipher, key); end
+end
 
 # source://rack-session//lib/rack/session/constants.rb#9
 Rack::Session::RACK_SESSION = T.let(T.unsafe(nil), String)

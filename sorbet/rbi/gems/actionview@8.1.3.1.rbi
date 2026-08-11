@@ -2413,40 +2413,40 @@ module ActionView::Helpers::TagHelper
   include ::ActionView::Helpers::CaptureHelper
   include ::ActionView::Helpers::OutputSafetyHelper
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#555
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#558
   def cdata_section(content); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#540
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#543
   def class_names(*args); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#513
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#516
   def content_tag(name, content_or_options_with_block = T.unsafe(nil), options = T.unsafe(nil), escape = T.unsafe(nil), &block); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#567
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#570
   def escape_once(html); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#476
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#479
   def tag(name = T.unsafe(nil), options = T.unsafe(nil), open = T.unsafe(nil), escape = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#535
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#538
   def token_list(*args); end
 
   private
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#577
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#580
   def build_tag_values(*args); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#572
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#575
   def ensure_valid_html5_tag_name(name); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#597
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#600
   def tag_builder; end
 
   class << self
-    # source://actionview//lib/action_view/helpers/tag_helper.rb#595
+    # source://actionview//lib/action_view/helpers/tag_helper.rb#598
     def build_tag_values(*args); end
 
-    # source://actionview//lib/action_view/helpers/tag_helper.rb#575
+    # source://actionview//lib/action_view/helpers/tag_helper.rb#578
     def ensure_valid_html5_tag_name(name); end
   end
 end
@@ -2866,25 +2866,25 @@ class ActionView::Helpers::TagHelper::TagBuilder
 
   private
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#288
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#291
   def boolean_tag_option(key); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#321
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#324
   def method_missing(called, *args, escape: T.unsafe(nil), **options, &block); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#309
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#312
   def prefix_tag_option(prefix, key, value, escape); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#317
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#320
   def respond_to_missing?(*args); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#284
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#287
   def self_closing_tag_string(name, options, escape = T.unsafe(nil), tag_suffix = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#292
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#295
   def tag_option(key, value, escape); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#278
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#281
   def tag_string(name, content = T.unsafe(nil), options, escape: T.unsafe(nil), &block); end
 
   class << self
@@ -3197,7 +3197,7 @@ class ActionView::Helpers::Tags::FileField < ::ActionView::Helpers::Tags::TextFi
 
   private
 
-  # source://actionview//lib/action_view/helpers/tags/file_field.rb#20
+  # source://actionview//lib/action_view/helpers/tags/file_field.rb#23
   def hidden_field_for_multiple_file(options); end
 end
 
@@ -4831,13 +4831,13 @@ class ActionView::Template
   # source://actionview//lib/action_view/template.rb#223
   def locals; end
 
-  # source://actionview//lib/action_view/template.rb#387
+  # source://actionview//lib/action_view/template.rb#393
   def marshal_dump; end
 
-  # source://actionview//lib/action_view/template.rb#391
+  # source://actionview//lib/action_view/template.rb#397
   def marshal_load(array); end
 
-  # source://actionview//lib/action_view/template.rb#396
+  # source://actionview//lib/action_view/template.rb#402
   def method_name; end
 
   # source://actionview//lib/action_view/template.rb#271
@@ -4855,7 +4855,7 @@ class ActionView::Template
   # source://actionview//lib/action_view/template.rb#366
   def strict_locals!; end
 
-  # source://actionview//lib/action_view/template.rb#380
+  # source://actionview//lib/action_view/template.rb#386
   def strict_locals?; end
 
   # source://actionview//lib/action_view/template.rb#261
@@ -4878,37 +4878,37 @@ class ActionView::Template
 
   private
 
-  # source://actionview//lib/action_view/template.rb#500
+  # source://actionview//lib/action_view/template.rb#506
   def compile(mod); end
 
-  # source://actionview//lib/action_view/template.rb#418
+  # source://actionview//lib/action_view/template.rb#424
   def compile!(view); end
 
-  # source://actionview//lib/action_view/template.rb#443
+  # source://actionview//lib/action_view/template.rb#449
   def compiled_source; end
 
-  # source://actionview//lib/action_view/template.rb#405
+  # source://actionview//lib/action_view/template.rb#411
   def find_node_by_id(node, node_id); end
 
-  # source://actionview//lib/action_view/template.rb#549
+  # source://actionview//lib/action_view/template.rb#555
   def handle_render_error(view, e); end
 
-  # source://actionview//lib/action_view/template.rb#574
+  # source://actionview//lib/action_view/template.rb#580
   def identifier_method_name; end
 
-  # source://actionview//lib/action_view/template.rb#578
+  # source://actionview//lib/action_view/template.rb#584
   def instrument(action, &block); end
 
-  # source://actionview//lib/action_view/template.rb#586
+  # source://actionview//lib/action_view/template.rb#592
   def instrument_payload; end
 
-  # source://actionview//lib/action_view/template.rb#582
+  # source://actionview//lib/action_view/template.rb#588
   def instrument_render_template(&block); end
 
-  # source://actionview//lib/action_view/template.rb#561
+  # source://actionview//lib/action_view/template.rb#567
   def locals_code; end
 
-  # source://actionview//lib/action_view/template.rb#541
+  # source://actionview//lib/action_view/template.rb#547
   def offset; end
 
   class << self
@@ -5253,7 +5253,7 @@ ActionView::Template::LEADING_ENCODING_REGEXP = T.let(T.unsafe(nil), Regexp)
 # source://actionview//lib/action_view/template.rb#197
 ActionView::Template::NONE = T.let(T.unsafe(nil), Object)
 
-# source://actionview//lib/action_view/template.rb#558
+# source://actionview//lib/action_view/template.rb#564
 ActionView::Template::RUBY_RESERVED_KEYWORDS = T.let(T.unsafe(nil), Array)
 
 # source://actionview//lib/action_view/template/raw_file.rb#6
@@ -5952,7 +5952,7 @@ ActionView::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActionView::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://actionview//lib/action_view/gem_version.rb#13
-ActionView::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
+ActionView::VERSION::PRE = T.let(T.unsafe(nil), String)
 
 # source://actionview//lib/action_view/gem_version.rb#15
 ActionView::VERSION::STRING = T.let(T.unsafe(nil), String)

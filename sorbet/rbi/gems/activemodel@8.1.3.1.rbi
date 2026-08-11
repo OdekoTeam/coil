@@ -1040,7 +1040,10 @@ class ActiveModel::Attributes::Normalization::NormalizedValueType
 
   private
 
-  # source://activemodel//lib/active_model/attributes/normalization.rb#186
+  # source://activemodel//lib/active_model/attributes/normalization.rb#189
+  def instance_variables_to_inspect; end
+
+  # source://activemodel//lib/active_model/attributes/normalization.rb#191
   def normalize(value); end
 end
 
@@ -1910,37 +1913,37 @@ end
 # source://activemodel//lib/active_model/errors.rb#520
 class ActiveModel::RangeError < ::RangeError; end
 
-# source://activemodel//lib/active_model/secure_password.rb#4
+# source://activemodel//lib/active_model/secure_password.rb#6
 module ActiveModel::SecurePassword
   extend ::ActiveSupport::Concern
 
   mixes_in_class_methods ::ActiveModel::SecurePassword::ClassMethods
 
   class << self
-    # source://activemodel//lib/active_model/secure_password.rb#15
+    # source://activemodel//lib/active_model/secure_password.rb#17
     def min_cost; end
 
-    # source://activemodel//lib/active_model/secure_password.rb#15
+    # source://activemodel//lib/active_model/secure_password.rb#17
     def min_cost=(_arg0); end
   end
 end
 
-# source://activemodel//lib/active_model/secure_password.rb#19
+# source://activemodel//lib/active_model/secure_password.rb#21
 module ActiveModel::SecurePassword::ClassMethods
-  # source://activemodel//lib/active_model/secure_password.rb#123
+  # source://activemodel//lib/active_model/secure_password.rb#125
   def has_secure_password(attribute = T.unsafe(nil), validations: T.unsafe(nil), reset_token: T.unsafe(nil)); end
 end
 
-# source://activemodel//lib/active_model/secure_password.rb#12
+# source://activemodel//lib/active_model/secure_password.rb#14
 ActiveModel::SecurePassword::DEFAULT_RESET_TOKEN_EXPIRES_IN = T.let(T.unsafe(nil), ActiveSupport::Duration)
 
-# source://activemodel//lib/active_model/secure_password.rb#194
+# source://activemodel//lib/active_model/secure_password.rb#196
 class ActiveModel::SecurePassword::InstanceMethodsOnActivation < ::Module
-  # source://activemodel//lib/active_model/secure_password.rb#195
+  # source://activemodel//lib/active_model/secure_password.rb#197
   def initialize(attribute, reset_token:); end
 end
 
-# source://activemodel//lib/active_model/secure_password.rb#10
+# source://activemodel//lib/active_model/secure_password.rb#12
 ActiveModel::SecurePassword::MAX_PASSWORD_LENGTH_ALLOWED = T.let(T.unsafe(nil), Integer)
 
 # source://activemodel//lib/active_model/serialization.rb#69
@@ -2380,16 +2383,16 @@ class ActiveModel::Type::Integer < ::ActiveModel::Type::Value
 
   private
 
-  # source://activemodel//lib/active_model/type/integer.rb#120
+  # source://activemodel//lib/active_model/type/integer.rb#124
   def _limit; end
 
-  # source://activemodel//lib/active_model/type/integer.rb#108
+  # source://activemodel//lib/active_model/type/integer.rb#112
   def cast_value(value); end
 
-  # source://activemodel//lib/active_model/type/integer.rb#112
+  # source://activemodel//lib/active_model/type/integer.rb#116
   def max_value; end
 
-  # source://activemodel//lib/active_model/type/integer.rb#116
+  # source://activemodel//lib/active_model/type/integer.rb#120
   def min_value; end
 
   # source://activemodel//lib/active_model/type/integer.rb#104
@@ -2591,7 +2594,7 @@ ActiveModel::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActiveModel::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://activemodel//lib/active_model/gem_version.rb#13
-ActiveModel::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
+ActiveModel::VERSION::PRE = T.let(T.unsafe(nil), String)
 
 # source://activemodel//lib/active_model/gem_version.rb#15
 ActiveModel::VERSION::STRING = T.let(T.unsafe(nil), String)
