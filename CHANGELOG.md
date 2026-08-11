@@ -1,5 +1,9 @@
 ## main
 
+## [1.7.2](https://github.com/OdekoTeam/coil/compare/1.7.1...1.7.2) (2026-08-11)
+#### Added
+- Ruby 3.4 support ([e60dcdb](https://github.com/OdekoTeam/coil/commit/e60dcdbeaca97df83a1efeb126388202ea070541))
+
 ## [1.7.1](https://github.com/OdekoTeam/coil/compare/1.7.0...1.7.1) (2026-08-11)
 #### Fix
 - Update development dependencies to address security vulnerabilities ([c1f6d8d](https://github.com/OdekoTeam/coil/commit/c1f6d8dbecf3ac4e4219ab6a41acef531d1b118d))
