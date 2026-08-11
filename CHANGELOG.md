@@ -1,5 +1,9 @@
 ## main
 
+## [1.7.1](https://github.com/OdekoTeam/coil/compare/1.7.0...1.7.1) (2026-08-11)
+#### Fix
+- Update development dependencies to address security vulnerabilities ([c1f6d8d](https://github.com/OdekoTeam/coil/commit/c1f6d8dbecf3ac4e4219ab6a41acef531d1b118d))
+
 ## [1.7.0](https://github.com/OdekoTeam/coil/compare/1.6.1...1.7.0) (2026-03-16)
 #### Changed
 - Improve retry policy ([d51ea55](https://github.com/OdekoTeam/coil/commit/d51ea553eaa41cb99a4da70a0316707780f1a79d))
